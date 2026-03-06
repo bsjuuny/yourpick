@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 우리동네 어린이집/유치원 비교 서비스
 
-## Getting Started
+Next.js 기초(App Router), TypeScript, Tailwind CSS를 활용해 제작된 어린이집/유치원 비교 MVP 서비스입니다. Cafe24와 같은 정적 호스팅(Static Hosting) 환경에 최적화되도록 **Static Export** 방식을 완벽 지원합니다.
 
-First, run the development server:
+## ✨ 주요 기능
+
+1. **내 주변 기관 검색**
+   - 동 이름이나 간단한 주소, 반경, 기관 유형(국공립, 사립, 민간, 가정)을 선택하여 조회
+2. **검색 결과 리스트 & 필터링**
+   - 백엔드 의존 없이, 브라우저 클라이언트 사이드에서 즉각적인 필터링 수행
+   - 각 기관의 핵심 정보(운영시간, 나이, 정현원, 특징) 라벨 카드 UI 제공
+3. **선택 기관 상세 비교 (최대 5개)**
+   - 궁금한 기관들을 골라 '비교함'에 담고, 나란히 열(Column) 형태의 표로 데이터를 직관적으로 비교
+
+## 🛠 아키텍처 및 정적 라우팅 구성
+
+- **배포 방식**: 노드(Node.js) 백엔드가 없는 순수 웹 포스팅 공간(Cafe24 단독 웹호스팅 등) 대응을 위해 `next.config.ts` 에 `output: 'export'` 가 적용되어 있습니다.
+- **데이터 소스**: 실시간 백엔드 연결 대신 MVP 검증 목적으로 `public/data/institutions.json` 에 모의(Mock) 데이터가 구축되어 있으며, React Query가 이 정적 에셋을 캐싱해 사용합니다. 향후 이 JSON 파일만 실제 교육부 오픈API 데이터로 갱신하여 덮어쓰면 즉시 서비스가 업데이트됩니다.
+- **상태 관리**: URL 쿼리 파라미터(Query Parameters)와 Zustand 전역 상태 스토어(`useCompareStore`)가 조화롭게 결합되어, 비교함 기능을 매끄럽게 지원합니다.
+
+## 🚀 개발 및 실행 방법
+
+### 로컬 환경 (개발 모드)
 
 ```bash
+# 1. 의존성 설치
+npm install
+
+# 2. 로컬 개발 서버 시작
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# 브라우저에서 http://localhost:3000 에 접속합니다.
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 상용 배포용 빌드 (Static Build)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# 산출물 생성 (out/ 폴더가 생성됩니다)
+npm run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📦 Cafe24 배포 가이드
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. 터미널에서 위와 같이 `npm run build` 를 실행합니다.
+2. 빌드가 성공하면 루트 폴더 안에 `out` 이라는 디렉토리가 생성됩니다. 이것이 완전한 정적 웹사이트 결과물입니다.
+3. FTP 클라이언트(FileZilla 등)로 Cafe24 웹호스팅 서버에 접속합니다.
+4. `www` (또는 `public_html`) 폴더 안에 `out` **폴더 내부의 모든 파일들**을 드래그해서 그대로 덮어쓰기 형태로 업로드합니다.
+5. `내도메인.com` 에 접속하여 동작을 확인합니다.

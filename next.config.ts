@@ -1,7 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: 'export',
+  basePath: '/kindergartencompare',
+  assetPrefix: '/kindergartencompare/',
+  images: {
+    unoptimized: true,
+  },
   reactCompiler: true,
 };
 
