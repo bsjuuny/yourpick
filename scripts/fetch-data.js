@@ -551,9 +551,8 @@ function normalizeChildcareData(items, sidoCode, sggCode) {
             const nutritionistCount = parseInt(item.EM_CNT_A5) || 0;
             const mealStatus = nutritionistCount > 0 ? `영양사 배치 (${nutritionistCount}명)` : '-';
 
-            // 홈페이지 (http/https URL만 유효)
-            const rawHome = (item.crhome || '').trim();
-            const alimiUrl = (rawHome.startsWith('http://') || rawHome.startsWith('https://')) ? rawHome : null;
+            // 공식 어린이집 정보공개 포털 URL (팝업)
+            const alimiUrl = `https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=${id}`;
 
             return {
                 id,
