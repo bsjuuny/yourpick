@@ -15,7 +15,7 @@ Next.js(App Router), TypeScript, Tailwind CSS를 활용해 제작된 유치원·
 ## 🛠 아키텍처 및 정적 라우팅 구성
 
 - **배포 방식**: Node.js 백엔드가 없는 순수 정적 호스팅 환경 대응을 위해 `next.config.ts`에 `output: 'export'`가 적용되어 있습니다.
-- **basePath**: `/youerpick` (Cafe24 서브디렉토리 배포)
+- **basePath**: `/yourpick` (Cafe24 서브디렉토리 배포)
 - **데이터 소스**: `public/data/institutions.json`에 정적 데이터가 구축되어 있으며, React Query가 이 정적 에셋을 캐싱해 사용합니다.
 - **상태 관리**: URL 쿼리 파라미터와 Zustand 전역 상태 스토어(`useCompareStore`)가 결합되어 비교함 기능을 지원합니다.
 
@@ -41,5 +41,5 @@ npm run build:push
 1. `npm run build` 실행
 2. 빌드 성공 후 `out` 디렉토리 생성 확인
 3. FTP 클라이언트(FileZilla 등)로 Cafe24 서버에 접속
-4. `www/youerpick/` 폴더에 `out` 내부 파일 전체 업로드
-5. 도메인/youerpick 에 접속하여 동작 확인
+4. `www/yourpick/` 폴더에 `out` 내부 파일 전체 업로드
+5. 도메인/yourpick 에 접속하여 동작 확인

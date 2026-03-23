@@ -84,7 +84,7 @@ export default function DonationPopup() {
                 border: "1px dashed #e2e8f0"
             }}>
                 <img
-                    src="/youerpick/donation-qr.png"
+                    src="/yourpick/donation-qr.png"
                     alt="기부 QR 코드"
                     style={{ width: "160px", height: "160px", objectFit: "contain", borderRadius: "8px" }}
                 />
