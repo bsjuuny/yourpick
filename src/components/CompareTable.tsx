@@ -262,7 +262,7 @@ export default function CompareTable({ data }: Props) {
             fields: [
                 {
                     key: 'alimiUrl',
-                    label: '지적사항 검증',
+                    label: '공시 정보 확인',
                     icon: <ShieldAlert className="w-4 h-4 opacity-70" />,
                     render: (item: Institution) => {
                         if (!item.alimiUrl) return <span className="text-slate-300">-</span>;
@@ -273,7 +273,8 @@ export default function CompareTable({ data }: Props) {
                         const handleClick = (e: React.MouseEvent) => {
                             if (isChildcarePortal) {
                                 e.preventDefault();
-                                window.open(item.alimiUrl!, '어린이집찾기', 'width=1100,height=850,scrollbars=1,resizable=yes');
+                                const url = `https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=${item.id}`;
+                                window.open(url, '어린이집찾기', 'scrollbars=yes,toolbar=no,location=no,status=no,menubar=no,resizable=no,width=1024,height=778,left=0,top=0');
                             }
                         };
 
