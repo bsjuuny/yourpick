@@ -1,4 +1,4 @@
-# 웹 접근성 감사 보고서 — 우리동네 유비 (kindergarten-compare)
+# 웹 접근성 감사 보고서 — 유어픽 (yourpick)
 
 > 작성일: 2026-03-19
 > 기준: WCAG 2.1 Level AA
@@ -51,7 +51,7 @@
 
 ### [Major] 로고 링크 레이블 모호
 - **문제**: 로고 아이콘(Baby 아이콘)에 대한 대체 텍스트 없음
-- **조치**: `<Link aria-label="우리동네 유비 홈으로 이동">`, 아이콘에 `aria-hidden="true"`
+- **조치**: `<Link aria-label="유어픽 홈으로 이동">`, 아이콘에 `aria-hidden="true"`
 
 ### [Major] 비교함 링크 — 비활성 상태 접근성
 - **문제**: `compareCount === 0`일 때 `e.preventDefault()`만으로 차단 — 키보드로 포커스·활성화 가능, `aria-disabled` 없음
