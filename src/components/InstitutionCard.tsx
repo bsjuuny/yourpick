@@ -2,7 +2,7 @@
 
 import { Institution } from '@/types/institution';
 import { useCompareStore } from '@/store/useCompareStore';
-import { MapPin, Users, ListPlus, Bus, Award, CheckCircle2, Sparkles, Cctv, Baby, Star, Wallet } from 'lucide-react';
+import { MapPin, Users, ListPlus, Bus, Award, CheckCircle2, Sparkles, Cctv, Baby, Star, Wallet, AlertTriangle } from 'lucide-react';
 
 interface Props {
     data: Institution;
@@ -58,6 +58,7 @@ export default function InstitutionCard({ data }: Props) {
         '셔틀운행', '통학차량', 'CCTV완비', '정원여유', '거의만원',
         '대규모시설', '소규모시설', '영양사배치', '특성화교육',
     ]);
+    const WARNING_TAGS = new Set(['교사비율주의', '영양사법정미달', 'CCTV미설치']);
     const TAG_PRIORITY = [
         '즉시입소가능', '대기있음', '숙련교사',
         '교사비율우수', '교사비율주의',
@@ -105,9 +106,15 @@ export default function InstitutionCard({ data }: Props) {
                         </span>
                     )}
                     {topTags.map(tag => (
-                        <span key={tag} className="flex items-center gap-1 text-xs font-black text-teal-600 bg-teal-50 px-2 py-1 rounded-lg border border-teal-100 shadow-sm">
-                            {tag}
-                        </span>
+                        WARNING_TAGS.has(tag) ? (
+                            <span key={tag} className="flex items-center gap-1 text-xs font-black text-white bg-amber-500 px-2 py-1 rounded-lg border border-amber-400 shadow-sm">
+                                <AlertTriangle className="w-3 h-3" aria-hidden="true" /> {tag}
+                            </span>
+                        ) : (
+                            <span key={tag} className="flex items-center gap-1 text-xs font-black text-teal-600 bg-teal-50 px-2 py-1 rounded-lg border border-teal-100 shadow-sm">
+                                {tag}
+                            </span>
+                        )
                     ))}
                     {data.tags?.includes('운영 확인 필요') && (
                         <span className="flex items-center gap-1 text-xs font-black text-rose-500 bg-rose-50 px-2 py-1 rounded-lg border border-rose-100 shadow-sm">
