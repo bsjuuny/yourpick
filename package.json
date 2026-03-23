@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "prebuild": "node scripts/fetch-data.js",
+    "prebuild": "node scripts/fetch-data.js && node scripts/augment-data.js",
     "dev": "next dev",
     "build": "next build",
     "build:push": "npm run build && git add . && git commit -m \"Build and update 유어픽\" && git push",
