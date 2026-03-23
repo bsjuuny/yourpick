@@ -52,6 +52,24 @@ export default function InstitutionCard({ data }: Props) {
     // ageRange 유효 여부
     const ageRangeValid = data.ageRange && data.ageRange !== '-';
 
+    // 상단에 표시할 핵심 태그 (우선순위 순, 최대 3개)
+    // 하단에 이미 표시되는 정보(셔틀·CCTV·정원현황)는 제외
+    const EXCLUDED_FROM_TOP = new Set([
+        '셔틀운행', '통학차량', 'CCTV완비', '정원여유', '거의만원',
+        '대규모시설', '소규모시설', '영양사배치', '특성화교육',
+    ]);
+    const TAG_PRIORITY = [
+        '즉시입소가능', '대기있음', '숙련교사',
+        '교사비율우수', '교사비율주의',
+        '영양사법정충족', '영양사법정미달', 'CCTV미설치',
+        '야간연장', '24시간', '장애아통합', '장애아전담', '영아전담',
+        '방과후운영', '시간제보육', '휴일운영', '공동육아',
+        '영어교육', '체육특성화',
+    ];
+    const topTags = TAG_PRIORITY
+        .filter(t => data.tags?.includes(t) && !EXCLUDED_FROM_TOP.has(t))
+        .slice(0, 3);
+
     // 안정성 점수 변환 (1-5 -> A-E)
     const getStabilityGrade = (score: number) => {
         if (score >= 4.5) return { label: '등급 A+', color: 'text-indigo-600 bg-indigo-50 border-indigo-100' };
@@ -86,7 +104,7 @@ export default function InstitutionCard({ data }: Props) {
                             <Award className="w-3 h-3" /> 전문성 TOP
                         </span>
                     )}
-                    {data.tags?.filter(t => t !== '운영 확인 필요').map(tag => (
+                    {topTags.map(tag => (
                         <span key={tag} className="flex items-center gap-1 text-xs font-black text-teal-600 bg-teal-50 px-2 py-1 rounded-lg border border-teal-100 shadow-sm">
                             {tag}
                         </span>

@@ -5,9 +5,11 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import { useInstitutions } from '@/hooks/useInstitutions';
 import { InstitutionSource } from '@/types/institution';
 import InstitutionCard from '@/components/InstitutionCard';
-import { AlertCircle, Search, ArrowLeft } from 'lucide-react';
+import { AlertCircle, Search, ArrowLeft, Trash2, SortAsc } from 'lucide-react';
+import { useCompareStore } from '@/store/useCompareStore';
 
 function ListContent() {
+    const { compareIds, clearCompareIds } = useCompareStore();
     const router = useRouter();
     const searchParams = useSearchParams();
     const query = searchParams.get('query') || '';
@@ -18,6 +20,7 @@ function ListContent() {
     const [localSearch, setLocalSearch] = useState('');
     const [typeFilter, setTypeFilter] = useState(initialType);
     const [sourceFilter, setSourceFilter] = useState<InstitutionSource | '전체'>('전체');
+    const [sortBy, setSortBy] = useState<'distance' | 'stability'>('distance');
     const { data: institutions, isLoading, error } = useInstitutions(sido, sgg, sourceFilter);
 
     if (isLoading) {
@@ -60,6 +63,17 @@ function ListContent() {
         const matchesLocal = !localSearch || inst.name.includes(localSearch);
         const matchesType = typeFilter === '전체' || inst.type.includes(typeFilter);
         return matchesQuery && matchesLocal && matchesType;
+    }).sort((a, b) => {
+        if (sortBy === 'distance') {
+            // 위치 기반 정렬 (Geographic proximity)
+            if (Math.abs(a.latitude - b.latitude) > 0.0001) {
+                return a.latitude - b.latitude;
+            }
+            return a.longitude - b.longitude;
+        } else {
+            // 안정성 점수 기반 정렬 (Score visibility)
+            return (b.stabilityScore || 0) - (a.stabilityScore || 0);
+        }
     }) || [];
 
     return (
@@ -81,10 +95,23 @@ function ListContent() {
                             <span className="text-indigo-600">데이터 실측 결과</span>
                         </h1>
                     </div>
-                    <div className="flex items-center gap-3">
-                        <div className="px-4 py-1.5 bg-slate-900 text-white text-xs font-black rounded-full shadow-premium">
-                            총 {filteredData.length}개 기관
+                    <div className="flex items-center gap-2">
+                        <div className="px-5 py-2.5 bg-slate-50 text-slate-400 text-[11px] font-black rounded-2xl border border-slate-100 uppercase tracking-widest hidden sm:block">
+                            검색 결과 {filteredData.length}
                         </div>
+                        {compareIds.length > 0 && (
+                            <div className="flex items-center gap-1.5 bg-indigo-600 text-white px-4 py-2 rounded-2xl shadow-glow animate-fade-in group">
+                                <span className="text-xs font-black font-heading tracking-tight">비교함 {compareIds.length}</span>
+                                <div className="w-px h-3 bg-white/20 mx-1"></div>
+                                <button 
+                                    onClick={clearCompareIds}
+                                    title="비교함 비우기"
+                                    className="p-1 hover:bg-white/20 rounded-lg transition-colors group/reset"
+                                >
+                                    <Trash2 className="w-3.5 h-3.5 group-hover/reset:scale-110 transition-transform" />
+                                </button>
+                            </div>
+                        )}
                     </div>
                 </div>
 
@@ -135,6 +162,25 @@ function ListContent() {
                                 {src}
                             </button>
                         ))}
+                    </div>
+                </div>
+            </div>
+
+            {/* List Controls */}
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4 animate-fade-up [animation-delay:100ms]">
+                <div className="flex items-center gap-4 w-full md:w-auto">
+                    <div className="flex items-center gap-2 bg-slate-50 p-1 rounded-xl border border-slate-100 w-full md:w-auto">
+                        <div className="pl-3 py-2 text-slate-400">
+                            <SortAsc className="w-3.5 h-3.5" />
+                        </div>
+                        <select 
+                            value={sortBy}
+                            onChange={(e) => setSortBy(e.target.value as any)}
+                            className="bg-transparent border-none text-[13px] font-black text-slate-700 pr-8 py-2 focus:ring-0 cursor-pointer w-full"
+                        >
+                            <option value="distance">위치 비슷함 순</option>
+                            <option value="stability">안정성 점수 순</option>
+                        </select>
                     </div>
                 </div>
             </div>

@@ -264,13 +264,31 @@ export default function CompareTable({ data }: Props) {
                     key: 'alimiUrl',
                     label: '지적사항 검증',
                     icon: <ShieldAlert className="w-4 h-4 opacity-70" />,
-                    render: (item: Institution) => item.alimiUrl ? (
-                        <a href={item.alimiUrl} target="_blank" rel="noopener noreferrer"
-                            aria-label={`${item.name} 공시내역 확인 (새 탭에서 열림)`}
-                            className="group/link flex items-center justify-center gap-1.5 px-4 py-2 bg-slate-50 hover:bg-slate-900 text-slate-700 hover:text-white rounded-xl text-sm font-bold transition-all duration-300 border border-slate-100 shadow-sm">
-                            공시내역 확인 <ExternalLink className="w-3 h-3 opacity-50 group-hover/link:opacity-100" aria-hidden="true" />
-                        </a>
-                    ) : <span className="text-slate-300">-</span>
+                    render: (item: Institution) => {
+                        if (!item.alimiUrl) return <span className="text-slate-300">-</span>;
+                        const isChildcarePortal = item.alimiUrl.includes('info.childcare.go.kr');
+                        const isOfficial = isChildcarePortal || item.alimiUrl.includes('childcare.go.kr') || item.alimiUrl.includes('e-childschoolinfo.moe.go.kr');
+                        const label = isOfficial ? '공시내역 확인' : '홈페이지';
+
+                        const handleClick = (e: React.MouseEvent) => {
+                            if (isChildcarePortal) {
+                                e.preventDefault();
+                                window.open(item.alimiUrl!, '어린이집찾기', 'width=1100,height=850,scrollbars=1,resizable=yes');
+                            }
+                        };
+
+                        return (
+                            <a href={item.alimiUrl}
+                                onClick={handleClick}
+                                target={isChildcarePortal ? undefined : '_blank'}
+                                rel="noopener noreferrer"
+                                aria-label={`${item.name} ${label}${isChildcarePortal ? ' (팝업)' : ' (새 탭에서 열림)'}`}
+                                className="group/link flex items-center justify-center gap-1.5 px-4 py-2 bg-slate-50 hover:bg-slate-900 text-slate-700 hover:text-white rounded-xl text-sm font-bold transition-all duration-300 border border-slate-100 shadow-sm">
+                                {label}
+                                <ExternalLink className="w-3 h-3 opacity-50 group-hover/link:opacity-100" aria-hidden="true" />
+                            </a>
+                        );
+                    }
                 },
             ]
         }

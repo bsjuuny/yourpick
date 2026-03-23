@@ -9,8 +9,8 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 
 export const metadata: Metadata = {
-  title: "우리동네 어린이집/유치원 비교 서비스",
-  description: "내 주변 어린이집과 유치원의 정보를 쉽게 비교해 보세요.",
+  title: "유어픽 - 유치원·어린이집 비교",
+  description: "유치원과 어린이집을 한눈에 비교하세요.",
 };
 
 export default function RootLayout({

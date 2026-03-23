@@ -17,8 +17,8 @@
     "mealStatus": "위탁급식",
     "operatingHours": "07시00분~22시00분",
     "hasSchoolBus": true,
-    "expenseLevel": "-",
-    "ageRange": "-",
+    "expenseLevel": "시설별 차등 (상세 문의)",
+    "ageRange": "만 3세 ~ 5세",
     "teacherRatio": "60% (3명/5명)",
     "teacherTenure": {
       "under1": 20,
@@ -28,8 +28,14 @@
       "over6": 20
     },
     "alimiUrl": "https://e-childschoolinfo.moe.go.kr/kinderMt/kinderViolation.do?ittId=1ecec08c-f1a7-b044-e053-0a32095ab044",
-    "tags": [],
-    "specialPrograms": "-"
+    "tags": [
+      "셔틀운행",
+      "CCTV완비",
+      "정원여유",
+      "숙련교사"
+    ],
+    "specialPrograms": "-",
+    "stabilityScore": 4
   },
   {
     "id": "8d90bb97-35b8-4f8f-8f45-b4c6963d3574",
@@ -49,8 +55,8 @@
     "mealStatus": "위탁급식, 영양사배치",
     "operatingHours": "07시00분~18시00분",
     "hasSchoolBus": false,
-    "expenseLevel": "-",
-    "ageRange": "-",
+    "expenseLevel": "무상교육 (누리과정 지원)",
+    "ageRange": "만 3세 ~ 5세",
     "teacherRatio": "100% (4명/4명)",
     "teacherTenure": {
       "under1": 33,
@@ -60,8 +66,13 @@
       "over6": 1
     },
     "alimiUrl": "https://e-childschoolinfo.moe.go.kr/kinderMt/kinderViolation.do?ittId=8d90bb97-35b8-4f8f-8f45-b4c6963d3574",
-    "tags": [],
-    "specialPrograms": "-"
+    "tags": [
+      "CCTV완비",
+      "정원여유",
+      "영양사배치"
+    ],
+    "specialPrograms": "-",
+    "stabilityScore": 4.5
   },
   {
     "id": "97dcd28a-6c71-4d4e-8d7d-7290fc8560b1",
@@ -81,8 +92,8 @@
     "mealStatus": "위탁급식, 영양사배치",
     "operatingHours": "07시00분~18시00분",
     "hasSchoolBus": false,
-    "expenseLevel": "-",
-    "ageRange": "-",
+    "expenseLevel": "무상교육 (누리과정 지원)",
+    "ageRange": "만 3세 ~ 5세",
     "teacherRatio": "100% (1명/1명)",
     "teacherTenure": {
       "under1": 100,
@@ -92,7 +103,13 @@
       "over6": 0
     },
     "alimiUrl": "https://e-childschoolinfo.moe.go.kr/kinderMt/kinderViolation.do?ittId=97dcd28a-6c71-4d4e-8d7d-7290fc8560b1",
-    "tags": [],
-    "specialPrograms": "-"
+    "tags": [
+      "소규모시설",
+      "CCTV완비",
+      "정원여유",
+      "영양사배치"
+    ],
+    "specialPrograms": "-",
+    "stabilityScore": 3.5
   }
 ]

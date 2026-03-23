@@ -18,7 +18,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10">
                     <div className="flex flex-col items-center md:items-start group">
                         <span className="font-black text-2xl text-slate-900 tracking-tighter font-heading group-hover:text-indigo-600 transition-colors">
-                            우리동네 <span className="text-indigo-600 group-hover:text-slate-900 transition-colors">유비</span>
+                            유어<span className="text-indigo-600 group-hover:text-slate-900 transition-colors">픽</span>
                         </span>
                         <p className="text-xs font-black text-slate-600 tracking-[0.3em] mt-3 uppercase font-heading">
                             더 나은 선택 · 더 좋은 시작 · 선진형 보육 비교
@@ -29,7 +29,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                             Official Public Data Integrated
                         </div>
                         <div className="text-xs text-slate-500 font-medium">
-                            © {new Date().getFullYear()} 우리동네 유비 · 교육부·보건복지부 공시 데이터 기반
+                            © {new Date().getFullYear()} 유어픽 · 교육부·보건복지부 공시 데이터 기반
                         </div>
                     </div>
                 </div>
