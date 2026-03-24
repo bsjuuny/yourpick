@@ -179,8 +179,8 @@
     "phone": "053-961-0845",
     "capacity": 44,
     "currentPupils": 29,
-    "childrenPerTeacher": 3.2,
-    "teacherRatio": "90% (9명/10명)",
+    "childrenPerTeacher": 2.9,
+    "teacherRatio": "91% (10명/11명)",
     "safetyStatus": "CCTV 8대 설치",
     "mealStatus": "급식 제공 (영양사 미배치)",
     "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
@@ -188,10 +188,10 @@
     "expenseLevel": "시설별 차등 (상세 문의)",
     "ageRange": "만 0세 ~ 만 2세",
     "teacherTenure": {
-      "under1": 44,
-      "year1to2": 22,
-      "year2to4": 11,
-      "year4to6": 22,
+      "under1": 50,
+      "year1to2": 20,
+      "year2to4": 10,
+      "year4to6": 20,
       "over6": 0
     },
     "waitlistTotal": 11,
@@ -201,16 +201,17 @@
       "CCTV완비",
       "대기있음",
       "정원여유",
-      "영양사배치"
+      "영양사배치",
+      "교사비율우수"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 4.3
   },
   {
     "id": "27140000001",
     "sidoCode": "27",
     "sggCode": "27140",
     "name": "꿀벌어린이집",
-    "type": "법인단체",
+    "type": "사회복지법인",
     "source": "어린이집",
     "address": "대구광역시 동구 송라로28길 21-6 (신암동)",
     "latitude": 35.87987025659016,
@@ -272,7 +273,7 @@
       "year4to6": 17,
       "over6": 14
     },
-    "waitlistTotal": 102,
+    "waitlistTotal": 103,
     "cctvCount": 16,
     "specialPrograms": "일반,시간제보육",
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=27140000078",
@@ -396,7 +397,7 @@
       "year4to6": 30,
       "over6": 0
     },
-    "waitlistTotal": 39,
+    "waitlistTotal": 40,
     "cctvCount": 12,
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=27140000304",
     "tags": [
@@ -683,7 +684,7 @@
       "year4to6": 0,
       "over6": 0
     },
-    "waitlistTotal": 38,
+    "waitlistTotal": 39,
     "cctvCount": 9,
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=27140000316",
     "tags": [
@@ -701,7 +702,7 @@
     "name": "더샵어린이집",
     "type": "민간",
     "source": "어린이집",
-    "address": "대구광역시 동구 팔공로53��� 10 이시아폴리스 더샵 1차",
+    "address": "대구광역시 동구 팔공로53길 10 ���시아폴리스 더샵 1차",
     "latitude": 35.92547062603984,
     "longitude": 128.63898219927222,
     "phone": "053-283-9400",
@@ -762,7 +763,7 @@
       "year4to6": 0,
       "over6": 0
     },
-    "waitlistTotal": 152,
+    "waitlistTotal": 151,
     "cctvCount": 13,
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=27140000327",
     "tags": [
@@ -1025,7 +1026,7 @@
     "capacity": 109,
     "currentPupils": 30,
     "childrenPerTeacher": 3.3,
-    "teacherRatio": "90% (9명/10명)",
+    "teacherRatio": "82% (9명/11명)",
     "safetyStatus": "CCTV 13대 설치",
     "mealStatus": "자체 급식 (영양사 배치 권고 규모)",
     "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
@@ -1160,7 +1161,7 @@
       "year4to6": 0,
       "over6": 0
     },
-    "waitlistTotal": 86,
+    "waitlistTotal": 85,
     "cctvCount": 10,
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=27140000322",
     "tags": [
@@ -1414,7 +1415,7 @@
     "name": "딩동댕어린이집",
     "type": "민간",
     "source": "어린이집",
-    "address": "대구���역시 동구 효목로1길 85 (효목동)",
+    "address": "대구광역시 동구 효목로1길 85 (효목동)",
     "latitude": 35.87686299,
     "longitude": 128.6386783,
     "phone": "053-754-1231",
@@ -2105,6 +2106,44 @@
     "stabilityScore": 2.3
   },
   {
+    "id": "27140000285",
+    "sidoCode": "27",
+    "sggCode": "27140",
+    "name": "사복행복마을 어린이집",
+    "type": "국공립",
+    "source": "어린이집",
+    "address": "대구광역시 동구 메디밸리로 18 (사복동, 천년나무10단지)",
+    "latitude": 35.8742227967,
+    "longitude": 128.7501684047,
+    "phone": "053-267-7617",
+    "capacity": 56,
+    "currentPupils": 45,
+    "childrenPerTeacher": 4.1,
+    "teacherRatio": "85% (11명/13명)",
+    "safetyStatus": "CCTV 8대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
+    "hasSchoolBus": false,
+    "expenseLevel": "정부 지원 (보육료 지원)",
+    "ageRange": "만 0세 ~ 만 3세",
+    "teacherTenure": {
+      "under1": 27,
+      "year1to2": 27,
+      "year2to4": 9,
+      "year4to6": 9,
+      "over6": 27
+    },
+    "waitlistTotal": 11,
+    "cctvCount": 8,
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=27140000285",
+    "tags": [
+      "CCTV완비",
+      "대기있음",
+      "영양사배치"
+    ],
+    "stabilityScore": 4.3
+  },
+  {
     "id": "27140000010",
     "sidoCode": "27",
     "sggCode": "27140",
@@ -2377,11 +2416,13 @@
     },
     "waitlistTotal": 20,
     "cctvCount": 10,
+    "specialPrograms": "일��",
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=27140000308",
     "tags": [
       "CCTV완비",
       "대기있음",
       "거의만원",
+      "특성화교육",
       "영양사배치"
     ],
     "stabilityScore": 4.3
@@ -2499,7 +2540,7 @@
       "year4to6": 33,
       "over6": 11
     },
-    "waitlistTotal": 18,
+    "waitlistTotal": 19,
     "cctvCount": 8,
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=27140000293",
     "tags": [
@@ -2904,7 +2945,7 @@
       "year4to6": 14,
       "over6": 0
     },
-    "waitlistTotal": 128,
+    "waitlistTotal": 130,
     "cctvCount": 9,
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=27140000306",
     "tags": [
@@ -3505,8 +3546,8 @@
     "longitude": 128.7274863,
     "phone": "053-962-1080",
     "capacity": 19,
-    "currentPupils": 7,
-    "childrenPerTeacher": 2.3,
+    "currentPupils": 6,
+    "childrenPerTeacher": 2,
     "teacherRatio": "75% (3명/4명)",
     "safetyStatus": "CCTV 5대 설치",
     "mealStatus": "급식 제공 (영양사 미배치)",
@@ -3792,7 +3833,7 @@
     "name": "애플트리어린이집",
     "type": "가정",
     "source": "어린이집",
-    "address": "대구광역시 동구 동호로 132 307동 107호(신서동, 영조아름다운나���3단지)",
+    "address": "대구광역시 동구 동호로 132 307동 107호(신서동, 영조아름다운나날3단���)",
     "latitude": 35.86706907142637,
     "longitude": 128.73118630711826,
     "phone": "053-962-7942",
@@ -3984,7 +4025,7 @@
       "year4to6": 20,
       "over6": 20
     },
-    "waitlistTotal": 5,
+    "waitlistTotal": 6,
     "cctvCount": 6,
     "specialPrograms": "일반,시간제보육",
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=27140000123",
@@ -4100,8 +4141,8 @@
     "longitude": 128.7308765,
     "phone": "053-964-4111",
     "capacity": 99,
-    "currentPupils": 32,
-    "childrenPerTeacher": 3.6,
+    "currentPupils": 31,
+    "childrenPerTeacher": 3.4,
     "teacherRatio": "82% (9명/11명)",
     "safetyStatus": "CCTV 12대 설치",
     "mealStatus": "급식 제공 (영양사 미배치)",
@@ -4239,7 +4280,7 @@
       "year4to6": 0,
       "over6": 0
     },
-    "waitlistTotal": 40,
+    "waitlistTotal": 41,
     "cctvCount": 16,
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=27140000330",
     "tags": [
@@ -4428,8 +4469,8 @@
     "phone": "053-963-6557",
     "capacity": 38,
     "currentPupils": 8,
-    "childrenPerTeacher": 4,
-    "teacherRatio": "67% (2명/3명)",
+    "childrenPerTeacher": 2.7,
+    "teacherRatio": "75% (3명/4명)",
     "safetyStatus": "CCTV 7대 설치",
     "mealStatus": "급식 제공 (영양사 미배치)",
     "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
@@ -4437,9 +4478,9 @@
     "expenseLevel": "시설별 차등 (상세 문의)",
     "ageRange": "만 0세 ~ 만 2세",
     "teacherTenure": {
-      "under1": 33,
+      "under1": 50,
       "year1to2": 0,
-      "year2to4": 66,
+      "year2to4": 50,
       "year4to6": 0,
       "over6": 0
     },
@@ -4450,9 +4491,10 @@
       "CCTV완비",
       "대기있음",
       "정원여유",
-      "영양사배치"
+      "영양사배치",
+      "교사비율우수"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.8
   },
   {
     "id": "27140000255",
@@ -4998,7 +5040,7 @@
     "name": "청아람어린이집",
     "type": "민간",
     "source": "어린이집",
-    "address": "대구광역시 동구 신암로20길 39 104동(신암동, 신암청아람아파트)",
+    "address": "대구광역시 동�� 신암로20길 39 104동(신암동, 신암청아람아파트)",
     "latitude": 35.87903524,
     "longitude": 128.6127054,
     "phone": "053-263-3066",
@@ -5669,8 +5711,8 @@
     "phone": "053-217-2777",
     "capacity": 30,
     "currentPupils": 4,
-    "childrenPerTeacher": 2,
-    "teacherRatio": "50% (2명/4명)",
+    "childrenPerTeacher": 1.3,
+    "teacherRatio": "60% (3명/5명)",
     "safetyStatus": "CCTV 10대 설치",
     "mealStatus": "급식 제공 (영양사 미배치)",
     "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
@@ -5978,7 +6020,7 @@
       "year4to6": 0,
       "over6": 0
     },
-    "waitlistTotal": 50,
+    "waitlistTotal": 51,
     "cctvCount": 12,
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=27140000314",
     "tags": [
@@ -6220,7 +6262,7 @@
       "year4to6": 0,
       "over6": 0
     },
-    "waitlistTotal": 18,
+    "waitlistTotal": 19,
     "cctvCount": 8,
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=27140000313",
     "tags": [
@@ -6346,9 +6388,10 @@
     },
     "waitlistTotal": 1,
     "cctvCount": 10,
-    "specialPrograms": "일반,시간��보육",
+    "specialPrograms": "일반,시간제보육",
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=27140000288",
     "tags": [
+      "시간제보육",
       "CCTV완비",
       "대기있음",
       "정원여유",

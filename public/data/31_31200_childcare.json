@@ -148,7 +148,7 @@
       "year4to6": 0,
       "over6": 0
     },
-    "waitlistTotal": 10,
+    "waitlistTotal": 11,
     "cctvCount": 10,
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=31200000227",
     "tags": [
@@ -745,7 +745,7 @@
     "id": "31200000263",
     "sidoCode": "31",
     "sggCode": "31200",
-    "name": "꿈이크는어���이집",
+    "name": "꿈이크는어린이집",
     "type": "가정",
     "source": "어린이집",
     "address": "울산광역시 북구 매산로 66 207-105 (월드메르디앙)",
@@ -981,7 +981,7 @@
       "year4to6": 0,
       "over6": 0
     },
-    "waitlistTotal": 23,
+    "waitlistTotal": 24,
     "cctvCount": 9,
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=31200000349",
     "tags": [
@@ -2480,7 +2480,7 @@
       "year4to6": 13,
       "over6": 13
     },
-    "waitlistTotal": 60,
+    "waitlistTotal": 61,
     "cctvCount": 15,
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=31200000321",
     "tags": [
@@ -2722,7 +2722,7 @@
       "year4to6": 0,
       "over6": 16
     },
-    "waitlistTotal": 42,
+    "waitlistTotal": 43,
     "cctvCount": 16,
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=31200000320",
     "tags": [
@@ -3035,7 +3035,7 @@
       "year4to6": 0,
       "over6": 0
     },
-    "waitlistTotal": 96,
+    "waitlistTotal": 99,
     "cctvCount": 16,
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=31200000346",
     "tags": [
@@ -3259,8 +3259,8 @@
     "phone": "052-285-0011",
     "capacity": 20,
     "currentPupils": 2,
-    "childrenPerTeacher": 0.7,
-    "teacherRatio": "75% (3명/4명)",
+    "childrenPerTeacher": 1,
+    "teacherRatio": "67% (2명/3명)",
     "safetyStatus": "CCTV 5대 설치",
     "mealStatus": "급식 제공 (영양사 미배치)",
     "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
@@ -3269,10 +3269,10 @@
     "ageRange": "만 0세 ~ 만 3세",
     "teacherTenure": {
       "under1": 0,
-      "year1to2": 50,
+      "year1to2": 33,
       "year2to4": 0,
-      "year4to6": 25,
-      "over6": 25
+      "year4to6": 33,
+      "over6": 33
     },
     "waitlistTotal": 0,
     "cctvCount": 5,
@@ -3287,49 +3287,6 @@
       "숙련교사"
     ],
     "stabilityScore": 5
-  },
-  {
-    "id": "31200000056",
-    "sidoCode": "31",
-    "sggCode": "31200",
-    "name": "올리브어린이집",
-    "type": "민간",
-    "source": "어린이집",
-    "address": "울산광역시 북구 명촌13길 6 (명촌동)",
-    "latitude": 35.5554682829,
-    "longitude": 129.352226237,
-    "phone": "052-288-2680",
-    "capacity": 39,
-    "currentPupils": 27,
-    "childrenPerTeacher": 3.4,
-    "teacherRatio": "73% (8명/11명)",
-    "safetyStatus": "CCTV 10대 설치",
-    "mealStatus": "급식 제공 (영양사 미배치)",
-    "operatingHours": "평일기준시간 : 07:30 ~ 24:00 (야간연장)",
-    "hasSchoolBus": false,
-    "expenseLevel": "시설별 차등 (상세 문의)",
-    "ageRange": "만 0세 ~ 만 2세",
-    "teacherTenure": {
-      "under1": 37,
-      "year1to2": 62,
-      "year2to4": 0,
-      "year4to6": 0,
-      "over6": 0
-    },
-    "waitlistTotal": 16,
-    "cctvCount": 10,
-    "specialPrograms": "야간연장형",
-    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=31200000056",
-    "tags": [
-      "야간운영",
-      "CCTV완비",
-      "대기있음",
-      "정원여유",
-      "야간연장",
-      "특성화교육",
-      "영양사배치"
-    ],
-    "stabilityScore": 3.3
   },
   {
     "id": "31200000266",
@@ -3606,11 +3563,13 @@
     },
     "waitlistTotal": 2,
     "cctvCount": 6,
+    "specialPrograms": "일��",
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=31200000055",
     "tags": [
       "CCTV완비",
       "대기있음",
       "정원여유",
+      "특성화교육",
       "영양사배치",
       "교사비율주의"
     ],
@@ -3713,7 +3672,7 @@
     "capacity": 78,
     "currentPupils": 38,
     "childrenPerTeacher": 6.3,
-    "teacherRatio": "75% (6명/8명)",
+    "teacherRatio": "67% (6명/9명)",
     "safetyStatus": "CCTV 14대 설치",
     "mealStatus": "급식 제공 (영양사 미배치)",
     "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
@@ -4220,7 +4179,7 @@
       "year4to6": 13,
       "over6": 20
     },
-    "waitlistTotal": 89,
+    "waitlistTotal": 90,
     "cctvCount": 10,
     "specialPrograms": "야간연장형",
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=31200000091",
@@ -4713,7 +4672,7 @@
       "year4to6": 25,
       "over6": 75
     },
-    "waitlistTotal": 2,
+    "waitlistTotal": 3,
     "cctvCount": 6,
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=31200000300",
     "tags": [
@@ -5070,7 +5029,7 @@
     "name": "행복어린이집",
     "type": "국공립",
     "source": "어린이집",
-    "address": "울��광역시 북구 박상진4로 56 (화봉동,울산송정엘에이치1단지)",
+    "address": "울산광역시 북구 박상진4로 56 (화봉동,울산송정엘에이치1단지)",
     "latitude": 35.59934848702948,
     "longitude": 129.3683550929808,
     "phone": "052-252-3232",
@@ -5091,7 +5050,7 @@
       "year4to6": 18,
       "over6": 9
     },
-    "waitlistTotal": 34,
+    "waitlistTotal": 33,
     "cctvCount": 13,
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=31200000333",
     "tags": [

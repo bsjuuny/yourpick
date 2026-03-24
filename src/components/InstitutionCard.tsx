@@ -2,7 +2,7 @@
 
 import { Institution } from '@/types/institution';
 import { useCompareStore } from '@/store/useCompareStore';
-import { MapPin, Users, ListPlus, Bus, Award, CheckCircle2, Sparkles, Cctv, Baby, Star, Wallet, AlertTriangle } from 'lucide-react';
+import { MapPin, Users, ListPlus, Bus, Award, CheckCircle2, Sparkles, Cctv, Baby, Wallet, AlertTriangle } from 'lucide-react';
 
 interface Props {
     data: Institution;
@@ -71,15 +71,6 @@ export default function InstitutionCard({ data }: Props) {
         .filter(t => data.tags?.includes(t) && !EXCLUDED_FROM_TOP.has(t))
         .slice(0, 3);
 
-    // 안정성 점수 변환 (1-5 -> A-E)
-    const getStabilityGrade = (score: number) => {
-        if (score >= 4.5) return { label: '등급 A+', color: 'text-indigo-600 bg-indigo-50 border-indigo-100' };
-        if (score >= 4.0) return { label: '등급 A', color: 'text-blue-600 bg-blue-50 border-blue-100' };
-        if (score >= 3.5) return { label: '등급 B', color: 'text-emerald-600 bg-emerald-50 border-emerald-100' };
-        if (score >= 3.0) return { label: '등급 C', color: 'text-slate-600 bg-slate-50 border-slate-100' };
-        return { label: '등급 D', color: 'text-rose-600 bg-rose-50 border-rose-100' };
-    };
-    const stability = getStabilityGrade(data.stabilityScore || 3.0);
 
     return (
         <article aria-label={data.name} className={`group bg-white rounded-[2.5rem] p-6 md:p-8 shadow-premium border transition-all duration-500 hover:shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] hover:-translate-y-2 ${isCompared ? 'border-indigo-600 ring-8 ring-indigo-50/50 scale-[1.02]' : 'border-slate-100'}`}>
@@ -135,16 +126,11 @@ export default function InstitutionCard({ data }: Props) {
                 </button>
             </div>
 
-            {/* 기관명 + 안정성 등급 */}
+            {/* 기관명 */}
             <div className="mb-6">
                 <h3 className="text-2xl font-black text-slate-900 leading-snug group-hover:text-indigo-600 transition-colors break-keep font-heading mb-2">
                     {data.name}
                 </h3>
-                {data.stabilityScore && (
-                    <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full border text-xs font-black shadow-sm ${stability.color}`}>
-                        <Star className="w-3 h-3 fill-current" aria-hidden="true" /> {stability.label}
-                    </div>
-                )}
             </div>
 
             <div className="space-y-5">
