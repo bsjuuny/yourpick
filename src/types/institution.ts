@@ -28,6 +28,13 @@ export interface Institution {
         over6: number;
     };
     childrenPerTeacher?: number; // 교사 1인당 아동 수
+    ageBreakdown?: {
+        [age: number]: {
+            children: number;
+            classes: number;
+            ratio: number; // children / classes (≈ children per teacher)
+        };
+    };
     safetyStatus?: string; // 안전 관리 요약
     mealStatus?: string; // 식단/위생 요약
     alimiUrl?: string; // 유치원 알리미 원문 링크

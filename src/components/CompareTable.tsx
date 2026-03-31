@@ -166,9 +166,37 @@ export default function CompareTable({ data }: Props) {
                     key: 'childrenPerTeacher',
                     label: '교사 1인당 원아',
                     icon: <Users className="w-4 h-4 opacity-70" />,
-                    render: (item: Institution) => (
-                        <div className="text-lg font-black text-slate-900">{item.childrenPerTeacher || '-'} <span className="text-xs text-slate-400 font-normal">명</span></div>
-                    )
+                    render: (item: Institution) => {
+                        const LEGAL_RATIO: { [age: number]: number } = { 0: 3, 1: 5, 2: 7, 3: 15, 4: 20, 5: 20 };
+                        const entries = item.ageBreakdown
+                            ? Object.entries(item.ageBreakdown)
+                                .map(([k, v]) => ({ age: Number(k), ...v }))
+                                .filter(e => e.children > 0)
+                            : [];
+                        return (
+                            <div>
+                                <div className="text-lg font-black text-slate-900">{item.childrenPerTeacher || '-'} <span className="text-xs text-slate-400 font-normal">명</span></div>
+                                {entries.length > 0 && (
+                                    <div className="mt-1.5 flex flex-col gap-1 items-center">
+                                        {entries.map(({ age, ratio }) => {
+                                            const limit = LEGAL_RATIO[age] ?? 20;
+                                            const color = ratio <= limit * 0.7
+                                                ? 'text-emerald-600'
+                                                : ratio <= limit
+                                                ? 'text-amber-600'
+                                                : 'text-rose-600';
+                                            return (
+                                                <div key={age} className="flex items-center gap-1.5 text-xs">
+                                                    <span className="text-slate-400 w-10">만{age}세</span>
+                                                    <span className={`font-bold ${color}`}>{ratio}명</span>
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+                                )}
+                            </div>
+                        );
+                    }
                 },
                 {
                     key: 'teacherRatio',

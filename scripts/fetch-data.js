@@ -524,6 +524,20 @@ function normalizeChildcareData(items, sidoCode, sggCode) {
             // 입소대기 아동수
             const waitlistTotal = parseInt(item.EW_CNT_TOT) || 0;
 
+            // 연령별 원아 수 / 반 수 → 반당 원아 비율 (반당 교사 1명 기준)
+            const ageBreakdown = {};
+            for (let age = 0; age <= 5; age++) {
+                const childCount = parseInt(item[`CHILD_CNT_0${age}`]) || 0;
+                const classCount = parseInt(item[`CLASS_CNT_0${age}`]) || 0;
+                if (classCount > 0) {
+                    ageBreakdown[age] = {
+                        children: childCount,
+                        classes: classCount,
+                        ratio: Number((childCount / classCount).toFixed(1)),
+                    };
+                }
+            }
+
             // 연령 범위 — CLASS_CNT(반 편성) 기준으로 판단, 현원이 0이어도 반이 있으면 포함
             // CLASS_CNT_M2: 0~2세 혼합반, CLASS_CNT_M5: 0~5세 혼합반
             const ageSet = new Set();
@@ -575,6 +589,7 @@ function normalizeChildcareData(items, sidoCode, sggCode) {
                 hasSchoolBus,
                 expenseLevel: '-',
                 ageRange,
+                ageBreakdown: Object.keys(ageBreakdown).length > 0 ? ageBreakdown : undefined,
                 teacherTenure,
                 waitlistTotal,
                 cctvCount,

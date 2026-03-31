@@ -52,6 +52,14 @@ export default function InstitutionCard({ data }: Props) {
     // ageRange 유효 여부
     const ageRangeValid = data.ageRange && data.ageRange !== '-';
 
+    // 연령별 법정 교사:원아 비율 기준 (영유아보육법 시행규칙)
+    const LEGAL_RATIO: { [age: number]: number } = { 0: 3, 1: 5, 2: 7, 3: 15, 4: 20, 5: 20 };
+    const ageBreakdownEntries = data.ageBreakdown
+        ? Object.entries(data.ageBreakdown)
+            .map(([k, v]) => ({ age: Number(k), ...v }))
+            .filter(e => e.children > 0)
+        : [];
+
     // 상단에 표시할 핵심 태그 (우선순위 순, 최대 3개)
     // 하단에 이미 표시되는 정보(셔틀·CCTV·정원현황)는 제외
     const EXCLUDED_FROM_TOP = new Set([
@@ -173,6 +181,28 @@ export default function InstitutionCard({ data }: Props) {
                         </div>
                     )}
                 </div>
+
+                {/* 연령별 교사 1인당 원아 (어린이집만) */}
+                {ageBreakdownEntries.length > 0 && (
+                    <div className="mt-2">
+                        <div className="text-[10px] text-slate-400 font-bold mb-1.5 uppercase tracking-wide">연령별 교사 1인당 원아</div>
+                        <div className="flex flex-wrap gap-1.5">
+                            {ageBreakdownEntries.map(({ age, ratio }) => {
+                                const limit = LEGAL_RATIO[age] ?? 20;
+                                const color = ratio <= limit * 0.7
+                                    ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                                    : ratio <= limit
+                                    ? 'bg-amber-50 text-amber-700 border-amber-200'
+                                    : 'bg-rose-50 text-rose-700 border-rose-200';
+                                return (
+                                    <div key={age} className={`px-2 py-1 rounded-lg text-xs font-bold border ${color}`}>
+                                        만{age}세 <span className="font-black">{ratio}명</span>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+                )}
 
                 {/* 연령 및 비용 */}
                 <div className="flex items-center gap-2 flex-wrap">
