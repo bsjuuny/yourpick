@@ -11,8 +11,8 @@
     "longitude": 128.5738254181605,
     "phone": "054-383-7625",
     "capacity": 17,
-    "currentPupils": 12,
-    "childrenPerTeacher": 2.4,
+    "currentPupils": 15,
+    "childrenPerTeacher": 3,
     "teacherRatio": "71% (5명/7명)",
     "safetyStatus": "CCTV 7대 설치",
     "mealStatus": "급식 제공 (영양사 미배치)",
@@ -20,6 +20,18 @@
     "hasSchoolBus": false,
     "expenseLevel": "정부 지원 (보육료 지원)",
     "ageRange": "만 0세 ~ 만 2세",
+    "ageBreakdown": {
+      "1": {
+        "children": 4,
+        "classes": 1,
+        "ratio": 4
+      },
+      "2": {
+        "children": 4,
+        "classes": 1,
+        "ratio": 4
+      }
+    },
     "teacherTenure": {
       "under1": 33,
       "year1to2": 0,
@@ -27,26 +39,18 @@
       "year4to6": 33,
       "over6": 16
     },
-    "waitlistTotal": 2,
+    "waitlistTotal": 5,
     "cctvCount": 7,
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47720000007",
     "tags": [
       "소규모시설",
       "CCTV완비",
       "대기있음",
-      "정원여유",
       "영양사배치",
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5,
-    "ageBreakdown": {
-      "2": {
-        "children": 4,
-        "classes": 1,
-        "ratio": 4
-      }
-    }
+    "stabilityScore": 5
   },
   {
     "id": "47720000008",
@@ -60,15 +64,32 @@
     "longitude": 128.71644974206671,
     "phone": "054-382-3887",
     "capacity": 37,
-    "currentPupils": 27,
-    "childrenPerTeacher": 6.8,
-    "teacherRatio": "57% (4명/7명)",
+    "currentPupils": 28,
+    "childrenPerTeacher": 7,
+    "teacherRatio": "50% (4명/8명)",
     "safetyStatus": "CCTV 11대 설치",
     "mealStatus": "급식 제공 (영양사 미배치)",
     "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
     "hasSchoolBus": false,
     "expenseLevel": "정부 지원 (보육료 지원)",
     "ageRange": "만 0세 ~ 만 5세",
+    "ageBreakdown": {
+      "0": {
+        "children": 2,
+        "classes": 1,
+        "ratio": 2
+      },
+      "1": {
+        "children": 5,
+        "classes": 1,
+        "ratio": 5
+      },
+      "2": {
+        "children": 5,
+        "classes": 1,
+        "ratio": 5
+      }
+    },
     "teacherTenure": {
       "under1": 0,
       "year1to2": 20,
@@ -87,24 +108,7 @@
       "교사비율주의",
       "숙련교사"
     ],
-    "stabilityScore": 3,
-    "ageBreakdown": {
-      "0": {
-        "children": 2,
-        "classes": 1,
-        "ratio": 2
-      },
-      "1": {
-        "children": 4,
-        "classes": 1,
-        "ratio": 4
-      },
-      "2": {
-        "children": 5,
-        "classes": 1,
-        "ratio": 5
-      }
-    }
+    "stabilityScore": 3
   },
   {
     "id": "47720000009",
@@ -159,8 +163,8 @@
     "longitude": 128.5704886,
     "phone": "054-383-2032",
     "capacity": 160,
-    "currentPupils": 50,
-    "childrenPerTeacher": 7.1,
+    "currentPupils": 49,
+    "childrenPerTeacher": 7,
     "teacherRatio": "58% (7명/12명)",
     "safetyStatus": "CCTV 12대 설치",
     "mealStatus": "자체 급식 (영양사 배치 권고 규모)",
@@ -168,27 +172,6 @@
     "hasSchoolBus": false,
     "expenseLevel": "정부 지원 (표준 보육료)",
     "ageRange": "만 0세 ~ 만 5세",
-    "teacherTenure": {
-      "under1": 14,
-      "year1to2": 0,
-      "year2to4": 28,
-      "year4to6": 14,
-      "over6": 42
-    },
-    "waitlistTotal": 0,
-    "cctvCount": 12,
-    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47720000002",
-    "tags": [
-      "대규모시설",
-      "CCTV완비",
-      "즉시입소가능",
-      "정원여유",
-      "영양사배치",
-      "교사비율주의",
-      "숙련교사",
-      "영양사법정충족"
-    ],
-    "stabilityScore": 3.5,
     "ageBreakdown": {
       "0": {
         "children": 0,
@@ -210,6 +193,27 @@
         "classes": 1,
         "ratio": 0
       }
-    }
+    },
+    "teacherTenure": {
+      "under1": 14,
+      "year1to2": 0,
+      "year2to4": 28,
+      "year4to6": 14,
+      "over6": 42
+    },
+    "waitlistTotal": 0,
+    "cctvCount": 12,
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47720000002",
+    "tags": [
+      "대규모시설",
+      "CCTV완비",
+      "즉시입소가능",
+      "정원여유",
+      "영양사배치",
+      "교사비율주의",
+      "숙련교사",
+      "영양사법정충족"
+    ],
+    "stabilityScore": 3.5
   }
 ]

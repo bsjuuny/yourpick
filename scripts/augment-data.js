@@ -78,7 +78,7 @@ function calculateStabilityScore(inst) {
 }
 
 function augmentData() {
-    const files = fs.readdirSync(DATA_DIR).filter(f => f.endsWith('.json') && f !== 'regions.json');
+    const files = fs.readdirSync(DATA_DIR).filter(f => f.endsWith('.json') && f !== 'regions.json' && f !== 'region-ranking.json');
     console.log(`🔍 Processing ${files.length} data files...`);
 
     let totalInst = 0, improved = { ageRange: 0, expenseLevel: 0, operatingHours: 0, mealStatus: 0, tags: 0, alimiUrl: 0 };

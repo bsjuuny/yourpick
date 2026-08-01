@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useCompareStore } from '@/store/useCompareStore';
-import { Baby, ListPlus, Search, Trash2 } from 'lucide-react';
+import { Baby, ListPlus, Search, Trash2, BarChart3 } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
@@ -30,6 +30,16 @@ export default function Navbar() {
                         className={`text-sm md:text-sm font-black px-4 md:px-5 py-2 md:py-2.5 rounded-2xl transition-all font-heading tracking-tight ${pathname === '/' ? 'text-indigo-600 bg-indigo-50 shadow-sm border border-indigo-100' : 'text-slate-400 hover:text-slate-900 hover:bg-slate-50'}`}
                     >
                         찾아보기
+                    </Link>
+
+                    <Link
+                        href="/ranking"
+                        aria-label="지역별 입소 랭킹 페이지"
+                        aria-current={pathname === '/ranking' ? 'page' : undefined}
+                        className={`hidden sm:flex items-center gap-1.5 text-sm font-black px-4 md:px-5 py-2 md:py-2.5 rounded-2xl transition-all font-heading tracking-tight ${pathname === '/ranking' ? 'text-indigo-600 bg-indigo-50 shadow-sm border border-indigo-100' : 'text-slate-400 hover:text-slate-900 hover:bg-slate-50'}`}
+                    >
+                        <BarChart3 className="w-3.5 h-3.5" aria-hidden="true" />
+                        지역 랭킹
                     </Link>
 
                     <div className="h-4 w-px bg-slate-200 mx-0.5 md:mx-1" aria-hidden="true"></div>

@@ -11,8 +11,8 @@
     "longitude": 126.4587095,
     "phone": "032-933-7976",
     "capacity": 98,
-    "currentPupils": 47,
-    "childrenPerTeacher": 5.9,
+    "currentPupils": 48,
+    "childrenPerTeacher": 6,
     "teacherRatio": "73% (8명/11명)",
     "safetyStatus": "CCTV 12대 설치",
     "mealStatus": "급식 제공 (영양사 미배치)",
@@ -20,6 +20,33 @@
     "hasSchoolBus": false,
     "expenseLevel": "정부 지원 (보육료 지원)",
     "ageRange": "만 0세 ~ 만 5세",
+    "ageBreakdown": {
+      "0": {
+        "children": 6,
+        "classes": 2,
+        "ratio": 3
+      },
+      "1": {
+        "children": 7,
+        "classes": 3,
+        "ratio": 2.3
+      },
+      "2": {
+        "children": 9,
+        "classes": 2,
+        "ratio": 4.5
+      },
+      "3": {
+        "children": 9,
+        "classes": 1,
+        "ratio": 9
+      },
+      "5": {
+        "children": 0,
+        "classes": 1,
+        "ratio": 0
+      }
+    },
     "teacherTenure": {
       "under1": 25,
       "year1to2": 0,
@@ -27,7 +54,7 @@
       "year4to6": 0,
       "over6": 37
     },
-    "waitlistTotal": 12,
+    "waitlistTotal": 15,
     "cctvCount": 12,
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=28710000015",
     "tags": [
@@ -37,34 +64,7 @@
       "영양사배치",
       "교사비율주의"
     ],
-    "stabilityScore": 2.8,
-    "ageBreakdown": {
-      "0": {
-        "children": 5,
-        "classes": 2,
-        "ratio": 2.5
-      },
-      "1": {
-        "children": 7,
-        "classes": 3,
-        "ratio": 2.3
-      },
-      "2": {
-        "children": 7,
-        "classes": 2,
-        "ratio": 3.5
-      },
-      "3": {
-        "children": 10,
-        "classes": 1,
-        "ratio": 10
-      },
-      "5": {
-        "children": 0,
-        "classes": 1,
-        "ratio": 0
-      }
-    }
+    "stabilityScore": 2.8
   },
   {
     "id": "28710000050",
@@ -78,38 +78,25 @@
     "longitude": 126.487179,
     "phone": "032-930-3686",
     "capacity": 39,
-    "currentPupils": 37,
-    "childrenPerTeacher": 5.3,
+    "currentPupils": 38,
+    "childrenPerTeacher": 5.4,
     "teacherRatio": "78% (7명/9명)",
     "safetyStatus": "CCTV 14대 설치",
     "mealStatus": "급식 제공 (영양사 미배치)",
     "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
     "hasSchoolBus": false,
     "expenseLevel": "직장 지원 + 정부 보조",
-    "ageRange": "만 1세 ~ 만 5세",
-    "teacherTenure": {
-      "under1": 14,
-      "year1to2": 0,
-      "year2to4": 42,
-      "year4to6": 14,
-      "over6": 28
-    },
-    "waitlistTotal": 0,
-    "cctvCount": 14,
-    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=28710000050",
-    "tags": [
-      "CCTV완비",
-      "즉시입소가능",
-      "영양사배치",
-      "교사비율주의",
-      "숙련교사"
-    ],
-    "stabilityScore": 3,
+    "ageRange": "만 0세 ~ 만 5세",
     "ageBreakdown": {
+      "0": {
+        "children": 0,
+        "classes": 1,
+        "ratio": 0
+      },
       "1": {
-        "children": 9,
+        "children": 10,
         "classes": 2,
-        "ratio": 4.5
+        "ratio": 5
       },
       "2": {
         "children": 9,
@@ -126,7 +113,26 @@
         "classes": 1,
         "ratio": 6
       }
-    }
+    },
+    "teacherTenure": {
+      "under1": 14,
+      "year1to2": 0,
+      "year2to4": 42,
+      "year4to6": 14,
+      "over6": 28
+    },
+    "waitlistTotal": 0,
+    "cctvCount": 14,
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=28710000050",
+    "tags": [
+      "CCTV완비",
+      "즉시입소가능",
+      "거의만원",
+      "영양사배치",
+      "교사비율주의",
+      "숙련교사"
+    ],
+    "stabilityScore": 3
   },
   {
     "id": "28710000029",
@@ -140,8 +146,8 @@
     "longitude": 126.474071,
     "phone": "032-932-4829",
     "capacity": 70,
-    "currentPupils": 66,
-    "childrenPerTeacher": 4.7,
+    "currentPupils": 65,
+    "childrenPerTeacher": 4.6,
     "teacherRatio": "74% (14명/19명)",
     "safetyStatus": "CCTV 16대 설치",
     "mealStatus": "급식 제공 (영양사 미배치)",
@@ -149,25 +155,6 @@
     "hasSchoolBus": false,
     "expenseLevel": "정부 지원 (보육료 지원)",
     "ageRange": "만 1세 ~ 만 5세",
-    "teacherTenure": {
-      "under1": 28,
-      "year1to2": 14,
-      "year2to4": 50,
-      "year4to6": 0,
-      "over6": 7
-    },
-    "waitlistTotal": 37,
-    "cctvCount": 16,
-    "specialPrograms": "장애아통합",
-    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=28710000029",
-    "tags": [
-      "장애아통합",
-      "CCTV완비",
-      "대기있음",
-      "특성화교육",
-      "영양사배치"
-    ],
-    "stabilityScore": 2.8,
     "ageBreakdown": {
       "1": {
         "children": 10,
@@ -180,9 +167,9 @@
         "ratio": 6.5
       },
       "3": {
-        "children": 10,
+        "children": 9,
         "classes": 1,
-        "ratio": 10
+        "ratio": 9
       },
       "4": {
         "children": 16,
@@ -194,7 +181,26 @@
         "classes": 1,
         "ratio": 13
       }
-    }
+    },
+    "teacherTenure": {
+      "under1": 28,
+      "year1to2": 14,
+      "year2to4": 50,
+      "year4to6": 0,
+      "over6": 7
+    },
+    "waitlistTotal": 55,
+    "cctvCount": 16,
+    "specialPrograms": "장애아통합",
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=28710000029",
+    "tags": [
+      "장애아통합",
+      "CCTV완비",
+      "대기있음",
+      "특성화교육",
+      "영양사배치"
+    ],
+    "stabilityScore": 2.8
   },
   {
     "id": "28710000005",
@@ -208,15 +214,32 @@
     "longitude": 126.5166837481222,
     "phone": "032-937-2827",
     "capacity": 49,
-    "currentPupils": 31,
-    "childrenPerTeacher": 4.4,
-    "teacherRatio": "64% (7명/11명)",
+    "currentPupils": 36,
+    "childrenPerTeacher": 5.1,
+    "teacherRatio": "70% (7명/10명)",
     "safetyStatus": "CCTV 22대 설치",
     "mealStatus": "급식 제공 (영양사 미배치)",
     "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
     "hasSchoolBus": false,
     "expenseLevel": "정부 지원 (보육료 지원)",
     "ageRange": "만 0세 ~ 만 5세",
+    "ageBreakdown": {
+      "1": {
+        "children": 5,
+        "classes": 1,
+        "ratio": 5
+      },
+      "2": {
+        "children": 9,
+        "classes": 2,
+        "ratio": 4.5
+      },
+      "3": {
+        "children": 7,
+        "classes": 1,
+        "ratio": 7
+      }
+    },
     "teacherTenure": {
       "under1": 0,
       "year1to2": 14,
@@ -232,26 +255,10 @@
       "대기있음",
       "정원여유",
       "영양사배치",
+      "교사비율주의",
       "숙련교사"
     ],
-    "stabilityScore": 4.3,
-    "ageBreakdown": {
-      "1": {
-        "children": 5,
-        "classes": 1,
-        "ratio": 5
-      },
-      "2": {
-        "children": 9,
-        "classes": 2,
-        "ratio": 4.5
-      },
-      "3": {
-        "children": 6,
-        "classes": 1,
-        "ratio": 6
-      }
-    }
+    "stabilityScore": 3.3
   },
   {
     "id": "28710000025",
@@ -265,15 +272,42 @@
     "longitude": 126.4969811,
     "phone": "032-934-9119",
     "capacity": 74,
-    "currentPupils": 56,
-    "childrenPerTeacher": 5.1,
-    "teacherRatio": "73% (11명/15명)",
+    "currentPupils": 57,
+    "childrenPerTeacher": 5.2,
+    "teacherRatio": "79% (11명/14명)",
     "safetyStatus": "CCTV 10대 설치",
     "mealStatus": "급식 제공 (영양사 미배치)",
     "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
     "hasSchoolBus": false,
     "expenseLevel": "시설별 차등 (상세 문의)",
     "ageRange": "만 0세 ~ 만 5세",
+    "ageBreakdown": {
+      "0": {
+        "children": 3,
+        "classes": 1,
+        "ratio": 3
+      },
+      "1": {
+        "children": 11,
+        "classes": 2,
+        "ratio": 5.5
+      },
+      "2": {
+        "children": 12,
+        "classes": 2,
+        "ratio": 6
+      },
+      "3": {
+        "children": 14,
+        "classes": 1,
+        "ratio": 14
+      },
+      "5": {
+        "children": 11,
+        "classes": 1,
+        "ratio": 11
+      }
+    },
     "teacherTenure": {
       "under1": 0,
       "year1to2": 18,
@@ -281,7 +315,7 @@
       "year4to6": 0,
       "over6": 45
     },
-    "waitlistTotal": 14,
+    "waitlistTotal": 27,
     "cctvCount": 10,
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=28710000025",
     "tags": [
@@ -292,34 +326,7 @@
       "교사비율주의",
       "숙련교사"
     ],
-    "stabilityScore": 2.8,
-    "ageBreakdown": {
-      "0": {
-        "children": 3,
-        "classes": 1,
-        "ratio": 3
-      },
-      "1": {
-        "children": 8,
-        "classes": 2,
-        "ratio": 4
-      },
-      "2": {
-        "children": 12,
-        "classes": 2,
-        "ratio": 6
-      },
-      "3": {
-        "children": 16,
-        "classes": 1,
-        "ratio": 16
-      },
-      "5": {
-        "children": 11,
-        "classes": 1,
-        "ratio": 11
-      }
-    }
+    "stabilityScore": 2.8
   },
   {
     "id": "28710000026",
@@ -333,23 +340,45 @@
     "longitude": 126.5050201,
     "phone": "032-937-7890",
     "capacity": 99,
-    "currentPupils": 59,
-    "childrenPerTeacher": 6.6,
-    "teacherRatio": "69% (9명/13명)",
+    "currentPupils": 60,
+    "childrenPerTeacher": 6,
+    "teacherRatio": "71% (10명/14명)",
     "safetyStatus": "CCTV 21대 설치",
     "mealStatus": "급식 제공 (영양사 미배치)",
     "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
     "hasSchoolBus": false,
     "expenseLevel": "정부 지원 (보육료 지원)",
     "ageRange": "만 0세 ~ 만 5세",
-    "teacherTenure": {
-      "under1": 11,
-      "year1to2": 11,
-      "year2to4": 33,
-      "year4to6": 0,
-      "over6": 44
+    "ageBreakdown": {
+      "0": {
+        "children": 3,
+        "classes": 1,
+        "ratio": 3
+      },
+      "1": {
+        "children": 13,
+        "classes": 3,
+        "ratio": 4.3
+      },
+      "2": {
+        "children": 11,
+        "classes": 2,
+        "ratio": 5.5
+      },
+      "3": {
+        "children": 13,
+        "classes": 1,
+        "ratio": 13
+      }
     },
-    "waitlistTotal": 6,
+    "teacherTenure": {
+      "under1": 20,
+      "year1to2": 10,
+      "year2to4": 30,
+      "year4to6": 0,
+      "over6": 40
+    },
+    "waitlistTotal": 17,
     "cctvCount": 21,
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=28710000026",
     "tags": [
@@ -360,29 +389,7 @@
       "교사비율주의",
       "숙련교사"
     ],
-    "stabilityScore": 2.8,
-    "ageBreakdown": {
-      "0": {
-        "children": 2,
-        "classes": 1,
-        "ratio": 2
-      },
-      "1": {
-        "children": 13,
-        "classes": 2,
-        "ratio": 6.5
-      },
-      "2": {
-        "children": 12,
-        "classes": 2,
-        "ratio": 6
-      },
-      "3": {
-        "children": 14,
-        "classes": 1,
-        "ratio": 14
-      }
-    }
+    "stabilityScore": 2.8
   },
   {
     "id": "28710000047",
@@ -405,6 +412,18 @@
     "hasSchoolBus": false,
     "expenseLevel": "정부 지원 (보육료 지원)",
     "ageRange": "만 1세 ~ 만 3세",
+    "ageBreakdown": {
+      "1": {
+        "children": 1,
+        "classes": 1,
+        "ratio": 1
+      },
+      "3": {
+        "children": 1,
+        "classes": 1,
+        "ratio": 1
+      }
+    },
     "teacherTenure": {
       "under1": 50,
       "year1to2": 0,
@@ -423,19 +442,7 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4,
-    "ageBreakdown": {
-      "1": {
-        "children": 1,
-        "classes": 1,
-        "ratio": 1
-      },
-      "3": {
-        "children": 1,
-        "classes": 1,
-        "ratio": 1
-      }
-    }
+    "stabilityScore": 4
   },
   {
     "id": "28710000051",
@@ -449,23 +456,40 @@
     "longitude": 126.48670101674743,
     "phone": "032-932-1600",
     "capacity": 49,
-    "currentPupils": 31,
-    "childrenPerTeacher": 3.4,
-    "teacherRatio": "82% (9명/11명)",
+    "currentPupils": 39,
+    "childrenPerTeacher": 3.3,
+    "teacherRatio": "86% (12명/14명)",
     "safetyStatus": "CCTV 21대 설치",
     "mealStatus": "급식 제공 (영양사 미배치)",
     "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
     "hasSchoolBus": false,
     "expenseLevel": "정부 지원 (보육료 지원)",
     "ageRange": "만 0세 ~ 만 2세",
+    "ageBreakdown": {
+      "0": {
+        "children": 12,
+        "classes": 4,
+        "ratio": 3
+      },
+      "1": {
+        "children": 17,
+        "classes": 4,
+        "ratio": 4.3
+      },
+      "2": {
+        "children": 10,
+        "classes": 2,
+        "ratio": 5
+      }
+    },
     "teacherTenure": {
-      "under1": 66,
-      "year1to2": 33,
+      "under1": 75,
+      "year1to2": 25,
       "year2to4": 0,
       "year4to6": 0,
       "over6": 0
     },
-    "waitlistTotal": 23,
+    "waitlistTotal": 33,
     "cctvCount": 21,
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=28710000051",
     "tags": [
@@ -474,24 +498,7 @@
       "정원여유",
       "영양사배치"
     ],
-    "stabilityScore": 3.3,
-    "ageBreakdown": {
-      "0": {
-        "children": 6,
-        "classes": 3,
-        "ratio": 2
-      },
-      "1": {
-        "children": 16,
-        "classes": 4,
-        "ratio": 4
-      },
-      "2": {
-        "children": 9,
-        "classes": 2,
-        "ratio": 4.5
-      }
-    }
+    "stabilityScore": 3.3
   },
   {
     "id": "28710000006",
@@ -514,26 +521,6 @@
     "hasSchoolBus": false,
     "expenseLevel": "정부 지원 (표준 보육료)",
     "ageRange": "만 0세 ~ 만 2세",
-    "teacherTenure": {
-      "under1": 12,
-      "year1to2": 25,
-      "year2to4": 25,
-      "year4to6": 6,
-      "over6": 31
-    },
-    "waitlistTotal": 37,
-    "cctvCount": 14,
-    "specialPrograms": "영아전담",
-    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=28710000006",
-    "tags": [
-      "영아전담",
-      "CCTV완비",
-      "대기있음",
-      "거의만원",
-      "특성화교육",
-      "영양사배치"
-    ],
-    "stabilityScore": 4.3,
     "ageBreakdown": {
       "0": {
         "children": 12,
@@ -550,7 +537,27 @@
         "classes": 4,
         "ratio": 7
       }
-    }
+    },
+    "teacherTenure": {
+      "under1": 12,
+      "year1to2": 25,
+      "year2to4": 25,
+      "year4to6": 6,
+      "over6": 31
+    },
+    "waitlistTotal": 56,
+    "cctvCount": 14,
+    "specialPrograms": "영아전담",
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=28710000006",
+    "tags": [
+      "영아전담",
+      "CCTV완비",
+      "대기있음",
+      "거의만원",
+      "특성화교육",
+      "영양사배치"
+    ],
+    "stabilityScore": 4.3
   },
   {
     "id": "28710000052",
@@ -564,15 +571,22 @@
     "longitude": 126.47927945056787,
     "phone": "032-933-7896",
     "capacity": 10,
-    "currentPupils": 0,
-    "childrenPerTeacher": 0,
-    "teacherRatio": "50% (1명/2명)",
+    "currentPupils": 3,
+    "childrenPerTeacher": 1.5,
+    "teacherRatio": "67% (2명/3명)",
     "safetyStatus": "CCTV 4대 설치",
     "mealStatus": "급식 제공 (영양사 미배치)",
     "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
     "hasSchoolBus": false,
     "expenseLevel": "정부 지원 (보육료 지원)",
-    "ageRange": "만 0세",
+    "ageRange": "만 0세 ~ 만 2세",
+    "ageBreakdown": {
+      "0": {
+        "children": 3,
+        "classes": 3,
+        "ratio": 1
+      }
+    },
     "teacherTenure": {
       "under1": 100,
       "year1to2": 0,
@@ -587,16 +601,11 @@
       "소규모시설",
       "CCTV완비",
       "대기있음",
-      "영양사배치"
+      "정원여유",
+      "영양사배치",
+      "교사비율우수"
     ],
-    "stabilityScore": 2.8,
-    "ageBreakdown": {
-      "0": {
-        "children": 0,
-        "classes": 2,
-        "ratio": 0
-      }
-    }
+    "stabilityScore": 3.8
   },
   {
     "id": "28710000028",
@@ -619,25 +628,6 @@
     "hasSchoolBus": false,
     "expenseLevel": "정부 지원 (보육료 지원)",
     "ageRange": "만 0세 ~ 만 5세",
-    "teacherTenure": {
-      "under1": 12,
-      "year1to2": 25,
-      "year2to4": 0,
-      "year4to6": 25,
-      "over6": 37
-    },
-    "waitlistTotal": 2,
-    "cctvCount": 16,
-    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=28710000028",
-    "tags": [
-      "CCTV완비",
-      "대기있음",
-      "정원여유",
-      "영양사배치",
-      "교사비율주의",
-      "숙련교사"
-    ],
-    "stabilityScore": 3.3,
     "ageBreakdown": {
       "1": {
         "children": 11,
@@ -654,7 +644,26 @@
         "classes": 1,
         "ratio": 8
       }
-    }
+    },
+    "teacherTenure": {
+      "under1": 25,
+      "year1to2": 12,
+      "year2to4": 0,
+      "year4to6": 25,
+      "over6": 37
+    },
+    "waitlistTotal": 4,
+    "cctvCount": 16,
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=28710000028",
+    "tags": [
+      "CCTV완비",
+      "대기있음",
+      "정원여유",
+      "영양사배치",
+      "교사비율주의",
+      "숙련교사"
+    ],
+    "stabilityScore": 3.3
   },
   {
     "id": "28710000011",
@@ -668,8 +677,8 @@
     "longitude": 126.4999628,
     "phone": "032-934-6999",
     "capacity": 79,
-    "currentPupils": 67,
-    "childrenPerTeacher": 6.1,
+    "currentPupils": 66,
+    "childrenPerTeacher": 6,
     "teacherRatio": "79% (11명/14명)",
     "safetyStatus": "CCTV 10대 설치",
     "mealStatus": "급식 제공 (영양사 미배치)",
@@ -677,24 +686,6 @@
     "hasSchoolBus": false,
     "expenseLevel": "시설별 차등 (상세 문의)",
     "ageRange": "만 0세 ~ 만 5세",
-    "teacherTenure": {
-      "under1": 9,
-      "year1to2": 9,
-      "year2to4": 18,
-      "year4to6": 9,
-      "over6": 54
-    },
-    "waitlistTotal": 10,
-    "cctvCount": 10,
-    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=28710000011",
-    "tags": [
-      "CCTV완비",
-      "대기있음",
-      "영양사배치",
-      "교사비율주의",
-      "숙련교사"
-    ],
-    "stabilityScore": 3.3,
     "ageBreakdown": {
       "0": {
         "children": 6,
@@ -722,10 +713,28 @@
         "ratio": 7
       },
       "5": {
-        "children": 11,
+        "children": 10,
         "classes": 1,
-        "ratio": 11
+        "ratio": 10
       }
-    }
+    },
+    "teacherTenure": {
+      "under1": 9,
+      "year1to2": 9,
+      "year2to4": 18,
+      "year4to6": 9,
+      "over6": 54
+    },
+    "waitlistTotal": 15,
+    "cctvCount": 10,
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=28710000011",
+    "tags": [
+      "CCTV완비",
+      "대기있음",
+      "영양사배치",
+      "교사비율주의",
+      "숙련교사"
+    ],
+    "stabilityScore": 3.3
   }
 ]

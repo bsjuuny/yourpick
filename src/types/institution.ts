@@ -51,3 +51,26 @@ export interface SearchParams {
     type: InstitutionType | '전체';
 }
 
+export interface RegionRankingBucket {
+    count: number;
+    capacity: number; // 정원 합계
+    currentPupils: number; // 현원 합계
+    fillRate: number | null; // currentPupils / capacity
+}
+
+export interface RegionRanking {
+    sidoCode: string;
+    sggCode: string;
+    sidoName: string;
+    sggName: string;
+    kindergarten: RegionRankingBucket;
+    childcare: RegionRankingBucket;
+    combined: RegionRankingBucket;
+}
+
+export interface RegionRankingResponse {
+    generatedAt: string;
+    regionCount: number;
+    regions: RegionRanking[];
+}
+
