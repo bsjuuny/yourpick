@@ -21,15 +21,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                             유어<span className="text-indigo-600 group-hover:text-slate-900 transition-colors">픽</span>
                         </span>
                         <p className="text-xs font-black text-slate-600 tracking-[0.3em] mt-3 uppercase font-heading">
-                            더 나은 선택 · 더 좋은 시작 · 선진형 보육 비교
+                            유치원·어린이집 공시 정보 비교
                         </p>
                     </div>
                     <div className="text-center md:text-right space-y-2">
                         <div className="text-[13px] font-bold text-slate-500 leading-relaxed uppercase tracking-widest">
-                            Official Public Data Integrated
+                            공시 시점과 갱신 주기는 기관·항목별로 다를 수 있으며, 최종 정보는 공식 포털에서 확인해 주세요.
                         </div>
                         <div className="text-xs text-slate-500 font-medium">
-                            © {new Date().getFullYear()} 유어픽 · 교육부·보건복지부 공시 데이터 기반
+                            © {new Date().getFullYear()} 유어픽 · <a className="underline hover:text-indigo-600" href="https://e-childschoolinfo.moe.go.kr/" target="_blank" rel="noopener noreferrer">유치원 알리미</a> · <a className="underline hover:text-indigo-600" href="https://info.childcare.go.kr/" target="_blank" rel="noopener noreferrer">어린이집 정보공개 포털</a>
                         </div>
                     </div>
                 </div>

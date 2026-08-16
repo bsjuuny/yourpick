@@ -2,7 +2,7 @@
 
 import { Institution } from '@/types/institution';
 import { useCompareStore } from '@/store/useCompareStore';
-import { MapPin, Users, ListPlus, Bus, Award, CheckCircle2, Sparkles, Cctv, Baby, Wallet, AlertTriangle } from 'lucide-react';
+import { MapPin, Users, ListPlus, Bus, CheckCircle2, Sparkles, Cctv, Baby, Wallet, AlertTriangle } from 'lucide-react';
 
 interface Props {
     data: Institution;
@@ -38,12 +38,8 @@ export default function InstitutionCard({ data }: Props) {
         : capRatio <= 30 ? 'text-slate-500 bg-slate-50 border-slate-100'
         : 'text-emerald-600 bg-emerald-50 border-emerald-100';
 
-    // 전문성 TOP: 전문교사 비율 80% 이상 + 6년 이상 경력 20% 이상
-    const teacherRatioNum = parseInt(data.teacherRatio || '0') || 0;
-    const isProfessionalismTop = teacherRatioNum >= 80 && (data.teacherTenure?.over6 ?? 0) >= 20;
-
-    // 인기 배지: 정원 무관, 점유율 95% 이상
-    const isPopular = capRatio >= 95;
+    // 공시된 현원/정원으로 계산한 충원율 표기
+    const isHighOccupancy = capRatio >= 95;
 
     // 교사 수 추출: (전문교사명/전체교사명) 포맷에서 전체교사수를 우선으로 함
     const teacherCountMatch = data.teacherRatio?.match(/\((\d+)명\/(\d+)명\)/);
@@ -78,6 +74,13 @@ export default function InstitutionCard({ data }: Props) {
     const topTags = TAG_PRIORITY
         .filter(t => data.tags?.includes(t) && !EXCLUDED_FROM_TOP.has(t))
         .slice(0, 3);
+    const TAG_LABELS: Record<string, string> = {
+        '즉시입소가능': '입소 가능 표기',
+        '대기있음': '대기 인원 있음',
+        '숙련교사': '6년 이상 경력교사 있음',
+        '교사비율우수': '교사비율 기준 이내',
+        '교사비율주의': '교사비율 확인 필요',
+    };
 
 
     return (
@@ -94,24 +97,19 @@ export default function InstitutionCard({ data }: Props) {
                     }`}>
                         {data.source || '유치원'}
                     </span>
-                    {isPopular && (
+                    {isHighOccupancy && (
                         <span className="flex items-center gap-1 text-xs font-black text-amber-600 uppercase tracking-widest bg-amber-50 px-2 py-1 rounded-lg border border-amber-100 shadow-sm">
-                            <Sparkles className="w-3 h-3" /> 인기
-                        </span>
-                    )}
-                    {isProfessionalismTop && (
-                        <span className="flex items-center gap-1 text-xs font-black text-indigo-600 uppercase tracking-widest bg-indigo-50 px-2 py-1 rounded-lg border border-indigo-100 shadow-sm">
-                            <Award className="w-3 h-3" /> 전문성 TOP
+                            <Users className="w-3 h-3" /> 정원 충원 95%+
                         </span>
                     )}
                     {topTags.map(tag => (
                         WARNING_TAGS.has(tag) ? (
                             <span key={tag} className="flex items-center gap-1 text-xs font-black text-white bg-amber-500 px-2 py-1 rounded-lg border border-amber-400 shadow-sm">
-                                <AlertTriangle className="w-3 h-3" aria-hidden="true" /> {tag}
+                                <AlertTriangle className="w-3 h-3" aria-hidden="true" /> {TAG_LABELS[tag] || tag}
                             </span>
                         ) : (
                             <span key={tag} className="flex items-center gap-1 text-xs font-black text-teal-600 bg-teal-50 px-2 py-1 rounded-lg border border-teal-100 shadow-sm">
-                                {tag}
+                                {TAG_LABELS[tag] || tag}
                             </span>
                         )
                     ))}
@@ -156,14 +154,14 @@ export default function InstitutionCard({ data }: Props) {
                             <Users className="w-3.5 h-3.5" aria-hidden="true" />
                             <span>현원 {data.currentPupils}명 / 정원 {data.capacity}명</span>
                         </div>
-                        <span className="text-xs font-black text-slate-400">{capRatio}% 확보</span>
+                        <span className="text-xs font-black text-slate-400">정원 충원율 {capRatio}%</span>
                     </div>
                     <div
                         role="progressbar"
                         aria-valuenow={capRatio}
                         aria-valuemin={0}
                         aria-valuemax={100}
-                        aria-label={`수용 인원 확보율 ${capRatio}%`}
+                        aria-label={`정원 충원율 ${capRatio}%`}
                         className="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden shadow-inner border border-slate-100"
                     >
                         <div

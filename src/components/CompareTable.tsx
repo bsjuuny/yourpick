@@ -1,7 +1,7 @@
 'use client';
 
 import { Institution } from '@/types/institution';
-import { X, Users, Clock, MapPin, Bus, Phone, Award, ShieldAlert, BadgeCheck, School, ExternalLink, ChevronRight, Sparkles, ShieldCheck, Utensils, Baby, Cctv, Star, Wallet } from 'lucide-react';
+import { X, Users, Clock, MapPin, Bus, Phone, Award, ShieldAlert, BadgeCheck, School, ExternalLink, Sparkles, ShieldCheck, Utensils, Baby, Cctv, Wallet } from 'lucide-react';
 import { useCompareStore } from '@/store/useCompareStore';
 import React from 'react';
 
@@ -32,24 +32,11 @@ export default function CompareTable({ data }: Props) {
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-2">비교할 기관이 없습니다</h3>
                 <p className="text-slate-500 max-w-xs mx-auto text-sm leading-relaxed">
-                    관심 있는 유치원이나 어린이집을 담아 한눈에 비교하고 최고의 환경을 선택하세요.
+                    관심 있는 유치원이나 어린이집을 담아 공시 항목을 한눈에 비교하세요.
                 </p>
             </div>
         );
     }
-
-    // Helper to find the "best" in row (e.g., highest teacher ratio)
-    const getBestValue = (key: string) => {
-        if (key === 'teacherRatio') {
-            const ratios = data.map(item => parseFloat(item.teacherRatio || '0'));
-            return Math.max(...ratios);
-        }
-        if (key === 'over6') {
-            const counts = data.map(item => item.teacherTenure?.over6 || 0);
-            return Math.max(...counts);
-        }
-        return -1;
-    };
 
     // The hasSpecialPrograms check is no longer needed as it's now a dedicated category
     // const hasSpecialPrograms = data.some(item => item.specialPrograms && item.specialPrograms !== '정보 없음');
@@ -160,7 +147,7 @@ export default function CompareTable({ data }: Props) {
             ]
         },
         {
-            name: '교사 전문성',
+            name: '교사 현황',
             fields: [
                 {
                     key: 'childrenPerTeacher',
@@ -205,22 +192,12 @@ export default function CompareTable({ data }: Props) {
                     render: (item: Institution) => {
                         const ratioStr = item.teacherRatio || '0%';
                         const isUnknown = ratioStr.startsWith('정보');
-                        const ratioNum = parseFloat(ratioStr);
-                        const veteranCount = item.teacherTenure?.over6 || 0;
-
-                        // 전문성 TOP: 전문교사 비율 80% 이상 + 6년 이상 경력 20% 이상
-                        const isBest = !isUnknown && ratioNum >= 80 && veteranCount >= 20;
 
                         return (
                             <div className="relative">
-                                <div className={`text-lg font-black tracking-tight ${isBest ? 'text-indigo-600' : isUnknown ? 'text-slate-300' : 'text-slate-700'}`}>
+                                <div className={`text-lg font-black tracking-tight ${isUnknown ? 'text-slate-300' : 'text-slate-700'}`}>
                                     {isUnknown ? ratioStr : ratioStr.split(' ')[0]}
                                 </div>
-                                {isBest && (
-                                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-indigo-600 text-white text-sm px-1.5 py-0.5 rounded-sm font-bold shadow-sm">
-                                        전문성 TOP
-                                    </div>
-                                )}
                                 {!isUnknown && (
                                     <div className="text-xs text-slate-400 font-medium mt-0.5">{ratioStr.split('(')[1]?.replace(')', '') || ''}</div>
                                 )}
@@ -237,14 +214,12 @@ export default function CompareTable({ data }: Props) {
                         if (!t) return <span className="text-slate-300 italic">-</span>;
                         // teacherTenure 필드는 모두 % 값 (명수 아님)
                         if (t.over6 === 0 && t.under1 === 0) return <span className="text-slate-300 italic">-</span>;
-                        const isBestValue = t.over6 === getBestValue('over6') && t.over6 > 0;
-
                         return (
                             <div className="flex flex-col items-center w-full max-w-[150px] mx-auto space-y-2">
                                 <div className="flex justify-between w-full items-end">
                                     <div className="flex flex-col items-start leading-none">
                                         <span className="text-xs text-slate-400 font-bold uppercase">Veteran</span>
-                                        <span className={`text-base font-black ${isBestValue ? 'text-indigo-600' : 'text-slate-800'}`}>{t.over6}%</span>
+                                        <span className="text-base font-black text-slate-800">{t.over6}%</span>
                                     </div>
                                     <div className="text-xs font-bold text-slate-500 bg-slate-50 px-1.5 py-0.5 rounded">
                                         6년 이상
@@ -253,32 +228,8 @@ export default function CompareTable({ data }: Props) {
                                 <div className="w-full h-2 bg-slate-100 rounded-full flex overflow-hidden">
                                     <div className="h-full bg-slate-300" style={{ width: `${t.under1 + t.year1to2}%` }}></div>
                                     <div className="h-full bg-slate-400 opacity-50" style={{ width: `${t.year2to4 + t.year4to6}%` }}></div>
-                                    <div className={`h-full ${isBestValue ? 'bg-indigo-600' : 'bg-indigo-400'}`} style={{ width: `${t.over6}%` }}></div>
+                                    <div className="h-full bg-indigo-400" style={{ width: `${t.over6}%` }}></div>
                                 </div>
-                            </div>
-                        );
-                    }
-                },
-                {
-                    key: 'stabilityScore',
-                    label: '기관 안정성',
-                    icon: <Star className="w-4 h-4 opacity-70" />,
-                    render: (item: Institution) => {
-                        const score = item.stabilityScore || 3.0;
-                        const getStabilityGrade = (s: number) => {
-                            if (s >= 4.5) return { label: 'A+', color: 'text-indigo-600 bg-indigo-50 border-indigo-100' };
-                            if (s >= 4.0) return { label: 'A', color: 'text-blue-600 bg-blue-50 border-blue-100' };
-                            if (s >= 3.5) return { label: 'B', color: 'text-emerald-600 bg-emerald-50 border-emerald-100' };
-                            if (s >= 3.0) return { label: 'C', color: 'text-slate-600 bg-slate-50 border-slate-100' };
-                            return { label: 'D', color: 'text-rose-600 bg-rose-50 border-rose-100' };
-                        };
-                        const config = getStabilityGrade(score);
-                        return (
-                            <div className="flex flex-col items-center gap-1">
-                                <span className={`px-4 py-1.5 rounded-2xl text-base font-black border ${config.color}`}>
-                                    {config.label}
-                                </span>
-                                <span className="text-xs font-bold text-slate-400">교사 숙련도/비율 기반</span>
                             </div>
                         );
                     }
@@ -416,7 +367,7 @@ export default function CompareTable({ data }: Props) {
                 <div className="flex items-center gap-6">
                     <div className="flex items-center gap-2 text-sm font-bold text-slate-500">
                         <div className="w-3 h-3 bg-indigo-600 rounded-sm"></div>
-                        <span>Best Indicator</span>
+                        <span>기관별 공시 항목</span>
                     </div>
                 </div>
                 <div className="hidden md:flex items-center text-sm font-bold text-slate-400 gap-2">

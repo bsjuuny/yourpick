@@ -20,7 +20,7 @@ function ListContent() {
     const [localSearch, setLocalSearch] = useState('');
     const [typeFilter, setTypeFilter] = useState(initialType);
     const [sourceFilter, setSourceFilter] = useState<InstitutionSource | '전체'>('전체');
-    const [sortBy, setSortBy] = useState<'distance' | 'stability'>('distance');
+    const [sortBy, setSortBy] = useState<'distance' | 'capacity'>('distance');
     const { data: institutions, isLoading, error } = useInstitutions(sido, sgg, sourceFilter);
 
     if (isLoading) {
@@ -70,10 +70,8 @@ function ListContent() {
                 return a.latitude - b.latitude;
             }
             return a.longitude - b.longitude;
-        } else {
-            // 안정성 점수 기반 정렬 (Score visibility)
-            return (b.stabilityScore || 0) - (a.stabilityScore || 0);
         }
+        return (b.capacity || 0) - (a.capacity || 0);
     }) || [];
 
     return (
@@ -175,11 +173,11 @@ function ListContent() {
                         </div>
                         <select 
                             value={sortBy}
-                            onChange={(e) => setSortBy(e.target.value as any)}
+                            onChange={(e) => setSortBy(e.target.value as 'distance' | 'capacity')}
                             className="bg-transparent border-none text-[13px] font-black text-slate-700 pr-8 py-2 focus:ring-0 cursor-pointer w-full"
                         >
                             <option value="distance">위치 비슷함 순</option>
-                            <option value="stability">안정성 점수 순</option>
+                            <option value="capacity">정원 많은 순</option>
                         </select>
                     </div>
                 </div>
