@@ -612,15 +612,45 @@ async function run() {
             for (const sgg of sido.sggList) {
                 console.log(`Fetching data for ${sido.sidoName} ${sgg.sggName}...`);
                 const [basicInfo, teachersInfo, afterSchoolData, schoolBusData, mealData, safetyData, , tenureHtml] = await Promise.all([
-                    fetchApi('basicInfo2', sido.sidoCode, sgg.sggCode),
-                    fetchApi('teachersInfo', sido.sidoCode, sgg.sggCode).catch(() => null),
-                    fetchApi('afterSchoolPresent', sido.sidoCode, sgg.sggCode).catch(() => null),
-                    fetchApi('schoolBus', sido.sidoCode, sgg.sggCode).catch(() => null),
-                    fetchApi('schoolMeal', sido.sidoCode, sgg.sggCode).catch(() => null),
-                    fetchApi('safetyEdu', sido.sidoCode, sgg.sggCode).catch(() => null),
-                    fetchApi('environmentHygiene', sido.sidoCode, sgg.sggCode).catch(() => null),
-                    fetchTenureHtml(sido.sidoCode, sgg.sggCode).catch(() => '')
+                    fetchApi('basicInfo2', sido.sidoCode, sgg.sggCode).catch((e) => {
+                        console.warn(`   ⚠️ basicInfo2 fetch failed for ${sido.sidoName} ${sgg.sggName}: ${e.message}`);
+                        return null;
+                    }),
+                    fetchApi('teachersInfo', sido.sidoCode, sgg.sggCode).catch((e) => {
+                        console.warn(`   ⚠️ teachersInfo fetch failed for ${sido.sidoName} ${sgg.sggName}: ${e.message}`);
+                        return null;
+                    }),
+                    fetchApi('afterSchoolPresent', sido.sidoCode, sgg.sggCode).catch((e) => {
+                        console.warn(`   ⚠️ afterSchoolPresent fetch failed for ${sido.sidoName} ${sgg.sggName}: ${e.message}`);
+                        return null;
+                    }),
+                    fetchApi('schoolBus', sido.sidoCode, sgg.sggCode).catch((e) => {
+                        console.warn(`   ⚠️ schoolBus fetch failed for ${sido.sidoName} ${sgg.sggName}: ${e.message}`);
+                        return null;
+                    }),
+                    fetchApi('schoolMeal', sido.sidoCode, sgg.sggCode).catch((e) => {
+                        console.warn(`   ⚠️ schoolMeal fetch failed for ${sido.sidoName} ${sgg.sggName}: ${e.message}`);
+                        return null;
+                    }),
+                    fetchApi('safetyEdu', sido.sidoCode, sgg.sggCode).catch((e) => {
+                        console.warn(`   ⚠️ safetyEdu fetch failed for ${sido.sidoName} ${sgg.sggName}: ${e.message}`);
+                        return null;
+                    }),
+                    fetchApi('environmentHygiene', sido.sidoCode, sgg.sggCode).catch((e) => {
+                        console.warn(`   ⚠️ environmentHygiene fetch failed for ${sido.sidoName} ${sgg.sggName}: ${e.message}`);
+                        return null;
+                    }),
+                    fetchTenureHtml(sido.sidoCode, sgg.sggCode).catch((e) => {
+                        console.warn(`   ⚠️ tenureHtml fetch failed for ${sido.sidoName} ${sgg.sggName}: ${e.message}`);
+                        return '';
+                    })
                 ]);
+
+                if (!basicInfo) {
+                    console.warn(`   ⚠️ Skipping ${sido.sidoName} ${sgg.sggName}: basicInfo2 unavailable.`);
+                    await delay(2000);
+                    continue;
+                }
 
                 const tenureMap = parseTenureTable(tenureHtml);
                 const spclMap = extractSpclMap(afterSchoolData);
