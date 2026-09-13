@@ -31,6 +31,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                         <div className="text-xs text-slate-500 font-medium">
                             © {new Date().getFullYear()} 유어픽 · <a className="underline hover:text-indigo-600" href="https://e-childschoolinfo.moe.go.kr/" target="_blank" rel="noopener noreferrer">유치원 알리미</a> · <a className="underline hover:text-indigo-600" href="https://info.childcare.go.kr/" target="_blank" rel="noopener noreferrer">어린이집 정보공개 포털</a>
                         </div>
+                        <div className="text-xs font-bold text-slate-500">
+                            🧸 어린이집 공지문이 헷갈린다면 · <a className="underline text-indigo-600 hover:text-slate-900" href="/gongjitalk/">공지톡 정리함</a>에서 부모가 할 일만 정리해보세요
+                        </div>
                     </div>
                 </div>
             </footer>
