@@ -18,6 +18,14 @@ if (!CHILDCARE_API_KEY) {
     console.warn('⚠️ CHILDCARE_API_KEY is not set in .env.local — 어린이집 데이터 수집이 비활성화됩니다.');
 }
 
+// 휴대전화 번호(010/011/016/017/018/019)는 가정어린이집 원장 개인 번호일 수 있어 공개 데이터에서 제외.
+// 유선/대표번호(02-, 031-, 070- 등)는 그대로 유지. 누락 값은 기존 규칙대로 '-'.
+const MOBILE_PHONE_RE = /(^|[^\d])\(?01[016789]\)?[-.\s)]*\d{3,4}[-.\s]*\d{4}(?!\d)/;
+function sanitizePhone(value) {
+    if (!value) return '-';
+    return MOBILE_PHONE_RE.test(String(value)) ? '-' : value;
+}
+
 const REGIONS = [
     {
         "sidoCode": "11",
@@ -285,7 +293,7 @@ function normalizeData(basicInfoData, teachersInfoData, tenureMap, schoolBusData
         const address = item.addr || item.adres || '-';
         const lat = parseFloat(item.lttdcdnt || item.la || item.lat) || 0;
         const lng = parseFloat(item.lngtcdnt || item.lo || item.lng) || 0;
-        const phone = item.telno || item.tel || '-';
+        const phone = sanitizePhone(item.telno || item.tel);
 
         const capacity = parseInt(item.prmstfcnt || item.mstbc || item.capacity || '0', 10);
         const currentPupils = (parseInt(item.ppcnt3 || 0, 10) + parseInt(item.ppcnt4 || 0, 10) + parseInt(item.ppcnt5 || 0, 10) + parseInt(item.mixppcnt || 0, 10) + parseInt(item.shppcnt || 0, 10)) || parseInt(item.ppcnt || item.current || '0', 10);
@@ -491,7 +499,7 @@ function normalizeChildcareData(items, sidoCode, sggCode) {
             const address = item.craddr || '-';
             const lat = parseFloat(item.la) || 0;
             const lng = parseFloat(item.lo) || 0;
-            const phone = item.crtelno || '-';
+            const phone = sanitizePhone(item.crtelno);
             const capacity = parseInt(item.crcapat) || 0;
             const currentPupils = parseInt(item.crchcnt) || 0;
             const hasSchoolBus = (item.crcargbname || '').includes('운용');
