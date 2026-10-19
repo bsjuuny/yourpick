@@ -37,7 +37,8 @@
       "영양사법정미달"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-0128-b044-e053-0a32095ab044",
@@ -75,7 +76,8 @@
       "숙련교사"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 4
+    "stabilityScore": 4,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-0129-b044-e053-0a32095ab044",
@@ -112,7 +114,8 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 4.5
+    "stabilityScore": 4.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-012a-b044-e053-0a32095ab044",
@@ -150,7 +153,8 @@
       "숙련교사"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-04f8-b044-e053-0a32095ab044",
@@ -188,7 +192,8 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-04f9-b044-e053-0a32095ab044",
@@ -228,7 +233,8 @@
       "숙련교사"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-0553-b044-e053-0a32095ab044",
@@ -267,7 +273,8 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-0554-b044-e053-0a32095ab044",
@@ -305,7 +312,8 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-074b-b044-e053-0a32095ab044",
@@ -345,7 +353,8 @@
       "영양사법정충족"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 2.5
+    "stabilityScore": 2.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-0928-b044-e053-0a32095ab044",
@@ -382,7 +391,8 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-0929-b044-e053-0a32095ab044",
@@ -420,7 +430,8 @@
       "정원여유"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-092a-b044-e053-0a32095ab044",
@@ -459,7 +470,8 @@
       "영양사법정미달"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-0999-b044-e053-0a32095ab044",
@@ -499,7 +511,8 @@
       "숙련교사"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 4.5
+    "stabilityScore": 4.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-0cff-b044-e053-0a32095ab044",
@@ -536,7 +549,8 @@
       "거의만원"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3
+    "stabilityScore": 3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-0d97-b044-e053-0a32095ab044",
@@ -575,7 +589,8 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-0dfe-b044-e053-0a32095ab044",
@@ -612,7 +627,8 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 2.5
+    "stabilityScore": 2.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-0dff-b044-e053-0a32095ab044",
@@ -652,7 +668,8 @@
       "영양사법정충족"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "559ec6d5-55ef-46f4-ae17-52e43e716d52",
@@ -662,8 +679,8 @@
     "type": "국공립",
     "source": "유치원",
     "address": "경기도 이천시 신서희로 33",
-    "latitude": 0,
-    "longitude": 0,
+    "latitude": null,
+    "longitude": null,
     "phone": "031-630-9780",
     "capacity": 58,
     "currentPupils": 49,
@@ -687,7 +704,15 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 2.5
+    "stabilityScore": 2.5,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "outside_korea"
+    ],
+    "sourceCoordinates": {
+      "latitude": 0,
+      "longitude": 0
+    }
   },
   {
     "id": "1ecec08d-0127-b044-e053-0a32095ab044",
@@ -727,7 +752,8 @@
       "숙련교사"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-00c5-b044-e053-0a32095ab044",
@@ -766,7 +792,8 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-00c2-b044-e053-0a32095ab044",
@@ -804,7 +831,8 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08c-ee63-b044-e053-0a32095ab044",
@@ -845,7 +873,8 @@
       "영양사법정충족"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08c-ef34-b044-e053-0a32095ab044",
@@ -881,7 +910,8 @@
       "CCTV완비"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3
+    "stabilityScore": 3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08c-ef35-b044-e053-0a32095ab044",
@@ -920,7 +950,8 @@
       "영양사법정충족"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3
+    "stabilityScore": 3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08c-ef3d-b044-e053-0a32095ab044",
@@ -960,7 +991,8 @@
       "영양사법정충족"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08c-f1e1-b044-e053-0a32095ab044",
@@ -999,7 +1031,8 @@
       "영양사법정충족"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3
+    "stabilityScore": 3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08c-f375-b044-e053-0a32095ab044",
@@ -1029,7 +1062,8 @@
       "정원여유"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3
+    "stabilityScore": 3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08c-f3e0-b044-e053-0a32095ab044",
@@ -1065,7 +1099,8 @@
       "CCTV완비"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08c-f3e1-b044-e053-0a32095ab044",
@@ -1102,7 +1137,8 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 4
+    "stabilityScore": 4,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08c-f3e2-b044-e053-0a32095ab044",
@@ -1140,7 +1176,8 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08c-f3e6-b044-e053-0a32095ab044",
@@ -1180,7 +1217,8 @@
       "숙련교사"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08c-f849-b044-e053-0a32095ab044",
@@ -1218,7 +1256,8 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08c-f88b-b044-e053-0a32095ab044",
@@ -1257,7 +1296,8 @@
       "숙련교사"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08c-f88c-b044-e053-0a32095ab044",
@@ -1288,7 +1328,8 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3
+    "stabilityScore": 3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08c-fbaf-b044-e053-0a32095ab044",
@@ -1326,7 +1367,8 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3
+    "stabilityScore": 3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08c-fc68-b044-e053-0a32095ab044",
@@ -1366,7 +1408,8 @@
       "영양사법정충족"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 2.5
+    "stabilityScore": 2.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08c-fce4-b044-e053-0a32095ab044",
@@ -1406,7 +1449,8 @@
       "숙련교사"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08c-fce6-b044-e053-0a32095ab044",
@@ -1445,7 +1489,8 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "f8b9a3a6-71df-4b57-ab5d-1634bf7856e9",
@@ -1485,6 +1530,7 @@
       "영양사법정충족"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 2.5
+    "stabilityScore": 2.5,
+    "locationStatus": "region_consistent"
   }
 ]

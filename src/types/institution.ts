@@ -10,8 +10,12 @@ export interface Institution {
     type: InstitutionType;
     source: InstitutionSource;
     address: string;
-    latitude: number;
-    longitude: number;
+    latitude: number | null;
+    longitude: number | null;
+    // Region consistency is not verification of an individual building.
+    locationStatus?: 'region_consistent' | 'unconfirmed';
+    locationIssues?: string[];
+    sourceCoordinates?: { latitude: number | string | null; longitude: number | string | null };
     phone: string;
     capacity: number; // 정원
     currentPupils: number; // 현원

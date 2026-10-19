@@ -71,7 +71,8 @@
       "교사비율주의",
       "영양사법정충족"
     ],
-    "stabilityScore": 2.8
+    "stabilityScore": 2.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000018",
@@ -140,7 +141,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 4
+    "stabilityScore": 4,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000015",
@@ -206,7 +208,8 @@
       "영양사배치",
       "교사비율주의"
     ],
-    "stabilityScore": 2.8
+    "stabilityScore": 2.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000103",
@@ -216,8 +219,8 @@
     "type": "민간",
     "source": "어린이집",
     "address": "경기도 포천시 소흘읍 태봉로 124 관리동(고운마을주공4단지아파트)",
-    "latitude": 37.82761143,
-    "longitude": 127.1452477,
+    "latitude": null,
+    "longitude": null,
     "phone": "031-543-5760",
     "capacity": 34,
     "currentPupils": 32,
@@ -265,7 +268,15 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "duplicate_coordinate_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.82761143,
+      "longitude": 127.1452477
+    }
   },
   {
     "id": "40600000055",
@@ -344,7 +355,8 @@
       "숙련교사",
       "영양사법정충족"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000005",
@@ -396,7 +408,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000006",
@@ -447,7 +460,8 @@
       "정원여유",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000097",
@@ -505,7 +519,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000149",
@@ -552,7 +567,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000047",
@@ -604,7 +620,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000056",
@@ -656,7 +673,8 @@
       "정원여유",
       "영양사배치"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41650000006",
@@ -711,7 +729,8 @@
       "대기있음",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000032",
@@ -771,7 +790,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000012",
@@ -826,7 +846,8 @@
       "대기있음",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000208",
@@ -878,7 +899,8 @@
       "정원여유",
       "영양사배치"
     ],
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000230",
@@ -949,7 +971,8 @@
       "영양사배치",
       "교사비율주의"
     ],
-    "stabilityScore": 2.5
+    "stabilityScore": 2.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000140",
@@ -959,8 +982,8 @@
     "type": "가정",
     "source": "어린이집",
     "address": "경기도 포천시 소흘읍 태봉로 227 212동 103호(송천마을뜨란채아파트)",
-    "latitude": 37.82764122,
-    "longitude": 127.1374696,
+    "latitude": null,
+    "longitude": null,
     "phone": "031-541-8001",
     "capacity": 17,
     "currentPupils": 12,
@@ -1016,7 +1039,15 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "duplicate_coordinate_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.82764122,
+      "longitude": 127.1374696
+    }
   },
   {
     "id": "41650000001",
@@ -1026,8 +1057,8 @@
     "type": "국공립",
     "source": "어린이집",
     "address": "경기도 포천시 소흘읍 송선로 60 서희스타힐스 아파트 내",
-    "latitude": 37.8360808,
-    "longitude": 127.1436988,
+    "latitude": null,
+    "longitude": null,
     "phone": "031-541-2920",
     "capacity": 70,
     "currentPupils": 50,
@@ -1073,7 +1104,15 @@
       "영양사배치",
       "교사비율주의"
     ],
-    "stabilityScore": 2.3
+    "stabilityScore": 2.3,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "duplicate_coordinate_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.8360808,
+      "longitude": 127.1436988
+    }
   },
   {
     "id": "40600000138",
@@ -1125,7 +1164,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41650000008",
@@ -1177,7 +1217,8 @@
       "영양사배치",
       "교사비율주의"
     ],
-    "stabilityScore": 1.8
+    "stabilityScore": 1.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000144",
@@ -1252,7 +1293,8 @@
       "숙련교사",
       "영양사법정충족"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000234",
@@ -1321,7 +1363,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000011",
@@ -1391,7 +1434,8 @@
       "영양사배치",
       "교사비율주의"
     ],
-    "stabilityScore": 2.3
+    "stabilityScore": 2.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000073",
@@ -1401,8 +1445,8 @@
     "type": "민간",
     "source": "어린이집",
     "address": "경기도 포천시 소흘읍 태봉로 227 관리동(송천마을주공2단지)",
-    "latitude": 37.82761143,
-    "longitude": 127.1452477,
+    "latitude": null,
+    "longitude": null,
     "phone": "031-541-1323",
     "capacity": 29,
     "currentPupils": 29,
@@ -1453,7 +1497,15 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "duplicate_coordinate_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.82761143,
+      "longitude": 127.1452477
+    }
   },
   {
     "id": "40600000025",
@@ -1504,7 +1556,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000151",
@@ -1567,7 +1620,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000232",
@@ -1628,7 +1682,8 @@
       "정원여유",
       "영양사배치"
     ],
-    "stabilityScore": 4
+    "stabilityScore": 4,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000180",
@@ -1684,7 +1739,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.5
+    "stabilityScore": 4.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000228",
@@ -1736,7 +1792,8 @@
       "영양사배치",
       "교사비율주의"
     ],
-    "stabilityScore": 1.8
+    "stabilityScore": 1.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000017",
@@ -1791,7 +1848,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 4
+    "stabilityScore": 4,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000167",
@@ -1848,7 +1906,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4
+    "stabilityScore": 4,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000092",
@@ -1901,7 +1960,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000221",
@@ -1956,7 +2016,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000169",
@@ -2009,7 +2070,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000152",
@@ -2062,7 +2124,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000236",
@@ -2123,7 +2186,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000026",
@@ -2190,7 +2254,8 @@
       "영양사배치",
       "교사비율주의"
     ],
-    "stabilityScore": 1.8
+    "stabilityScore": 1.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000231",
@@ -2246,7 +2311,8 @@
       "정원여유",
       "영양사배치"
     ],
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000044",
@@ -2318,7 +2384,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000157",
@@ -2375,7 +2442,8 @@
       "영양사배치",
       "교사비율주의"
     ],
-    "stabilityScore": 2.8
+    "stabilityScore": 2.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000038",
@@ -2428,7 +2496,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000129",
@@ -2480,7 +2549,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000203",
@@ -2547,7 +2617,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000163",
@@ -2615,7 +2686,8 @@
       "교사비율주의",
       "영양사법정충족"
     ],
-    "stabilityScore": 2.3
+    "stabilityScore": 2.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000220",
@@ -2672,7 +2744,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.5
+    "stabilityScore": 4.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000172",
@@ -2682,8 +2755,8 @@
     "type": "가정",
     "source": "어린이집",
     "address": "경기도 포천시 소흘읍 솔모루로3번길 52-36 12동 101호(전원우정아파트)",
-    "latitude": 37.82764122,
-    "longitude": 127.1374696,
+    "latitude": null,
+    "longitude": null,
     "phone": "031-541-8988",
     "capacity": 19,
     "currentPupils": 12,
@@ -2728,7 +2801,15 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 4
+    "stabilityScore": 4,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "duplicate_coordinate_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.82764122,
+      "longitude": 127.1374696
+    }
   },
   {
     "id": "40600000233",
@@ -2738,8 +2819,8 @@
     "type": "민간",
     "source": "어린이집",
     "address": "경기도 포천시 소흘읍 송선로 67 원암어린이집",
-    "latitude": 37.8360808,
-    "longitude": 127.1436988,
+    "latitude": null,
+    "longitude": null,
     "phone": "031-544-2177",
     "capacity": 139,
     "currentPupils": 68,
@@ -2803,7 +2884,15 @@
       "숙련교사",
       "영양사법정충족"
     ],
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "duplicate_coordinate_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.8360808,
+      "longitude": 127.1436988
+    }
   },
   {
     "id": "40600000164",
@@ -2865,7 +2954,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000003",
@@ -2921,7 +3011,8 @@
       "정원여유",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000066",
@@ -2964,7 +3055,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 4
+    "stabilityScore": 4,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000124",
@@ -2974,8 +3066,8 @@
     "type": "가정",
     "source": "어린이집",
     "address": "경기도 포천시 소흘읍 태봉로 227 208동 101호(송천마을주공2단지)",
-    "latitude": 37.82761143,
-    "longitude": 127.1452477,
+    "latitude": null,
+    "longitude": null,
     "phone": "031-543-8738",
     "capacity": 19,
     "currentPupils": 19,
@@ -3027,7 +3119,15 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "duplicate_coordinate_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.82761143,
+      "longitude": 127.1452477
+    }
   },
   {
     "id": "41650000002",
@@ -3106,7 +3206,8 @@
       "교사비율주의",
       "영양사법정충족"
     ],
-    "stabilityScore": 2.3
+    "stabilityScore": 2.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000010",
@@ -3148,7 +3249,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000076",
@@ -3214,7 +3316,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000065",
@@ -3270,7 +3373,8 @@
       "정원여유",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41650000007",
@@ -3280,8 +3384,8 @@
     "type": "직장",
     "source": "어린이집",
     "address": "경기도 포천시 군내면 호국로 1570",
-    "latitude": 37.56647,
-    "longitude": 126.977963,
+    "latitude": null,
+    "longitude": null,
     "phone": "031-531-6455",
     "capacity": 50,
     "currentPupils": 13,
@@ -3322,7 +3426,17 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4
+    "stabilityScore": 4,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "known_placeholder",
+      "region_mismatch",
+      "duplicate_coordinate_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.56647,
+      "longitude": 126.977963
+    }
   },
   {
     "id": "40600000156",
@@ -3366,7 +3480,8 @@
       "영양사배치",
       "교사비율주의"
     ],
-    "stabilityScore": 2.5
+    "stabilityScore": 2.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000008",
@@ -3438,7 +3553,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.5
+    "stabilityScore": 4.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000050",
@@ -3489,7 +3605,8 @@
       "정원여유",
       "영양사배치"
     ],
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000009",
@@ -3546,7 +3663,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000210",
@@ -3608,7 +3726,8 @@
       "영양사배치",
       "교사비율주의"
     ],
-    "stabilityScore": 1.8
+    "stabilityScore": 1.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000235",
@@ -3660,7 +3779,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000048",
@@ -3727,7 +3847,8 @@
       "영양사배치",
       "교사비율주의"
     ],
-    "stabilityScore": 2.3
+    "stabilityScore": 2.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "40600000014",
@@ -3775,6 +3896,7 @@
       "교사비율주의",
       "숙련교사"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   }
 ]

@@ -1,0 +1,22 @@
+name: Coordinate quality
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npx eslint src/app/list/page.tsx src/components/InstitutionCard.tsx src/types/institution.ts src/utils/institutionSort.ts scripts/fetch-data.js scripts/audit-coordinates.js scripts/geo/validate-coordinates.js scripts/read-api-response.js tests/*.cjs
+      - run: npm test
+      - run: npm run audit:coordinates
+      - run: npx tsc --noEmit
+      # Build the committed, audited snapshot without contacting keyed collection APIs.
+      - run: npx next build --webpack

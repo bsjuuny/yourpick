@@ -64,7 +64,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000769",
@@ -116,7 +117,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4
+    "stabilityScore": 4,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000746",
@@ -173,7 +175,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.5
+    "stabilityScore": 4.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000697",
@@ -231,7 +234,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000732",
@@ -278,7 +282,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.5
+    "stabilityScore": 4.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000765",
@@ -345,7 +350,8 @@
       "영양사배치",
       "영양사법정충족"
     ],
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000727",
@@ -396,7 +402,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.5
+    "stabilityScore": 4.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000356",
@@ -444,7 +451,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000184",
@@ -506,7 +514,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4
+    "stabilityScore": 4,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000083",
@@ -562,7 +571,8 @@
       "정원여유",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000634",
@@ -619,7 +629,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000710",
@@ -660,7 +671,8 @@
       "숙련교사",
       "CCTV미설치"
     ],
-    "stabilityScore": 3.9
+    "stabilityScore": 3.9,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000281",
@@ -711,7 +723,8 @@
       "즉시입소가능",
       "영양사배치"
     ],
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000690",
@@ -721,8 +734,8 @@
     "type": "가정",
     "source": "어린이집",
     "address": "서울특별시 강서구 마곡중앙1로 72 1018동 101호(마곡동,마곡엠밸리10단지)",
-    "latitude": 37.556909852,
-    "longitude": 126.8178734241,
+    "latitude": null,
+    "longitude": null,
     "phone": "02-2665-5757",
     "capacity": 20,
     "currentPupils": 19,
@@ -773,7 +786,15 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "duplicate_coordinate_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.556909852,
+      "longitude": 126.8178734241
+    }
   },
   {
     "id": "11500000123",
@@ -824,7 +845,8 @@
       "정원여유",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000093",
@@ -879,7 +901,8 @@
       "대기있음",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000013",
@@ -945,7 +968,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000716",
@@ -999,7 +1023,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000712",
@@ -1055,7 +1080,8 @@
       "정원여유",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000681",
@@ -1116,7 +1142,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000768",
@@ -1172,7 +1199,8 @@
       "정원여유",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000660",
@@ -1234,7 +1262,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000767",
@@ -1292,7 +1321,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000669",
@@ -1354,7 +1384,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000770",
@@ -1412,7 +1443,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000670",
@@ -1475,7 +1507,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000717",
@@ -1534,7 +1567,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000741",
@@ -1604,7 +1638,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000704",
@@ -1662,7 +1697,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000682",
@@ -1723,7 +1759,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000247",
@@ -1793,7 +1830,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 2.8
+    "stabilityScore": 2.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000668",
@@ -1844,7 +1882,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000672",
@@ -1906,7 +1945,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000734",
@@ -1976,7 +2016,8 @@
       "영양사배치",
       "교사비율주의"
     ],
-    "stabilityScore": 2.8
+    "stabilityScore": 2.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000720",
@@ -2043,7 +2084,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000671",
@@ -2102,7 +2144,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000760",
@@ -2153,7 +2196,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000662",
@@ -2211,7 +2255,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000764",
@@ -2267,7 +2312,8 @@
       "정원여유",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000735",
@@ -2342,7 +2388,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000755",
@@ -2404,7 +2451,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000685",
@@ -2465,7 +2513,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000756",
@@ -2524,7 +2573,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 2.8
+    "stabilityScore": 2.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000729",
@@ -2584,7 +2634,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000762",
@@ -2645,7 +2696,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000012",
@@ -2707,7 +2759,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000726",
@@ -2766,7 +2819,8 @@
       "영양사배치",
       "교사비율주의"
     ],
-    "stabilityScore": 1.8
+    "stabilityScore": 1.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000757",
@@ -2776,8 +2830,8 @@
     "type": "국공립",
     "source": "어린이집",
     "address": "서울특별시 강서구 화곡로54길 43",
-    "latitude": 37.56647,
-    "longitude": 126.977963,
+    "latitude": null,
+    "longitude": null,
     "phone": "02-2699-9118",
     "capacity": 55,
     "currentPupils": 55,
@@ -2833,7 +2887,17 @@
       "영양사배치",
       "교사비율주의"
     ],
-    "stabilityScore": 1.8
+    "stabilityScore": 1.8,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "known_placeholder",
+      "region_mismatch",
+      "duplicate_coordinate_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.56647,
+      "longitude": 126.977963
+    }
   },
   {
     "id": "11500000715",
@@ -2884,7 +2948,8 @@
       "대기있음",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000731",
@@ -2943,7 +3008,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000743",
@@ -3003,7 +3069,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000763",
@@ -3058,7 +3125,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000750",
@@ -3114,7 +3182,8 @@
       "정원여유",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000739",
@@ -3170,7 +3239,8 @@
       "정원여유",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000738",
@@ -3225,7 +3295,8 @@
       "대기있음",
       "영양사배치"
     ],
-    "stabilityScore": 2.8
+    "stabilityScore": 2.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000766",
@@ -3287,7 +3358,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000714",
@@ -3345,7 +3417,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000719",
@@ -3397,7 +3470,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000683",
@@ -3460,7 +3534,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000684",
@@ -3511,7 +3586,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000673",
@@ -3573,7 +3649,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000661",
@@ -3636,7 +3713,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000722",
@@ -3690,7 +3768,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000721",
@@ -3750,7 +3829,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000703",
@@ -3808,7 +3888,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000730",
@@ -3870,7 +3951,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000044",
@@ -3941,7 +4023,8 @@
       "영양사배치",
       "교사비율주의"
     ],
-    "stabilityScore": 2.8
+    "stabilityScore": 2.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000754",
@@ -4003,7 +4086,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000751",
@@ -4066,7 +4150,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000718",
@@ -4142,7 +4227,8 @@
       "영양사배치",
       "영양사법정충족"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000705",
@@ -4200,7 +4286,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000733",
@@ -4264,7 +4351,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000713",
@@ -4324,7 +4412,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000761",
@@ -4380,7 +4469,8 @@
       "정원여유",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000255",
@@ -4441,7 +4531,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000737",
@@ -4499,7 +4590,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000238",
@@ -4570,7 +4662,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000006",
@@ -4630,7 +4723,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000584",
@@ -4687,7 +4781,8 @@
       "거의만원",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000179",
@@ -4739,7 +4834,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000711",
@@ -4815,7 +4911,8 @@
       "영양사배치",
       "영양사법정충족"
     ],
-    "stabilityScore": 4
+    "stabilityScore": 4,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000745",
@@ -4890,7 +4987,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000742",
@@ -4950,7 +5048,8 @@
       "즉시입소가능",
       "영양사배치"
     ],
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000161",
@@ -5016,7 +5115,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000392",
@@ -5064,7 +5164,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000056",
@@ -5120,7 +5221,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000593",
@@ -5167,7 +5269,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000180",
@@ -5225,7 +5328,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000345",
@@ -5287,7 +5391,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4
+    "stabilityScore": 4,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000169",
@@ -5336,7 +5441,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000138",
@@ -5398,7 +5504,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000401",
@@ -5461,7 +5568,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000286",
@@ -5518,7 +5626,8 @@
       "영양사배치",
       "교사비율주의"
     ],
-    "stabilityScore": 2.3
+    "stabilityScore": 2.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000378",
@@ -5582,7 +5691,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000606",
@@ -5644,7 +5754,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000610",
@@ -5705,7 +5816,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000204",
@@ -5767,7 +5879,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000207",
@@ -5826,7 +5939,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000396",
@@ -5884,7 +5998,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000635",
@@ -5940,7 +6055,8 @@
       "대기있음",
       "영양사배치"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000583",
@@ -6003,7 +6119,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000417",
@@ -6060,7 +6177,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000323",
@@ -6119,7 +6237,8 @@
       "교사비율주의",
       "영양사법정충족"
     ],
-    "stabilityScore": 2.3
+    "stabilityScore": 2.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000567",
@@ -6177,7 +6296,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000046",
@@ -6241,7 +6361,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000239",
@@ -6293,7 +6414,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000736",
@@ -6334,7 +6456,8 @@
       "숙련교사",
       "CCTV미설치"
     ],
-    "stabilityScore": 3.9
+    "stabilityScore": 3.9,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000243",
@@ -6405,7 +6528,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000445",
@@ -6467,7 +6591,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000748",
@@ -6523,7 +6648,8 @@
       "대기있음",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000702",
@@ -6575,7 +6701,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4
+    "stabilityScore": 4,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000625",
@@ -6631,7 +6758,8 @@
       "대기있음",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000578",
@@ -6683,7 +6811,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000118",
@@ -6744,7 +6873,8 @@
       "정원여유",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000075",
@@ -6799,7 +6929,8 @@
       "대기있음",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000708",
@@ -6851,7 +6982,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4
+    "stabilityScore": 4,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000631",
@@ -6908,7 +7040,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000034",
@@ -6971,7 +7104,8 @@
       "교사비율주의",
       "영양사법정충족"
     ],
-    "stabilityScore": 2.8
+    "stabilityScore": 2.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000409",
@@ -7028,7 +7162,8 @@
       "거의만원",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000707",
@@ -7089,7 +7224,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000639",
@@ -7151,7 +7287,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000677",
@@ -7221,7 +7358,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000676",
@@ -7280,7 +7418,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000678",
@@ -7340,7 +7479,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000696",
@@ -7417,7 +7557,8 @@
       "영양사배치",
       "영양사법정충족"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000638",
@@ -7487,7 +7628,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000642",
@@ -7549,7 +7691,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000640",
@@ -7610,7 +7753,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000647",
@@ -7670,7 +7814,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000641",
@@ -7680,8 +7825,8 @@
     "type": "국공립",
     "source": "어린이집",
     "address": "서울특별시 강서구 마곡서로 175",
-    "latitude": 37.56891668623279,
-    "longitude": 126.82392495259778,
+    "latitude": null,
+    "longitude": null,
     "phone": "02-2663-4440",
     "capacity": 34,
     "currentPupils": 34,
@@ -7731,7 +7876,15 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "duplicate_coordinate_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.56891668623279,
+      "longitude": 126.82392495259778
+    }
   },
   {
     "id": "11500000643",
@@ -7802,7 +7955,8 @@
       "영양사배치",
       "교사비율주의"
     ],
-    "stabilityScore": 2.3
+    "stabilityScore": 2.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000644",
@@ -7877,7 +8031,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000645",
@@ -7937,7 +8092,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000679",
@@ -7999,7 +8155,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000740",
@@ -8072,7 +8229,8 @@
       "교사비율주의",
       "영양사법정충족"
     ],
-    "stabilityScore": 2.8
+    "stabilityScore": 2.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000686",
@@ -8082,8 +8240,8 @@
     "type": "가정",
     "source": "어린이집",
     "address": "서울특별시 강서구 마곡중앙1로 71 1308동 102호(마곡동, 마곡13단지힐스테이트마스터)",
-    "latitude": 37.556909852,
-    "longitude": 126.8178734241,
+    "latitude": null,
+    "longitude": null,
     "phone": "02-2663-0207",
     "capacity": 20,
     "currentPupils": 18,
@@ -8128,7 +8286,15 @@
       "대기있음",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "duplicate_coordinate_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.556909852,
+      "longitude": 126.8178734241
+    }
   },
   {
     "id": "11500000674",
@@ -8180,7 +8346,8 @@
       "거의만원",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000385",
@@ -8236,7 +8403,8 @@
       "정원여유",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000649",
@@ -8289,7 +8457,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000221",
@@ -8344,7 +8513,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000699",
@@ -8400,7 +8570,8 @@
       "정원여유",
       "영양사배치"
     ],
-    "stabilityScore": 4.5
+    "stabilityScore": 4.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000654",
@@ -8447,7 +8618,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000771",
@@ -8504,7 +8676,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4
+    "stabilityScore": 4,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000146",
@@ -8561,7 +8734,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000342",
@@ -8622,7 +8796,8 @@
       "정원여유",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000428",
@@ -8675,7 +8850,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000555",
@@ -8731,7 +8907,8 @@
       "영양사배치",
       "교사비율주의"
     ],
-    "stabilityScore": 2.8
+    "stabilityScore": 2.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000242",
@@ -8806,7 +8983,8 @@
       "숙련교사",
       "영양사법정충족"
     ],
-    "stabilityScore": 2.8
+    "stabilityScore": 2.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000130",
@@ -8866,7 +9044,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000273",
@@ -8922,7 +9101,8 @@
       "정원여유",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000113",
@@ -8991,7 +9171,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000197",
@@ -9044,7 +9225,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000245",
@@ -9104,7 +9286,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000145",
@@ -9163,7 +9346,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000177",
@@ -9216,7 +9400,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000390",
@@ -9274,7 +9459,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000620",
@@ -9337,7 +9523,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000560",
@@ -9399,7 +9586,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000701",
@@ -9466,7 +9654,8 @@
       "영양사배치",
       "영양사법정충족"
     ],
-    "stabilityScore": 3
+    "stabilityScore": 3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000246",
@@ -9523,7 +9712,8 @@
       "교사비율주의",
       "숙련교사"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000256",
@@ -9581,7 +9771,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000371",
@@ -9640,7 +9831,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000624",
@@ -9650,8 +9842,8 @@
     "type": "가정",
     "source": "어린이집",
     "address": "서울특별시 강서구 양천로30길 77 103-101",
-    "latitude": 37.56891668623279,
-    "longitude": 126.82392495259778,
+    "latitude": null,
+    "longitude": null,
     "phone": "02-6223-4613",
     "capacity": 20,
     "currentPupils": 20,
@@ -9699,7 +9891,15 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "duplicate_coordinate_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.56891668623279,
+      "longitude": 126.82392495259778
+    }
   },
   {
     "id": "11500000065",
@@ -9764,7 +9964,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000031",
@@ -9825,7 +10026,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000126",
@@ -9878,7 +10080,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4
+    "stabilityScore": 4,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000171",
@@ -9927,7 +10130,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000200",
@@ -9987,7 +10191,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000772",
@@ -10044,7 +10249,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4
+    "stabilityScore": 4,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000157",
@@ -10090,7 +10296,8 @@
       "대기있음",
       "영양사배치"
     ],
-    "stabilityScore": 2.8
+    "stabilityScore": 2.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000011",
@@ -10151,7 +10358,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000744",
@@ -10210,7 +10418,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000369",
@@ -10267,7 +10476,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4
+    "stabilityScore": 4,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000285",
@@ -10312,7 +10522,8 @@
       "대기있음",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000201",
@@ -10322,8 +10533,8 @@
     "type": "가정",
     "source": "어린이집",
     "address": "서울특별시 강서구 양천로69길 18 101동 111호(염창동, 극동아파트)",
-    "latitude": 37.55377921,
-    "longitude": 126.8709224,
+    "latitude": null,
+    "longitude": null,
     "phone": "02-2658-6399",
     "capacity": 19,
     "currentPupils": 13,
@@ -10365,7 +10576,15 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "duplicate_coordinate_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.55377921,
+      "longitude": 126.8709224
+    }
   },
   {
     "id": "11500000108",
@@ -10427,7 +10646,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000626",
@@ -10499,7 +10719,8 @@
       "교사비율주의",
       "영양사법정충족"
     ],
-    "stabilityScore": 2.3
+    "stabilityScore": 2.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000332",
@@ -10572,7 +10793,8 @@
       "교사비율주의",
       "영양사법정충족"
     ],
-    "stabilityScore": 2.3
+    "stabilityScore": 2.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000363",
@@ -10631,7 +10853,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000572",
@@ -10684,7 +10907,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000404",
@@ -10746,7 +10970,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000188",
@@ -10794,7 +11019,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000107",
@@ -10852,7 +11078,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000360",
@@ -10914,7 +11141,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000353",
@@ -10973,7 +11201,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000605",
@@ -11039,7 +11268,8 @@
       "영양사배치",
       "교사비율주의"
     ],
-    "stabilityScore": 2.3
+    "stabilityScore": 2.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000173",
@@ -11096,7 +11326,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000399",
@@ -11162,7 +11393,8 @@
       "정원여유",
       "영양사배치"
     ],
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000753",
@@ -11218,7 +11450,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4
+    "stabilityScore": 4,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000398",
@@ -11276,7 +11509,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000036",
@@ -11286,8 +11520,8 @@
     "type": "민간",
     "source": "어린이집",
     "address": "서울특별시 강서구 양천로 731 동아3차아파트 관리소2층 아침해어린이집",
-    "latitude": 37.55377921,
-    "longitude": 126.8709224,
+    "latitude": null,
+    "longitude": null,
     "phone": "02-2668-6733",
     "capacity": 37,
     "currentPupils": 29,
@@ -11327,7 +11561,15 @@
       "정원여유",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "duplicate_coordinate_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.55377921,
+      "longitude": 126.8709224
+    }
   },
   {
     "id": "11500000599",
@@ -11382,7 +11624,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000531",
@@ -11449,7 +11692,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000529",
@@ -11510,7 +11754,8 @@
       "영양사배치",
       "교사비율주의"
     ],
-    "stabilityScore": 2.8
+    "stabilityScore": 2.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000617",
@@ -11567,7 +11812,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000160",
@@ -11628,7 +11874,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000576",
@@ -11689,7 +11936,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000110",
@@ -11744,7 +11992,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000530",
@@ -11801,7 +12050,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000140",
@@ -11859,7 +12109,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000389",
@@ -11914,7 +12165,8 @@
       "대기있음",
       "영양사배치"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000619",
@@ -11971,7 +12223,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000049",
@@ -12037,7 +12290,8 @@
       "정원여유",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000354",
@@ -12100,7 +12354,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000014",
@@ -12174,7 +12429,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 2.8
+    "stabilityScore": 2.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000248",
@@ -12249,7 +12505,8 @@
       "숙련교사",
       "영양사법정충족"
     ],
-    "stabilityScore": 2.8
+    "stabilityScore": 2.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000590",
@@ -12316,7 +12573,8 @@
       "영양사배치",
       "영양사법정충족"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000728",
@@ -12373,7 +12631,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000536",
@@ -12422,7 +12681,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000033",
@@ -12475,7 +12735,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000292",
@@ -12532,7 +12793,8 @@
       "거의만원",
       "영양사배치"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000015",
@@ -12598,7 +12860,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000653",
@@ -12654,7 +12917,8 @@
       "정원여유",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000198",
@@ -12719,7 +12983,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000749",
@@ -12771,7 +13036,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4
+    "stabilityScore": 4,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000112",
@@ -12832,7 +13098,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000633",
@@ -12895,7 +13162,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000375",
@@ -12956,7 +13224,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000043",
@@ -13007,7 +13276,8 @@
       "정원여유",
       "영양사배치"
     ],
-    "stabilityScore": 2.8
+    "stabilityScore": 2.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000299",
@@ -13062,7 +13332,8 @@
       "숙련교사",
       "영양사법정충족"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000533",
@@ -13120,7 +13391,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 4
+    "stabilityScore": 4,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000368",
@@ -13183,7 +13455,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000283",
@@ -13240,7 +13513,8 @@
       "거의만원",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000224",
@@ -13307,7 +13581,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000223",
@@ -13356,7 +13631,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000067",
@@ -13421,7 +13697,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000241",
@@ -13499,7 +13776,8 @@
       "영양사배치",
       "영양사법정충족"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000090",
@@ -13555,7 +13833,8 @@
       "정원여유",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000603",
@@ -13620,7 +13899,8 @@
       "영양사배치",
       "교사비율주의"
     ],
-    "stabilityScore": 2.8
+    "stabilityScore": 2.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000004",
@@ -13680,7 +13960,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000228",
@@ -13722,7 +14003,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000594",
@@ -13779,7 +14061,8 @@
       "거의만원",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000362",
@@ -13837,7 +14120,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000659",
@@ -13903,7 +14187,8 @@
       "정원여유",
       "영양사배치"
     ],
-    "stabilityScore": 4
+    "stabilityScore": 4,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000115",
@@ -13975,7 +14260,8 @@
       "교사비율주의",
       "숙련교사"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000114",
@@ -14051,7 +14337,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000091",
@@ -14061,8 +14348,8 @@
     "type": "국공립",
     "source": "어린이집",
     "address": "서울특���시 강서구 등촌로13자길 39-16",
-    "latitude": 37.53729595,
-    "longitude": 126.8557792,
+    "latitude": null,
+    "longitude": null,
     "phone": "02-2643-7307",
     "capacity": 50,
     "currentPupils": 34,
@@ -14117,7 +14404,15 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "address_region_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.53729595,
+      "longitude": 126.8557792
+    }
   },
   {
     "id": "11500000381",
@@ -14177,7 +14472,8 @@
       "대기있음",
       "영양사배치"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000016",
@@ -14243,7 +14539,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000297",
@@ -14307,7 +14604,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000629",
@@ -14364,7 +14662,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000367",
@@ -14422,7 +14721,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000405",
@@ -14488,7 +14788,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000210",
@@ -14549,7 +14850,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000220",
@@ -14619,7 +14921,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000170",
@@ -14682,7 +14985,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000251",
@@ -14735,7 +15039,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000325",
@@ -14804,7 +15109,8 @@
       "교사비율주의",
       "영양사법정충족"
     ],
-    "stabilityScore": 2.8
+    "stabilityScore": 2.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000747",
@@ -14861,7 +15167,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.5
+    "stabilityScore": 4.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000021",
@@ -14911,7 +15218,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 4
+    "stabilityScore": 4,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000038",
@@ -14955,7 +15263,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "11500000664",
@@ -15011,6 +15320,7 @@
       "정원여유",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   }
 ]

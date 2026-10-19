@@ -1,22 +1,16 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable @typescript-eslint/no-require-imports -- Node.js CommonJS entry point. */
 const fs = require('fs');
 const path = require('path');
 const https = require('https');
 const http = require('http');
+const { validateInstitutions } = require('./geo/validate-coordinates');
+const { auditDirectory } = require('./audit-coordinates');
+const { readApiResponse } = require('./read-api-response');
 
 require('dotenv').config({ path: path.resolve(__dirname, '../.env.local') });
 
 const API_KEY = process.env.NEXT_PUBLIC_CHILDINFO_API_KEY;
 const CHILDCARE_API_KEY = process.env.CHILDCARE_API_KEY;
-
-if (!API_KEY) {
-    console.error('❌ NEXT_PUBLIC_CHILDINFO_API_KEY is not set in .env.local');
-    process.exit(1);
-}
-
-if (!CHILDCARE_API_KEY) {
-    console.warn('⚠️ CHILDCARE_API_KEY is not set in .env.local — 어린이집 데이터 수집이 비활성화됩니다.');
-}
 
 // 휴대전화 번호(010/011/016/017/018/019)는 가정어린이집 원장 개인 번호일 수 있어 공개 데이터에서 제외.
 // 유선/대표번호(02-, 031-, 070- 등)는 그대로 유지. 누락 값은 기존 규칙대로 '-'.
@@ -198,9 +192,7 @@ async function fetchApi(endpoint, sidoCode, sggCode, retries = 3) {
         try {
             const data = await new Promise((resolve, reject) => {
                 https.get(url, options, (res) => {
-                    let body = '';
-                    res.on('data', d => body += d);
-                    res.on('end', () => resolve(body));
+                    readApiResponse(res).then(resolve, reject);
                 }).on('error', reject);
             });
 
@@ -225,9 +217,7 @@ function fetchTenureHtml(sidoCode, sggCode) {
     return new Promise((resolve, reject) => {
         const url = `https://e-childschoolinfo.moe.go.kr/api/notice/excelDownload/yearOfWork.do?key=${API_KEY}&sidoCode=${sidoCode}&sggCode=${sggCode}`;
         https.get(url, { headers: { 'User-Agent': 'Mozilla/5.0' } }, (res) => {
-            let data = '';
-            res.on('data', d => data += d);
-            res.on('end', () => resolve(data));
+            readApiResponse(res).then(resolve, reject);
         }).on('error', reject);
     });
 }
@@ -287,12 +277,12 @@ function normalizeData(basicInfoData, teachersInfoData, tenureMap, schoolBusData
     }
     const busMap = new Map(busList.map(b => [b.kindercode, b]));
 
-    return rawList.map((item, index) => {
+    return validateInstitutions(rawList.map((item, index) => {
         const name = item.kindername || item.schul_nm || item.name || '-';
         const establishField = item.establish || item.fond_sc_nm || item.type || '';
         const address = item.addr || item.adres || '-';
-        const lat = parseFloat(item.lttdcdnt || item.la || item.lat) || 0;
-        const lng = parseFloat(item.lngtcdnt || item.lo || item.lng) || 0;
+        const lat = item.lttdcdnt ?? item.la ?? item.lat ?? null;
+        const lng = item.lngtcdnt ?? item.lo ?? item.lng ?? null;
         const phone = sanitizePhone(item.telno || item.tel);
 
         const capacity = parseInt(item.prmstfcnt || item.mstbc || item.capacity || '0', 10);
@@ -384,7 +374,7 @@ function normalizeData(basicInfoData, teachersInfoData, tenureMap, schoolBusData
             alimiUrl,
             tags: []
         };
-    });
+    })).institutions;
 }
 
 function extractSpclMap(afterSchoolData) {
@@ -426,9 +416,7 @@ function fetchChildcareApi(sggCode) {
     return new Promise((resolve, reject) => {
         const url = `http://api.childcare.go.kr/mediate/rest/cpmsapi030/cpmsapi030/request?key=${CHILDCARE_API_KEY}&arcode=${sggCode}`;
         http.get(url, { headers: { 'User-Agent': 'Mozilla/5.0' } }, (res) => {
-            let data = '';
-            res.on('data', d => data += d);
-            res.on('end', () => resolve(data));
+            readApiResponse(res).then(resolve, reject);
         }).on('error', reject);
     });
 }
@@ -487,7 +475,7 @@ function buildChildcareTags(specialPrograms, hasSchoolBus) {
 }
 
 function normalizeChildcareData(items, sidoCode, sggCode) {
-    return items
+    return validateInstitutions(items
         .filter(item => {
             const status = item.crstatusname || '';
             return status === '정상' || status === '재개' || status === '';
@@ -497,8 +485,8 @@ function normalizeChildcareData(items, sidoCode, sggCode) {
             const name = item.crname || '-';
             const type = mapChildcareType(item.crtypename);
             const address = item.craddr || '-';
-            const lat = parseFloat(item.la) || 0;
-            const lng = parseFloat(item.lo) || 0;
+            const lat = item.la ?? null;
+            const lng = item.lo ?? null;
             const phone = sanitizePhone(item.crtelno);
             const capacity = parseInt(item.crcapat) || 0;
             const currentPupils = parseInt(item.crchcnt) || 0;
@@ -605,10 +593,19 @@ function normalizeChildcareData(items, sidoCode, sggCode) {
                 alimiUrl,
                 tags: buildChildcareTags(specialPrograms, hasSchoolBus),
             };
-        });
+        })).institutions;
 }
 
 async function run() {
+    if (!API_KEY) {
+        console.error('❌ NEXT_PUBLIC_CHILDINFO_API_KEY is not set in .env.local');
+        process.exit(1);
+    }
+
+    if (!CHILDCARE_API_KEY) {
+        console.warn('⚠️ CHILDCARE_API_KEY is not set in .env.local — 어린이집 데이터 수집이 비활성화됩니다.');
+    }
+
     try {
         const dataDir = path.resolve(__dirname, '../public/data');
         if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
@@ -722,10 +719,12 @@ async function run() {
             }
             console.log('🎉 All childcare data successfully collected!');
         }
+        auditDirectory(dataDir, { write: true, reportPath: path.resolve(__dirname, '../docs/coordinate-audit.json') });
     } catch (error) {
         console.error('❌ Error fetching data:', error.message);
         process.exit(1);
     }
 }
 
-run();
+if (require.main === module) run();
+module.exports = { normalizeData, normalizeChildcareData, parseXmlItems };

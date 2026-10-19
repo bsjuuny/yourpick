@@ -34,7 +34,8 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08c-f023-b044-e053-0a32095ab044",
@@ -71,7 +72,8 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08c-f025-b044-e053-0a32095ab044",
@@ -108,7 +110,8 @@
       "숙련교사"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 4.5
+    "stabilityScore": 4.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08c-f465-b044-e053-0a32095ab044",
@@ -147,7 +150,8 @@
       "숙련교사"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3
+    "stabilityScore": 3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08c-f734-b044-e053-0a32095ab044",
@@ -184,7 +188,8 @@
       "숙련교사"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 4.5
+    "stabilityScore": 4.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08c-f735-b044-e053-0a32095ab044",
@@ -223,7 +228,8 @@
       "영양사법정미달"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3
+    "stabilityScore": 3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08c-f911-b044-e053-0a32095ab044",
@@ -260,7 +266,8 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3
+    "stabilityScore": 3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08c-fd64-b044-e053-0a32095ab044",
@@ -299,7 +306,8 @@
       "영양사법정충족"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08c-ffe5-b044-e053-0a32095ab044",
@@ -338,7 +346,8 @@
       "영양사법정충족"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 1.5
+    "stabilityScore": 1.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-01a1-b044-e053-0a32095ab044",
@@ -379,7 +388,8 @@
       "영양사법정충족"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 4
+    "stabilityScore": 4,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-05d4-b044-e053-0a32095ab044",
@@ -389,8 +399,8 @@
     "type": "사립",
     "source": "유치원",
     "address": "서울��별시 중구 동호로10길 27",
-    "latitude": 37.5553898977951,
-    "longitude": 127.011862544246,
+    "latitude": null,
+    "longitude": null,
     "phone": "02-2234-4006",
     "capacity": 110,
     "currentPupils": 69,
@@ -418,7 +428,15 @@
       "영양사법정미달"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3
+    "stabilityScore": 3,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "address_region_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.5553898977951,
+      "longitude": 127.011862544246
+    }
   },
   {
     "id": "1ecec08d-0603-b044-e053-0a32095ab044",
@@ -456,7 +474,8 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3
+    "stabilityScore": 3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-0e84-b044-e053-0a32095ab044",
@@ -496,7 +515,8 @@
       "영양사법정충족"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "d2f53d6b-5999-4534-beb8-087e81f19824",
@@ -533,6 +553,7 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3
+    "stabilityScore": 3,
+    "locationStatus": "region_consistent"
   }
 ]

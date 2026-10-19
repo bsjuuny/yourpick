@@ -3,12 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "prebuild": "node scripts/fetch-data.js && node scripts/augment-data.js && node scripts/build-ranking.js",
+    "prebuild": "node scripts/fetch-data.js && node scripts/audit-coordinates.js --check && node scripts/augment-data.js && node scripts/build-ranking.js",
     "dev": "next dev",
     "build": "next build",
     "build:push": "npm run build && git add . && git commit -m \"Build and update 유어픽\" && git push",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "node --test tests/*.test.cjs",
+    "audit:coordinates": "node scripts/audit-coordinates.js --check",
+    "audit:coordinates:fix": "node scripts/audit-coordinates.js --write"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.90.21",

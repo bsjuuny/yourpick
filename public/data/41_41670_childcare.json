@@ -7,8 +7,8 @@
     "type": "민간",
     "source": "어린이집",
     "address": "주소 미상",
-    "latitude": 0,
-    "longitude": 0,
+    "latitude": null,
+    "longitude": null,
     "phone": "전화번호 미제공",
     "capacity": 0,
     "currentPupils": 0,
@@ -35,6 +35,15 @@
       "즉시입소가능",
       "CCTV미설치"
     ],
-    "stabilityScore": 2.7
+    "stabilityScore": 2.7,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "outside_korea",
+      "address_region_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": 0,
+      "longitude": 0
+    }
   }
 ]

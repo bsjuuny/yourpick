@@ -35,7 +35,8 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3
+    "stabilityScore": 3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08c-fc91-b044-e053-0a32095ab044",
@@ -72,7 +73,8 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-059c-b044-e053-0a32095ab044",
@@ -110,7 +112,8 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-0e51-b044-e053-0a32095ab044",
@@ -149,7 +152,8 @@
       "숙련교사"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 4
+    "stabilityScore": 4,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "b6c1771b-44b9-4181-9367-6d6755ec9a12",
@@ -159,8 +163,8 @@
     "type": "국공립",
     "source": "유치원",
     "address": "경기도 성남시 수정구 남위례로 131",
-    "latitude": 0,
-    "longitude": 0,
+    "latitude": null,
+    "longitude": null,
     "phone": "031-8039-5981",
     "capacity": 240,
     "currentPupils": 229,
@@ -187,6 +191,14 @@
       "영양사법정충족"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 2.5
+    "stabilityScore": 2.5,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "outside_korea"
+    ],
+    "sourceCoordinates": {
+      "latitude": 0,
+      "longitude": 0
+    }
   }
 ]

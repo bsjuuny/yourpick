@@ -4,6 +4,7 @@ import React, { Suspense, useState } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useInstitutions } from '@/hooks/useInstitutions';
 import { InstitutionSource } from '@/types/institution';
+import { compareInstitutions } from '@/utils/institutionSort';
 import InstitutionCard from '@/components/InstitutionCard';
 import { AlertCircle, Search, ArrowLeft, Trash2, SortAsc } from 'lucide-react';
 import { useCompareStore } from '@/store/useCompareStore';
@@ -20,7 +21,7 @@ function ListContent() {
     const [localSearch, setLocalSearch] = useState('');
     const [typeFilter, setTypeFilter] = useState(initialType);
     const [sourceFilter, setSourceFilter] = useState<InstitutionSource | '전체'>('전체');
-    const [sortBy, setSortBy] = useState<'distance' | 'capacity'>('distance');
+    const [sortBy, setSortBy] = useState<'name' | 'capacity'>('name');
     const { data: institutions, isLoading, error } = useInstitutions(sido, sgg, sourceFilter);
 
     if (isLoading) {
@@ -63,16 +64,7 @@ function ListContent() {
         const matchesLocal = !localSearch || inst.name.includes(localSearch);
         const matchesType = typeFilter === '전체' || inst.type.includes(typeFilter);
         return matchesQuery && matchesLocal && matchesType;
-    }).sort((a, b) => {
-        if (sortBy === 'distance') {
-            // 위치 기반 정렬 (Geographic proximity)
-            if (Math.abs(a.latitude - b.latitude) > 0.0001) {
-                return a.latitude - b.latitude;
-            }
-            return a.longitude - b.longitude;
-        }
-        return (b.capacity || 0) - (a.capacity || 0);
-    }) || [];
+    }).sort((a, b) => compareInstitutions(a, b, sortBy)) || [];
 
     return (
         <div className="space-y-12 pb-24">
@@ -171,12 +163,13 @@ function ListContent() {
                         <div className="pl-3 py-2 text-slate-400">
                             <SortAsc className="w-3.5 h-3.5" />
                         </div>
-                        <select 
+                        <select
+                            aria-label="정렬 기준"
                             value={sortBy}
-                            onChange={(e) => setSortBy(e.target.value as 'distance' | 'capacity')}
+                            onChange={(e) => setSortBy(e.target.value as 'name' | 'capacity')}
                             className="bg-transparent border-none text-[13px] font-black text-slate-700 pr-8 py-2 focus:ring-0 cursor-pointer w-full"
                         >
-                            <option value="distance">위치 비슷함 순</option>
+                            <option value="name">이름순 (가나다)</option>
                             <option value="capacity">정원 많은 순</option>
                         </select>
                     </div>

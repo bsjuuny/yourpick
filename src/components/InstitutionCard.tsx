@@ -147,6 +147,10 @@ export default function InstitutionCard({ data }: Props) {
                     <span className="text-sm text-slate-600 leading-snug font-bold line-clamp-2">{data.address}</span>
                 </div>
 
+                {(data.locationStatus === 'unconfirmed' || data.latitude == null || data.longitude == null) && (
+                    <p className="text-xs font-bold text-amber-700">위치 좌표 미확인 · 주소를 확인해 주세요</p>
+                )}
+
                 {/* 정원/현원/점유율 가시화 */}
                 <div className="space-y-3">
                     <div className="flex justify-between items-end mb-1">

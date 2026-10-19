@@ -38,7 +38,8 @@
       "영양사법정충족"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 4
+    "stabilityScore": 4,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-0afd-b044-e053-0a32095ab044",
@@ -76,7 +77,8 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-098a-b044-e053-0a32095ab044",
@@ -114,7 +116,8 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 2.5
+    "stabilityScore": 2.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-0989-b044-e053-0a32095ab044",
@@ -153,7 +156,8 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-0812-b044-e053-0a32095ab044",
@@ -191,7 +195,8 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3
+    "stabilityScore": 3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-079f-b044-e053-0a32095ab044",
@@ -230,7 +235,8 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-0547-b044-e053-0a32095ab044",
@@ -269,7 +275,8 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-0116-b044-e053-0a32095ab044",
@@ -307,7 +314,8 @@
       "숙련교사"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-0115-b044-e053-0a32095ab044",
@@ -346,7 +354,8 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08c-ffb6-b044-e053-0a32095ab044",
@@ -385,7 +394,8 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3
+    "stabilityScore": 3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08c-fcd0-b044-e053-0a32095ab044",
@@ -424,7 +434,8 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08c-fc6e-b044-e053-0a32095ab044",
@@ -464,7 +475,8 @@
       "영양사법정미달"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 4
+    "stabilityScore": 4,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08c-fb5c-b044-e053-0a32095ab044",
@@ -503,7 +515,8 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08c-f87b-b044-e053-0a32095ab044",
@@ -542,7 +555,8 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08c-f87a-b044-e053-0a32095ab044",
@@ -581,7 +595,8 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08c-f37a-b044-e053-0a32095ab044",
@@ -591,8 +606,8 @@
     "type": "사립",
     "source": "유치원",
     "address": "인천광역시 강��군 강화읍 관청길 22",
-    "latitude": 37.7499192832677,
-    "longitude": 126.487336835231,
+    "latitude": null,
+    "longitude": null,
     "phone": "032-934-2221",
     "capacity": 80,
     "currentPupils": 30,
@@ -619,7 +634,15 @@
       "숙련교사"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "address_region_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.7499192832677,
+      "longitude": 126.487336835231
+    }
   },
   {
     "id": "1ecec08c-f285-b044-e053-0a32095ab044",
@@ -658,7 +681,8 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-0deb-b044-e053-0a32095ab044",
@@ -697,6 +721,7 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   }
 ]

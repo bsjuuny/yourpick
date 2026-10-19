@@ -75,7 +75,8 @@
         "classes": 1,
         "ratio": 12
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "28140000056",
@@ -122,7 +123,8 @@
         "classes": 2,
         "ratio": 1.5
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "28140000095",
@@ -179,7 +181,8 @@
         "classes": 1,
         "ratio": 5
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "28140000029",
@@ -236,7 +239,8 @@
         "classes": 1,
         "ratio": 0
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "28140000089",
@@ -289,7 +293,8 @@
         "classes": 1,
         "ratio": 0
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "28140000012",
@@ -357,7 +362,8 @@
         "classes": 1,
         "ratio": 9
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "28140000121",
@@ -398,7 +404,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.5
+    "stabilityScore": 4.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "28140000005",
@@ -462,7 +469,8 @@
         "classes": 1,
         "ratio": 15
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "28140000008",
@@ -506,7 +514,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.5
+    "stabilityScore": 4.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "28140000124",
@@ -565,7 +574,8 @@
         "classes": 3,
         "ratio": 6.3
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "28140000123",
@@ -626,7 +636,8 @@
         "classes": 2,
         "ratio": 7
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "28140000058",
@@ -682,7 +693,8 @@
         "classes": 2,
         "ratio": 3
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "28140000013",
@@ -738,7 +750,8 @@
         "classes": 2,
         "ratio": 5.5
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "28140000010",
@@ -798,7 +811,8 @@
         "classes": 1,
         "ratio": 5
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "28140000015",
@@ -855,7 +869,8 @@
         "classes": 1,
         "ratio": 0
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "28140000044",
@@ -865,8 +880,8 @@
     "type": "국공립",
     "source": "어린이집",
     "address": "인천광역시 동구 화도진로 187 115동 103호(만석동, 만석비치타운주공아파트)",
-    "latitude": 37.48467351,
-    "longitude": 126.6211862,
+    "latitude": null,
+    "longitude": null,
     "phone": "032-763-7176",
     "capacity": 20,
     "currentPupils": 12,
@@ -907,6 +922,14 @@
         "classes": 2,
         "ratio": 1.5
       }
+    },
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "duplicate_coordinate_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.48467351,
+      "longitude": 126.6211862
     }
   },
   {
@@ -946,7 +969,8 @@
       "정원여유",
       "영양사배치"
     ],
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "28140000018",
@@ -956,8 +980,8 @@
     "type": "민간",
     "source": "어린이집",
     "address": "인천광역시 동구 화도진로 183 106동 1층(만석동, 만석비치주공아파트)",
-    "latitude": 37.48467351,
-    "longitude": 126.6211862,
+    "latitude": null,
+    "longitude": null,
     "phone": "032-772-3337",
     "capacity": 30,
     "currentPupils": 10,
@@ -1003,6 +1027,14 @@
         "classes": 2,
         "ratio": 0
       }
+    },
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "duplicate_coordinate_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.48467351,
+      "longitude": 126.6211862
     }
   },
   {
@@ -1065,7 +1097,8 @@
         "classes": 1,
         "ratio": 0
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "28140000126",
@@ -1126,7 +1159,8 @@
         "classes": 1,
         "ratio": 8
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "28140000041",
@@ -1200,7 +1234,8 @@
         "classes": 1,
         "ratio": 7
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "28140000083",
@@ -1262,7 +1297,8 @@
         "classes": 1,
         "ratio": 0
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "28140000125",
@@ -1322,7 +1358,8 @@
         "classes": 4,
         "ratio": 7
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "28140000053",
@@ -1382,7 +1419,8 @@
         "classes": 2,
         "ratio": 3.5
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "28140000127",
@@ -1438,7 +1476,8 @@
         "classes": 2,
         "ratio": 5
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "28140000099",
@@ -1500,7 +1539,8 @@
         "classes": 1,
         "ratio": 0
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "28140000117",
@@ -1553,7 +1593,8 @@
         "classes": 1,
         "ratio": 4
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "28140000025",
@@ -1605,7 +1646,8 @@
         "classes": 1,
         "ratio": 7
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "28140000045",
@@ -1665,6 +1707,7 @@
         "classes": 2,
         "ratio": 0
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   }
 ]

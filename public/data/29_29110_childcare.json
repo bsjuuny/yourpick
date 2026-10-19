@@ -55,7 +55,8 @@
         "classes": 2,
         "ratio": 2
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000088",
@@ -112,7 +113,8 @@
         "classes": 2,
         "ratio": 2.5
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000076",
@@ -168,7 +170,8 @@
         "classes": 1,
         "ratio": 8
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000013",
@@ -211,7 +214,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000083",
@@ -266,7 +270,8 @@
         "classes": 1,
         "ratio": 5
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000084",
@@ -313,7 +318,8 @@
         "classes": 1,
         "ratio": 3
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000019",
@@ -372,7 +378,8 @@
         "classes": 1,
         "ratio": 4
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000044",
@@ -428,7 +435,8 @@
         "classes": 3,
         "ratio": 4
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000080",
@@ -490,7 +498,8 @@
         "classes": 1,
         "ratio": 8
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000037",
@@ -552,7 +561,8 @@
         "classes": 2,
         "ratio": 4.5
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000024",
@@ -613,7 +623,8 @@
         "classes": 1,
         "ratio": 5
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000015",
@@ -664,7 +675,8 @@
         "classes": 1,
         "ratio": 8
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000099",
@@ -714,7 +726,8 @@
         "classes": 3,
         "ratio": 7
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000094",
@@ -771,7 +784,8 @@
         "classes": 2,
         "ratio": 9
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000091",
@@ -821,7 +835,8 @@
         "classes": 4,
         "ratio": 6.8
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000096",
@@ -877,7 +892,8 @@
         "classes": 4,
         "ratio": 7.8
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000103",
@@ -932,7 +948,8 @@
         "classes": 2,
         "ratio": 7
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000092",
@@ -993,7 +1010,8 @@
         "classes": 1,
         "ratio": 9
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000100",
@@ -1049,7 +1067,8 @@
         "classes": 3,
         "ratio": 7
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000008",
@@ -1126,7 +1145,8 @@
         "classes": 1,
         "ratio": 14
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000095",
@@ -1187,7 +1207,8 @@
         "classes": 2,
         "ratio": 5
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000093",
@@ -1243,7 +1264,8 @@
         "classes": 1,
         "ratio": 9
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000079",
@@ -1305,7 +1327,8 @@
         "classes": 1,
         "ratio": 6
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000097",
@@ -1360,7 +1383,8 @@
         "classes": 3,
         "ratio": 3.3
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000090",
@@ -1370,8 +1394,8 @@
     "type": "국공립",
     "source": "어린이집",
     "address": "광주광역시 동구 동계로 38 무등산그린웰로제비앙아파트 114동, 1층",
-    "latitude": 35.15340618892837,
-    "longitude": 126.8527176490039,
+    "latitude": null,
+    "longitude": null,
     "phone": "062-511-7979",
     "capacity": 41,
     "currentPupils": 37,
@@ -1419,6 +1443,14 @@
         "classes": 2,
         "ratio": 7.5
       }
+    },
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "region_mismatch"
+    ],
+    "sourceCoordinates": {
+      "latitude": 35.15340618892837,
+      "longitude": 126.8527176490039
     }
   },
   {
@@ -1479,7 +1511,8 @@
         "classes": 2,
         "ratio": 3.5
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000027",
@@ -1532,7 +1565,8 @@
         "classes": 1,
         "ratio": 4
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000087",
@@ -1588,7 +1622,8 @@
         "classes": 2,
         "ratio": 4
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000048",
@@ -1649,7 +1684,8 @@
         "classes": 1,
         "ratio": 0
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000085",
@@ -1701,7 +1737,8 @@
         "classes": 1,
         "ratio": 0
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000089",
@@ -1763,7 +1800,8 @@
         "classes": 2,
         "ratio": 2.5
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000040",
@@ -1837,7 +1875,8 @@
         "classes": 1,
         "ratio": 18
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000073",
@@ -1881,7 +1920,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000042",
@@ -1924,7 +1964,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000025",
@@ -1982,7 +2023,8 @@
         "classes": 1,
         "ratio": 7
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000012",
@@ -2041,7 +2083,8 @@
         "classes": 1,
         "ratio": 2
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000028",
@@ -2106,7 +2149,8 @@
         "classes": 1,
         "ratio": 16
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000009",
@@ -2153,7 +2197,8 @@
         "classes": 1,
         "ratio": 6
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000005",
@@ -2201,7 +2246,8 @@
         "classes": 1,
         "ratio": 0
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000082",
@@ -2257,7 +2303,8 @@
         "classes": 4,
         "ratio": 4.8
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000032",
@@ -2314,7 +2361,8 @@
         "classes": 2,
         "ratio": 3
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000086",
@@ -2375,7 +2423,8 @@
         "classes": 2,
         "ratio": 5.5
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000014",
@@ -2447,7 +2496,8 @@
         "classes": 1,
         "ratio": 18
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000078",
@@ -2524,7 +2574,8 @@
         "classes": 1,
         "ratio": 20
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000036",
@@ -2586,7 +2637,8 @@
         "classes": 1,
         "ratio": 0
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000017",
@@ -2646,7 +2698,8 @@
         "classes": 4,
         "ratio": 2.5
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000047",
@@ -2690,7 +2743,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000007",
@@ -2728,7 +2782,8 @@
       "즉시입소가능",
       "영양사배치"
     ],
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000035",
@@ -2770,7 +2825,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000075",
@@ -2827,7 +2883,8 @@
         "classes": 2,
         "ratio": 5
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000010",
@@ -2884,7 +2941,8 @@
         "classes": 1,
         "ratio": 10
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   },
   {
     "id": "29110000081",
@@ -2941,6 +2999,7 @@
         "classes": 4,
         "ratio": 3.5
       }
-    }
+    },
+    "locationStatus": "region_consistent"
   }
 ]

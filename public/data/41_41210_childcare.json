@@ -69,7 +69,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000486",
@@ -129,7 +130,8 @@
       "대기있음",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000141",
@@ -184,7 +186,8 @@
       "대기있음",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000614",
@@ -246,7 +249,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.5
+    "stabilityScore": 4.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000493",
@@ -302,7 +306,8 @@
       "정원여유",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000171",
@@ -377,7 +382,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 4.5
+    "stabilityScore": 4.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000126",
@@ -438,7 +444,8 @@
       "정원여유",
       "영양사배치"
     ],
-    "stabilityScore": 2.8
+    "stabilityScore": 2.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000607",
@@ -491,7 +498,8 @@
       "숙련교사",
       "CCTV미설치"
     ],
-    "stabilityScore": 3.4
+    "stabilityScore": 3.4,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000255",
@@ -553,7 +561,8 @@
       "정원여유",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000042",
@@ -614,7 +623,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000615",
@@ -672,7 +682,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000309",
@@ -730,7 +741,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000034",
@@ -788,7 +800,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000478",
@@ -840,7 +853,8 @@
       "거의만원",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000459",
@@ -898,7 +912,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000458",
@@ -962,7 +977,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000088",
@@ -1025,7 +1041,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000462",
@@ -1082,7 +1099,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000047",
@@ -1155,7 +1173,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000261",
@@ -1202,7 +1221,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000539",
@@ -1212,8 +1232,8 @@
     "type": "가정",
     "source": "어린이집",
     "address": "경기도 광명시 가림일로 79 101동 101호(철산동, 주공도덕파크타운아파트)",
-    "latitude": 37.47003398,
-    "longitude": 126.864877,
+    "latitude": null,
+    "longitude": null,
     "phone": "02-2614-4401",
     "capacity": 15,
     "currentPupils": 15,
@@ -1264,7 +1284,15 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "duplicate_coordinate_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.47003398,
+      "longitude": 126.864877
+    }
   },
   {
     "id": "41210000632",
@@ -1321,7 +1349,8 @@
       "거의만원",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000010",
@@ -1384,7 +1413,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000024",
@@ -1394,8 +1424,8 @@
     "type": "가정",
     "source": "어린이집",
     "address": "경기도 광명시 금당로 13 711동 103호(하안동, 하안주공7단지아파트)",
-    "latitude": 37.45969084,
-    "longitude": 126.8805482,
+    "latitude": null,
+    "longitude": null,
     "phone": "02-893-4692",
     "capacity": 15,
     "currentPupils": 15,
@@ -1441,7 +1471,15 @@
       "거의만원",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "duplicate_coordinate_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.45969084,
+      "longitude": 126.8805482
+    }
   },
   {
     "id": "41210000156",
@@ -1498,7 +1536,8 @@
       "거의만원",
       "영양사배치"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000523",
@@ -1555,7 +1594,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000600",
@@ -1613,7 +1653,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000008",
@@ -1672,7 +1713,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000038",
@@ -1733,7 +1775,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000509",
@@ -1789,7 +1832,8 @@
       "거의만원",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000318",
@@ -1847,7 +1891,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000296",
@@ -1904,7 +1949,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000542",
@@ -1962,7 +2008,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000241",
@@ -2018,7 +2065,8 @@
       "영양사배치",
       "교사비율주의"
     ],
-    "stabilityScore": 2.3
+    "stabilityScore": 2.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000492",
@@ -2069,7 +2117,8 @@
       "거의만원",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000538",
@@ -2127,7 +2176,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000290",
@@ -2174,7 +2224,8 @@
       "거의만원",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000573",
@@ -2232,7 +2283,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000195",
@@ -2295,7 +2347,8 @@
       "교사비율주의",
       "숙련교사"
     ],
-    "stabilityScore": 2.8
+    "stabilityScore": 2.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000532",
@@ -2352,7 +2405,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000196",
@@ -2409,7 +2463,8 @@
       "정원여유",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000116",
@@ -2468,7 +2523,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000298",
@@ -2478,8 +2534,8 @@
     "type": "가정",
     "source": "어린이집",
     "address": "경기도 광명시 가림로 38 518동 103��(하안동, 하안본주공5단지아파트)",
-    "latitude": 37.46465495,
-    "longitude": 126.8816216,
+    "latitude": null,
+    "longitude": null,
     "phone": "02-6264-1234",
     "capacity": 20,
     "currentPupils": 15,
@@ -2530,7 +2586,15 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "duplicate_coordinate_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.46465495,
+      "longitude": 126.8816216
+    }
   },
   {
     "id": "41210000560",
@@ -2589,7 +2653,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000069",
@@ -2646,7 +2711,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000163",
@@ -2704,7 +2770,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000092",
@@ -2763,7 +2830,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000091",
@@ -2825,7 +2893,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000178",
@@ -2835,8 +2904,8 @@
     "type": "가정",
     "source": "어린이집",
     "address": "경기도 광명시 가림로 38 513동 106호(하안동, 하안주공5단지아파트)",
-    "latitude": 37.46381913,
-    "longitude": 126.8774776,
+    "latitude": null,
+    "longitude": null,
     "phone": "02-899-9876",
     "capacity": 15,
     "currentPupils": 13,
@@ -2882,7 +2951,15 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "duplicate_coordinate_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.46381913,
+      "longitude": 126.8774776
+    }
   },
   {
     "id": "41210000525",
@@ -2935,7 +3012,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000489",
@@ -3002,7 +3080,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000568",
@@ -3060,7 +3139,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000521",
@@ -3121,7 +3201,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000624",
@@ -3186,7 +3267,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000652",
@@ -3226,7 +3308,8 @@
       "영양사법정충족",
       "CCTV미설치"
     ],
-    "stabilityScore": 2.7
+    "stabilityScore": 2.7,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000140",
@@ -3301,7 +3384,8 @@
       "교사비율주의",
       "숙련교사"
     ],
-    "stabilityScore": 2.8
+    "stabilityScore": 2.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000636",
@@ -3375,7 +3459,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000108",
@@ -3440,7 +3525,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000146",
@@ -3500,7 +3586,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000308",
@@ -3559,7 +3646,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000645",
@@ -3636,7 +3724,8 @@
       "교사비율주의",
       "영양사법정충족"
     ],
-    "stabilityScore": 1.8
+    "stabilityScore": 1.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000644",
@@ -3696,7 +3785,8 @@
       "대기있음",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000622",
@@ -3706,8 +3796,8 @@
     "type": "국공립",
     "source": "어린이집",
     "address": "경기도 광명시 하안로 238 하안종합사회복지관 신관1층",
-    "latitude": 37.4587710775,
-    "longitude": 126.8856840005,
+    "latitude": null,
+    "longitude": null,
     "phone": "02-894-0684",
     "capacity": 79,
     "currentPupils": 55,
@@ -3766,7 +3856,15 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 2.8
+    "stabilityScore": 2.8,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "region_mismatch"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.4587710775,
+      "longitude": 126.8856840005
+    }
   },
   {
     "id": "41210000145",
@@ -3839,7 +3937,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000513",
@@ -3896,7 +3995,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000611",
@@ -3968,7 +4068,8 @@
       "영양사배치",
       "영양사법정충족"
     ],
-    "stabilityScore": 2.8
+    "stabilityScore": 2.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000649",
@@ -4043,7 +4144,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 2.8
+    "stabilityScore": 2.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000621",
@@ -4119,7 +4221,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000626",
@@ -4188,7 +4291,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 2.8
+    "stabilityScore": 2.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000627",
@@ -4259,7 +4363,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000620",
@@ -4323,7 +4428,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000646",
@@ -4393,7 +4499,8 @@
       "대기있음",
       "영양사배치"
     ],
-    "stabilityScore": 2.8
+    "stabilityScore": 2.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000634",
@@ -4467,7 +4574,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 2.8
+    "stabilityScore": 2.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000588",
@@ -4545,7 +4653,8 @@
       "교사비율주의",
       "영양사법정충족"
     ],
-    "stabilityScore": 2.3
+    "stabilityScore": 2.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000205",
@@ -4555,8 +4664,8 @@
     "type": "국공립",
     "source": "어린이집",
     "address": "경기도 광명시 금하로527번길 33 (소하1동)",
-    "latitude": 37.45375137,
-    "longitude": 126.8893566,
+    "latitude": null,
+    "longitude": null,
     "phone": "02-803-9943",
     "capacity": 88,
     "currentPupils": 51,
@@ -4621,7 +4730,15 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "region_mismatch"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.45375137,
+      "longitude": 126.8893566
+    }
   },
   {
     "id": "41210000628",
@@ -4692,7 +4809,8 @@
       "영양사배치",
       "교사비율주의"
     ],
-    "stabilityScore": 2.8
+    "stabilityScore": 2.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000504",
@@ -4749,7 +4867,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000128",
@@ -4759,8 +4878,8 @@
     "type": "국공립",
     "source": "어린이집",
     "address": "경기도 ���명시 안재로1번안길 2",
-    "latitude": 37.4593044,
-    "longitude": 126.8705224,
+    "latitude": null,
+    "longitude": null,
     "phone": "02-897-7766",
     "capacity": 40,
     "currentPupils": 29,
@@ -4804,7 +4923,15 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "address_region_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.4593044,
+      "longitude": 126.8705224
+    }
   },
   {
     "id": "41210000310",
@@ -4866,7 +4993,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000647",
@@ -4942,7 +5070,8 @@
       "영양사배치",
       "영양사법정충족"
     ],
-    "stabilityScore": 2.8
+    "stabilityScore": 2.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000648",
@@ -5014,7 +5143,8 @@
       "영양사배치",
       "영양사법정충족"
     ],
-    "stabilityScore": 2.8
+    "stabilityScore": 2.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000604",
@@ -5088,7 +5218,8 @@
       "숙련교사",
       "영양사법정충족"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000164",
@@ -5154,7 +5285,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000295",
@@ -5228,7 +5360,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000631",
@@ -5304,7 +5437,8 @@
       "영양사배치",
       "교사비율주의"
     ],
-    "stabilityScore": 1.8
+    "stabilityScore": 1.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000635",
@@ -5364,7 +5498,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000638",
@@ -5434,7 +5569,8 @@
       "대기있음",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000639",
@@ -5508,7 +5644,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000619",
@@ -5573,7 +5710,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000143",
@@ -5646,7 +5784,8 @@
       "교사비율주의",
       "영양사법정충족"
     ],
-    "stabilityScore": 2.3
+    "stabilityScore": 2.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000623",
@@ -5717,7 +5856,8 @@
       "영양사배치",
       "교사비율주의"
     ],
-    "stabilityScore": 1.8
+    "stabilityScore": 1.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000305",
@@ -5773,7 +5913,8 @@
       "거의만원",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000155",
@@ -5843,7 +5984,8 @@
       "영양사배치",
       "교사비율주의"
     ],
-    "stabilityScore": 2.8
+    "stabilityScore": 2.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000512",
@@ -5905,7 +6047,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000640",
@@ -5970,7 +6113,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000643",
@@ -6030,7 +6174,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000605",
@@ -6084,7 +6229,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 2.8
+    "stabilityScore": 2.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000501",
@@ -6142,7 +6288,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000599",
@@ -6196,7 +6343,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000014",
@@ -6206,8 +6354,8 @@
     "type": "가정",
     "source": "어린이집",
     "address": "경기도 광명시 금당로 11-24 701동 105호(하안동, 하안주공7단지아파트)",
-    "latitude": 37.45969084,
-    "longitude": 126.8805482,
+    "latitude": null,
+    "longitude": null,
     "phone": "02-807-6190",
     "capacity": 13,
     "currentPupils": 0,
@@ -6236,7 +6384,15 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.5
+    "stabilityScore": 4.5,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "duplicate_coordinate_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.45969084,
+      "longitude": 126.8805482
+    }
   },
   {
     "id": "41210000289",
@@ -6294,7 +6450,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000499",
@@ -6359,7 +6516,8 @@
       "대기있음",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000090",
@@ -6416,7 +6574,8 @@
       "거의만원",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000514",
@@ -6472,7 +6631,8 @@
       "거의만원",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000311",
@@ -6530,7 +6690,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000548",
@@ -6588,7 +6749,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000054",
@@ -6633,7 +6795,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000555",
@@ -6699,7 +6862,8 @@
       "영양사배치",
       "교사비율주의"
     ],
-    "stabilityScore": 2.3
+    "stabilityScore": 2.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000115",
@@ -6749,7 +6913,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000530",
@@ -6807,7 +6972,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000540",
@@ -6864,7 +7030,8 @@
       "거의만원",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000279",
@@ -6926,7 +7093,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000577",
@@ -6992,7 +7160,8 @@
       "영양사배치",
       "교사비율주의"
     ],
-    "stabilityScore": 2.3
+    "stabilityScore": 2.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000152",
@@ -7047,7 +7216,8 @@
       "대기있음",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000199",
@@ -7057,8 +7227,8 @@
     "type": "민간",
     "source": "어린이집",
     "address": "경기도 광명시 가림일로 101 201동(철산동, 주공도덕파크타운아파트)",
-    "latitude": 37.47003398,
-    "longitude": 126.864877,
+    "latitude": null,
+    "longitude": null,
     "phone": "02-2686-4177",
     "capacity": 69,
     "currentPupils": 68,
@@ -7122,7 +7292,15 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "duplicate_coordinate_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.47003398,
+      "longitude": 126.864877
+    }
   },
   {
     "id": "41210000191",
@@ -7178,7 +7356,8 @@
       "영양사배치",
       "교사비율주의"
     ],
-    "stabilityScore": 2.3
+    "stabilityScore": 2.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000076",
@@ -7188,8 +7367,8 @@
     "type": "가정",
     "source": "어린이집",
     "address": "경기도 광명시 하안로 318 1106동 110호(하안동, 주공11차아파트)",
-    "latitude": 37.46465495,
-    "longitude": 126.8816216,
+    "latitude": null,
+    "longitude": null,
     "phone": "02-891-2973",
     "capacity": 13,
     "currentPupils": 9,
@@ -7236,7 +7415,15 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "duplicate_coordinate_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.46465495,
+      "longitude": 126.8816216
+    }
   },
   {
     "id": "41210000317",
@@ -7302,7 +7489,8 @@
       "정원여유",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000551",
@@ -7360,7 +7548,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000516",
@@ -7411,7 +7600,8 @@
       "숙련교사",
       "CCTV미설치"
     ],
-    "stabilityScore": 3.9
+    "stabilityScore": 3.9,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000049",
@@ -7473,7 +7663,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000243",
@@ -7535,7 +7726,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000267",
@@ -7597,7 +7789,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4
+    "stabilityScore": 4,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000297",
@@ -7653,7 +7846,8 @@
       "대기있음",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000510",
@@ -7723,7 +7917,8 @@
       "영양사배치",
       "교사비율주의"
     ],
-    "stabilityScore": 1.8
+    "stabilityScore": 1.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000144",
@@ -7733,8 +7928,8 @@
     "type": "가정",
     "source": "어린이집",
     "address": "경기도 광명시 안현로 36 404동 103호(하안동, 하안주공4단지아파트)",
-    "latitude": 37.46381913,
-    "longitude": 126.8774776,
+    "latitude": null,
+    "longitude": null,
     "phone": "02-6332-3112",
     "capacity": 15,
     "currentPupils": 14,
@@ -7775,7 +7970,15 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "duplicate_coordinate_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.46381913,
+      "longitude": 126.8774776
+    }
   },
   {
     "id": "41210000609",
@@ -7840,7 +8043,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 4.5
+    "stabilityScore": 4.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000461",
@@ -7897,7 +8101,8 @@
       "거의만원",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000595",
@@ -7953,7 +8158,8 @@
       "거의만원",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000633",
@@ -8008,7 +8214,8 @@
       "대기있음",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000651",
@@ -8018,8 +8225,8 @@
     "type": "가정",
     "source": "어린이집",
     "address": "경기도 광명시 사성로75번길 1 103동 106호(광명동, 광명자이더샵포레나1단지)",
-    "latitude": 37.56647,
-    "longitude": 126.977963,
+    "latitude": null,
+    "longitude": null,
     "phone": "02-2687-5505",
     "capacity": 20,
     "currentPupils": 20,
@@ -8060,7 +8267,17 @@
       "거의만원",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "known_placeholder",
+      "region_mismatch",
+      "duplicate_coordinate_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.56647,
+      "longitude": 126.977963
+    }
   },
   {
     "id": "41210000603",
@@ -8112,7 +8329,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000602",
@@ -8173,7 +8391,8 @@
       "정원여유",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000541",
@@ -8235,7 +8454,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000494",
@@ -8307,7 +8527,8 @@
       "영양사배치",
       "교사비율주의"
     ],
-    "stabilityScore": 1.8
+    "stabilityScore": 1.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000273",
@@ -8364,7 +8585,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000066",
@@ -8421,7 +8643,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000174",
@@ -8483,7 +8706,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000087",
@@ -8541,7 +8765,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000562",
@@ -8598,7 +8823,8 @@
       "거의만원",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000052",
@@ -8660,7 +8886,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000030",
@@ -8718,7 +8945,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000194",
@@ -8781,7 +9009,8 @@
       "영양사배치",
       "영양사법정충족"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000642",
@@ -8791,8 +9020,8 @@
     "type": "가정",
     "source": "어린이집",
     "address": "경기도 광명시 광이로 95 114동 103호(광명동, 트리우스광명아파트)",
-    "latitude": 37.56647,
-    "longitude": 126.977963,
+    "latitude": null,
+    "longitude": null,
     "phone": "02-913-7888",
     "capacity": 18,
     "currentPupils": 18,
@@ -8834,7 +9063,17 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "known_placeholder",
+      "region_mismatch",
+      "duplicate_coordinate_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.56647,
+      "longitude": 126.977963
+    }
   },
   {
     "id": "41210000274",
@@ -8844,8 +9083,8 @@
     "type": "가정",
     "source": "어린이집",
     "address": "경기도 광명시 가림일로 79 103동 101호(철산동, 주공도덕파크타운아파트)",
-    "latitude": 37.47003398,
-    "longitude": 126.864877,
+    "latitude": null,
+    "longitude": null,
     "phone": "02-3666-9979",
     "capacity": 20,
     "currentPupils": 16,
@@ -8891,7 +9130,15 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "duplicate_coordinate_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.47003398,
+      "longitude": 126.864877
+    }
   },
   {
     "id": "41210000476",
@@ -8901,8 +9148,8 @@
     "type": "가정",
     "source": "어린이집",
     "address": "경기도 광명시 금당로 13 705동 107호(하안동, 하안주공7단지아파트)",
-    "latitude": 37.45969084,
-    "longitude": 126.8805482,
+    "latitude": null,
+    "longitude": null,
     "phone": "02-2060-0598",
     "capacity": 15,
     "currentPupils": 13,
@@ -8948,7 +9195,15 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "duplicate_coordinate_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.45969084,
+      "longitude": 126.8805482
+    }
   },
   {
     "id": "41210000465",
@@ -9005,7 +9260,8 @@
       "거의만원",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000029",
@@ -9060,7 +9316,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000265",
@@ -9117,7 +9374,8 @@
       "거의만원",
       "영양사배치"
     ],
-    "stabilityScore": 3.8
+    "stabilityScore": 3.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000498",
@@ -9170,7 +9428,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000637",
@@ -9232,7 +9491,8 @@
       "거의만원",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000591",
@@ -9291,7 +9551,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000070",
@@ -9348,7 +9609,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000564",
@@ -9406,7 +9668,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000502",
@@ -9457,7 +9720,8 @@
       "대기있음",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000177",
@@ -9513,7 +9777,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000235",
@@ -9561,7 +9826,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000266",
@@ -9571,8 +9837,8 @@
     "type": "가정",
     "source": "어린이집",
     "address": "경기도 광명시 가림로 38 하안주공아파트516-101호",
-    "latitude": 37.46381913,
-    "longitude": 126.8774776,
+    "latitude": null,
+    "longitude": null,
     "phone": "02-899-0170",
     "capacity": 18,
     "currentPupils": 14,
@@ -9620,7 +9886,15 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "duplicate_coordinate_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.46381913,
+      "longitude": 126.8774776
+    }
   },
   {
     "id": "41210000485",
@@ -9682,7 +9956,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000077",
@@ -9692,8 +9967,8 @@
     "type": "가정",
     "source": "어린이집",
     "address": "경기도 광명시 안현로 36 402동 105호(하안동, 하안주공4단지아파트)",
-    "latitude": 37.46381913,
-    "longitude": 126.8774776,
+    "latitude": null,
+    "longitude": null,
     "phone": "02-891-0383",
     "capacity": 15,
     "currentPupils": 15,
@@ -9745,7 +10020,15 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "duplicate_coordinate_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.46381913,
+      "longitude": 126.8774776
+    }
   },
   {
     "id": "41210000552",
@@ -9803,7 +10086,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000482",
@@ -9870,7 +10154,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.3
+    "stabilityScore": 4.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000527",
@@ -9927,7 +10212,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000031",
@@ -9984,7 +10270,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000254",
@@ -10040,7 +10327,8 @@
       "대기있음",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000020",
@@ -10093,7 +10381,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 4.8
+    "stabilityScore": 4.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000593",
@@ -10159,7 +10448,8 @@
       "영양사배치",
       "교사비율주의"
     ],
-    "stabilityScore": 1.8
+    "stabilityScore": 1.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000032",
@@ -10212,7 +10502,8 @@
       "교사비율우수",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "41210000245",
@@ -10279,6 +10570,7 @@
       "영양사배치",
       "교사비율주의"
     ],
-    "stabilityScore": 2.3
+    "stabilityScore": 2.3,
+    "locationStatus": "region_consistent"
   }
 ]

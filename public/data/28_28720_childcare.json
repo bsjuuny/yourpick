@@ -54,7 +54,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 5
+    "stabilityScore": 5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "28720000015",
@@ -107,7 +108,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4
+    "stabilityScore": 4,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "28720000012",
@@ -180,7 +182,8 @@
       "특성화교육",
       "영양사배치"
     ],
-    "stabilityScore": 3.3
+    "stabilityScore": 3.3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "28720000016",
@@ -221,7 +224,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.5
+    "stabilityScore": 4.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "28720000002",
@@ -274,7 +278,8 @@
       "교사비율주의",
       "숙련교사"
     ],
-    "stabilityScore": 2.8
+    "stabilityScore": 2.8,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "28720000011",
@@ -321,7 +326,8 @@
       "영양사배치",
       "교사비율주의"
     ],
-    "stabilityScore": 3
+    "stabilityScore": 3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "28720000017",
@@ -331,8 +337,8 @@
     "type": "직장",
     "source": "어린이집",
     "address": "인천광역시 옹진군 영흥면 영흥남로369번길 22",
-    "latitude": 37.35520733459801,
-    "longitude": 126.5698796107665,
+    "latitude": null,
+    "longitude": null,
     "phone": "070-8898-3273",
     "capacity": 99,
     "currentPupils": 2,
@@ -368,7 +374,15 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.5
+    "stabilityScore": 4.5,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "region_mismatch"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.35520733459801,
+      "longitude": 126.5698796107665
+    }
   },
   {
     "id": "28720000018",
@@ -378,8 +392,8 @@
     "type": "직장",
     "source": "어린이집",
     "address": "인천광역시 옹진군 백령면 백령로 783 해병대 흑룡어린이집",
-    "latitude": 37.88315866848803,
-    "longitude": 124.64932641639915,
+    "latitude": null,
+    "longitude": null,
     "phone": "032-836-3342",
     "capacity": 39,
     "currentPupils": 31,
@@ -425,6 +439,14 @@
       "영양사배치",
       "교사비율주의"
     ],
-    "stabilityScore": 2
+    "stabilityScore": 2,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "region_mismatch"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.88315866848803,
+      "longitude": 124.64932641639915
+    }
   }
 ]

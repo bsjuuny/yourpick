@@ -35,7 +35,8 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 1.5
+    "stabilityScore": 1.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "2672c35e-e02a-45c9-87e0-9c05a67cc230",
@@ -72,7 +73,8 @@
       "숙련교사"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 4
+    "stabilityScore": 4,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-0f8c-b044-e053-0a32095ab044",
@@ -109,7 +111,8 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 1.5
+    "stabilityScore": 1.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-0b1a-b044-e053-0a32095ab044",
@@ -149,7 +152,8 @@
       "영양사법정충족"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 4
+    "stabilityScore": 4,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-099d-b044-e053-0a32095ab044",
@@ -189,7 +193,8 @@
       "영양사법정미달"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 4
+    "stabilityScore": 4,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-099c-b044-e053-0a32095ab044",
@@ -230,7 +235,8 @@
       "영양사법정충족"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3
+    "stabilityScore": 3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-08ca-b044-e053-0a32095ab044",
@@ -270,7 +276,8 @@
       "영양사법정충족"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-0748-b044-e053-0a32095ab044",
@@ -308,7 +315,8 @@
       "숙련교사"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 4
+    "stabilityScore": 4,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08d-0140-b044-e053-0a32095ab044",
@@ -347,7 +355,8 @@
       "영양사법정미달"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3
+    "stabilityScore": 3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08c-fea7-b044-e053-0a32095ab044",
@@ -387,7 +396,8 @@
       "영양사법정충족"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 4
+    "stabilityScore": 4,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08c-fcfe-b044-e053-0a32095ab044",
@@ -397,8 +407,8 @@
     "type": "사립",
     "source": "유치원",
     "address": "서울특별시 ���천구 가산로 99",
-    "latitude": 37.4761617444989,
-    "longitude": 126.891292569634,
+    "latitude": null,
+    "longitude": null,
     "phone": "02-858-1436",
     "capacity": 197,
     "currentPupils": 47,
@@ -427,7 +437,15 @@
       "영양사법정미달"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 4
+    "stabilityScore": 4,
+    "locationStatus": "unconfirmed",
+    "locationIssues": [
+      "address_region_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": 37.4761617444989,
+      "longitude": 126.891292569634
+    }
   },
   {
     "id": "1ecec08c-fa8a-b044-e053-0a32095ab044",
@@ -467,7 +485,8 @@
       "영양사법정충족"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08c-f5ff-b044-e053-0a32095ab044",
@@ -507,7 +526,8 @@
       "영양사법정충족"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3.5
+    "stabilityScore": 3.5,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08c-f081-b044-e053-0a32095ab044",
@@ -547,7 +567,8 @@
       "영양사법정충족"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 3
+    "stabilityScore": 3,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "1ecec08c-ed2e-b044-e053-0a32095ab044",
@@ -584,7 +605,8 @@
       "영양사배치"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 4
+    "stabilityScore": 4,
+    "locationStatus": "region_consistent"
   },
   {
     "id": "dd159f28-f7cc-4827-93ca-472ef12db5c4",
@@ -622,6 +644,7 @@
       "숙련교사"
     ],
     "specialPrograms": "-",
-    "stabilityScore": 4.5
+    "stabilityScore": 4.5,
+    "locationStatus": "region_consistent"
   }
 ]
