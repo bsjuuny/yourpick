@@ -1,9 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
-import { Search, MapPin, Target, ChevronDown } from 'lucide-react';
-import { InstitutionType } from '@/types/institution';
+import { Search, MapPin, ChevronDown } from 'lucide-react';
 import { useCompareStore } from '@/store/useCompareStore';
 
 interface RegionItem {
@@ -20,46 +20,41 @@ interface RegionMeta {
 export default function SearchForm() {
     const router = useRouter();
     const clearCompareIds = useCompareStore((state) => state.clearCompareIds);
-    const [regions, setRegions] = useState<RegionMeta[]>([]);
+    const { data: regions = [], isPending, error, refetch } = useQuery<RegionMeta[]>({
+        queryKey: ['regions'],
+        queryFn: async () => {
+            const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+            const response = await fetch(`${basePath}/data/regions.json`);
+            if (!response.ok) throw new Error('지역 목록을 불러오지 못했습니다.');
+            const data = await response.json();
+            if (!Array.isArray(data) || data.length === 0) {
+                throw new Error('지역 목록을 확인할 수 없습니다.');
+            }
+            return data;
+        },
+        staleTime: 1000 * 60 * 60,
+    });
     const [sidoCode, setSidoCode] = useState('11'); // Default 서울
     const [sggCode, setSggCode] = useState('11620'); // Default 관악구
-    const [type, setType] = useState<InstitutionType | '전체'>('전체'); // Type filter can be added back if needed
     const [isFocused, setIsFocused] = useState(false);
-
-    useEffect(() => {
-        const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
-        fetch(`${basePath}/data/regions.json`)
-            .then(res => res.json())
-            .then(data => {
-                setRegions(data);
-                if (data.length > 0) {
-                    // Update to match first available if current is invalid
-                    const currentSido = data.find((r: RegionMeta) => r.sidoCode === sidoCode);
-                    if (!currentSido) {
-                        setSidoCode(data[0].sidoCode);
-                        setSggCode(data[0].sggList[0]?.sggCode || '');
-                    }
-                }
-            })
-            .catch(err => console.error('Failed to load regions', err));
-    }, [sidoCode]);
-
-    const currentSido = regions.find(r => r.sidoCode === sidoCode);
+    const currentSido = regions.find(r => r.sidoCode === sidoCode) ?? regions[0];
     const sggList = currentSido ? currentSido.sggList : [];
+    const selectedSggCode = sggList.some(s => s.sggCode === sggCode) ? sggCode : sggList[0]?.sggCode ?? '';
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        if (!currentSido || !selectedSggCode || isPending || error) return;
 
         // 검색 조건이 바뀔 때 기존 비교함 데이터를 초기화합니다
         clearCompareIds();
 
         const params = new URLSearchParams();
-        if (sidoCode) params.append('sido', sidoCode);
-        if (sggCode) params.append('sgg', sggCode);
+        params.append('sido', currentSido.sidoCode);
+        params.append('sgg', selectedSggCode);
 
         // Find names for UI display string
         const sidoName = currentSido?.sidoName || '';
-        const sggName = sggList.find(s => s.sggCode === sggCode)?.sggName || '';
+        const sggName = sggList.find(s => s.sggCode === selectedSggCode)?.sggName || '';
         if (sidoName || sggName) {
             params.append('query', `${sidoName} ${sggName}`.trim());
         }
@@ -82,7 +77,8 @@ export default function SearchForm() {
                     <label htmlFor="select-sido" className="absolute top-2 left-14 text-xs font-black text-slate-400 uppercase tracking-widest pointer-events-none group-focus-within:text-indigo-500 transition-all font-heading">시·도</label>
                     <select
                         id="select-sido"
-                        value={sidoCode}
+                        value={currentSido?.sidoCode ?? ''}
+                        disabled={isPending || !!error}
                         onChange={(e) => {
                             setSidoCode(e.target.value);
                             const newSido = regions.find(r => r.sidoCode === e.target.value);
@@ -113,7 +109,7 @@ export default function SearchForm() {
                     <label htmlFor="select-sgg" className="absolute top-2 left-6 text-xs font-black text-slate-400 uppercase tracking-widest pointer-events-none group-focus-within:text-indigo-500 transition-all font-heading">시·군·구</label>
                     <select
                         id="select-sgg"
-                        value={sggCode}
+                        value={selectedSggCode}
                         onChange={(e) => setSggCode(e.target.value)}
                         onFocus={() => setIsFocused(true)}
                         onBlur={() => setIsFocused(false)}
@@ -132,14 +128,19 @@ export default function SearchForm() {
                 {/* Submit Button */}
                 <button
                     type="submit"
-                    disabled={!sidoCode || !sggCode}
+                    disabled={isPending || !!error || !currentSido || !selectedSggCode}
                     className="w-full md:w-auto px-10 py-5 bg-slate-900 hover:bg-indigo-600 disabled:bg-slate-200 disabled:text-slate-400 disabled:cursor-not-allowed text-white font-black rounded-full shadow-premium hover:shadow-glow flex items-center justify-center gap-2 transform active:scale-95 transition-all duration-500 group ml-auto font-heading"
                 >
                     <Search className="w-5 h-5 group-hover:scale-110 transition-transform" aria-hidden="true" />
-                    <span>검색하기</span>
+                    <span>{isPending ? '지역 불러오는 중' : '검색하기'}</span>
                 </button>
             </div>
-
+            {error && (
+                <div role="alert" className="px-4 py-3 text-sm text-rose-700">
+                    지역 목록을 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.
+                    <button type="button" onClick={() => refetch()} className="ml-2 font-bold underline">다시 시도</button>
+                </div>
+            )}
         </form>
     );
 }

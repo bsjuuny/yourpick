@@ -14,9 +14,9 @@ jobs:
           node-version: '22'
           cache: npm
       - run: npm ci --ignore-scripts
-      - run: npx eslint src/app/list/page.tsx src/components/InstitutionCard.tsx src/types/institution.ts src/utils/institutionSort.ts scripts/fetch-data.js scripts/audit-coordinates.js scripts/geo/validate-coordinates.js scripts/read-api-response.js tests/*.cjs
+      - run: npx eslint next.config.ts src/app/layout.tsx src/app/page.tsx src/app/list/page.tsx src/components/layout/Layout.tsx src/components/layout/Navbar.tsx src/components/SearchForm.tsx src/components/DonationPopup.tsx src/components/InstitutionCard.tsx src/types/institution.ts src/utils/institutionSort.ts scripts/fetch-data.js scripts/audit-coordinates.js scripts/geo/validate-coordinates.js scripts/read-api-response.js scripts/check-export.cjs tests/*.cjs
       - run: npm test
       - run: npm run audit:coordinates
       - run: npx tsc --noEmit
       # Build the committed, audited snapshot without contacting keyed collection APIs.
-      - run: npx next build --webpack
+      - run: npm run build:static

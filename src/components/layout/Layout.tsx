@@ -1,4 +1,5 @@
 import Navbar from './Navbar';
+import DonationPopup from '../DonationPopup';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
     return (
@@ -34,6 +35,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                         <div className="text-xs font-bold text-slate-500">
                             🧸 어린이집 공지문이 헷갈린다면 · <a className="underline text-indigo-600 hover:text-slate-900" href="/gongjitalk/">공지톡 정리함</a>에서 부모가 할 일만 정리해보세요
                         </div>
+                        <DonationPopup />
                     </div>
                 </div>
             </footer>

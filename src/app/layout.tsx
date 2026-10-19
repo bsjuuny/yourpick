@@ -3,7 +3,6 @@ import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import Providers from "./providers";
 import Layout from "@/components/layout/Layout";
-import DonationPopup from "@/components/DonationPopup";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
@@ -25,7 +24,6 @@ export default function RootLayout({
           <Layout>
             {children}
           </Layout>
-          <DonationPopup />
         </Providers>
       </body>
     </html>
