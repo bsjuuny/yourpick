@@ -9,14 +9,14 @@ export default function Home() {
       <div className="absolute top-[10%] left-[10%] w-64 h-64 bg-indigo-100/20 rounded-full blur-[80px] -z-10 animate-pulse"></div>
       <div className="absolute bottom-[20%] right-[10%] w-80 h-80 bg-blue-100/20 rounded-full blur-[100px] -z-10 animate-pulse delay-700"></div>
 
-      <main className="w-full max-w-5xl px-6 text-center space-y-12">
+      <div className="w-full max-w-5xl px-0 sm:px-6 text-center space-y-12">
         <div className="space-y-6">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white shadow-premium border border-slate-100 text-indigo-600 font-black text-xs uppercase tracking-widest animate-in fade-in slide-in-from-bottom-2 duration-700">
             <Sparkles className="w-3.5 h-3.5" />
             공시 데이터 기반 유치원·어린이집 정보 비교
           </div>
 
-          <h1 className="text-4xl md:text-7xl font-black text-slate-900 tracking-tight leading-[1.1] animate-fade-up font-heading">
+          <h1 className="text-3xl sm:text-4xl md:text-7xl break-keep font-black text-slate-900 tracking-tight leading-[1.1] animate-fade-up font-heading">
             우리 아이를 위한 <br className="hidden sm:block" />
             <span className="text-indigo-600">더 나은 환경</span>의 시작
           </h1>
@@ -64,7 +64,7 @@ export default function Home() {
             <span className="font-bold text-slate-500 text-xs tracking-tight">어린이집 정보공개 portal</span>
           </div>
         </div>
-      </main>
+      </div>
     </div>
   );
 }

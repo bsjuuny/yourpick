@@ -38,8 +38,13 @@ npm run build:push
 
 ## 📦 Cafe24 배포 가이드
 
-1. `npm run build` 실행
+1. `npm ci` 후 `npm run build:static` 실행 (저장소의 검증된 데이터를 사용하며 API 재수집은 하지 않음)
 2. 빌드 성공 후 `out` 디렉토리 생성 확인
 3. FTP 클라이언트(FileZilla 등)로 Cafe24 서버에 접속
 4. `www/yourpick/` 폴더에 `out` 내부 파일 전체 업로드
 5. 도메인/yourpick 에 접속하여 동작 확인
+
+`next.config.ts`는 라우팅과 데이터 요청에 같은 `/yourpick` 경로를 빌드 시 주입합니다.
+별도 `.env.local` 없이도 빌드할 수 있으며, `NEXT_PUBLIC_BASE_PATH`를 수동 설정할 필요는 없습니다.
+`build:static`은 생성된 네 페이지의 CSS/JS와 전체 지역 데이터, 랭킹 데이터가 배포 폴더에 있는지도 검사합니다.
+배포 후 지역 선택 → 검색 → 기관 비교 및 지역 랭킹을 확인하세요. 브라우저가 `/data/regions.json`을 요청하면 오래된 빌드가 배포된 상태입니다.
