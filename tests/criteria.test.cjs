@@ -86,3 +86,10 @@ test('implausible class counts are not judged', () => {
     assert.equal(a.level, 0);
     assert.equal(a.verdict, '확인 필요');
 });
+
+test('availability shows disclosed counts instead of an inflated vacancy', () => {
+    const facts = c.lifeFacts({ ...base, source: '어린이집', type: '직장', capacity: 50, currentPupils: 5, waitlistTotal: 0 });
+    assert.equal(facts.availability.label, '정원 대비 여유 45명');
+    assert.equal(facts.priority, '직장 자녀 우선');
+    assert.equal(c.lifeFacts({ ...base, source: '어린이집', capacity: 50, currentPupils: 10, waitlistTotal: 3 }).availability.label, '대기 3명');
+});

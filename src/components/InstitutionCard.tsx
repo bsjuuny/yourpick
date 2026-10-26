@@ -120,6 +120,9 @@ export default function InstitutionCard({ data }: Props) {
                     <div className="text-sm font-black text-slate-900 leading-tight">{life.hours ?? '운영시간 정보 없음'}</div>
                     <div className="mt-2 flex flex-wrap gap-1">
                         <span className={`px-1.5 py-0.5 rounded-md border text-[11px] font-black ${availabilityColor}`}>{life.availability.label}</span>
+                        {life.priority && (
+                            <span className="px-1.5 py-0.5 rounded-md border bg-white text-slate-600 border-slate-300 text-[11px] font-black">{life.priority}</span>
+                        )}
                         {life.extended.map(label => (
                             <span key={label} className="px-1.5 py-0.5 rounded-md border bg-white text-cyan-800 border-cyan-200 text-[11px] font-black">{label}</span>
                         ))}

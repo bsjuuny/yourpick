@@ -254,6 +254,8 @@ export interface LifeFacts {
     bus: boolean;
     cost: string | null;
     availability: { label: string; tone: 'open' | 'tight' | 'waitlist' };
+    /** 입소 대상이 제한될 수 있는 기관 (직장어린이집) */
+    priority: string | null;
 }
 
 export function lifeFacts(item: Institution): LifeFacts {
@@ -275,13 +277,16 @@ export function lifeFacts(item: Institution): LifeFacts {
         ? { label: `대기 ${item.waitlistTotal}명`, tone: 'waitlist' as const }
         : fill >= 0.95
             ? { label: '정원 거의 참', tone: 'tight' as const }
-            : { label: `빈자리 약 ${Math.max(item.capacity - item.currentPupils, 0)}명`, tone: 'open' as const };
+            // 정원은 인가 상한이라 정원-현원은 '빈자리'가 아니라 '정원 대비 여유'로 부른다
+            // (실제로 받는 인원은 반 편성·교사 수에 따라 다름).
+            : { label: `정원 대비 여유 ${Math.max(item.capacity - item.currentPupils, 0)}명`, tone: 'open' as const };
     return {
         hours,
         extended: [...new Set(extended)],
         bus: item.hasSchoolBus,
         cost: item.expenseLevel && item.expenseLevel !== '-' ? item.expenseLevel : null,
         availability,
+        priority: item.type === '직장' ? '직장 자녀 우선' : null,
     };
 }
 

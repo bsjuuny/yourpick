@@ -228,11 +228,13 @@ function criterionRows(criterion: CriterionMeta, data: Institution[]): Row[] {
             rows.push({
                 key: 'life-availability', label: '입소 가능성',
                 render: (item) => {
-                    const { availability } = lifeFacts(item);
+                    const { availability, priority } = lifeFacts(item);
                     return (
                         <div>
                             <span className={`text-sm font-black ${availability.tone === 'open' ? 'text-cyan-800' : 'text-amber-700'}`}>{availability.label}</span>
                             <div className="text-[11px] font-bold text-slate-400 mt-0.5">현원 {item.currentPupils} / 정원 {item.capacity}</div>
+                            {priority && <div className="mt-1"><span className="px-2 py-0.5 rounded-md border border-slate-300 text-[11px] font-black text-slate-600">{priority}</span></div>}
+                            <p className="mt-1 text-[10px] font-medium text-slate-400 break-keep">실제 입소 가능 인원은 기관에 문의하세요</p>
                         </div>
                     );
                 },
