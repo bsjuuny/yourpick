@@ -7,7 +7,7 @@ const path = require('node:path');
 // NEXT_PUBLIC_BASE_PATH on the machine that builds the Cafe24 upload.
 const root = path.resolve(__dirname, '../out');
 const basePath = '/yourpick';
-for (const page of ['index.html', 'list/index.html', 'compare/index.html', 'ranking/index.html']) {
+for (const page of ['index.html', 'list/index.html', 'compare/index.html']) {
     const html = fs.readFileSync(path.join(root, page), 'utf8');
     const assets = [...html.matchAll(/(?:src|href)="([^"?#]+\.(?:css|js))(?:[?#][^"]*)?"/g)].map(match => match[1]);
     assert.ok(assets.some(asset => asset.endsWith('.css')), `${page}: missing stylesheet`);
@@ -45,7 +45,5 @@ for (const region of regions) {
         }
     }
 }
-const ranking = JSON.parse(fs.readFileSync(path.join(root, 'data/region-ranking.json'), 'utf8'));
-assert.equal(ranking.regionCount, regionCount, 'ranking and search region counts differ');
 assert.ok(institutionCount > 0, 'empty institution data');
-console.log(`Static export verified: 4 pages, ${regionCount} regions, ${institutionCount} institutions.`);
+console.log(`Static export verified: 3 pages, ${regionCount} regions, ${institutionCount} institutions.`);

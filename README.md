@@ -46,5 +46,5 @@ npm run build:push
 
 `next.config.ts`는 라우팅과 데이터 요청에 같은 `/yourpick` 경로를 빌드 시 주입합니다.
 별도 `.env.local` 없이도 빌드할 수 있으며, `NEXT_PUBLIC_BASE_PATH`를 수동 설정할 필요는 없습니다.
-`build:static`은 생성된 네 페이지의 CSS/JS와 전체 지역 데이터, 랭킹 데이터가 배포 폴더에 있는지도 검사합니다.
-배포 후 지역 선택 → 검색 → 기관 비교 및 지역 랭킹을 확인하세요. 브라우저가 `/data/regions.json`을 요청하면 오래된 빌드가 배포된 상태입니다.
+`build:static`은 생성된 세 페이지의 CSS/JS와 전체 지역 데이터가 배포 폴더에 있는지도 검사합니다.
+배포 후 지역 선택 → 검색 → 기관 비교를 확인하세요. 브라우저가 `/data/regions.json`을 요청하면 오래된 빌드가 배포된 상태입니다.

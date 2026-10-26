@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "prebuild": "node scripts/fetch-data.js && node scripts/audit-coordinates.js --check && node scripts/augment-data.js && node scripts/build-ranking.js",
+    "prebuild": "node scripts/fetch-data.js && node scripts/audit-coordinates.js --check && node scripts/augment-data.js",
     "dev": "next dev",
     "build": "next build",
     "build:static": "next build --webpack && node scripts/check-export.cjs",
