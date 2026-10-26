@@ -1,5 +1,6 @@
 import SearchForm from '@/components/SearchForm';
-import { Baby, ShieldCheck, Heart, Sparkles } from 'lucide-react';
+import CriteriaGuide from '@/components/criteria/CriteriaGuide';
+import { Sparkles } from 'lucide-react';
 
 export default function Home() {
   return (
@@ -31,30 +32,8 @@ export default function Home() {
           <SearchForm />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 animate-fade-up [animation-delay:600ms]">
-          <div className="p-8 bg-white/60 backdrop-blur-sm border border-slate-100 rounded-[2rem] shadow-premium flex flex-col items-center text-center group hover:bg-white hover:shadow-glow transition-all duration-500">
-            <div className="w-14 h-14 bg-indigo-50 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-              <ShieldCheck className="w-7 h-7 text-indigo-600" />
-            </div>
-            <h3 className="text-base font-black text-slate-900 mb-2 font-heading">공시 정보 확인</h3>
-            <p className="text-[13px] text-slate-400 leading-relaxed font-bold">기관이 공시한 안전·급식·시설 정보를<br />항목별로 확인</p>
-          </div>
-
-          <div className="p-8 bg-white/60 backdrop-blur-sm border border-slate-100 rounded-[2rem] shadow-premium flex flex-col items-center text-center group hover:bg-white hover:shadow-glow transition-all duration-500">
-            <div className="w-14 h-14 bg-rose-50 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-              <Heart className="w-7 h-7 text-rose-500" />
-            </div>
-            <h3 className="text-base font-black text-slate-900 mb-2 font-heading">주요 지표 비교</h3>
-            <p className="text-[13px] text-slate-400 leading-relaxed font-bold">교사 1인당 원아 수와 정원 등<br />동일 항목을 나란히 대조</p>
-          </div>
-
-          <div className="p-8 bg-white/60 backdrop-blur-sm border border-slate-100 rounded-[2rem] shadow-premium flex flex-col items-center text-center group hover:bg-white hover:shadow-glow transition-all duration-500">
-            <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-              <Baby className="w-7 h-7 text-blue-500" />
-            </div>
-            <h3 className="text-base font-black text-slate-900 mb-2 font-heading">조건별 기관 탐색</h3>
-            <p className="text-[13px] text-slate-400 leading-relaxed font-bold">지역·기관 유형·대상 연령 등<br />필요한 조건으로 검색</p>
-          </div>
+        <div className="pt-8 animate-fade-up [animation-delay:600ms]">
+          <CriteriaGuide />
         </div>
 
         <div className="pt-12 flex flex-col md:flex-row items-center justify-center gap-6 opacity-30">

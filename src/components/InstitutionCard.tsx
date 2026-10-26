@@ -2,10 +2,48 @@
 
 import { Institution } from '@/types/institution';
 import { useCompareStore } from '@/store/useCompareStore';
-import { MapPin, Users, ListPlus, Bus, CheckCircle2, Sparkles, Cctv, Baby, Wallet, AlertTriangle } from 'lucide-react';
+import { MapPin, ListPlus, CheckCircle2, Bus } from 'lucide-react';
+import { assessCare, assessSafety, assessStability, lifeFacts, type Assessment, type CriterionId } from '@/utils/selectionCriteria';
+import { CRITERION_THEME, CriterionIcon, LevelMeter, MethodBadge, VerdictText } from '@/components/criteria/CriteriaUI';
+import { CRITERIA_BY_ID } from '@/utils/selectionCriteria';
 
 interface Props {
     data: Institution;
+}
+
+const TYPE_COLOR: Record<string, string> = {
+    '국공립': 'bg-emerald-50 text-emerald-700 border-emerald-100',
+    '사립': 'bg-indigo-50 text-indigo-700 border-indigo-100',
+    '가정': 'bg-amber-50 text-amber-700 border-amber-100',
+    '민간': 'bg-rose-50 text-rose-700 border-rose-100',
+    '사회복지법인': 'bg-teal-50 text-teal-700 border-teal-100',
+    '법인단체': 'bg-cyan-50 text-cyan-700 border-cyan-100',
+    '부모협동': 'bg-purple-50 text-purple-700 border-purple-100',
+    '직장': 'bg-blue-50 text-blue-700 border-blue-100',
+};
+
+function ScoreTile({ id, assessment }: { id: CriterionId; assessment: Assessment }) {
+    const theme = CRITERION_THEME[id];
+    const title = CRITERIA_BY_ID[id].title;
+    return (
+        <div className={`rounded-2xl border p-3 ${theme.soft}`}>
+            <div className="flex items-center gap-2 mb-2">
+                <CriterionIcon id={id} size="sm" />
+                <span className="text-xs font-black text-slate-700 break-keep">{title}</span>
+            </div>
+            {assessment.metric && <div className="text-[11px] font-bold text-slate-500 whitespace-nowrap">{assessment.metric}</div>}
+            <div className="flex items-baseline justify-between gap-1.5">
+                <span className="text-xl font-black text-slate-900 leading-tight whitespace-nowrap">{assessment.value}</span>
+                <VerdictText id={id} verdict={assessment.verdict} level={assessment.level} caution={assessment.caution} />
+            </div>
+            <div className="mt-2">
+                <LevelMeter id={id} level={assessment.level} caution={assessment.caution} label={`${title} ${assessment.verdict}`} />
+            </div>
+            {assessment.detail && (
+                <p className="mt-1.5 text-[11px] font-medium text-slate-500 leading-snug break-keep">{assessment.detail}</p>
+            )}
+        </div>
+    );
 }
 
 export default function InstitutionCard({ data }: Props) {
@@ -13,108 +51,31 @@ export default function InstitutionCard({ data }: Props) {
     const compositeId = `${data.sidoCode || '11'}_${data.sggCode || '11620'}_${data.id}`;
     const isCompared = compareIds.includes(compositeId);
 
-    const getTypeColor = (type: string) => {
-        switch (type) {
-            case '국공립': return 'bg-emerald-50 text-emerald-700 border-emerald-100 shadow-sm';
-            case '사립': return 'bg-indigo-50 text-indigo-700 border-indigo-100 shadow-sm';
-            case '가정': return 'bg-amber-50 text-amber-700 border-amber-100 shadow-sm';
-            case '민간': return 'bg-rose-50 text-rose-700 border-rose-100 shadow-sm';
-            case '사회복지법인': return 'bg-teal-50 text-teal-700 border-teal-100 shadow-sm';
-            case '법인단체': return 'bg-cyan-50 text-cyan-700 border-cyan-100 shadow-sm';
-            case '부모협동': return 'bg-purple-50 text-purple-700 border-purple-100 shadow-sm';
-            case '직장': return 'bg-blue-50 text-blue-700 border-blue-100 shadow-sm';
-            default: return 'bg-slate-50 text-slate-700 border-slate-100 shadow-sm';
-        }
-    };
-
     const handleCheckbox = () => {
         if (isCompared) removeCompareId(compositeId);
         else addCompareId(compositeId);
     };
 
-    // 점유율
-    const capRatio = Math.round((data.currentPupils / (data.capacity || 1)) * 100);
-    const capColor = capRatio >= 90 ? 'text-amber-600 bg-amber-50 border-amber-100'
-        : capRatio <= 30 ? 'text-slate-500 bg-slate-50 border-slate-100'
-        : 'text-emerald-600 bg-emerald-50 border-emerald-100';
-
-    // 공시된 현원/정원으로 계산한 충원율 표기
-    const isHighOccupancy = capRatio >= 95;
-
-    // 교사 수 추출: (전문교사명/전체교사명) 포맷에서 전체교사수를 우선으로 함
-    const teacherCountMatch = data.teacherRatio?.match(/\((\d+)명\/(\d+)명\)/);
-    const totalTeacherCount = teacherCountMatch ? parseInt(teacherCountMatch[2]) : null;
-
-    // ageRange 유효 여부
-    const ageRangeValid = data.ageRange && data.ageRange !== '-';
-
-    // 연령별 법정 교사:원아 비율 기준 (영유아보육법 시행규칙)
-    const LEGAL_RATIO: { [age: number]: number } = { 0: 3, 1: 5, 2: 7, 3: 15, 4: 20, 5: 20 };
-    const ageBreakdownEntries = data.ageBreakdown
-        ? Object.entries(data.ageBreakdown)
-            .map(([k, v]) => ({ age: Number(k), ...v }))
-            .filter(e => e.children > 0)
-        : [];
-
-    // 상단에 표시할 핵심 태그 (우선순위 순, 최대 3개)
-    // 하단에 이미 표시되는 정보(셔틀·CCTV·정원현황)는 제외
-    const EXCLUDED_FROM_TOP = new Set([
-        '셔틀운행', '통학차량', 'CCTV완비', '정원여유', '거의만원',
-        '대규모시설', '소규모시설', '영양사배치', '특성화교육',
-    ]);
-    const WARNING_TAGS = new Set(['교사비율주의', '영양사법정미달', 'CCTV미설치']);
-    const TAG_PRIORITY = [
-        '즉시입소가능', '대기있음', '숙련교사',
-        '교사비율우수', '교사비율주의',
-        '영양사법정충족', '영양사법정미달', 'CCTV미설치',
-        '야간연장', '24시간', '장애아통합', '장애아전담', '영아전담',
-        '방과후운영', '시간제보육', '휴일운영', '공동육아',
-        '영어교육', '체육특성화',
-    ];
-    const topTags = TAG_PRIORITY
-        .filter(t => data.tags?.includes(t) && !EXCLUDED_FROM_TOP.has(t))
-        .slice(0, 3);
-    const TAG_LABELS: Record<string, string> = {
-        '즉시입소가능': '입소 가능 표기',
-        '대기있음': '대기 인원 있음',
-        '숙련교사': '6년 이상 경력교사 있음',
-        '교사비율우수': '교사비율 기준 이내',
-        '교사비율주의': '교사비율 확인 필요',
-    };
-
+    const life = lifeFacts(data);
+    const availabilityColor = life.availability.tone === 'open'
+        ? 'bg-white text-cyan-800 border-cyan-200'
+        : 'bg-white text-amber-700 border-amber-200';
 
     return (
-        <article aria-label={data.name} className={`group bg-white rounded-[2.5rem] p-6 md:p-8 shadow-premium border transition-all duration-500 hover:shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] hover:-translate-y-2 ${isCompared ? 'border-indigo-600 ring-8 ring-indigo-50/50 scale-[1.02]' : 'border-slate-100'}`}>
-            {/* 배지 행 + 비교담기 버튼 */}
-            <div className="flex items-center justify-between gap-3 mb-3">
+        <article aria-label={data.name} className={`group bg-white rounded-[2.5rem] p-6 md:p-7 shadow-premium border transition-all duration-500 hover:shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] hover:-translate-y-1 ${isCompared ? 'border-indigo-600 ring-8 ring-indigo-50/50' : 'border-slate-100'}`}>
+            <div className="flex items-start justify-between gap-3 mb-3">
                 <div className="flex flex-wrap items-center gap-2">
-                    <span className={`inline-flex items-center px-3 py-1 rounded-lg text-xs font-black uppercase tracking-widest border ${getTypeColor(data.type)}`}>
+                    <span className={`inline-flex items-center px-3 py-1 rounded-lg text-xs font-black tracking-widest border ${TYPE_COLOR[data.type] ?? 'bg-slate-50 text-slate-700 border-slate-100'}`}>
                         {data.type}
                     </span>
-                    <span className={`inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-black tracking-widest border shadow-sm ${data.source === '어린이집'
+                    <span className={`inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-black tracking-widest border ${data.source === '어린이집'
                         ? 'bg-orange-50 text-orange-600 border-orange-100'
                         : 'bg-sky-50 text-sky-600 border-sky-100'
                     }`}>
                         {data.source || '유치원'}
                     </span>
-                    {isHighOccupancy && (
-                        <span className="flex items-center gap-1 text-xs font-black text-amber-600 uppercase tracking-widest bg-amber-50 px-2 py-1 rounded-lg border border-amber-100 shadow-sm">
-                            <Users className="w-3 h-3" /> 정원 충원 95%+
-                        </span>
-                    )}
-                    {topTags.map(tag => (
-                        WARNING_TAGS.has(tag) ? (
-                            <span key={tag} className="flex items-center gap-1 text-xs font-black text-white bg-amber-500 px-2 py-1 rounded-lg border border-amber-400 shadow-sm">
-                                <AlertTriangle className="w-3 h-3" aria-hidden="true" /> {TAG_LABELS[tag] || tag}
-                            </span>
-                        ) : (
-                            <span key={tag} className="flex items-center gap-1 text-xs font-black text-teal-600 bg-teal-50 px-2 py-1 rounded-lg border border-teal-100 shadow-sm">
-                                {TAG_LABELS[tag] || tag}
-                            </span>
-                        )
-                    ))}
                     {data.tags?.includes('운영 확인 필요') && (
-                        <span className="flex items-center gap-1 text-xs font-black text-rose-500 bg-rose-50 px-2 py-1 rounded-lg border border-rose-100 shadow-sm">
+                        <span className="text-xs font-black text-rose-500 bg-rose-50 px-2 py-1 rounded-lg border border-rose-100">
                             운영 확인 필요
                         </span>
                     )}
@@ -124,7 +85,7 @@ export default function InstitutionCard({ data }: Props) {
                     aria-label={isCompared ? `비교함에서 제거: ${data.name}` : `비교함에 추가: ${data.name}`}
                     aria-pressed={isCompared}
                     className={`flex-shrink-0 w-11 h-11 rounded-2xl flex items-center justify-center transition-all duration-500 border-2 ${isCompared
-                        ? 'bg-indigo-600 border-indigo-600 text-white shadow-glow rotate-[360deg]'
+                        ? 'bg-indigo-600 border-indigo-600 text-white shadow-glow'
                         : 'bg-slate-50 border-slate-50 text-slate-300 hover:bg-white hover:border-indigo-200 hover:text-indigo-500 hover:shadow-xl'
                     }`}
                 >
@@ -132,124 +93,50 @@ export default function InstitutionCard({ data }: Props) {
                 </button>
             </div>
 
-            {/* 기관명 */}
-            <div className="mb-6">
-                <h3 className="text-2xl font-black text-slate-900 leading-snug group-hover:text-indigo-600 transition-colors break-keep font-heading mb-2">
-                    {data.name}
-                </h3>
+            <h3 className="text-xl md:text-2xl font-black text-slate-900 leading-snug group-hover:text-indigo-600 transition-colors break-keep font-heading">
+                {data.name}
+            </h3>
+            <div className="flex items-start gap-1.5 mt-2 mb-5 text-sm text-slate-500 font-bold">
+                <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0 text-slate-400" aria-hidden="true" />
+                <span className="line-clamp-2">{data.address}</span>
+            </div>
+            {(data.locationStatus === 'unconfirmed' || data.latitude == null || data.longitude == null) && (
+                <p className="-mt-3 mb-4 text-xs font-bold text-amber-700">위치 좌표 미확인 · 주소를 확인해 주세요</p>
+            )}
+
+            <div className="flex items-center justify-between mb-2">
+                <span className="text-[11px] font-black text-slate-400 tracking-wide">고르는 기준</span>
+                <MethodBadge method="data" />
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+                <ScoreTile id="care" assessment={assessCare(data)} />
+                <ScoreTile id="stability" assessment={assessStability(data)} />
+                <ScoreTile id="safety" assessment={assessSafety(data)} />
+                <div className={`rounded-2xl border p-3 ${CRITERION_THEME.life.soft}`}>
+                    <div className="flex items-center gap-2 mb-2">
+                        <CriterionIcon id="life" size="sm" />
+                        <span className="text-xs font-black text-slate-700">{CRITERIA_BY_ID.life.title}</span>
+                    </div>
+                    <div className="text-sm font-black text-slate-900 leading-tight">{life.hours ?? '운영시간 정보 없음'}</div>
+                    <div className="mt-2 flex flex-wrap gap-1">
+                        <span className={`px-1.5 py-0.5 rounded-md border text-[11px] font-black ${availabilityColor}`}>{life.availability.label}</span>
+                        {life.extended.map(label => (
+                            <span key={label} className="px-1.5 py-0.5 rounded-md border bg-white text-cyan-800 border-cyan-200 text-[11px] font-black">{label}</span>
+                        ))}
+                        {life.bus && (
+                            <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-md border bg-white text-cyan-800 border-cyan-200 text-[11px] font-black">
+                                <Bus className="w-3 h-3" aria-hidden="true" />통학차량
+                            </span>
+                        )}
+                    </div>
+                </div>
             </div>
 
-            <div className="space-y-5">
-                <div className="flex items-center gap-3 group/loc">
-                    <div className="bg-slate-50 p-2.5 rounded-2xl group-hover/loc:bg-indigo-50 transition-colors border border-slate-100 shadow-sm" aria-hidden="true">
-                        <MapPin className="w-4 h-4 text-slate-400 group-hover/loc:text-indigo-600 transition-colors" aria-hidden="true" />
-                    </div>
-                    <span className="text-sm text-slate-600 leading-snug font-bold line-clamp-2">{data.address}</span>
-                </div>
-
-                {(data.locationStatus === 'unconfirmed' || data.latitude == null || data.longitude == null) && (
-                    <p className="text-xs font-bold text-amber-700">위치 좌표 미확인 · 주소를 확인해 주세요</p>
-                )}
-
-                {/* 정원/현원/점유율 가시화 */}
-                <div className="space-y-3">
-                    <div className="flex justify-between items-end mb-1">
-                        <div className={`flex items-center gap-1.5 text-[13px] font-black ${capColor.split(' ')[0]}`}>
-                            <Users className="w-3.5 h-3.5" aria-hidden="true" />
-                            <span>현원 {data.currentPupils}명 / 정원 {data.capacity}명</span>
-                        </div>
-                        <span className="text-xs font-black text-slate-400">정원 충원율 {capRatio}%</span>
-                    </div>
-                    <div
-                        role="progressbar"
-                        aria-valuenow={capRatio}
-                        aria-valuemin={0}
-                        aria-valuemax={100}
-                        aria-label={`정원 충원율 ${capRatio}%`}
-                        className="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden shadow-inner border border-slate-100"
-                    >
-                        <div
-                            className={`h-full rounded-full transition-all duration-1000 ease-out shadow-sm ${capRatio >= 90 ? 'bg-amber-400' : 'bg-indigo-500'}`}
-                            style={{ width: `${Math.min(capRatio, 100)}%` }}
-                        ></div>
-                    </div>
-                </div>
-
-                <div className="flex items-center gap-2 flex-wrap mt-4">
-                    {totalTeacherCount !== null && (
-                        <div className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-50 text-slate-600 rounded-xl text-xs font-black border border-slate-100 hover:bg-white transition-colors">
-                            {data.source === '유치원' ? '교사' : '보육교사'} {totalTeacherCount}명
-                            {data.childrenPerTeacher ? ` · 아동 ${data.childrenPerTeacher}명/교사` : ''}
-                        </div>
-                    )}
-                </div>
-
-                {/* 연령별 교사 1인당 원아 (어린이집만) */}
-                {ageBreakdownEntries.length > 0 && (
-                    <div className="mt-2">
-                        <div className="text-[10px] text-slate-400 font-bold mb-1.5 uppercase tracking-wide">연령별 교사 1인당 원아</div>
-                        <div className="flex flex-wrap gap-1.5">
-                            {ageBreakdownEntries.map(({ age, ratio }) => {
-                                const limit = LEGAL_RATIO[age] ?? 20;
-                                const color = ratio <= limit * 0.7
-                                    ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
-                                    : ratio <= limit
-                                    ? 'bg-amber-50 text-amber-700 border-amber-200'
-                                    : 'bg-rose-50 text-rose-700 border-rose-200';
-                                return (
-                                    <div key={age} className={`px-2 py-1 rounded-lg text-xs font-bold border ${color}`}>
-                                        만{age}세 <span className="font-black">{ratio}명</span>
-                                    </div>
-                                );
-                            })}
-                        </div>
-                    </div>
-                )}
-
-                {/* 연령 및 비용 */}
-                <div className="flex items-center gap-2 flex-wrap">
-                    {ageRangeValid && (
-                        <div className="flex items-center gap-1.5 px-3 py-1.5 bg-sky-50 text-sky-600 rounded-xl text-xs font-black border border-sky-100 w-fit">
-                            <Baby className="w-3 h-3" aria-hidden="true" /> {data.ageRange}
-                        </div>
-                    )}
-                    {data.expenseLevel && data.expenseLevel !== '-' && (
-                        <div className="flex items-center gap-1.5 px-3 py-1.5 bg-violet-50 text-violet-600 rounded-xl text-xs font-black border border-violet-100 w-fit">
-                            <Wallet className="w-3 h-3" aria-hidden="true" /> {data.expenseLevel}
-                        </div>
-                    )}
-                </div>
-
-                <div className="flex flex-wrap gap-2">
-                    {data.hasSchoolBus && (
-                        <div className="flex items-center gap-1.5 px-3 py-1.5 bg-indigo-50 text-indigo-600 rounded-xl text-xs font-black border border-indigo-100 uppercase tracking-tight">
-                            <Bus className="w-3 h-3" aria-hidden="true" /> 통학차량
-                        </div>
-                    )}
-                    {data.source === '어린이집' && data.waitlistTotal !== undefined && data.waitlistTotal > 0 && (
-                        <div className="flex items-center gap-1.5 px-3 py-1.5 bg-orange-50 text-orange-600 rounded-xl text-xs font-black border border-orange-100 uppercase tracking-tight">
-                            <Users className="w-3 h-3" aria-hidden="true" /> 대기 {data.waitlistTotal}명
-                        </div>
-                    )}
-                    {data.source === '어린이집' && data.cctvCount !== undefined && data.cctvCount > 0 && (
-                        <div className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-50 text-slate-500 rounded-xl text-xs font-black border border-slate-100 uppercase tracking-tight">
-                            <Cctv className="w-3 h-3" aria-hidden="true" /> CCTV {data.cctvCount}대
-                        </div>
-                    )}
-                </div>
-
-                {data.specialPrograms && (
-                    <div className="bg-indigo-50/30 p-4 rounded-[1.5rem] border border-indigo-100/30 mt-4">
-                        <div className="flex items-center text-xs font-black text-indigo-300 uppercase tracking-widest mb-2">
-                            <Sparkles className="w-3 h-3 mr-1.5" aria-hidden="true" />
-                            <span>교육 철학 및 프로그램</span>
-                        </div>
-                        <p className="text-indigo-900/70 text-xs font-bold leading-relaxed line-clamp-3">
-                            {data.specialPrograms}
-                        </p>
-                    </div>
-                )}
-            </div>
+            <p className="mt-4 flex flex-wrap items-center gap-1.5 text-[11px] font-bold text-slate-400">
+                <MethodBadge method="visit" short />
+                <MethodBadge method="portal" short />
+                <span className="break-keep">상호작용·놀이·평가 이력은 비교함에서 체크하세요</span>
+            </p>
         </article>
     );
 }

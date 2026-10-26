@@ -1,25 +1,256 @@
 'use client';
 
-import { Institution } from '@/types/institution';
-import { X, Users, Clock, MapPin, Bus, Phone, Award, ShieldAlert, BadgeCheck, School, ExternalLink, Sparkles, ShieldCheck, Utensils, Baby, Cctv, Wallet } from 'lucide-react';
-import { useCompareStore } from '@/store/useCompareStore';
 import React from 'react';
-
-interface ComparisonField {
-    key: string;
-    label: string;
-    icon: React.ReactNode;
-    render?: (item: Institution) => React.ReactNode;
-}
-
-interface Category {
-    name: string;
-    fields: ComparisonField[];
-}
+import { Institution } from '@/types/institution';
+import { X, MapPin, Phone, School, Baby, ExternalLink, Crown, Check, Minus, Bus } from 'lucide-react';
+import { useCompareStore } from '@/store/useCompareStore';
+import { institutionKey, useVisitChecklistStore } from '@/store/useVisitChecklistStore';
+import {
+    CRITERIA, ageBreakdownReliable, ageLoads, assessCare, assessSafety, assessStability, bestIndexes, lifeFacts, portalLink, safetyChecks,
+    type Assessment, type CriterionId, type CriterionMeta,
+} from '@/utils/selectionCriteria';
+import { CRITERION_THEME, CriterionIcon, LevelMeter, MethodBadge, VerdictText } from '@/components/criteria/CriteriaUI';
 
 interface Props {
     data: Institution[];
 }
+
+interface Row {
+    key: string;
+    label: string;
+    render: (item: Institution, index: number) => React.ReactNode;
+}
+
+const LABEL_COL = 'w-[112px] min-w-[112px] sm:w-[168px] sm:min-w-[168px]';
+const DATA_COL = 'w-[236px] min-w-[236px] sm:w-[280px] sm:min-w-[280px]';
+
+function Empty() {
+    return <span className="text-slate-300 font-bold">-</span>;
+}
+
+function AssessmentCell({ id, assessment, best }: { id: CriterionId; assessment: Assessment; best: boolean }) {
+    if (assessment.level === 0 && assessment.value === '-') return <span className="text-xs font-bold text-slate-400">정보 없음</span>;
+    const theme = CRITERION_THEME[id];
+    return (
+        <div className={`relative mx-auto max-w-[220px] rounded-2xl px-3 py-3 ${best ? `border-2 ${theme.soft}` : ''}`}>
+            {best && (
+                <span className={`absolute -top-2.5 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-black whitespace-nowrap ${theme.solid}`}>
+                    <Crown className="w-3 h-3" aria-hidden="true" /> 비교 중 가장 좋음
+                </span>
+            )}
+            {assessment.metric && <div className="text-[11px] font-bold text-slate-500">{assessment.metric}</div>}
+            <div className="flex items-baseline justify-center gap-2">
+                <span className="text-xl font-black text-slate-900 whitespace-nowrap">{assessment.value}</span>
+                <VerdictText id={id} verdict={assessment.verdict} level={assessment.level} caution={assessment.caution} />
+            </div>
+            <div className="mt-1.5 flex justify-center">
+                <LevelMeter id={id} level={assessment.level} caution={assessment.caution} label={assessment.verdict} />
+            </div>
+            {assessment.detail && <p className="mt-1.5 text-[11px] font-medium text-slate-500 leading-snug break-keep">{assessment.detail}</p>}
+        </div>
+    );
+}
+
+function ChecklistCell({ item, criterion }: { item: Institution; criterion: CriterionMeta }) {
+    const key = institutionKey(item);
+    const checked = useVisitChecklistStore(state => state.checks[key]) ?? [];
+    const toggle = useVisitChecklistStore(state => state.toggle);
+    const theme = CRITERION_THEME[criterion.id];
+    const done = criterion.checklist.filter(c => checked.includes(`${criterion.id}:${c.id}`)).length;
+    return (
+        <div className="text-left max-w-[240px] mx-auto">
+            <div className="flex items-center justify-between mb-1.5">
+                <MethodBadge method={criterion.method === 'portal' ? 'portal' : 'visit'} short />
+                <span className={`text-[11px] font-black ${done === criterion.checklist.length ? theme.text : 'text-slate-400'}`}>
+                    {done}/{criterion.checklist.length} 확인
+                </span>
+            </div>
+            <ul className="space-y-1">
+                {criterion.checklist.map(c => {
+                    const itemKey = `${criterion.id}:${c.id}`;
+                    const isChecked = checked.includes(itemKey);
+                    return (
+                        <li key={c.id}>
+                            <button
+                                type="button"
+                                role="checkbox"
+                                aria-checked={isChecked}
+                                onClick={() => toggle(key, itemKey)}
+                                className={`w-full flex items-start gap-2 rounded-xl px-2 py-1.5 text-left text-xs font-bold transition-colors ${isChecked ? `${theme.soft} border text-slate-800` : 'border border-dashed border-slate-200 text-slate-500 hover:border-slate-400'}`}
+                            >
+                                <span className={`mt-0.5 flex-shrink-0 w-4 h-4 rounded-md flex items-center justify-center ${isChecked ? theme.solid : 'bg-white border border-slate-300'}`} aria-hidden="true">
+                                    {isChecked && <Check className="w-3 h-3" />}
+                                </span>
+                                <span className="break-keep leading-snug">{c.text}</span>
+                            </button>
+                        </li>
+                    );
+                })}
+            </ul>
+        </div>
+    );
+}
+
+function criterionRows(criterion: CriterionMeta, data: Institution[]): Row[] {
+    const rows: Row[] = [];
+    const checklistRow: Row = {
+        key: `${criterion.id}-checklist`,
+        label: criterion.method === 'portal' ? '확인 체크' : '방문 체크',
+        render: (item) => <ChecklistCell item={item} criterion={criterion} />,
+    };
+
+    switch (criterion.id) {
+        case 'care': {
+            const scores = data.map(assessCare);
+            const best = bestIndexes(scores);
+            rows.push({ key: 'care-score', label: '판정', render: (_, i) => <AssessmentCell id="care" assessment={scores[i]} best={best.includes(i)} /> });
+            rows.push({
+                key: 'care-detail', label: '반·교사별 아이 수',
+                render: (item) => {
+                    const loads = ageBreakdownReliable(item) ? ageLoads(item) : [];
+                    if (loads.length === 0) {
+                        return item.childrenPerTeacher
+                            ? <span className="text-sm font-bold text-slate-700">교사 1명당 {item.childrenPerTeacher}명</span>
+                            : <Empty />;
+                    }
+                    return (
+                        <ul className="space-y-1 max-w-[200px] mx-auto">
+                            {loads.map(({ age, perClass, limit }) => (
+                                <li key={age} className="flex items-center gap-2 text-xs">
+                                    <span className="w-10 text-left font-bold text-slate-500">만{age}세</span>
+                                    <span className="relative flex-1 h-2 rounded-full bg-indigo-100 overflow-hidden" aria-hidden="true">
+                                        <span className={`absolute inset-y-0 left-0 rounded-full ${perClass > limit ? 'bg-rose-500' : 'bg-indigo-500'}`} style={{ width: `${Math.min(perClass / limit, 1) * 100}%` }} />
+                                    </span>
+                                    <span className={`w-16 text-right font-black ${perClass > limit ? 'text-rose-600' : 'text-slate-700'}`}>{perClass}/{limit}명</span>
+                                </li>
+                            ))}
+                            <li className="text-[10px] text-slate-400 text-right">반당 아이 수 / 법정 기준</li>
+                        </ul>
+                    );
+                },
+            });
+            break;
+        }
+        case 'stability': {
+            const scores = data.map(assessStability);
+            const best = bestIndexes(scores);
+            rows.push({ key: 'stability-score', label: '판정', render: (_, i) => <AssessmentCell id="stability" assessment={scores[i]} best={best.includes(i)} /> });
+            rows.push({
+                key: 'stability-tenure', label: '근속 분포',
+                render: (item) => {
+                    const t = item.teacherTenure;
+                    if (!t || t.under1 + t.year1to2 + t.year2to4 + t.year4to6 + t.over6 === 0) return <Empty />;
+                    const parts = [
+                        { label: '1년 미만', value: t.under1, className: 'bg-emerald-200' },
+                        { label: '1~4년', value: t.year1to2 + t.year2to4, className: 'bg-emerald-400' },
+                        { label: '4년 이상', value: t.year4to6 + t.over6, className: 'bg-emerald-600' },
+                    ];
+                    return (
+                        <div className="max-w-[200px] mx-auto">
+                            <div className="flex h-2.5 rounded-full overflow-hidden bg-slate-100" aria-hidden="true">
+                                {parts.map(p => <span key={p.label} className={p.className} style={{ width: `${p.value}%` }} />)}
+                            </div>
+                            <ul className="mt-1.5 flex justify-between text-[10px] font-bold text-slate-500">
+                                {parts.map(p => (
+                                    <li key={p.label} className="flex items-center gap-1">
+                                        <span className={`w-2 h-2 rounded-full ${p.className}`} aria-hidden="true" />{p.label} {p.value}%
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    );
+                },
+            });
+            rows.push(checklistRow);
+            break;
+        }
+        case 'record':
+            rows.push({
+                key: 'record-link', label: '공식 포털',
+                render: (item) => {
+                    const link = portalLink(item);
+                    if (!link) return <Empty />;
+                    return (
+                        <a
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={link.popup ? (e) => {
+                                e.preventDefault();
+                                window.open(link.url, '어린이집찾기', 'scrollbars=yes,width=1024,height=778');
+                            } : undefined}
+                            aria-label={`${item.name} ${link.label}에서 평가·위반 이력 보기 (새 창)`}
+                            className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl border border-violet-200 bg-white text-violet-700 text-xs font-black hover:bg-violet-600 hover:text-white transition-colors"
+                        >
+                            {link.label}에서 보기 <ExternalLink className="w-3 h-3" aria-hidden="true" />
+                        </a>
+                    );
+                },
+            });
+            rows.push(checklistRow);
+            break;
+        case 'safety': {
+            const scores = data.map(assessSafety);
+            const best = bestIndexes(scores);
+            rows.push({ key: 'safety-score', label: '판정', render: (_, i) => <AssessmentCell id="safety" assessment={scores[i]} best={best.includes(i)} /> });
+            rows.push({
+                key: 'safety-items', label: '공시 항목',
+                render: (item) => (
+                    <ul className="flex flex-wrap justify-center gap-1.5">
+                        {safetyChecks(item).map(c => (
+                            <li key={c.label} className={`inline-flex items-center gap-1 px-2 py-1 rounded-lg border text-[11px] font-black ${c.ok === true ? 'bg-amber-50 text-amber-800 border-amber-200' : c.ok === false ? 'bg-white text-slate-400 border-slate-200 line-through' : 'bg-white text-slate-400 border-dashed border-slate-200'}`}>
+                                {c.ok === true ? <Check className="w-3 h-3" aria-hidden="true" /> : <Minus className="w-3 h-3" aria-hidden="true" />}
+                                {c.label}{c.ok === null ? ' (해당 없음)' : c.ok === false ? ' (공시 없음)' : ''}
+                            </li>
+                        ))}
+                        {item.cctvCount ? <li className="w-full text-[11px] font-bold text-slate-400">CCTV {item.cctvCount}대</li> : null}
+                    </ul>
+                ),
+            });
+            rows.push(checklistRow);
+            break;
+        }
+        case 'life':
+            rows.push({ key: 'life-hours', label: '운영 시간', render: (item) => <span className="text-sm font-black text-slate-800">{lifeFacts(item).hours ?? '-'}</span> });
+            rows.push({
+                key: 'life-extra', label: '연장·통학',
+                render: (item) => {
+                    const facts = lifeFacts(item);
+                    if (facts.extended.length === 0 && !facts.bus) return <span className="text-xs font-bold text-slate-400">공시 없음</span>;
+                    return (
+                        <div className="flex flex-wrap justify-center gap-1.5">
+                            {facts.extended.map(label => <span key={label} className="px-2 py-1 rounded-lg border bg-cyan-50 text-cyan-800 border-cyan-200 text-[11px] font-black">{label}</span>)}
+                            {facts.bus && <span className="inline-flex items-center gap-1 px-2 py-1 rounded-lg border bg-cyan-50 text-cyan-800 border-cyan-200 text-[11px] font-black"><Bus className="w-3 h-3" aria-hidden="true" />통학차량</span>}
+                        </div>
+                    );
+                },
+            });
+            rows.push({
+                key: 'life-availability', label: '입소 가능성',
+                render: (item) => {
+                    const { availability } = lifeFacts(item);
+                    return (
+                        <div>
+                            <span className={`text-sm font-black ${availability.tone === 'open' ? 'text-cyan-800' : 'text-amber-700'}`}>{availability.label}</span>
+                            <div className="text-[11px] font-bold text-slate-400 mt-0.5">현원 {item.currentPupils} / 정원 {item.capacity}</div>
+                        </div>
+                    );
+                },
+            });
+            rows.push({ key: 'life-cost', label: '비용', render: (item) => <span className="text-xs font-bold text-slate-700 break-keep">{lifeFacts(item).cost ?? '-'}</span> });
+            rows.push(checklistRow);
+            break;
+        default:
+            rows.push(checklistRow);
+    }
+    return rows;
+}
+
+const BASIC_ROWS: Row[] = [
+    { key: 'address', label: '위치', render: (item) => <span className="text-xs font-bold text-slate-700 break-keep line-clamp-2">{item.address}</span> },
+    { key: 'ageRange', label: '대상 연령', render: (item) => item.ageRange && item.ageRange !== '-' ? <span className="inline-flex items-center gap-1 text-sm font-bold text-slate-700"><Baby className="w-3.5 h-3.5 text-slate-400" aria-hidden="true" />{item.ageRange}</span> : <Empty /> },
+    { key: 'phone', label: '연락처', render: (item) => item.phone ? <a href={`tel:${item.phone}`} className="inline-flex items-center gap-1 text-sm font-bold text-slate-700 hover:text-indigo-600"><Phone className="w-3.5 h-3.5 text-slate-400" aria-hidden="true" />{item.phone}</a> : <Empty /> },
+];
 
 export default function CompareTable({ data }: Props) {
     const removeCompareId = useCompareStore((state) => state.removeCompareId);
@@ -38,342 +269,92 @@ export default function CompareTable({ data }: Props) {
         );
     }
 
-    // The hasSpecialPrograms check is no longer needed as it's now a dedicated category
-    // const hasSpecialPrograms = data.some(item => item.specialPrograms && item.specialPrograms !== '정보 없음');
-
-    const categories: Category[] = [
-        {
-            name: '기본 정보',
-            fields: [
-                { key: 'source', label: '기관 구분', icon: <School className="w-4 h-4 opacity-70" /> },
-                { key: 'type', label: '설립 유형', icon: <School className="w-4 h-4 opacity-70" /> },
-                { key: 'address', label: '위치', icon: <MapPin className="w-4 h-4 opacity-70" /> },
-                {
-                    key: 'ageRange',
-                    label: '대상 연령',
-                    icon: <Baby className="w-4 h-4 opacity-70" />,
-                    render: (item: Institution) => {
-                        const age = item.ageRange;
-                        if (!age || age === '-') return <span className="text-slate-300 italic">-</span>;
-                        return <span className="text-sm font-bold text-slate-700">{age}</span>;
-                    }
-                },
-                { key: 'operatingHours', label: '운영 시간', icon: <Clock className="w-4 h-4 opacity-70" /> },
-                {
-                    key: 'expenseLevel',
-                    label: '비용 수준',
-                    icon: <Wallet className="w-4 h-4 opacity-70" />,
-                    render: (item: Institution) => (
-                        <span className={`px-3 py-1 rounded-lg text-sm font-bold border ${item.expenseLevel?.includes('정부') ? 'bg-emerald-50 text-emerald-700 border-emerald-100' : 'bg-violet-50 text-violet-700 border-violet-100'}`}>
-                            {item.expenseLevel || '-'}
-                        </span>
-                    )
-                },
-                { key: 'phone', label: '연락처', icon: <Phone className="w-4 h-4 opacity-70" /> },
-                {
-                    key: 'pupils',
-                    label: '현원/정원',
-                    icon: <Users className="w-4 h-4 opacity-70" />,
-                    render: (item: Institution) => {
-                        const ratio = Math.round((item.currentPupils / (item.capacity || 1)) * 100);
-                        return (
-                            <div className="flex flex-col items-center gap-1.5">
-                                <div className="text-slate-900 font-bold text-base">{item.currentPupils} <span className="text-slate-400 font-normal text-xs px-1">/</span> {item.capacity}</div>
-                                <div className="w-20 bg-slate-100 h-1.5 rounded-full overflow-hidden">
-                                    <div
-                                        className={`h-full rounded-full ${ratio > 90 ? 'bg-amber-400' : 'bg-indigo-500'}`}
-                                        style={{ width: `${Math.min(ratio, 100)}%` }}
-                                    ></div>
-                                </div>
-                                <span className="text-xs font-bold text-slate-400 uppercase tracking-tight">확보율 {ratio}%</span>
-                            </div>
-                        );
-                    }
-                },
-            ]
-        },
-        {
-            name: '안전 및 급식',
-            fields: [
-                { key: 'safetyStatus', label: '안전 관리', icon: <ShieldCheck className="w-4 h-4 opacity-70" /> },
-                { key: 'mealStatus', label: '식단 및 영양', icon: <Utensils className="w-4 h-4 opacity-70" /> },
-                {
-                    key: 'hasSchoolBus',
-                    label: '통학 서비스',
-                    icon: <Bus className="w-4 h-4 opacity-70" />,
-                    render: (item: Institution) => item.hasSchoolBus ? (
-                        <div className="px-3 py-1 bg-emerald-50 text-emerald-700 text-sm font-bold rounded-full border border-emerald-100 flex items-center justify-center gap-1 mx-auto w-fit">
-                            <BadgeCheck className="w-3 h-3" /> 운행 중
-                        </div>
-                    ) : (
-                        <span className="text-slate-300 font-medium text-sm">미운행</span>
-                    )
-                },
-                {
-                    key: 'cctvCount',
-                    label: 'CCTV 설치',
-                    icon: <Cctv className="w-4 h-4 opacity-70" />,
-                    render: (item: Institution) => (
-                        <div className="text-sm font-bold text-slate-700">
-                            {item.cctvCount ? `${item.cctvCount}대` : '-'}
-                        </div>
-                    )
-                },
-                {
-                    key: 'waitlistTotal',
-                    label: '입소대기 아동',
-                    icon: <Baby className="w-4 h-4 opacity-70" />,
-                    render: (item: Institution) => (
-                        <div className="text-sm font-bold text-slate-700">
-                            {item.waitlistTotal !== undefined && item.waitlistTotal > 0 ? `${item.waitlistTotal}명` : '-'}
-                        </div>
-                    )
-                },
-            ]
-        },
-        {
-            name: '교육 프로그램',
-            fields: [
-                {
-                    key: 'specialPrograms',
-                    label: '철학 및 프로그램',
-                    icon: <Sparkles className="w-4 h-4 opacity-70" />,
-                    render: (item: Institution) => (
-                        <div className="text-xs font-bold text-slate-700 whitespace-pre-wrap leading-relaxed max-w-[260px] mx-auto text-left py-2" title={item.specialPrograms || ''}>
-                            {item.specialPrograms ?? '-'}
-                        </div>
-                    )
-                }
-            ]
-        },
-        {
-            name: '교사 현황',
-            fields: [
-                {
-                    key: 'childrenPerTeacher',
-                    label: '교사 1인당 원아',
-                    icon: <Users className="w-4 h-4 opacity-70" />,
-                    render: (item: Institution) => {
-                        const LEGAL_RATIO: { [age: number]: number } = { 0: 3, 1: 5, 2: 7, 3: 15, 4: 20, 5: 20 };
-                        const entries = item.ageBreakdown
-                            ? Object.entries(item.ageBreakdown)
-                                .map(([k, v]) => ({ age: Number(k), ...v }))
-                                .filter(e => e.children > 0)
-                            : [];
-                        return (
-                            <div>
-                                <div className="text-lg font-black text-slate-900">{item.childrenPerTeacher || '-'} <span className="text-xs text-slate-400 font-normal">명</span></div>
-                                {entries.length > 0 && (
-                                    <div className="mt-1.5 flex flex-col gap-1 items-center">
-                                        {entries.map(({ age, ratio }) => {
-                                            const limit = LEGAL_RATIO[age] ?? 20;
-                                            const color = ratio <= limit * 0.7
-                                                ? 'text-emerald-600'
-                                                : ratio <= limit
-                                                ? 'text-amber-600'
-                                                : 'text-rose-600';
-                                            return (
-                                                <div key={age} className="flex items-center gap-1.5 text-xs">
-                                                    <span className="text-slate-400 w-10">만{age}세</span>
-                                                    <span className={`font-bold ${color}`}>{ratio}명</span>
-                                                </div>
-                                            );
-                                        })}
-                                    </div>
-                                )}
-                            </div>
-                        );
-                    }
-                },
-                {
-                    key: 'teacherRatio',
-                    label: '1급/수석교사 비율',
-                    icon: <Award className="w-4 h-4 opacity-70" />,
-                    render: (item: Institution) => {
-                        const ratioStr = item.teacherRatio || '0%';
-                        const isUnknown = ratioStr.startsWith('정보');
-
-                        return (
-                            <div className="relative">
-                                <div className={`text-lg font-black tracking-tight ${isUnknown ? 'text-slate-300' : 'text-slate-700'}`}>
-                                    {isUnknown ? ratioStr : ratioStr.split(' ')[0]}
-                                </div>
-                                {!isUnknown && (
-                                    <div className="text-xs text-slate-400 font-medium mt-0.5">{ratioStr.split('(')[1]?.replace(')', '') || ''}</div>
-                                )}
-                            </div>
-                        );
-                    }
-                },
-                {
-                    key: 'teacherTenure',
-                    label: '근속 분포 (6년 이상)',
-                    icon: <Clock className="w-4 h-4 opacity-70" />,
-                    render: (item: Institution) => {
-                        const t = item.teacherTenure;
-                        if (!t) return <span className="text-slate-300 italic">-</span>;
-                        // teacherTenure 필드는 모두 % 값 (명수 아님)
-                        if (t.over6 === 0 && t.under1 === 0) return <span className="text-slate-300 italic">-</span>;
-                        return (
-                            <div className="flex flex-col items-center w-full max-w-[150px] mx-auto space-y-2">
-                                <div className="flex justify-between w-full items-end">
-                                    <div className="flex flex-col items-start leading-none">
-                                        <span className="text-xs text-slate-400 font-bold uppercase">Veteran</span>
-                                        <span className="text-base font-black text-slate-800">{t.over6}%</span>
-                                    </div>
-                                    <div className="text-xs font-bold text-slate-500 bg-slate-50 px-1.5 py-0.5 rounded">
-                                        6년 이상
-                                    </div>
-                                </div>
-                                <div className="w-full h-2 bg-slate-100 rounded-full flex overflow-hidden">
-                                    <div className="h-full bg-slate-300" style={{ width: `${t.under1 + t.year1to2}%` }}></div>
-                                    <div className="h-full bg-slate-400 opacity-50" style={{ width: `${t.year2to4 + t.year4to6}%` }}></div>
-                                    <div className="h-full bg-indigo-400" style={{ width: `${t.over6}%` }}></div>
-                                </div>
-                            </div>
-                        );
-                    }
-                },
-            ]
-        },
-        {
-            name: '정보 신뢰도',
-            fields: [
-                {
-                    key: 'alimiUrl',
-                    label: '공시 정보 확인',
-                    icon: <ShieldAlert className="w-4 h-4 opacity-70" />,
-                    render: (item: Institution) => {
-                        if (!item.alimiUrl) return <span className="text-slate-300">-</span>;
-                        const isChildcarePortal = item.alimiUrl.includes('info.childcare.go.kr');
-                        const isOfficial = isChildcarePortal || item.alimiUrl.includes('childcare.go.kr') || item.alimiUrl.includes('e-childschoolinfo.moe.go.kr');
-                        const label = isOfficial ? '공시내역 확인' : '홈페이지';
-
-                        const handleClick = (e: React.MouseEvent) => {
-                            if (isChildcarePortal) {
-                                e.preventDefault();
-                                const url = `https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=${item.id}`;
-                                window.open(url, '어린이집찾기', 'scrollbars=yes,toolbar=no,location=no,status=no,menubar=no,resizable=no,width=1024,height=778,left=0,top=0');
-                            }
-                        };
-
-                        return (
-                            <a href={item.alimiUrl}
-                                onClick={handleClick}
-                                target={isChildcarePortal ? undefined : '_blank'}
-                                rel="noopener noreferrer"
-                                aria-label={`${item.name} ${label}${isChildcarePortal ? ' (팝업)' : ' (새 탭에서 열림)'}`}
-                                className="group/link flex items-center justify-center gap-1.5 px-4 py-2 bg-slate-50 hover:bg-slate-900 text-slate-700 hover:text-white rounded-xl text-sm font-bold transition-all duration-300 border border-slate-100 shadow-sm">
-                                {label}
-                                <ExternalLink className="w-3 h-3 opacity-50 group-hover/link:opacity-100" aria-hidden="true" />
-                            </a>
-                        );
-                    }
-                },
-            ]
-        }
-    ];
+    const renderRows = (rows: Row[]) => rows.map(row => (
+        <tr key={row.key} className="group">
+            <th scope="row" className={`sticky left-0 z-20 bg-white group-hover:bg-slate-50 px-3 sm:px-5 py-4 text-left border-b border-r border-slate-100 ${LABEL_COL}`}>
+                <span className="text-xs font-bold text-slate-500 break-keep">{row.label}</span>
+            </th>
+            {data.map((item, index) => (
+                <td key={`${item.id}-${row.key}`} className={`px-3 sm:px-5 py-4 border-b border-slate-100 text-center align-middle group-hover:bg-slate-50/50 ${DATA_COL}`}>
+                    {row.render(item, index)}
+                </td>
+            ))}
+        </tr>
+    ));
 
     return (
-        <div className="bg-white rounded-[3rem] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] overflow-hidden border border-slate-100 w-full max-w-full">
-            <div className="overflow-x-scroll custom-scrollbar scroll-smooth" role="region" aria-label="기관 비교표 (가로 스크롤 가능)">
+        <div className="bg-white rounded-[2rem] sm:rounded-[3rem] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] overflow-hidden border border-slate-100 w-full max-w-full">
+            <div className="overflow-x-auto custom-scrollbar" role="region" aria-label="기관 비교표 (가로 스크롤 가능)" tabIndex={0}>
                 <table className="min-w-full border-separate border-spacing-0 table-fixed">
-                    <caption className="sr-only">기관 비교표 — 기본 정보, 안전·급식, 교육 프로그램, 교사 전문성 항목 비교</caption>
+                    <caption className="sr-only">고르는 기준 7가지로 정리한 기관 비교표</caption>
                     <thead>
                         <tr>
-                            {/* Header cell: Fixed width for labels */}
-                            <th scope="col" className="sticky left-0 z-30 bg-slate-50/95 backdrop-blur-xl border-b border-r border-slate-100 px-6 py-8 w-[180px] min-w-[180px] align-middle text-left shadow-[4px_0_10px_-4px_rgba(0,0,0,0.05)]">
-                                <div className="flex flex-col gap-1">
-                                    <span className="text-xs font-black text-indigo-600 uppercase tracking-[0.2em] whitespace-nowrap font-heading" aria-hidden="true">Matrix</span>
-                                    <h2 className="text-xl font-black text-slate-900 leading-tight whitespace-nowrap font-heading">비교 메트릭스</h2>
-                                </div>
+                            <th scope="col" className={`sticky left-0 z-30 bg-slate-50 border-b border-r border-slate-100 px-3 sm:px-5 py-6 align-bottom text-left ${LABEL_COL}`}>
+                                <span className="text-xs font-black text-indigo-600 tracking-widest">7가지 기준</span>
+                                <span className="block text-base sm:text-lg font-black text-slate-900 font-heading">비교표</span>
                             </th>
                             {data.map((item) => (
-                                <th key={item.id} scope="col" className="p-8 pb-10 border-b border-slate-100 bg-white min-w-[300px] w-[300px] text-center relative">
+                                <th key={item.id} scope="col" className={`relative px-4 pt-8 pb-6 border-b border-slate-100 bg-white text-center ${DATA_COL}`}>
                                     <button
-                                        onClick={() => removeCompareId(`${item.sidoCode || '11'}_${item.sggCode || '11620'}_${item.id}`)}
+                                        onClick={() => removeCompareId(institutionKey(item))}
                                         aria-label={`${item.name} 비교에서 제거`}
-                                        className="absolute top-6 right-6 p-2 rounded-xl text-slate-300 hover:bg-rose-50 hover:text-rose-500 transition-all duration-200"
+                                        className="absolute top-3 right-3 p-2 rounded-xl text-slate-300 hover:bg-rose-50 hover:text-rose-500 transition-colors"
                                     >
-                                        <X className="w-5 h-5" aria-hidden="true" />
+                                        <X className="w-4 h-4" aria-hidden="true" />
                                     </button>
-
-                                    <div className="flex flex-col items-center">
-                                        <div className={`mb-4 px-3 py-1 rounded-lg text-xs font-black uppercase tracking-widest border shadow-sm font-heading ${item.type === '국공립' ? 'bg-emerald-50 text-emerald-700 border-emerald-100' :
-                                            item.type === '사립' ? 'bg-indigo-50 text-indigo-700 border-indigo-100' :
-                                                item.type === '사회복지법인' ? 'bg-teal-50 text-teal-700 border-teal-100' :
-                                                    item.type === '직장' ? 'bg-blue-50 text-blue-700 border-blue-100' : 'bg-amber-50 text-amber-700 border-amber-100'
-                                            }`}>
-                                            {item.type}
-                                        </div>
-                                        <h3 className="text-xl font-black text-slate-900 leading-[1.2] max-w-[200px] break-keep font-heading">
-                                            {item.name}
-                                        </h3>
-                                        <div className="mt-3 flex gap-1 items-center text-xs font-bold text-slate-400">
-                                            <MapPin className="w-3 h-3" />
-                                            {item.address.split(' ')[1]} {item.address.split(' ')[2]}
-                                        </div>
+                                    <div className="flex justify-center gap-1.5 mb-3">
+                                        <span className="px-2 py-0.5 rounded-md text-[11px] font-black bg-slate-100 text-slate-600">{item.type}</span>
+                                        <span className={`px-2 py-0.5 rounded-md text-[11px] font-black ${item.source === '어린이집' ? 'bg-orange-50 text-orange-600' : 'bg-sky-50 text-sky-600'}`}>{item.source}</span>
+                                    </div>
+                                    <h3 className="text-base sm:text-lg font-black text-slate-900 leading-tight break-keep font-heading">{item.name}</h3>
+                                    <div className="mt-2 flex justify-center gap-1 items-center text-[11px] font-bold text-slate-400">
+                                        <MapPin className="w-3 h-3" aria-hidden="true" />
+                                        {item.address.split(' ').slice(1, 3).join(' ')}
                                     </div>
                                 </th>
                             ))}
                         </tr>
                     </thead>
                     <tbody>
-                        {categories.map((category) => (
-                            <React.Fragment key={category.name}>
-                                <tr>
-                                    <th scope="rowgroup" colSpan={data.length + 1} className="sticky left-0 z-20 bg-slate-50/95 backdrop-blur-md px-6 py-4 border-r border-slate-100 shadow-[4px_0_10px_-4px_rgba(0,0,0,0.05)] w-[180px] min-w-[180px] text-left">
-                                        <span className="text-sm font-black text-slate-400 uppercase tracking-widest whitespace-nowrap font-heading">{category.name}</span>
-                                    </th>
-                                    {data.map(item => (
-                                        <td key={`${item.id}-cat-${category.name}`} className="bg-slate-50/50 border-b border-slate-50 h-10 w-[300px]"></td>
-                                    ))}
-                                </tr>
-                                {category.fields.map((field) => (
-                                    <tr key={field.key} className="group">
-                                        <th scope="row" className="sticky left-0 z-20 bg-white group-hover:bg-slate-50/80 px-6 py-6 text-left border-r border-slate-50 transition-colors shadow-[4px_0_10px_-4px_rgba(0,0,0,0.05)] w-[180px] min-w-[180px]">
-                                            <div className="flex items-center gap-2">
-                                                <div className="p-2 bg-slate-50 rounded-lg text-slate-400 group-hover:text-indigo-600 transition-colors flex-shrink-0" aria-hidden="true">
-                                                    {field.icon}
+                        <tr>
+                            <th scope="rowgroup" colSpan={data.length + 1} className="bg-slate-50 border-b border-slate-100 p-0 text-left">
+                                <div className="sticky left-0 w-fit px-3 sm:px-5 py-3 text-xs font-black text-slate-400 tracking-widest">기본 정보</div>
+                            </th>
+                        </tr>
+                        {renderRows(BASIC_ROWS)}
+                        {CRITERIA.map(criterion => {
+                            const theme = CRITERION_THEME[criterion.id];
+                            return (
+                                <React.Fragment key={criterion.id}>
+                                    <tr>
+                                        <th scope="rowgroup" colSpan={data.length + 1} className={`border-y p-0 text-left ${theme.soft}`}>
+                                            <div className="sticky left-0 w-fit max-w-[100vw] flex items-center gap-3 px-3 sm:px-5 py-3">
+                                                <CriterionIcon id={criterion.id} />
+                                                <div className="min-w-0">
+                                                    <div className="flex flex-wrap items-center gap-2">
+                                                        <span className="text-sm sm:text-base font-black text-slate-900 font-heading">{criterion.title}</span>
+                                                        <MethodBadge method={criterion.method} />
+                                                    </div>
+                                                    <p className="text-xs font-medium text-slate-500 break-keep">{criterion.question}</p>
                                                 </div>
-                                                <span className="text-xs font-bold text-slate-600 tracking-tight whitespace-nowrap">{field.label}</span>
                                             </div>
                                         </th>
-                                        {data.map((item) => {
-                                            const value = item[field.key as keyof Institution];
-                                            return (
-                                                <td
-                                                    key={`${item.id}-${field.key}`}
-                                                    className="p-8 border-b border-slate-50 text-center align-middle group-hover:bg-slate-50/30 transition-colors min-w-[300px] w-[300px]"
-                                                >
-                                                    {field.render ? field.render(item) : (
-                                                        <span className="text-slate-900 font-bold text-sm whitespace-nowrap overflow-hidden text-ellipsis block max-w-[260px] mx-auto" title={String(value || '')}>
-                                                            {typeof value === 'object' ? '-' : String(value || '-')}
-                                                        </span>
-                                                    )}
-                                                </td>
-                                            );
-                                        })}
                                     </tr>
-                                ))}
-                            </React.Fragment>
-                        ))}
+                                    {renderRows(criterionRows(criterion, data))}
+                                </React.Fragment>
+                            );
+                        })}
                     </tbody>
                 </table>
             </div>
 
-            {/* Legend / Feedback */}
-            <div className="p-8 bg-slate-50 flex items-center justify-between border-t border-slate-100">
-                <div className="flex items-center gap-6">
-                    <div className="flex items-center gap-2 text-sm font-bold text-slate-500">
-                        <div className="w-3 h-3 bg-indigo-600 rounded-sm"></div>
-                        <span>기관별 공시 항목</span>
-                    </div>
-                </div>
-                <div className="hidden md:flex items-center text-sm font-bold text-slate-400 gap-2">
-                    <ShieldAlert className="w-4 h-4" />
-                    모든 정보는 유치원 알리미 및 어린이집 정보공개 포털의 공시 데이터를 기반으로 합니다.
-                </div>
+            <div className="px-5 sm:px-8 py-5 bg-slate-50 border-t border-slate-100 flex flex-col md:flex-row md:items-center justify-between gap-3">
+                <ul className="flex flex-wrap gap-3" aria-label="확인 방법 범례">
+                    {(['data', 'portal', 'visit'] as const).map(m => <li key={m}><MethodBadge method={m} /></li>)}
+                </ul>
+                <p className="text-xs font-bold text-slate-400 break-keep">
+                    판정은 유치원 알리미·어린이집 정보공개포털 공시 데이터로 계산합니다. 체크 내용은 이 브라우저에만 저장됩니다.
+                </p>
             </div>
         </div>
     );
