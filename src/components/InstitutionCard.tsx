@@ -6,9 +6,13 @@ import { MapPin, ListPlus, CheckCircle2, Bus } from 'lucide-react';
 import { assessCare, assessSafety, assessStability, lifeFacts, type Assessment, type CriterionId } from '@/utils/selectionCriteria';
 import { CRITERION_THEME, CriterionIcon, LevelMeter, MethodBadge, VerdictText } from '@/components/criteria/CriteriaUI';
 import { CRITERIA_BY_ID } from '@/utils/selectionCriteria';
+import type { FitResult } from '@/utils/fitConditions';
+import FitSummary from '@/components/fit/FitSummary';
 
 interface Props {
     data: Institution;
+    /** 맞춤 조건을 정했을 때만 넘어온다. 없으면 카드는 예전과 같다. */
+    fit?: FitResult;
 }
 
 const TYPE_COLOR: Record<string, string> = {
@@ -46,7 +50,7 @@ function ScoreTile({ id, assessment }: { id: CriterionId; assessment: Assessment
     );
 }
 
-export default function InstitutionCard({ data }: Props) {
+export default function InstitutionCard({ data, fit }: Props) {
     const { compareIds, addCompareId, removeCompareId } = useCompareStore();
     const compositeId = `${data.sidoCode || '11'}_${data.sggCode || '11620'}_${data.id}`;
     const isCompared = compareIds.includes(compositeId);
@@ -134,6 +138,8 @@ export default function InstitutionCard({ data }: Props) {
                     </div>
                 </div>
             </div>
+
+            {fit && <FitSummary result={fit} />}
 
             <p className="mt-4 flex flex-wrap items-center gap-1.5 text-[11px] font-bold text-slate-400">
                 <MethodBadge method="visit" short />

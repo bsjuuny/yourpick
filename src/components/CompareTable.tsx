@@ -10,6 +10,9 @@ import {
     type Assessment, type CriterionId, type CriterionMeta,
 } from '@/utils/selectionCriteria';
 import { CRITERION_THEME, CriterionIcon, LevelMeter, MethodBadge, VerdictText } from '@/components/criteria/CriteriaUI';
+import { useFitConditionsStore } from '@/store/useFitConditionsStore';
+import { assessFit, hasActiveConditions, scoreWord, type FitResult } from '@/utils/fitConditions';
+import { FitGroupBadge, FitStatusLine } from '@/components/fit/FitSummary';
 
 interface Props {
     data: Institution[];
@@ -254,8 +257,53 @@ const BASIC_ROWS: Row[] = [
     { key: 'phone', label: '연락처', render: (item) => item.phone ? <a href={`tel:${item.phone}`} className="inline-flex items-center gap-1 text-sm font-bold text-slate-700 hover:text-indigo-600"><Phone className="w-3.5 h-3.5 text-slate-400" aria-hidden="true" />{item.phone}</a> : <Empty /> },
 ];
 
+/** 맞춤 조건 행. 조건을 정했을 때만 보인다. 확인 안 된 조건도 함께 적는다. */
+function fitRows(results: FitResult[]): Row[] {
+    const rows: Row[] = [
+        { key: 'fit-group', label: '판정', render: (_, i) => <FitGroupBadge result={results[i]} /> },
+    ];
+    const keys = [...new Set(results.flatMap(r => r.checks.map(x => x.key)))];
+    for (const key of keys) {
+        const sample = results.find(r => r.checks.some(x => x.key === key))?.checks.find(x => x.key === key);
+        rows.push({
+            key: `fit-${key}`,
+            label: `${sample?.need === 'required' ? '[필수] ' : ''}${sample?.label ?? key}`,
+            render: (_, i) => {
+                const check = results[i].checks.find(x => x.key === key);
+                return check ? <ul className="text-left"><FitStatusLine status={check.status} text={check.reason} /></ul> : <Empty />;
+            },
+        });
+    }
+    rows.push({
+        key: 'fit-objective',
+        label: '공시 평가 (중요도 반영)',
+        render: (_, i) => {
+            const o = results[i].objective;
+            return (
+                <div className="space-y-1">
+                    <span className="text-sm font-black text-slate-800">{o.score === null ? '판단 자료 없음' : `${scoreWord(o.score)} ${o.score}/3 (${o.used}개 기준)`}</span>
+                    {o.missing.length > 0 && <p className="text-[11px] font-bold text-slate-400 break-keep">자료 없어 제외: {o.missing.join(', ')}</p>}
+                </div>
+            );
+        },
+    });
+    if (results.some(r => r.distanceKm !== null || r.unverified.some(u => u.startsWith('위치')))) {
+        rows.push({
+            key: 'fit-distance',
+            label: '직선거리 (통학시간 아님)',
+            render: (_, i) => results[i].distanceKm !== null
+                ? <span className="text-sm font-black text-slate-800">{results[i].distanceKm}km</span>
+                : <span className="text-[11px] font-bold text-slate-400">위치 좌표 미확인</span>,
+        });
+    }
+    return rows;
+}
+
 export default function CompareTable({ data }: Props) {
     const removeCompareId = useCompareStore((state) => state.removeCompareId);
+    const fitConditions = useFitConditionsStore((s) => s.conditions);
+    const fitLocation = useFitConditionsStore((s) => s.location);
+    const fitActive = hasActiveConditions(fitConditions, fitLocation);
 
     if (!data || data.length === 0) {
         return (
@@ -324,6 +372,19 @@ export default function CompareTable({ data }: Props) {
                             </th>
                         </tr>
                         {renderRows(BASIC_ROWS)}
+                        {fitActive && (
+                            <>
+                                <tr>
+                                    <th scope="rowgroup" colSpan={data.length + 1} className="bg-indigo-50/60 border-y border-indigo-100 p-0 text-left">
+                                        <div className="sticky left-0 w-fit px-3 sm:px-5 py-3">
+                                            <span className="block text-sm sm:text-base font-black text-slate-900 font-heading">우리 집 조건</span>
+                                            <span className="block text-xs font-medium text-slate-500 break-keep">목록에서 정한 조건으로 본 적합성 · 확인할 수 없는 조건은 &lsquo;확인 필요&rsquo;로 두고 탈락시키지 않아요</span>
+                                        </div>
+                                    </th>
+                                </tr>
+                                {renderRows(fitRows(data.map(item => assessFit(item, fitConditions, fitLocation))))}
+                            </>
+                        )}
                         {CRITERIA.map(criterion => {
                             const theme = CRITERION_THEME[criterion.id];
                             return (
