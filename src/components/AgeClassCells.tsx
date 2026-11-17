@@ -43,7 +43,7 @@ export function AgeClassOverview({ item }: { item: Institution }) {
     return (
         <ul className="text-left space-y-1">
             {ageClassOverview(item).map(st => <StatusLine key={st.age} status={st} prefix={`만 ${st.age}세`} />)}
-            {item.ageClasses.special.classes > 0 && (
+            {(item.ageClasses.special.classes ?? 0) > 0 && (
                 <li className="text-[11px] font-bold text-slate-500">특수학급 {item.ageClasses.special.classes}개</li>
             )}
         </ul>
@@ -60,7 +60,7 @@ export function ClassHistoryCell({ item, entries, loading }: { item: Institution
     const h = compareHistory(item, entries);
     return (
         <div className="text-left space-y-1">
-            {h.period && <p className="text-[11px] font-black text-slate-500">{h.period.from} ~ {h.period.to} 공시 비교</p>}
+            {h.period && <p className="text-[11px] font-black text-slate-500">{h.period.from} ~ {h.period.to} 저장 스냅샷 비교</p>}
             {h.comparable && h.changes.length === 0 && <p className="text-[11px] font-bold text-slate-600">연령별 단독반 수 변화 없음</p>}
             {h.changes.length > 0 && (
                 <ul className="space-y-0.5">

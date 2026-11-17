@@ -53,21 +53,22 @@ export interface Institution {
     tags: string[];
 }
 
+/** null = 공시 원본에 그 값이 없음(정보 부족). 0과 다르다. */
 export interface AgeClassCount {
-    classes: number;
-    children: number;
+    classes: number | null;
+    children: number | null;
     /** 유치원 연령별 인가 정원 */
-    capacity?: number;
+    capacity?: number | null;
     /** 어린이집 연령별 입소대기 아동 수 */
-    waiting?: number;
+    waiting?: number | null;
 }
 
 export interface AgeClasses {
     basis: { kind: 'disclosure' | 'date' | 'unknown'; key: string | null; label: string };
     byAge: Record<number, AgeClassCount>;
-    mixed: { label: string; ages: number[] | null; classes: number; children: number; capacity?: number }[];
-    special: { classes: number; children: number };
-    waitingOver6?: number;
+    mixed: { label: string; ages: number[] | null; classes: number; children: number | null; capacity?: number | null }[];
+    special: { classes: number | null; children: number | null };
+    waitingOver6?: number | null;
 }
 
 export interface SearchParams {

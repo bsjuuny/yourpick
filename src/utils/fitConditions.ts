@@ -119,6 +119,8 @@ export function checkAge(item: Institution, age: number, future = false): CheckR
         }
         return { status: 'unknown', reason: st.detail };
     }
+    // 연령반 공시가 없는 기관: 다음 학년도 이후는 대상 연령만으로 판단하지 않는다.
+    if (future) return { status: 'unknown', reason: '연령별 학급 공시가 없어 그 학년도 운영은 확인 필요' };
     const range = parseAgeRange(item.ageRange);
     if (!range) return { status: 'unknown', reason: '대상 연령 공시 없음' };
     if (age < range[0] || age > range[1]) {
@@ -137,8 +139,10 @@ export function checkContinuity(item: Institution, birthYear: number, entryYear:
     const path = childPath(item, birthYear, entryYear, now);
     if (path.years.length === 0) return { status: 'unknown', reason: path.summary };
     const allCurrent = path.years.every(y => y.current);
-    if (allCurrent) return { status: path.gaps.length === 0 ? 'met' : 'unmet', reason: path.summary };
-    return { status: 'unknown', evidence: path.gaps.length === 0, reason: path.summary };
+    // 정보 부족·범위 미공시 혼합반이 하나라도 있으면 근거로 치지 않는다(Codex #3 리뷰 1).
+    if (allCurrent && path.supported) return { status: 'met', reason: path.summary };
+    if (allCurrent && path.gaps.length > 0) return { status: 'unmet', reason: path.summary };
+    return { status: 'unknown', evidence: path.supported, reason: path.summary };
 }
 
 const AFTER_SCHOOL_SIGNALS = /방과후|야간연장|시간연장|연장보육|24시간/;

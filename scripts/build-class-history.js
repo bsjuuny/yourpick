@@ -48,17 +48,35 @@ function entryFromLegacy(inst, date) {
     if (inst.source !== '어린이집' && !String(inst.id).match(/^\d{11}$/)) return null;
     if (!inst.ageBreakdown) return null;
     const classes = [0, 1, 2, 3, 4, 5].map(a => inst.ageBreakdown[a]?.classes ?? 0);
-    return { from: date, to: date, basis: `${date} 수집`, classes, mixed: null, special: null, origin: 'git' };
+    return { from: date, to: date, basis: `${date} 수집 (저장 스냅샷)`, classes, mixed: null, special: null, origin: 'git' };
 }
 
 function sameValues(a, b) {
     return JSON.stringify(a.classes) === JSON.stringify(b.classes) && a.mixed === b.mixed && a.special === b.special;
 }
 
+/**
+ * 기록 덧붙이기. 값이 같으면 기간(to)만 늘린다(prevTo 에 직전 끝 날짜를 남겨 둔다).
+ * 같은 날 다시 수집했는데 값이 다르면(API 정정 등) 최신 값을 쓴다:
+ *   그날만 있는 기록이면 값을 바꾸고, 여러 날에 걸친 기록이면 그날을 떼어 새 기록으로 만든다.
+ */
 function append(list, entry) {
     const last = list[list.length - 1];
-    if (last && entry.from <= last.to) return; // 이미 반영된 날짜
+    if (last && entry.from < last.to) return; // 더 오래된 스냅샷은 무시
+    if (last && entry.from === last.to) {
+        if (sameValues(last, entry)) return;
+        if (last.from === last.to) {
+            Object.assign(last, { classes: entry.classes, mixed: entry.mixed, special: entry.special, basis: entry.basis ?? last.basis, origin: entry.origin });
+            delete last.prevTo;
+            return;
+        }
+        last.to = last.prevTo ?? last.from;
+        delete last.prevTo;
+        list.push(entry);
+        return;
+    }
     if (last && sameValues(last, entry)) {
+        last.prevTo = last.to;
         last.to = entry.to;
         if (entry.basis) last.basis = entry.basis;
         return;

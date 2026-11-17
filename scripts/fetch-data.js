@@ -177,7 +177,7 @@ const REGIONS = [
             { "sggCode": "41610", "sggName": "광주시" },
             { "sggCode": "41630", "sggName": "양주시" },
             { "sggCode": "41650", "sggName": "포천시" },
-            { "sggCode": "41670", "sggName": "여주시" },
+            { "sggCode": "41670", "sggName": "여주시", "childcareSggCode": "41730" },
             { "sggCode": "41800", "sggName": "연천군" },
             { "sggCode": "41820", "sggName": "가평군" },
             { "sggCode": "41830", "sggName": "양평군" }
@@ -266,7 +266,13 @@ function parseTenureTable(html) {
 
 // ── 연령반 운영 현황 (2026-11-17) ─────────────────────────────────────────────
 // 공시 원본의 연령별 학급·원아·정원과 혼합반·특수반을 그대로 옮긴다. 판정은 화면(src/utils/ageClasses.ts)에서 한다.
-const int = (v) => { const n = parseInt(v, 10); return Number.isFinite(n) && n >= 0 ? n : 0; };
+// 원본에 없거나 숫자가 아니면 null(정보 부족). 0으로 바꾸면 '이번 공시에 없음'으로 잘못 읽힌다.
+const num = (v) => {
+    if (v === undefined || v === null || String(v).trim() === '') return null;
+    const n = Number(String(v).trim());
+    return Number.isInteger(n) && n >= 0 ? n : null;
+};
+const hasAny = (item, keys) => keys.some(k => num(item[k]) !== null);
 
 /** "20262" → { key: '20262', label: '2026년 2차 공시' } */
 function kindergartenBasis(pbnttmng) {
@@ -275,40 +281,43 @@ function kindergartenBasis(pbnttmng) {
 }
 
 function kindergartenAgeClasses(item) {
+    // 연령별 학급 필드가 하나도 없으면(스키마 변경·부분 응답) 연령반 정보를 만들지 않는다.
+    if (!hasAny(item, ['clcnt3', 'clcnt4', 'clcnt5', 'mixclcnt'])) return undefined;
     const byAge = {};
     for (const age of [3, 4, 5]) {
-        byAge[age] = { classes: int(item[`clcnt${age}`]), children: int(item[`ppcnt${age}`]), capacity: int(item[`ag${age}fpcnt`]) };
+        byAge[age] = { classes: num(item[`clcnt${age}`]), children: num(item[`ppcnt${age}`]), capacity: num(item[`ag${age}fpcnt`]) };
     }
-    const mixedClasses = int(item.mixclcnt);
+    const mixedClasses = num(item.mixclcnt);
     return {
         basis: kindergartenBasis(item.pbnttmng),
         byAge,
-        mixed: mixedClasses > 0 || int(item.mixppcnt) > 0
-            ? [{ label: '혼합반', ages: [3, 4, 5], classes: mixedClasses, children: int(item.mixppcnt), capacity: int(item.mixfpcnt) }]
+        mixed: (mixedClasses ?? 0) > 0 || (num(item.mixppcnt) ?? 0) > 0
+            ? [{ label: '혼합반', ages: [3, 4, 5], classes: mixedClasses ?? 0, children: num(item.mixppcnt), capacity: num(item.mixfpcnt) }]
             : [],
-        special: { classes: int(item.shclcnt), children: int(item.shppcnt) },
+        special: { classes: num(item.shclcnt), children: num(item.shppcnt) },
     };
 }
 
 function childcareAgeClasses(item) {
+    if (!hasAny(item, ['CLASS_CNT_00', 'CLASS_CNT_01', 'CLASS_CNT_02', 'CLASS_CNT_03', 'CLASS_CNT_04', 'CLASS_CNT_05', 'CLASS_CNT_M2', 'CLASS_CNT_M5'])) return undefined;
     const byAge = {};
     for (let age = 0; age <= 5; age++) {
-        byAge[age] = { classes: int(item[`CLASS_CNT_0${age}`]), children: int(item[`CHILD_CNT_0${age}`]), waiting: int(item[`EW_CNT_0${age}`]) };
+        byAge[age] = { classes: num(item[`CLASS_CNT_0${age}`]), children: num(item[`CHILD_CNT_0${age}`]), waiting: num(item[`EW_CNT_0${age}`]) };
     }
     // 보육정보 공개 API 명세 v1.6: M2 = 영아혼합(만 0~2세), M5 = 유아혼합(만 3~5세).
     // M3 은 명세에 없는 항목이라 연령 범위를 추정하지 않는다(ages: null).
     const mixed = [
-        { label: '영아혼합반', ages: [0, 1, 2], classes: int(item.CLASS_CNT_M2), children: int(item.CHILD_CNT_M2) },
-        { label: '혼합반(연령 범위 미공시)', ages: null, classes: int(item.CLASS_CNT_M3), children: int(item.CHILD_CNT_M3) },
-        { label: '유아혼합반', ages: [3, 4, 5], classes: int(item.CLASS_CNT_M5), children: int(item.CHILD_CNT_M5) },
-    ].filter(m => m.classes > 0 || m.children > 0);
+        { label: '영아혼합반', ages: [0, 1, 2], classes: num(item.CLASS_CNT_M2) ?? 0, children: num(item.CHILD_CNT_M2) },
+        { label: '혼합반(연령 범위 미공시)', ages: null, classes: num(item.CLASS_CNT_M3) ?? 0, children: num(item.CHILD_CNT_M3) },
+        { label: '유아혼합반', ages: [3, 4, 5], classes: num(item.CLASS_CNT_M5) ?? 0, children: num(item.CHILD_CNT_M5) },
+    ].filter(m => m.classes > 0 || (m.children ?? 0) > 0);
     const date = String(item.datastdrdt || '').trim();
     return {
         basis: /^\d{4}-\d{2}-\d{2}$/.test(date) ? { kind: 'date', key: date, label: `${date} 기준` } : { kind: 'unknown', key: null, label: '기준일 정보 없음' },
         byAge,
         mixed,
-        special: { classes: int(item.CLASS_CNT_SP), children: int(item.CHILD_CNT_SP) },
-        waitingOver6: int(item.EW_CNT_M6),
+        special: { classes: num(item.CLASS_CNT_SP), children: num(item.CHILD_CNT_SP) },
+        waitingOver6: num(item.EW_CNT_M6),
     };
 }
 
@@ -763,7 +772,8 @@ async function run() {
                 for (const sgg of sido.sggList) {
                     console.log(`[어린이집] Fetching data for ${sido.sidoName} ${sgg.sggName}...`);
                     try {
-                        const xml = await fetchChildcareApi(sgg.sggCode);
+                        // 어린이집 API 가 다른 코드로만 답하는 지역(예: 여주시 = 옛 여주군 41730).
+                        const xml = await fetchChildcareApi(sgg.childcareSggCode || sgg.sggCode);
 
                         if (xml.includes('ERROR') || xml.includes('INFO-') || xml.includes('traffic')) {
                             const errMatch = xml.match(/<(ERROR|INFO)[^>]*>([^<]*)/i);

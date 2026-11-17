@@ -141,6 +141,77 @@ test('history builder: identical consecutive states extend the period; unknown m
     historyBuilder.append(list, { from: '2026-03-31', to: '2026-03-31', classes: [1, 1, 1, 0, 0, 0], mixed: null, special: null });
     historyBuilder.append(list, { from: '2026-08-01', to: '2026-08-01', classes: [1, 1, 1, 0, 0, 0], mixed: null, special: null });
     historyBuilder.append(list, { from: '2026-11-17', to: '2026-11-17', classes: [1, 1, 1, 0, 0, 0], mixed: 0, special: 0 });
-    historyBuilder.append(list, { from: '2026-11-17', to: '2026-11-17', classes: [9, 9, 9, 0, 0, 0], mixed: 0, special: 0 }); // 같은 날 다시 → 무시
+    historyBuilder.append(list, { from: '2026-11-17', to: '2026-11-17', classes: [9, 9, 9, 0, 0, 0], mixed: 0, special: 0 }); // 같은 날 정정 → 최신 값
     assert.deepEqual(list.map(e => [e.from, e.to, e.mixed]), [['2026-03-31', '2026-08-01', null], ['2026-11-17', '2026-11-17', 0]]);
+    assert.deepEqual(list[1].classes, [9, 9, 9, 0, 0, 0]);
+});
+
+// ── Codex PR #3 1차 검수 지적 재현 (2026-11-17) ─────────────────────────
+
+test('[Codex#3-1] no class data or only M3 never counts as support for future years or graduation', () => {
+    const noData = { ...daycare(), ageClasses: undefined, ageRange: '만 0세 ~ 만 5세' };
+    assert.equal(f.checkAge(noData, 3, true).status, 'unknown');
+    assert.notEqual(f.checkAge(noData, 3, true).evidence, true);
+    const m3only = daycare({ 0: { classes: 1, children: 3 } }, [{ label: '혼합반(연령 범위 미공시)', ages: null, classes: 1, children: 8 }]);
+    for (const item of [noData, m3only]) {
+        const p = a.childPath(item, 2023, 2027, NOW);
+        assert.equal(p.supported, false);
+        assert.ok(!p.summary.includes('졸업(만 5세반)까지 해당 연령 반이 있어요'), p.summary);
+        assert.match(p.summary, /정보가 부족해 판단할 수 없어요/);
+        const cont = f.checkContinuity(item, 2023, 2027, NOW);
+        assert.equal(cont.status, 'unknown');
+        assert.notEqual(cont.evidence, true);
+    }
+});
+
+test('[Codex#3-2] middle changes are not lost: 2→1→2, 1→0→1, 0→1→0', () => {
+    const d = daycare({ 0: { classes: 2, children: 5 }, 2: { classes: 1, children: 7 } });
+    const e = (from, classes, mixed = null) => ({ from, to: from, basis: null, classes, mixed, special: null, origin: 'git' });
+    const h = a.compareHistory(d, [e('2026-03-31', [2, 0, 1, 0, 0, 0]), e('2026-08-01', [1, 1, 0, 0, 0, 0]), e('2026-11-17', [2, 0, 1, 0, 0, 0], 0)]);
+    assert.deepEqual(h.changes.map(c => [c.age, c.kind]), [[0, '변동 후 복귀'], [1, '변동 후 복귀'], [2, '변동 후 복귀']]);
+    assert.ok(h.changes[0].text.includes('2개(03.31) → 1개(08.01) → 2개(11.17)'), h.changes[0].text);
+    assert.notEqual(h.changes.length, 0);
+});
+
+test('[Codex#3-3] history is labelled as stored snapshots with collection dates, not official disclosures', () => {
+    const d = daycare({ 0: { classes: 1, children: 3 } });
+    const h = a.compareHistory(d, [
+        { from: '2026-03-31', to: '2026-03-31', basis: '2026-03-31 수집 (저장 스냅샷)', classes: [2, 0, 0, 0, 0, 0], mixed: null, special: null, origin: 'git' },
+        { from: '2026-11-17', to: '2026-11-17', basis: '2026-11-17 기준', classes: [1, 0, 0, 0, 0, 0], mixed: 0, special: 0, origin: 'collect' },
+    ]);
+    assert.ok(h.notes.some(n => /과거 공식 공시는 받을 수 없어 YourPick이 모은 시점끼리/.test(n)));
+    const cells = fs.readFileSync(path.resolve(__dirname, '../src/components/AgeClassCells.tsx'), 'utf8');
+    assert.match(cells, /저장 스냅샷 비교/);
+    assert.doesNotMatch(cells, /공시 비교</);
+});
+
+test('[Codex#3-4] same-day re-collection with different values keeps the latest; a multi-day state is split', () => {
+    const list = [];
+    historyBuilder.append(list, { from: '2026-10-01', to: '2026-10-01', classes: [1, 1, 0, 0, 0, 0], mixed: 0, special: 0 });
+    historyBuilder.append(list, { from: '2026-11-17', to: '2026-11-17', classes: [1, 1, 0, 0, 0, 0], mixed: 0, special: 0 }); // 기간 연장
+    historyBuilder.append(list, { from: '2026-11-17', to: '2026-11-17', classes: [1, 1, 0, 0, 0, 0], mixed: 0, special: 0 }); // 같은 값 → 그대로
+    historyBuilder.append(list, { from: '2026-11-17', to: '2026-11-17', classes: [1, 2, 0, 0, 0, 0], mixed: 0, special: 0 }); // 같은 날 정정
+    assert.deepEqual(list.map(e => [e.from, e.to, e.classes[1]]), [['2026-10-01', '2026-10-01', 1], ['2026-11-17', '2026-11-17', 2]]);
+});
+
+test('[Codex#3-5] missing or non-numeric source fields are 정보 부족, never 0 classes', () => {
+    assert.equal(collector.kindergartenAgeClasses({}), undefined);
+    assert.equal(collector.childcareAgeClasses({}), undefined);
+    const partial = collector.childcareAgeClasses({ CLASS_CNT_00: '1', CLASS_CNT_01: 'x', CLASS_CNT_02: '' });
+    assert.equal(partial.byAge[1].classes, null);
+    assert.equal(partial.byAge[2].classes, null);
+    const item = { ...daycare(), ageClasses: partial };
+    assert.equal(a.ageClassStatus(item, 1).kind, 'unknown');
+    assert.equal(a.ageClassStatus(item, 0).kind, 'own');
+});
+
+test('[Codex#3-6] mixed classes show their pupils and capacity as totals', () => {
+    const k = kinder({}, [{ label: '혼합반', ages: [3, 4, 5], classes: 3, children: 75, capacity: 75 }]);
+    assert.equal(a.mixedSummary(k).text, '혼합반(만 3~5세) 3개 (합계 원아 75명 · 정원 75명)');
+});
+
+test('[Codex#3-7] placeholder institutions are rejected by the data check', () => {
+    const { isPlaceholder } = require('../scripts/check-data-counts.cjs');
+    assert.equal(isPlaceholder({ id: '1', name: '어린이집 1', address: '주소 미상' }), true);
+    assert.equal(isPlaceholder({ id: '41730000123', name: '귀여운어린이집', address: '경기도 여주시 세종로 173-45' }), false);
 });

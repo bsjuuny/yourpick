@@ -53,7 +53,12 @@ function countsAtRef(root, ref, files) {
     return counts;
 }
 
-module.exports = { compareCounts, regionFiles };
+// 수집이 안 된 지역을 채우던 자리표시 기관(예: 2026-03 여주시 "어린이집 1", 주소 미상)을 막는다.
+function isPlaceholder(inst) {
+    return /^(어린이집|유치원) d+$/.test(String(inst.name || '')) || String(inst.address || '').trim() === '주소 미상' || /^d{1,3}$/.test(String(inst.id || ''));
+}
+
+module.exports = { compareCounts, regionFiles, isPlaceholder };
 
 if (require.main === module) {
     const root = path.resolve(__dirname, '..');
@@ -67,7 +72,13 @@ if (require.main === module) {
             console.error(`❌ Missing data file for a listed region: ${file}`);
             process.exit(1);
         }
-        current[file] = readCount(fs.readFileSync(fullPath, 'utf8'));
+        const text = fs.readFileSync(fullPath, 'utf8');
+        current[file] = readCount(text);
+        const placeholders = JSON.parse(text).filter(isPlaceholder);
+        if (placeholders.length > 0) {
+            console.error(`❌ Placeholder institutions in ${file}: ${placeholders.slice(0, 3).map(p => `${p.id} ${p.name}`).join(', ')}`);
+            process.exit(1);
+        }
     }
     const { problems, currentTotal, baselineTotal } = compareCounts(current, countsAtRef(root, ref, files));
     if (problems.length > 0) {
