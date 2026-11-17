@@ -1,5 +1,4 @@
 import { create } from 'zustand';
-import { InstitutionType } from '@/types/institution';
 
 interface CompareStore {
     compareIds: string[];

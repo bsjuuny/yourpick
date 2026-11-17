@@ -14,7 +14,7 @@ jobs:
           node-version: '22'
           cache: npm
       - run: npm ci --ignore-scripts
-      - run: npx eslint next.config.ts src/app/layout.tsx src/app/page.tsx src/app/list/page.tsx src/components/layout/Layout.tsx src/components/layout/Navbar.tsx src/components/SearchForm.tsx src/components/DonationPopup.tsx src/components/InstitutionCard.tsx src/types/institution.ts src/utils/institutionSort.ts src/utils/fitConditions.ts src/store/useFitConditionsStore.ts src/components/fit/FitConditionsPanel.tsx src/components/fit/FitSummary.tsx src/components/CompareTable.tsx src/components/AgeClassCells.tsx src/utils/ageClasses.ts src/utils/preEntryQuestions.ts src/store/usePreEntryNotesStore.ts src/components/CommunicationCells.tsx scripts/build-class-history.js scripts/fetch-data.js scripts/audit-coordinates.js scripts/geo/validate-coordinates.js scripts/read-api-response.js scripts/check-export.cjs tests/*.cjs
+      - run: npx eslint next.config.ts src scripts tests
       - run: npm test
       - run: npm run audit:coordinates
       - run: npx tsc --noEmit
