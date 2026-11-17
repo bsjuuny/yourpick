@@ -11,9 +11,9 @@
     "longitude": 124.7183688,
     "phone": "032-836-0282",
     "capacity": 36,
-    "currentPupils": 7,
-    "childrenPerTeacher": 3.5,
-    "teacherRatio": "40% (2명/5명)",
+    "currentPupils": 9,
+    "childrenPerTeacher": 9,
+    "teacherRatio": "25% (1명/4명)",
     "safetyStatus": "CCTV 8대 설치",
     "mealStatus": "급식 제공 (영양사 미배치)",
     "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
@@ -32,17 +32,17 @@
         "ratio": 0
       },
       "2": {
-        "children": 2,
+        "children": 3,
         "classes": 1,
-        "ratio": 2
+        "ratio": 3
       }
     },
     "teacherTenure": {
       "under1": 0,
       "year1to2": 0,
       "year2to4": 0,
-      "year4to6": 50,
-      "over6": 50
+      "year4to6": 0,
+      "over6": 100
     },
     "waitlistTotal": 0,
     "cctvCount": 8,
@@ -52,10 +52,11 @@
       "즉시입소가능",
       "정원여유",
       "영양사배치",
+      "교사비율주의",
       "숙련교사"
     ],
-    "stabilityScore": 5,
-    "locationStatus": "region_consistent"
+    "locationStatus": "region_consistent",
+    "stabilityScore": 3.5
   },
   {
     "id": "28720000015",
@@ -108,8 +109,8 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4,
-    "locationStatus": "region_consistent"
+    "locationStatus": "region_consistent",
+    "stabilityScore": 4
   },
   {
     "id": "28720000012",
@@ -123,9 +124,9 @@
     "longitude": 126.49351353282006,
     "phone": "032-881-0522",
     "capacity": 60,
-    "currentPupils": 53,
-    "childrenPerTeacher": 4.4,
-    "teacherRatio": "71% (12명/17명)",
+    "currentPupils": 57,
+    "childrenPerTeacher": 5.2,
+    "teacherRatio": "69% (11명/16명)",
     "safetyStatus": "CCTV 15대 설치",
     "mealStatus": "급식 제공 (영양사 미배치)",
     "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
@@ -139,9 +140,9 @@
         "ratio": 0
       },
       "1": {
-        "children": 10,
+        "children": 11,
         "classes": 2,
-        "ratio": 5
+        "ratio": 5.5
       },
       "2": {
         "children": 0,
@@ -154,24 +155,24 @@
         "ratio": 0
       },
       "4": {
-        "children": 11,
+        "children": 12,
         "classes": 1,
-        "ratio": 11
+        "ratio": 12
       },
       "5": {
-        "children": 12,
+        "children": 13,
         "classes": 2,
-        "ratio": 6
+        "ratio": 6.5
       }
     },
     "teacherTenure": {
-      "under1": 41,
-      "year1to2": 16,
-      "year2to4": 16,
-      "year4to6": 8,
-      "over6": 16
+      "under1": 36,
+      "year1to2": 18,
+      "year2to4": 18,
+      "year4to6": 9,
+      "over6": 18
     },
-    "waitlistTotal": 7,
+    "waitlistTotal": 10,
     "cctvCount": 15,
     "specialPrograms": "장애아통합",
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=28720000012",
@@ -180,10 +181,11 @@
       "CCTV완비",
       "대기있음",
       "특성화교육",
-      "영양사배치"
+      "영양사배치",
+      "교사비율주의"
     ],
-    "stabilityScore": 3.3,
-    "locationStatus": "region_consistent"
+    "locationStatus": "region_consistent",
+    "stabilityScore": 2.3
   },
   {
     "id": "28720000016",
@@ -224,8 +226,8 @@
       "영양사배치",
       "숙련교사"
     ],
-    "stabilityScore": 4.5,
-    "locationStatus": "region_consistent"
+    "locationStatus": "region_consistent",
+    "stabilityScore": 4.5
   },
   {
     "id": "28720000002",
@@ -267,7 +269,7 @@
       "year4to6": 20,
       "over6": 20
     },
-    "waitlistTotal": 28,
+    "waitlistTotal": 35,
     "cctvCount": 5,
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=28720000002",
     "tags": [
@@ -278,8 +280,8 @@
       "교사비율주의",
       "숙련교사"
     ],
-    "stabilityScore": 2.8,
-    "locationStatus": "region_consistent"
+    "locationStatus": "region_consistent",
+    "stabilityScore": 2.8
   },
   {
     "id": "28720000011",
@@ -293,8 +295,8 @@
     "longitude": 125.7032604,
     "phone": "032-834-8870",
     "capacity": 60,
-    "currentPupils": 16,
-    "childrenPerTeacher": 5.3,
+    "currentPupils": 15,
+    "childrenPerTeacher": 5,
     "teacherRatio": "50% (3명/6명)",
     "safetyStatus": "CCTV 7대 설치",
     "mealStatus": "급식 제공 (영양사 미배치)",
@@ -323,11 +325,10 @@
       "CCTV완비",
       "즉시입소가능",
       "정원여유",
-      "영양사배치",
-      "교사비율주의"
+      "영양사배치"
     ],
-    "stabilityScore": 3,
-    "locationStatus": "region_consistent"
+    "locationStatus": "region_consistent",
+    "stabilityScore": 4
   },
   {
     "id": "28720000017",
@@ -358,9 +359,9 @@
       }
     },
     "teacherTenure": {
-      "under1": 0,
+      "under1": 25,
       "year1to2": 25,
-      "year2to4": 50,
+      "year2to4": 25,
       "year4to6": 25,
       "over6": 0
     },
@@ -374,14 +375,14 @@
       "영양사배치",
       "교사비율우수"
     ],
-    "stabilityScore": 4.5,
     "locationStatus": "unconfirmed",
+    "stabilityScore": 4.5,
     "locationIssues": [
       "region_mismatch"
     ],
     "sourceCoordinates": {
-      "latitude": 37.35520733459801,
-      "longitude": 126.5698796107665
+      "latitude": "37.35520733459801",
+      "longitude": "126.5698796107665"
     }
   },
   {
@@ -396,8 +397,8 @@
     "longitude": null,
     "phone": "032-836-3342",
     "capacity": 39,
-    "currentPupils": 31,
-    "childrenPerTeacher": 5.2,
+    "currentPupils": 29,
+    "childrenPerTeacher": 4.8,
     "teacherRatio": "67% (6명/9명)",
     "safetyStatus": "CCTV 16대 설치",
     "mealStatus": "급식 제공 (영양사 미배치)",
@@ -417,9 +418,9 @@
         "ratio": 9
       },
       "5": {
-        "children": 8,
+        "children": 7,
         "classes": 1,
-        "ratio": 8
+        "ratio": 7
       }
     },
     "teacherTenure": {
@@ -436,17 +437,16 @@
       "CCTV완비",
       "즉시입소가능",
       "정원여유",
-      "영양사배치",
-      "교사비율주의"
+      "영양사배치"
     ],
-    "stabilityScore": 2,
     "locationStatus": "unconfirmed",
+    "stabilityScore": 3,
     "locationIssues": [
       "region_mismatch"
     ],
     "sourceCoordinates": {
-      "latitude": 37.88315866848803,
-      "longitude": 124.64932641639915
+      "latitude": "37.88315866848803",
+      "longitude": "124.64932641639915"
     }
   }
 ]

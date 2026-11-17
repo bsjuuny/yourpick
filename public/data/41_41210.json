@@ -31,9 +31,9 @@
     "tags": [
       "정원여유"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 3.5,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 3.5
   },
   {
     "id": "1ecec08d-0303-b044-e053-0a32095ab044",
@@ -46,10 +46,10 @@
     "latitude": 37.4828579135,
     "longitude": 126.8629112112,
     "phone": "02-2612-8090",
-    "capacity": 40,
-    "currentPupils": 11,
-    "childrenPerTeacher": 3.7,
-    "safetyStatus": "CCTV설치, 가스점검완료",
+    "capacity": 38,
+    "currentPupils": 14,
+    "childrenPerTeacher": 7,
+    "safetyStatus": "소방대피훈련완료, CCTV설치, 가스점검완료",
     "mealStatus": "위탁급식, 영양사배치",
     "operatingHours": "09시00분~19시00분",
     "hasSchoolBus": false,
@@ -69,9 +69,9 @@
       "정원여유",
       "영양사배치"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 3.5,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 3.5
   },
   {
     "id": "1ecec08d-0304-b044-e053-0a32095ab044",
@@ -81,8 +81,8 @@
     "type": "국공립",
     "source": "유치원",
     "address": "경기도 광명시 광이로 21",
-    "latitude": 37.4808532541791,
-    "longitude": 126.857410219945,
+    "latitude": 37.4808532542,
+    "longitude": 126.8574102199,
     "phone": "02-2610-3990",
     "capacity": 20,
     "currentPupils": 11,
@@ -109,9 +109,9 @@
       "영양사배치",
       "숙련교사"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 4.5,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 4.5
   },
   {
     "id": "1ecec08d-0305-b044-e053-0a32095ab044",
@@ -125,8 +125,8 @@
     "longitude": 126.881479563108,
     "phone": "02-892-7697",
     "capacity": 128,
-    "currentPupils": 59,
-    "childrenPerTeacher": 11.8,
+    "currentPupils": 58,
+    "childrenPerTeacher": 11.6,
     "safetyStatus": "소방대피훈련완료, CCTV설치, 가스점검완료",
     "mealStatus": "위탁급식",
     "operatingHours": "08시00분~19시00분",
@@ -150,9 +150,9 @@
       "숙련교사",
       "영양사법정미달"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 4,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 4
   },
   {
     "id": "1ecec08d-0322-b044-e053-0a32095ab044",
@@ -169,7 +169,7 @@
     "currentPupils": 93,
     "childrenPerTeacher": 11.6,
     "safetyStatus": "소방대피훈련완료, CCTV설치, 가스점검완료",
-    "mealStatus": "위탁급식, 영양사배치",
+    "mealStatus": "위탁급식",
     "operatingHours": "09시00분~18시30분",
     "hasSchoolBus": true,
     "expenseLevel": "시설별 차등 (상세 문의)",
@@ -188,12 +188,11 @@
       "대규모시설",
       "CCTV완비",
       "정원여유",
-      "영양사배치",
-      "영양사법정충족"
+      "영양사법정미달"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 3.5,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 3
   },
   {
     "id": "1ecec08d-0323-b044-e053-0a32095ab044",
@@ -202,13 +201,13 @@
     "name": "도덕초등학교병설유치원",
     "type": "국공립",
     "source": "유치원",
-    "address": "경기��� 광명시 가마산로 28 (철산동. 도덕초등학교)",
-    "latitude": null,
-    "longitude": null,
+    "address": "경기도 광명시 가마산로 28 (철산동. 도덕초등학교)",
+    "latitude": 37.4842837075,
+    "longitude": 126.870317932,
     "phone": "02-2086-3090",
-    "capacity": 78,
-    "currentPupils": 78,
-    "childrenPerTeacher": 9.8,
+    "capacity": 82,
+    "currentPupils": 76,
+    "childrenPerTeacher": 9.5,
     "safetyStatus": "소방대피훈련완료, CCTV설치, 가스점검완료",
     "mealStatus": "위탁급식, 영양사배치",
     "operatingHours": "09시00분~19시00분",
@@ -226,19 +225,11 @@
     "alimiUrl": "https://e-childschoolinfo.moe.go.kr/kinderMt/kinderViolation.do?ittId=1ecec08d-0323-b044-e053-0a32095ab044",
     "tags": [
       "CCTV완비",
-      "거의만원",
       "영양사배치"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 3,
-    "locationStatus": "unconfirmed",
-    "locationIssues": [
-      "address_region_unconfirmed"
-    ],
-    "sourceCoordinates": {
-      "latitude": 37.4842837074956,
-      "longitude": 126.870317931973
-    }
+    "stabilityScore": 3
   },
   {
     "id": "1ecec08d-0324-b044-e053-0a32095ab044",
@@ -252,8 +243,8 @@
     "longitude": 126.869068053167,
     "phone": "02-2688-7020",
     "capacity": 90,
-    "currentPupils": 56,
-    "childrenPerTeacher": 11.2,
+    "currentPupils": 55,
+    "childrenPerTeacher": 11,
     "safetyStatus": "소방대피훈련완료, CCTV설치, 가스점검완료",
     "mealStatus": "위탁급식",
     "operatingHours": "08시00분~19시00분",
@@ -275,9 +266,9 @@
       "정원여유",
       "숙련교사"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 4,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 4
   },
   {
     "id": "1ecec08d-0325-b044-e053-0a32095ab044",
@@ -291,9 +282,9 @@
     "longitude": 126.8824200959,
     "phone": "02-809-2819",
     "capacity": 58,
-    "currentPupils": 37,
-    "childrenPerTeacher": 12.3,
-    "safetyStatus": "CCTV설치, 가스점검완료",
+    "currentPupils": 36,
+    "childrenPerTeacher": 12,
+    "safetyStatus": "소방대피훈련완료, CCTV설치, 가스점검완료",
     "mealStatus": "위탁급식, 영양사배치",
     "operatingHours": "09시00분~19시00분",
     "hasSchoolBus": false,
@@ -313,9 +304,9 @@
       "정원여유",
       "영양사배치"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 3.5,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 4
   },
   {
     "id": "1ecec08d-0326-b044-e053-0a32095ab044",
@@ -328,9 +319,9 @@
     "latitude": 37.4621720394327,
     "longitude": 126.885251150808,
     "phone": "02-894-4519",
-    "capacity": 58,
-    "currentPupils": 19,
-    "childrenPerTeacher": 9.5,
+    "capacity": 38,
+    "currentPupils": 20,
+    "childrenPerTeacher": 10,
     "safetyStatus": "소방대피훈련완료, CCTV설치, 가스점검완료",
     "mealStatus": "위탁급식, 영양사배치",
     "operatingHours": "09시00분~19시00분",
@@ -351,9 +342,9 @@
       "정원여유",
       "영양사배치"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 3,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 3
   },
   {
     "id": "1ecec08d-055a-b044-e053-0a32095ab044",
@@ -392,9 +383,9 @@
       "숙련교사",
       "영양사법정미달"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 4,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 4
   },
   {
     "id": "1ecec08d-0716-b044-e053-0a32095ab044",
@@ -404,12 +395,12 @@
     "type": "국공립",
     "source": "유치원",
     "address": "경기도 광명시 금당로 11-7",
-    "latitude": 37.4584641178986,
-    "longitude": 126.878410321901,
+    "latitude": 37.4584641179,
+    "longitude": 126.8784103219,
     "phone": "02-808-4091",
-    "capacity": 28,
-    "currentPupils": 28,
-    "childrenPerTeacher": 7,
+    "capacity": 58,
+    "currentPupils": 27,
+    "childrenPerTeacher": 6.8,
     "safetyStatus": "소방대피훈련완료, CCTV설치, 가스점검완료",
     "mealStatus": "위탁급식, 영양사배치",
     "operatingHours": "09시00분~19시00분",
@@ -426,14 +417,13 @@
     },
     "alimiUrl": "https://e-childschoolinfo.moe.go.kr/kinderMt/kinderViolation.do?ittId=1ecec08d-0716-b044-e053-0a32095ab044",
     "tags": [
-      "소규모시설",
       "CCTV완비",
-      "거의만원",
+      "정원여유",
       "영양사배치"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 4,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 4
   },
   {
     "id": "1ecec08d-0732-b044-e053-0a32095ab044",
@@ -470,9 +460,9 @@
       "정원여유",
       "영양사배치"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 3.5,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 3.5
   },
   {
     "id": "1ecec08d-0734-b044-e053-0a32095ab044",
@@ -482,19 +472,19 @@
     "type": "사립",
     "source": "유치원",
     "address": "경기도 광명시 범안로 1023",
-    "latitude": 37.4613555044146,
-    "longitude": 126.876837261672,
+    "latitude": 37.4613555044,
+    "longitude": 126.8768372617,
     "phone": "028910101",
     "capacity": 180,
-    "currentPupils": 47,
-    "childrenPerTeacher": 11.8,
+    "currentPupils": 44,
+    "childrenPerTeacher": 11,
     "safetyStatus": "소방대피훈련완료, CCTV설치, 가스점검완료",
     "mealStatus": "위탁급식",
-    "operatingHours": "09시00분~19���00분",
+    "operatingHours": "09시00분~19시00분",
     "hasSchoolBus": true,
     "expenseLevel": "시설별 차등 (상세 문의)",
     "ageRange": "만 3세 ~ 5세",
-    "teacherRatio": "75% (3명/4명)",
+    "teacherRatio": "100% (4명/4명)",
     "teacherTenure": {
       "under1": 25,
       "year1to2": 0,
@@ -510,9 +500,9 @@
       "정원여유",
       "영양사법정미달"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 3,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 3
   },
   {
     "id": "1ecec08d-0b8d-b044-e053-0a32095ab044",
@@ -526,30 +516,31 @@
     "longitude": 126.87307686694,
     "phone": "02-2078-0970",
     "capacity": 58,
-    "currentPupils": 53,
-    "childrenPerTeacher": 17.7,
-    "safetyStatus": "CCTV설치, 가스점검완료",
+    "currentPupils": 57,
+    "childrenPerTeacher": 19,
+    "safetyStatus": "소방대피훈련완료, CCTV설치, 가스점검완료",
     "mealStatus": "위탁급식, 영양사배치",
     "operatingHours": "09시00분~19시00분",
     "hasSchoolBus": false,
     "expenseLevel": "무상교육 (누리과정 지원)",
     "ageRange": "만 3세 ~ 5세",
-    "teacherRatio": "80% (4명/5명)",
+    "teacherRatio": "83% (5명/6명)",
     "teacherTenure": {
       "under1": 67,
       "year1to2": 0,
-      "year2to4": 33,
-      "year4to6": 0,
+      "year2to4": 0,
+      "year4to6": 33,
       "over6": 0
     },
     "alimiUrl": "https://e-childschoolinfo.moe.go.kr/kinderMt/kinderViolation.do?ittId=1ecec08d-0b8d-b044-e053-0a32095ab044",
     "tags": [
       "CCTV완비",
+      "거의만원",
       "영양사배치"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 2.5,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 3.5
   },
   {
     "id": "1ecec08d-0e05-b044-e053-0a32095ab044",
@@ -587,9 +578,9 @@
       "영양사배치",
       "숙련교사"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 5,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 5
   },
   {
     "id": "1ecec08d-0e53-b044-e053-0a32095ab044",
@@ -628,9 +619,9 @@
       "숙련교사",
       "영양사법정미달"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 4,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 4
   },
   {
     "id": "1ecec08d-0ea0-b044-e053-0a32095ab044",
@@ -644,8 +635,8 @@
     "longitude": 126.886207996207,
     "phone": "02-899-9811",
     "capacity": 218,
-    "currentPupils": 47,
-    "childrenPerTeacher": 7.8,
+    "currentPupils": 45,
+    "childrenPerTeacher": 11.3,
     "safetyStatus": "소방대피훈련완료, CCTV설치, 가스점검완료",
     "mealStatus": "위탁급식",
     "operatingHours": "08시00분~18시30분",
@@ -654,11 +645,11 @@
     "ageRange": "만 3세 ~ 5세",
     "teacherRatio": "17% (1명/6명)",
     "teacherTenure": {
-      "under1": 33,
-      "year1to2": 17,
-      "year2to4": 17,
+      "under1": 25,
+      "year1to2": 0,
+      "year2to4": 50,
       "year4to6": 0,
-      "over6": 33
+      "over6": 25
     },
     "alimiUrl": "https://e-childschoolinfo.moe.go.kr/kinderMt/kinderViolation.do?ittId=1ecec08d-0ea0-b044-e053-0a32095ab044",
     "tags": [
@@ -668,9 +659,9 @@
       "정원여유",
       "영양사법정미달"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 4,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 3
   },
   {
     "id": "1ecec08d-0fd6-b044-e053-0a32095ab044",
@@ -684,8 +675,8 @@
     "longitude": 126.8679908614,
     "phone": "02-2616-1018",
     "capacity": 38,
-    "currentPupils": 38,
-    "childrenPerTeacher": 19,
+    "currentPupils": 34,
+    "childrenPerTeacher": 17,
     "safetyStatus": "소방대피훈련완료, CCTV설치, 가스점검완료",
     "mealStatus": "위탁급식, 영양사배치",
     "operatingHours": "09시00분~19시00분",
@@ -703,12 +694,11 @@
     "alimiUrl": "https://e-childschoolinfo.moe.go.kr/kinderMt/kinderViolation.do?ittId=1ecec08d-0fd6-b044-e053-0a32095ab044",
     "tags": [
       "CCTV완비",
-      "거의만원",
       "영양사배치"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 2.5,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 2.5
   },
   {
     "id": "776d3a99-7546-4af8-950a-5e22b7c7755c",
@@ -722,8 +712,8 @@
     "longitude": 126.84791508685997,
     "phone": "02-2613-6363",
     "capacity": 90,
-    "currentPupils": 34,
-    "childrenPerTeacher": 8.5,
+    "currentPupils": 35,
+    "childrenPerTeacher": 8.8,
     "safetyStatus": "소방대피훈련완료, CCTV설치, 가스점검완료",
     "mealStatus": "위탁급식, 영양사배치",
     "operatingHours": "09시00분~18시00분",
@@ -734,20 +724,21 @@
     "teacherTenure": {
       "under1": 0,
       "year1to2": 0,
-      "year2to4": 75,
-      "year4to6": 0,
-      "over6": 25
+      "year2to4": 50,
+      "year4to6": 50,
+      "over6": 0
     },
     "alimiUrl": "https://e-childschoolinfo.moe.go.kr/kinderMt/kinderViolation.do?ittId=776d3a99-7546-4af8-950a-5e22b7c7755c",
     "tags": [
       "셔틀운행",
       "CCTV완비",
       "정원여유",
-      "영양사배치"
+      "영양사배치",
+      "숙련교사"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 3.5,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 4.5
   },
   {
     "id": "918956a9-ed20-4796-9117-82d323be65ab",
@@ -760,20 +751,20 @@
     "latitude": 37.4175982325,
     "longitude": 126.889411213,
     "phone": "02-899-8228",
-    "capacity": 130,
-    "currentPupils": 123,
-    "childrenPerTeacher": 17.6,
-    "safetyStatus": "CCTV설치, 가스점검완료",
+    "capacity": 132,
+    "currentPupils": 125,
+    "childrenPerTeacher": 15.6,
+    "safetyStatus": "소방대피훈련완료, CCTV설치, 가스점검완료",
     "mealStatus": "위탁급식, 영양사배치",
     "operatingHours": "08시00분~19시00분",
     "hasSchoolBus": false,
     "expenseLevel": "무상교육 (누리과정 지원)",
     "ageRange": "만 3세 ~ 5세",
-    "teacherRatio": "58% (7명/12명)",
+    "teacherRatio": "67% (8명/12명)",
     "teacherTenure": {
-      "under1": 29,
-      "year1to2": 29,
-      "year2to4": 43,
+      "under1": 25,
+      "year1to2": 25,
+      "year2to4": 50,
       "year4to6": 0,
       "over6": 0
     },
@@ -784,9 +775,9 @@
       "영양사배치",
       "영양사법정충족"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 2.5,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 2.5
   },
   {
     "id": "1ecec08d-0216-b044-e053-0a32095ab044",
@@ -800,21 +791,21 @@
     "longitude": 126.8886834347,
     "phone": "02-3289-2200",
     "capacity": 186,
-    "currentPupils": 158,
-    "childrenPerTeacher": 9.9,
+    "currentPupils": 169,
+    "childrenPerTeacher": 15.4,
     "safetyStatus": "소방대피훈련완료, CCTV설치, 가스점검완료",
     "mealStatus": "위탁급식, 영양사배치",
     "operatingHours": "08시00분~19시00분",
     "hasSchoolBus": true,
     "expenseLevel": "무상교육 (누리과정 지원)",
     "ageRange": "만 3세 ~ 5세",
-    "teacherRatio": "100% (10명/10명)",
+    "teacherRatio": "94% (15명/16명)",
     "teacherTenure": {
-      "under1": 24,
-      "year1to2": 41,
-      "year2to4": 12,
-      "year4to6": 18,
-      "over6": 5
+      "under1": 42,
+      "year1to2": 42,
+      "year2to4": 17,
+      "year4to6": 0,
+      "over6": 0
     },
     "alimiUrl": "https://e-childschoolinfo.moe.go.kr/kinderMt/kinderViolation.do?ittId=1ecec08d-0216-b044-e053-0a32095ab044",
     "tags": [
@@ -824,9 +815,9 @@
       "영양사배치",
       "영양사법정충족"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 3.5,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 2.5
   },
   {
     "id": "1ecec08c-ff67-b044-e053-0a32095ab044",
@@ -863,9 +854,9 @@
       "영양사배치",
       "숙련교사"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 4,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 4
   },
   {
     "id": "1ecec08c-efa4-b044-e053-0a32095ab044",
@@ -879,20 +870,20 @@
     "longitude": 126.8691348076,
     "phone": "02-899-6034",
     "capacity": 62,
-    "currentPupils": 34,
-    "childrenPerTeacher": 6.8,
+    "currentPupils": 35,
+    "childrenPerTeacher": 8.8,
     "safetyStatus": "소방대피훈련완료, CCTV설치, 가스점검완료",
     "mealStatus": "위탁급식, 영양사배치",
     "operatingHours": "09시00분~19시00분",
     "hasSchoolBus": false,
     "expenseLevel": "무상교육 (누리과정 지원)",
     "ageRange": "만 3세 ~ 5세",
-    "teacherRatio": "75% (3명/4명)",
+    "teacherRatio": "100% (3명/3명)",
     "teacherTenure": {
-      "under1": 0,
-      "year1to2": 20,
-      "year2to4": 20,
-      "year4to6": 60,
+      "under1": 17,
+      "year1to2": 17,
+      "year2to4": 17,
+      "year4to6": 50,
       "over6": 0
     },
     "alimiUrl": "https://e-childschoolinfo.moe.go.kr/kinderMt/kinderViolation.do?ittId=1ecec08c-efa4-b044-e053-0a32095ab044",
@@ -902,9 +893,9 @@
       "영양사배치",
       "숙련교사"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 5,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 4
   },
   {
     "id": "1ecec08c-efd6-b044-e053-0a32095ab044",
@@ -917,22 +908,22 @@
     "latitude": 37.477912238132,
     "longitude": 126.853134788835,
     "phone": "02-2612-7033",
-    "capacity": 275,
-    "currentPupils": 46,
-    "childrenPerTeacher": 6.6,
-    "safetyStatus": "CCTV설치, 가스점검완료",
+    "capacity": 120,
+    "currentPupils": 34,
+    "childrenPerTeacher": 5.7,
+    "safetyStatus": "소방대피훈련완료, CCTV설치, 가스점검완료",
     "mealStatus": "위탁급식",
     "operatingHours": "08시00분~19시00분",
     "hasSchoolBus": true,
     "expenseLevel": "시설별 차등 (상세 문의)",
     "ageRange": "만 3세 ~ 5세",
-    "teacherRatio": "29% (2명/7명)",
+    "teacherRatio": "33% (2명/6명)",
     "teacherTenure": {
-      "under1": 14,
-      "year1to2": 14,
-      "year2to4": 0,
-      "year4to6": 14,
-      "over6": 58
+      "under1": 33,
+      "year1to2": 0,
+      "year2to4": 17,
+      "year4to6": 0,
+      "over6": 50
     },
     "alimiUrl": "https://e-childschoolinfo.moe.go.kr/kinderMt/kinderViolation.do?ittId=1ecec08c-efd6-b044-e053-0a32095ab044",
     "tags": [
@@ -943,9 +934,9 @@
       "숙련교사",
       "영양사법정미달"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 4.5,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 4.5
   },
   {
     "id": "1ecec08c-efde-b044-e053-0a32095ab044",
@@ -959,15 +950,15 @@
     "longitude": 126.887367644,
     "phone": "02-808-7254",
     "capacity": 58,
-    "currentPupils": 37,
-    "childrenPerTeacher": 12.3,
+    "currentPupils": 41,
+    "childrenPerTeacher": 13.7,
     "safetyStatus": "소방대피훈련완료, CCTV설치, 가스점검완료",
     "mealStatus": "위탁급식, 영양사배치",
     "operatingHours": "08시00분~19시00분",
     "hasSchoolBus": false,
     "expenseLevel": "무상교육 (누리과정 지원)",
     "ageRange": "만 3세 ~ 5세",
-    "teacherRatio": "40% (2명/5명)",
+    "teacherRatio": "67% (2명/3명)",
     "teacherTenure": {
       "under1": 33,
       "year1to2": 0,
@@ -981,9 +972,9 @@
       "정원여유",
       "영양사배치"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 3.5,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 3.5
   },
   {
     "id": "1ecec08c-f22a-b044-e053-0a32095ab044",
@@ -997,8 +988,8 @@
     "longitude": 126.8804446265,
     "phone": "02-899-6821",
     "capacity": 116,
-    "currentPupils": 97,
-    "childrenPerTeacher": 13.9,
+    "currentPupils": 95,
+    "childrenPerTeacher": 13.6,
     "safetyStatus": "소방대피훈련완료, CCTV설치, 가스점검완료",
     "mealStatus": "위탁급식, 영양사배치",
     "operatingHours": "08시00분~19시00분",
@@ -1021,9 +1012,9 @@
       "영양사배치",
       "영양사법정충족"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 2.5,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 2.5
   },
   {
     "id": "1ecec08c-f2f1-b044-e053-0a32095ab044",
@@ -1037,21 +1028,21 @@
     "longitude": 126.865929889573,
     "phone": "02-2689-7020",
     "capacity": 118,
-    "currentPupils": 96,
-    "childrenPerTeacher": 10.7,
+    "currentPupils": 99,
+    "childrenPerTeacher": 12.4,
     "safetyStatus": "소방대피훈련완료, CCTV설치, 가스점검완료",
     "mealStatus": "위탁급식",
     "operatingHours": "07시40분~19시00분",
     "hasSchoolBus": true,
     "expenseLevel": "시설별 차등 (상세 문의)",
     "ageRange": "만 3세 ~ 5세",
-    "teacherRatio": "33% (3명/9명)",
+    "teacherRatio": "25% (2명/8명)",
     "teacherTenure": {
-      "under1": 44,
-      "year1to2": 33,
-      "year2to4": 0,
-      "year4to6": 22,
-      "over6": 1
+      "under1": 25,
+      "year1to2": 25,
+      "year2to4": 25,
+      "year4to6": 0,
+      "over6": 25
     },
     "alimiUrl": "https://e-childschoolinfo.moe.go.kr/kinderMt/kinderViolation.do?ittId=1ecec08c-f2f1-b044-e053-0a32095ab044",
     "tags": [
@@ -1060,9 +1051,9 @@
       "CCTV완비",
       "영양사법정미달"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 3,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 2.5
   },
   {
     "id": "1ecec08c-f5b9-b044-e053-0a32095ab044",
@@ -1076,10 +1067,10 @@
     "longitude": 126.8470132652,
     "phone": "02-2687-7736",
     "capacity": 58,
-    "currentPupils": 35,
-    "childrenPerTeacher": 7,
+    "currentPupils": 36,
+    "childrenPerTeacher": 7.2,
     "safetyStatus": "소방대피훈련완료, CCTV설치, 가스점검완료",
-    "mealStatus": "위탁급식",
+    "mealStatus": "위탁급식, 영양사배치",
     "operatingHours": "09시00분~19시00분",
     "hasSchoolBus": false,
     "expenseLevel": "무상교육 (누리과정 지원)",
@@ -1087,19 +1078,21 @@
     "teacherRatio": "100% (6명/6명)",
     "teacherTenure": {
       "under1": 0,
-      "year1to2": 40,
+      "year1to2": 20,
       "year2to4": 40,
-      "year4to6": 20,
+      "year4to6": 40,
       "over6": 0
     },
     "alimiUrl": "https://e-childschoolinfo.moe.go.kr/kinderMt/kinderViolation.do?ittId=1ecec08c-f5b9-b044-e053-0a32095ab044",
     "tags": [
       "CCTV완비",
-      "정원여유"
+      "정원여유",
+      "영양사배치",
+      "숙련교사"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 4,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 4.5
   },
   {
     "id": "1ecec08c-f5ba-b044-e053-0a32095ab044",
@@ -1115,7 +1108,7 @@
     "capacity": 44,
     "currentPupils": 22,
     "childrenPerTeacher": 7.3,
-    "safetyStatus": "CCTV설치, 가스점검완료",
+    "safetyStatus": "소방대피훈련완료, CCTV설치, 가스점검완료",
     "mealStatus": "위탁급식, 영양사배치",
     "operatingHours": "09시00분~19시00분",
     "hasSchoolBus": false,
@@ -1135,9 +1128,9 @@
       "정원여유",
       "영양사배치"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 3.5,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 3.5
   },
   {
     "id": "1ecec08c-f5bb-b044-e053-0a32095ab044",
@@ -1151,8 +1144,8 @@
     "longitude": 126.846938606289,
     "phone": "02-2615-9659",
     "capacity": 58,
-    "currentPupils": 43,
-    "childrenPerTeacher": 14.3,
+    "currentPupils": 44,
+    "childrenPerTeacher": 14.7,
     "safetyStatus": "소방대피훈련완료, CCTV설치, 가스점검완료",
     "mealStatus": "위탁급식, 영양사배치",
     "operatingHours": "09시00분~19시00분",
@@ -1173,9 +1166,9 @@
       "정원여유",
       "영양사배치"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 2.5,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 2.5
   },
   {
     "id": "1ecec08c-f5e2-b044-e053-0a32095ab044",
@@ -1189,15 +1182,15 @@
     "longitude": 126.882227750549,
     "phone": "028926363",
     "capacity": 120,
-    "currentPupils": 49,
-    "childrenPerTeacher": 12.3,
+    "currentPupils": 52,
+    "childrenPerTeacher": 13,
     "safetyStatus": "소방대피훈련완료, CCTV설치, 가스점검완료",
     "mealStatus": "위탁급식",
     "operatingHours": "08시00분~19시00분",
     "hasSchoolBus": true,
     "expenseLevel": "시설별 차등 (상세 문의)",
     "ageRange": "만 3세 ~ 5세",
-    "teacherRatio": "25% (1명/4명)",
+    "teacherRatio": "50% (2명/4명)",
     "teacherTenure": {
       "under1": 25,
       "year1to2": 50,
@@ -1213,9 +1206,9 @@
       "정원여유",
       "영양사법정미달"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 2,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 2
   },
   {
     "id": "1ecec08c-f772-b044-e053-0a32095ab044",
@@ -1229,8 +1222,8 @@
     "longitude": 126.8864825875,
     "phone": "070-8854-2890",
     "capacity": 38,
-    "currentPupils": 10,
-    "childrenPerTeacher": 3.3,
+    "currentPupils": 14,
+    "childrenPerTeacher": 4.7,
     "safetyStatus": "소방대피훈련완료, CCTV설치, 가스점검완료",
     "mealStatus": "위탁급식, 영양사배치",
     "operatingHours": "08시00분~19시00분",
@@ -1251,9 +1244,9 @@
       "정원여유",
       "영양사배치"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 3.5,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 3.5
   },
   {
     "id": "1ecec08c-f890-b044-e053-0a32095ab044",
@@ -1282,9 +1275,9 @@
       "CCTV완비",
       "영양사법정미달"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 2.5,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 2.5
   },
   {
     "id": "1ecec08c-f8da-b044-e053-0a32095ab044",
@@ -1298,8 +1291,8 @@
     "longitude": 126.860019083859,
     "phone": "02-898-8777",
     "capacity": 83,
-    "currentPupils": 61,
-    "childrenPerTeacher": 10.2,
+    "currentPupils": 59,
+    "childrenPerTeacher": 9.8,
     "safetyStatus": "소방대피훈련완료, CCTV설치, 가스점검완료",
     "mealStatus": "위탁급식",
     "operatingHours": "09시00분~18시00분",
@@ -1309,10 +1302,10 @@
     "teacherRatio": "33% (2명/6명)",
     "teacherTenure": {
       "under1": 33,
-      "year1to2": 17,
-      "year2to4": 17,
+      "year1to2": 0,
+      "year2to4": 33,
       "year4to6": 0,
-      "over6": 33
+      "over6": 34
     },
     "alimiUrl": "https://e-childschoolinfo.moe.go.kr/kinderMt/kinderViolation.do?ittId=1ecec08c-f8da-b044-e053-0a32095ab044",
     "tags": [
@@ -1320,9 +1313,9 @@
       "CCTV완비",
       "정원여유"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 4,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 4
   },
   {
     "id": "1ecec08c-fa55-b044-e053-0a32095ab044",
@@ -1335,7 +1328,7 @@
     "latitude": 37.4733149965,
     "longitude": 126.865541787,
     "phone": "02-2611-2816",
-    "capacity": 58,
+    "capacity": 34,
     "currentPupils": 26,
     "childrenPerTeacher": 13,
     "safetyStatus": "소방대피훈련완료, CCTV설치, 가스점검완료",
@@ -1344,7 +1337,7 @@
     "hasSchoolBus": false,
     "expenseLevel": "무상교육 (누리과정 지원)",
     "ageRange": "만 3세 ~ 5세",
-    "teacherRatio": "75% (3명/4명)",
+    "teacherRatio": "100% (2명/2명)",
     "teacherTenure": {
       "under1": 0,
       "year1to2": 50,
@@ -1358,9 +1351,9 @@
       "정원여유",
       "영양사배치"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 2.5,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 2.5
   },
   {
     "id": "1ecec08c-fa76-b044-e053-0a32095ab044",
@@ -1397,9 +1390,9 @@
       "정원여유",
       "영양사배치"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 3.5,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 3.5
   },
   {
     "id": "1ecec08c-fa77-b044-e053-0a32095ab044",
@@ -1413,15 +1406,15 @@
     "longitude": 126.86813034844,
     "phone": "02-2617-4412",
     "capacity": 160,
-    "currentPupils": 131,
-    "childrenPerTeacher": 14.6,
+    "currentPupils": 126,
+    "childrenPerTeacher": 14,
     "safetyStatus": "소방대피훈련완료, CCTV설치, 가스점검완료",
     "mealStatus": "위탁급식, 영양사배치",
     "operatingHours": "08시00분~19시00분",
     "hasSchoolBus": true,
     "expenseLevel": "시설별 차등 (상세 문의)",
     "ageRange": "만 3세 ~ 5세",
-    "teacherRatio": "22% (2명/9명)",
+    "teacherRatio": "33% (3명/9명)",
     "teacherTenure": {
       "under1": 22,
       "year1to2": 11,
@@ -1434,12 +1427,13 @@
       "셔틀운행",
       "대규모시설",
       "CCTV완비",
+      "정원여유",
       "영양사배치",
       "영양사법정충족"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 3.5,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 3.5
   },
   {
     "id": "1ecec08c-fa78-b044-e053-0a32095ab044",
@@ -1453,9 +1447,9 @@
     "longitude": 126.874593778693,
     "phone": "02-2104-6270",
     "capacity": 58,
-    "currentPupils": 58,
-    "childrenPerTeacher": 19.3,
-    "safetyStatus": "CCTV설치, 가스점검완료",
+    "currentPupils": 56,
+    "childrenPerTeacher": 18.7,
+    "safetyStatus": "소방대피훈련완료, CCTV설치, 가스점검완료",
     "mealStatus": "위탁급식, 영양사배치",
     "operatingHours": "09시00분~19시00분",
     "hasSchoolBus": false,
@@ -1472,13 +1466,12 @@
     "alimiUrl": "https://e-childschoolinfo.moe.go.kr/kinderMt/kinderViolation.do?ittId=1ecec08c-fa78-b044-e053-0a32095ab044",
     "tags": [
       "CCTV완비",
-      "거의만원",
       "영양사배치",
       "숙련교사"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 4,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 4
   },
   {
     "id": "1ecec08c-fcea-b044-e053-0a32095ab044",
@@ -1491,33 +1484,32 @@
     "latitude": 37.4630620488,
     "longitude": 126.8739898302,
     "phone": "02-2054-3190",
-    "capacity": 84,
+    "capacity": 86,
     "currentPupils": 67,
-    "childrenPerTeacher": 11.2,
+    "childrenPerTeacher": 13.4,
     "safetyStatus": "소방대피훈련완료, CCTV설치, 가스점검완료",
     "mealStatus": "위탁급식, 영양사배치",
     "operatingHours": "08시00분~19시00분",
     "hasSchoolBus": false,
     "expenseLevel": "무상교육 (누리과정 지원)",
     "ageRange": "만 3세 ~ 5세",
-    "teacherRatio": "88% (7명/8명)",
+    "teacherRatio": "83% (5명/6명)",
     "teacherTenure": {
-      "under1": 33,
-      "year1to2": 0,
-      "year2to4": 17,
-      "year4to6": 50,
+      "under1": 40,
+      "year1to2": 20,
+      "year2to4": 20,
+      "year4to6": 20,
       "over6": 0
     },
     "alimiUrl": "https://e-childschoolinfo.moe.go.kr/kinderMt/kinderViolation.do?ittId=1ecec08c-fcea-b044-e053-0a32095ab044",
     "tags": [
       "CCTV완비",
       "정원여유",
-      "영양사배치",
-      "숙련교사"
+      "영양사배치"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 4.5,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 3
   },
   {
     "id": "1ecec08c-fe93-b044-e053-0a32095ab044",
@@ -1531,19 +1523,19 @@
     "longitude": 126.8537029995,
     "phone": "02-2612-0381",
     "capacity": 34,
-    "currentPupils": 22,
-    "childrenPerTeacher": 11,
+    "currentPupils": 18,
+    "childrenPerTeacher": 18,
     "safetyStatus": "소방대피훈련완료, CCTV설치, 가스점검완료",
     "mealStatus": "위탁급식, 영양사배치",
     "operatingHours": "07시30분~19시00분",
     "hasSchoolBus": false,
     "expenseLevel": "무상교육 (누리과정 지원)",
     "ageRange": "만 3세 ~ 5세",
-    "teacherRatio": "100% (4명/4명)",
+    "teacherRatio": "75% (3명/4명)",
     "teacherTenure": {
-      "under1": 50,
+      "under1": 100,
       "year1to2": 0,
-      "year2to4": 50,
+      "year2to4": 0,
       "year4to6": 0,
       "over6": 0
     },
@@ -1553,9 +1545,9 @@
       "정원여유",
       "영양사배치"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 3,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 2.5
   },
   {
     "id": "1ecec08c-feb8-b044-e053-0a32095ab044",
@@ -1569,8 +1561,8 @@
     "longitude": 126.8670863237,
     "phone": "02-899-4238",
     "capacity": 112,
-    "currentPupils": 112,
-    "childrenPerTeacher": 16,
+    "currentPupils": 108,
+    "childrenPerTeacher": 15.4,
     "safetyStatus": "소방대피훈련완료, CCTV설치, 가스점검완료",
     "mealStatus": "위탁급식, 영양사배치",
     "operatingHours": "08시00분~19시00분",
@@ -1579,25 +1571,23 @@
     "ageRange": "만 3세 ~ 5세",
     "teacherRatio": "57% (4명/7명)",
     "teacherTenure": {
-      "under1": 0,
-      "year1to2": 29,
-      "year2to4": 14,
+      "under1": 29,
+      "year1to2": 0,
+      "year2to4": 43,
       "year4to6": 29,
-      "over6": 28
+      "over6": 0
     },
     "alimiUrl": "https://e-childschoolinfo.moe.go.kr/kinderMt/kinderViolation.do?ittId=1ecec08c-feb8-b044-e053-0a32095ab044",
     "tags": [
       "셔틀운행",
       "대규모시설",
       "CCTV완비",
-      "거의만원",
       "영양사배치",
-      "숙련교사",
       "영양사법정충족"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 4,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 3
   },
   {
     "id": "9c295d16-b37f-425c-a556-e85859b7ad83",
@@ -1610,32 +1600,33 @@
     "latitude": 37.4555740929,
     "longitude": 126.8818234926,
     "phone": "02-819-9000",
-    "capacity": 234,
-    "currentPupils": 214,
-    "childrenPerTeacher": 10.7,
+    "capacity": 222,
+    "currentPupils": 216,
+    "childrenPerTeacher": 18,
     "safetyStatus": "소방대피훈련완료, CCTV설치, 가스점검완료",
     "mealStatus": "위탁급식, 영양사배치",
     "operatingHours": "08시00분~19시00분",
     "hasSchoolBus": false,
     "expenseLevel": "무상교육 (누리과정 지원)",
     "ageRange": "만 3세 ~ 5세",
-    "teacherRatio": "93% (26명/28명)",
+    "teacherRatio": "100% (23명/23명)",
     "teacherTenure": {
-      "under1": 35,
+      "under1": 50,
       "year1to2": 25,
-      "year2to4": 30,
-      "year4to6": 10,
+      "year2to4": 25,
+      "year4to6": 0,
       "over6": 0
     },
     "alimiUrl": "https://e-childschoolinfo.moe.go.kr/kinderMt/kinderViolation.do?ittId=9c295d16-b37f-425c-a556-e85859b7ad83",
     "tags": [
       "대규모시설",
       "CCTV완비",
+      "거의만원",
       "영양사배치",
       "영양사법정충족"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 3.5,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 2.5
   }
 ]

@@ -10,9 +10,9 @@
     "latitude": 37.431709507,
     "longitude": 127.1515970082,
     "phone": "031-603-0366",
-    "capacity": 20,
-    "currentPupils": 11,
-    "childrenPerTeacher": 11,
+    "capacity": 18,
+    "currentPupils": 12,
+    "childrenPerTeacher": 12,
     "safetyStatus": "소방대피훈련완료, CCTV설치, 가스점검완료",
     "mealStatus": "위탁급식, 영양사배치",
     "operatingHours": "09시00분~19시00분",
@@ -34,9 +34,9 @@
       "정원여유",
       "영양사배치"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 3,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 3
   },
   {
     "id": "1ecec08c-fc91-b044-e053-0a32095ab044",
@@ -52,7 +52,7 @@
     "capacity": 38,
     "currentPupils": 13,
     "childrenPerTeacher": 6.5,
-    "safetyStatus": "CCTV설치, 가스점검완료",
+    "safetyStatus": "소방대피훈련완료, CCTV설치, 가스점검완료",
     "mealStatus": "위탁급식, 영양사배치",
     "operatingHours": "09시00분~19시00분",
     "hasSchoolBus": false,
@@ -72,9 +72,9 @@
       "정원여유",
       "영양사배치"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 3.5,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 3.5
   },
   {
     "id": "1ecec08d-059c-b044-e053-0a32095ab044",
@@ -100,8 +100,8 @@
     "teacherTenure": {
       "under1": 50,
       "year1to2": 0,
-      "year2to4": 50,
-      "year4to6": 0,
+      "year2to4": 0,
+      "year4to6": 50,
       "over6": 0
     },
     "alimiUrl": "https://e-childschoolinfo.moe.go.kr/kinderMt/kinderViolation.do?ittId=1ecec08d-059c-b044-e053-0a32095ab044",
@@ -109,11 +109,12 @@
       "소규모시설",
       "CCTV완비",
       "정원여유",
-      "영양사배치"
+      "영양사배치",
+      "숙련교사"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 3.5,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 5
   },
   {
     "id": "1ecec08d-0e51-b044-e053-0a32095ab044",
@@ -127,8 +128,8 @@
     "longitude": 127.1432910048,
     "phone": "031-732-4534",
     "capacity": 66,
-    "currentPupils": 52,
-    "childrenPerTeacher": 10.4,
+    "currentPupils": 46,
+    "childrenPerTeacher": 9.2,
     "safetyStatus": "소방대피훈련완료, CCTV설치, 가스점검완료",
     "mealStatus": "위탁급식, 영양사배치",
     "operatingHours": "08시00분~18시00분",
@@ -137,11 +138,11 @@
     "ageRange": "만 3세 ~ 5세",
     "teacherRatio": "40% (2명/5명)",
     "teacherTenure": {
-      "under1": 25,
-      "year1to2": 13,
-      "year2to4": 13,
-      "year4to6": 25,
-      "over6": 24
+      "under1": 0,
+      "year1to2": 40,
+      "year2to4": 20,
+      "year4to6": 0,
+      "over6": 40
     },
     "alimiUrl": "https://e-childschoolinfo.moe.go.kr/kinderMt/kinderViolation.do?ittId=1ecec08d-0e51-b044-e053-0a32095ab044",
     "tags": [
@@ -151,9 +152,9 @@
       "영양사배치",
       "숙련교사"
     ],
+    "locationStatus": "region_consistent",
     "specialPrograms": "-",
-    "stabilityScore": 4,
-    "locationStatus": "region_consistent"
+    "stabilityScore": 4
   },
   {
     "id": "b6c1771b-44b9-4181-9367-6d6755ec9a12",
@@ -166,16 +167,16 @@
     "latitude": null,
     "longitude": null,
     "phone": "031-8039-5981",
-    "capacity": 240,
-    "currentPupils": 229,
-    "childrenPerTeacher": 15.3,
-    "safetyStatus": "CCTV설치, 가스점검완료",
+    "capacity": 236,
+    "currentPupils": 227,
+    "childrenPerTeacher": 15.1,
+    "safetyStatus": "소방대피훈련완료, CCTV설치, 가스점검완료",
     "mealStatus": "위탁급식, 영양사배치",
     "operatingHours": "08시00분~19시00분",
     "hasSchoolBus": false,
     "expenseLevel": "무상교육 (누리과정 지원)",
     "ageRange": "만 3세 ~ 5세",
-    "teacherRatio": "86% (19명/22명)",
+    "teacherRatio": "70% (19명/27명)",
     "teacherTenure": {
       "under1": 100,
       "year1to2": 0,
@@ -190,15 +191,15 @@
       "영양사배치",
       "영양사법정충족"
     ],
+    "locationStatus": "unconfirmed",
     "specialPrograms": "-",
     "stabilityScore": 2.5,
-    "locationStatus": "unconfirmed",
     "locationIssues": [
-      "outside_korea"
+      "missing_or_invalid_coordinate"
     ],
     "sourceCoordinates": {
-      "latitude": 0,
-      "longitude": 0
+      "latitude": null,
+      "longitude": null
     }
   }
 ]
