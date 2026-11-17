@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports -- Node.js CommonJS entry point. */
 const http = require('http');
 
 const API_KEY = 'd1527485ec3f4580996f66f20447dafe'; 

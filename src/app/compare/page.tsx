@@ -14,6 +14,9 @@ function CompareContent() {
     const ids = idsParam ? idsParam.split(',') : [];
     const compareIds = useCompareStore((state) => state.compareIds);
     const targetIds = ids.length > 0 ? ids : compareIds;
+    // effect 의존성은 문자열 하나로 둔다(배열은 렌더마다 새로 만들어진다).
+    const targetKey = targetIds.join(',');
+    const isEmpty = targetIds.length === 0;
 
     const [compareData, setCompareData] = useState<Institution[]>([]);
     // 담아 둔 기관 중 현재 공시 목록에 없는 수. 어린이집은 휴지·폐지되면 공시 목록에서 빠지고,
@@ -24,11 +27,9 @@ function CompareContent() {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        if (targetIds.length === 0) {
-            setCompareData([]);
-            setIsLoading(false);
-            return;
-        }
+        // 비교함이 비었으면 불러올 것이 없다. 화면은 isEmpty 로 바로 빈 상태를 그린다(effect 안에서 상태를 바로 바꾸지 않는다).
+        const targetIds = targetKey ? targetKey.split(',') : [];
+        if (targetIds.length === 0) return;
 
         const uniqueRegions = Array.from(new Set(targetIds.map(id => {
             const parts = String(id).split('_');
@@ -68,9 +69,10 @@ function CompareContent() {
             setUnverifiedCount(notFound.filter(id => regionFailed(id)).length);
             setIsLoading(false);
         });
-    }, [targetIds.join(',')]);
+    }, [targetKey]);
 
-    if (isLoading) {
+    const shown = isEmpty ? [] : compareData;
+    if (!isEmpty && isLoading) {
         return (
             <div className="flex justify-center py-20" role="status" aria-label="비교 데이터를 불러오는 중입니다">
                 <Loader2 className="w-8 h-8 animate-spin text-blue-600" aria-hidden="true" />
@@ -92,7 +94,7 @@ function CompareContent() {
                         </div>
                         <h1 id="compare-title" className="text-3xl md:text-4xl font-black mb-3 tracking-tight">상세 비교</h1>
                         <p className="text-blue-100 font-medium max-w-xl leading-relaxed">
-                            <span className="text-white font-black">{compareData.length}개 기관</span>의 주요 항목을 한눈에 비교해 보세요.
+                            <span className="text-white font-black">{shown.length}개 기관</span>의 주요 항목을 한눈에 비교해 보세요.
                         </p>
                     </div>
                     <button
@@ -107,20 +109,20 @@ function CompareContent() {
             </div>
 
             <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
-                {unverifiedCount > 0 && (
+                {!isEmpty && unverifiedCount > 0 && (
                     <p role="alert" className="mb-4 text-xs font-bold text-rose-800 bg-rose-50 border border-rose-200 rounded-2xl px-4 py-3 break-keep">
                         데이터를 불러오지 못해 담아 둔 기관 {unverifiedCount}곳을 확인할 수 없어요. 잠시 뒤 새로고침해 주세요.
                     </p>
                 )}
-                {missingCount > 0 && (
+                {!isEmpty && missingCount > 0 && (
                     <p role="note" className="mb-4 text-xs font-bold text-amber-800 bg-amber-50 border border-amber-200 rounded-2xl px-4 py-3 break-keep">
                         담아 둔 기관 중 {missingCount}곳은 현재 공시 목록에 없어 표시하지 못했어요. 휴지·폐지되었거나 지역 코드가 바뀌었을 수 있으니 기관이나 공시 포털에서 확인해 주세요.
                     </p>
                 )}
-                <CompareTable data={compareData} />
+                <CompareTable data={shown} />
             </div>
 
-            {compareData.length < 2 && (
+            {shown.length < 2 && (
                 <div className="max-w-2xl mx-auto p-6 bg-amber-50 border border-amber-100 text-amber-800 rounded-3xl flex items-start space-x-4 shadow-sm">
                     <div className="bg-amber-100 p-2 rounded-xl">
                         <Award className="w-6 h-6 text-amber-600" />

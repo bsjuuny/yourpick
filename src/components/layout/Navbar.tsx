@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useCompareStore } from '@/store/useCompareStore';
-import { Baby, ListPlus, Search, Trash2 } from 'lucide-react';
+import { Baby, ListPlus, Trash2 } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 
 export default function Navbar() {

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports -- Node.js CommonJS entry point. */
 /**
  * add-age-breakdown.js
  * 기존 *_childcare.json 파일에 연령별 원아/반 수(ageBreakdown) 필드를 추가
