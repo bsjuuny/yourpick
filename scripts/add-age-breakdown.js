@@ -105,7 +105,7 @@ async function run() {
                 }
             }
 
-            fs.writeFileSync(filePath, JSON.stringify(existing, null, 2), 'utf-8');
+            fs.writeFileSync(filePath, JSON.stringify(existing), 'utf-8');
             console.log(`  ✅ ${updated}/${existing.length}개 기관에 ageBreakdown 추가`);
 
             await delay(1500);

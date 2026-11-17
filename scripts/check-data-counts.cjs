@@ -16,6 +16,15 @@ function regionFiles(regions) {
         ['', '_childcare'].map(suffix => `${sido.sidoCode}_${sgg.sggCode}${suffix}.json`)));
 }
 
+/**
+ * 어린이집 API 미제공 지역(childcareUnavailable, 예: 계룡시)의 어린이집 파일.
+ * 파일 자체는 다른 파일처럼 읽어 검사하되(빈 배열이어야 함), 건수 비교에서만 뺀다.
+ */
+function unavailableChildcareFiles(regions) {
+    return new Set(regions.flatMap(sido => sido.sggList.filter(sgg => sgg.childcareUnavailable)
+        .map(sgg => `${sido.sidoCode}_${sgg.sggCode}_childcare.json`)));
+}
+
 function compareCounts(current, baseline) {
     const problems = [];
     let currentTotal = 0;
@@ -60,13 +69,15 @@ function isPlaceholder(inst) {
         || /^\d{1,3}$/.test(String(inst.id || ''));
 }
 
-module.exports = { compareCounts, regionFiles, isPlaceholder };
+module.exports = { compareCounts, regionFiles, unavailableChildcareFiles, isPlaceholder };
 
 if (require.main === module) {
     const root = path.resolve(__dirname, '..');
     const ref = process.argv[2] || 'HEAD';
     const dataDir = path.join(root, 'public/data');
-    const files = regionFiles(JSON.parse(fs.readFileSync(path.join(dataDir, 'regions.json'), 'utf8')));
+    const regions = JSON.parse(fs.readFileSync(path.join(dataDir, 'regions.json'), 'utf8'));
+    const files = regionFiles(regions);
+    const unavailable = unavailableChildcareFiles(regions);
     const current = {};
     for (const file of files) {
         const fullPath = path.join(dataDir, file);
@@ -75,6 +86,13 @@ if (require.main === module) {
             process.exit(1);
         }
         const text = fs.readFileSync(fullPath, 'utf8');
+        if (unavailable.has(file)) {
+            if (JSON.parse(text).length !== 0) {
+                console.error(`❌ ${file} is marked childcareUnavailable but is not empty`);
+                process.exit(1);
+            }
+            continue; // 건수 비교에서만 뺀다
+        }
         current[file] = readCount(text);
         const placeholders = JSON.parse(text).filter(isPlaceholder);
         if (placeholders.length > 0) {
