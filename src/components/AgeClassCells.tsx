@@ -95,6 +95,7 @@ export function ChildPathCell({ item, birthYear, entryYear, stayYears = null }: 
                 ))}
             </ul>
             <p className="text-[11px] font-medium text-slate-500 break-keep">{path.summary}</p>
+            <p className="text-[10px] font-medium text-slate-400 break-keep">학년도별 반 연령은 출생연도 기준 표준 반편성이에요. 상위반·하위반 예외는 기관 확인.</p>
         </div>
     );
 }

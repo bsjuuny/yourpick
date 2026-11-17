@@ -57,7 +57,7 @@ function entryFromLegacy(inst, date) {
     // 예전 스냅샷은 반이 있는 연령만 원아 수를 담았다 → 반이 없던 연령의 원아 수는 0이 아니라 모름(null).
     const children = [0, 1, 2, 3, 4, 5].map(a => inst.ageBreakdown[a]?.children ?? null);
     return {
-        from: date, to: date, basis: `${date} 수집 (저장 스냅샷)`, classes, children,
+        from: date, to: date, basis: `${date} 저장소 스냅샷`, classes, children,
         capacity: Number.isFinite(inst.capacity) ? inst.capacity : null,
         pupils: Number.isFinite(inst.currentPupils) ? inst.currentPupils : null,
         mixed: null, special: null, origin: 'git',
@@ -99,6 +99,11 @@ function append(list, entry) {
     list.push(entry);
 }
 
+/** 현재 기록에 붙일 날짜: 수집기가 그 지역 파일을 실제로 다시 받은 날. 기록이 없으면 null(덧붙이지 않음). */
+function currentEntryDate(manifest, region, source) {
+    return manifest[`${region}${source === '어린이집' ? '_childcare' : ''}.json`] ?? null;
+}
+
 function regionKeys() {
     const regions = JSON.parse(fs.readFileSync(path.join(dataDir, 'regions.json'), 'utf8'));
     return regions.flatMap(s => s.sggList.map(g => `${s.sidoCode}_${g.sggCode}`));
@@ -130,7 +135,11 @@ function legacySnapshots() {
                 if (entry) byId.set(String(inst.id), entry);
             }
         }
-        if (byId.size > 0) snapshots.push({ date, byId });
+        if (byId.size === 0) continue;
+        // 좌표 정리·기능 삭제처럼 연령반 데이터와 무관한 커밋은 시점으로 쓰지 않는다(Codex PR #6 지적 3).
+        const signature = JSON.stringify([...byId.entries()].sort(([a], [b]) => (a < b ? -1 : 1)).map(([id, e]) => [id, e.classes, e.children]));
+        if (snapshots.length > 0 && snapshots[snapshots.length - 1].signature === signature) continue;
+        snapshots.push({ date, byId, signature });
     }
     return snapshots;
 }
@@ -138,6 +147,9 @@ function legacySnapshots() {
 function run() {
     fs.mkdirSync(outDir, { recursive: true });
     const date = today();
+    // 현재 기록의 날짜는 수집기가 실제로 그 파일을 다시 받은 날(fetch-manifest.json). 기록이 없으면 덧붙이지 않는다.
+    // 수집에 실패해 옛 파일이 남은 지역에 새 날짜가 붙지 않게 하기 위해서다(Codex PR #6 지적 3).
+    const manifest = readJson(path.join(dataDir, 'fetch-manifest.json'))?.files ?? {};
     const legacy = BOOTSTRAP ? legacySnapshots() : [];
     if (BOOTSTRAP) console.log(`git snapshots with class counts: ${legacy.map(s => `${s.date}(${s.byId.size})`).join(', ')}`);
     let institutions = 0;
@@ -156,10 +168,11 @@ function run() {
             if (BOOTSTRAP && inst.source === '어린이집') {
                 for (const snap of legacy) {
                     const old = snap.byId.get(String(inst.id));
-                    if (old && snap.date < date) append(list, { ...old });
+                    if (old && snap.date < (manifest[`${region}_childcare.json`] ?? date)) append(list, { ...old });
                 }
             }
-            const entry = entryFromCurrent(inst, date);
+            const fetchedAt = currentEntryDate(manifest, region, inst.source);
+            const entry = fetchedAt ? entryFromCurrent(inst, fetchedAt) : null;
             if (entry) append(list, entry);
             if (list.length > 0) next[key] = list;
             institutions++;
@@ -170,5 +183,5 @@ function run() {
     console.log(`✅ class history: ${institutions} institutions, ${withChanges} with more than one recorded state (${date})`);
 }
 
-module.exports = { entryFromCurrent, entryFromLegacy, append, sameValues };
+module.exports = { entryFromCurrent, entryFromLegacy, append, sameValues, currentEntryDate };
 if (require.main === module) run();

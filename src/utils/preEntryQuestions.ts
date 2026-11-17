@@ -73,6 +73,12 @@ export function preEntryQuestions(item: Institution, ctx: QuestionContext): PreE
         add({ id: 'plan-general', topic: '운영 변경', text: '다음 학년도 연령별 반 편성 계획을 알려 주실 수 있나요?', why: '다음 학년도 운영계획은 공시 항목에 없음' });
     }
 
+    // 반 연령은 출생연도로 계산한 표준 반편성 기준이다. 1·2월생 상위반, 발달·취학유예에 따른 하위반 등 예외가 있다
+    // (2026 보육사업안내). 예외가 필요하면 기관과 정해야 하므로 질문으로 둔다(Codex PR #6 지적 5).
+    if (ctx.birthYear !== null) {
+        add({ id: 'class-exception', topic: '운영 변경', text: '아이 생일이나 발달에 따라 표준 연령과 다른 반(상위반·하위반)으로 다닐 수 있나요?', why: '반 연령은 출생연도 기준 표준 반편성으로 계산(예외는 기관 확인)' });
+    }
+
     const mixed = mixedSummary(item);
     if (mixed.has) {
         add({ id: 'mixed-criteria', topic: '운영 변경', text: '혼합연령반은 어떤 기준으로 편성하나요?', why: `현재 공시: ${mixed.text}` });

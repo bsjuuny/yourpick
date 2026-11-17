@@ -39,7 +39,8 @@ function kinder(byAge = {}, mixed = []) {
 
 test('collector: M5 is 유아혼합(만 3~5세), M2 영아혼합(만 0~2세), M3 range is not guessed', () => {
     const ac = collector.childcareAgeClasses({ CLASS_CNT_M2: '1', CLASS_CNT_M3: '1', CLASS_CNT_M5: '2', CHILD_CNT_M5: '30', datastdrdt: '2026-11-17' });
-    assert.deepEqual(ac.mixed.map(m => [m.label, m.ages, m.classes]), [['영아혼합반', [0, 1, 2], 1], ['혼합반(연령 범위 미공시)', null, 1], ['유아혼합반', [3, 4, 5], 2]]);
+    // 구성 연령은 공시되지 않아 ages 는 늘 null, 들 수 있는 범위만 possibleAges (Codex PR #6 지적 4)
+    assert.deepEqual(ac.mixed.map(m => [m.label, m.ages, m.possibleAges, m.classes]), [['영아혼합반', null, [0, 1, 2], 1], ['혼합반(연령 범위 미공시)', null, null, 1], ['유아혼합반', null, [3, 4, 5], 2]]);
     assert.equal(ac.basis.label, '2026-11-17 기준');
     assert.equal(collector.kindergartenBasis('20232').label, '2023년 2차 공시');
     assert.equal(collector.kindergartenBasis('').label, '공시 차수 정보 없음');

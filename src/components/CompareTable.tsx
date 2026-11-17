@@ -446,7 +446,7 @@ export default function CompareTable({ data }: Props) {
                             <th scope="rowgroup" colSpan={data.length + 1} className="bg-slate-50 border-y border-slate-100 p-0 text-left">
                                 <div className="sticky left-0 w-fit max-w-[100vw] px-3 sm:px-5 py-3">
                                     <span className="flex items-center gap-2 text-sm sm:text-base font-black text-slate-900 font-heading">운영 변경 및 학부모 소통 <MethodBadge method="visit" /></span>
-                                    <span className="block text-xs font-medium text-slate-500 break-keep">반 통합·편성 변경 때의 안내와 소통 방식은 공시되지 않아 기관에 직접 확인해야 해요. 실제로 문제가 있었다는 뜻이 아니에요.</span>
+                                    <span className="block text-xs font-medium text-slate-500 break-keep">반 통합·편성 변경 때의 안내와 소통 방식은 공시 항목이 아니어서 기관에 직접 확인해 주세요.</span>
                                 </div>
                             </th>
                         </tr>

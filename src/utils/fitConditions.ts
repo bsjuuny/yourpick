@@ -108,11 +108,11 @@ type CheckResult = Pick<FitCheck, 'status' | 'reason' | 'evidence'>;
  * 연령 조건. future = 입학 학년도가 다음 학년도 이후 → 현재 공시로는 확정할 수 없어 '확인 필요'로 두되,
  * 지금 그 연령 반이 있으면 evidence 로 표시한다. 유치원 만 0~2세처럼 구조적으로 안 되는 경우만 미충족.
  */
-export function checkAge(item: Institution, age: number, future = false): CheckResult {
+export function checkAge(item: Institution, age: number, future = false, now: Date = new Date()): CheckResult {
     if (age < 0) return { status: 'unknown', reason: '그 학년도에는 아직 반 연령이 아니에요' };
     if (age > 5) return { status: 'unmet', reason: `그 학년도에는 만 ${age}세라 초등학교 입학 연령이에요` };
     if (item.ageClasses || (item.source === '유치원' && age < 3)) {
-        const st = ageClassStatus(item, age);
+        const st = ageClassStatus(item, age, now);
         const basis = item.ageClasses?.basis?.label ?? '공시';
         if (st.kind === 'not-applicable') return { status: 'unmet', reason: st.detail };
         if (st.kind === 'own' || st.kind === 'mixed') {
@@ -157,11 +157,11 @@ export function checkContinuity(item: Institution, birthYear: number, entryYear:
  * 혼합연령반 개인 선호. 늘 '선호' 조건으로만 쓴다(필수·감점 없음). 혼합반 운영 자체를 나쁘게 보지 않는다.
  * age 가 있으면 그 연령 반이 혼합반인지, 없으면 기관이 혼합반을 운영하는지로 본다.
  */
-export function checkMixedPreference(item: Institution, pref: Exclude<MixedPreference, 'any'>, age: number | null): CheckResult {
+export function checkMixedPreference(item: Institution, pref: Exclude<MixedPreference, 'any'>, age: number | null, now: Date = new Date()): CheckResult {
     let mixed: boolean | null;
     let what: string;
     if (age !== null && age >= 0 && age <= 5) {
-        const st = ageClassStatus(item, age);
+        const st = ageClassStatus(item, age, now);
         mixed = st.kind === 'mixed' ? true : st.kind === 'own' ? false : null;
         what = mixed === null ? `만 ${age}세 반 운영 형태 정보 부족` : `만 ${age}세는 ${mixed ? '혼합반' : '단독반'}으로 운영(현재 공시)`;
     } else {
@@ -203,14 +203,14 @@ export function evaluateFit(item: Institution, c: FitConditions, now: Date = new
     const entry = entryAge(c, now);
     if (entry && c.birthYear !== null && c.ageNeed !== 'off') {
         const future = entry.schoolYear > currentSchoolYear(now);
-        checks.push({ key: 'age', label: `${entry.schoolYear}학년도 만 ${entry.age}세반`, need: c.ageNeed, ...checkAge(item, entry.age, future) });
+        checks.push({ key: 'age', label: `${entry.schoolYear}학년도 만 ${entry.age}세반`, need: c.ageNeed, ...checkAge(item, entry.age, future, now) });
         if (entry.age <= 5) {
             checks.push({ key: 'continuity', label: c.stayYears ? `희망 재원 ${c.stayYears}년` : '졸업까지', need: 'preferred', ...checkContinuity(item, c.birthYear, entry.schoolYear, now, c.stayYears) });
         }
     }
     if (c.mixedPreference !== 'any') {
         const age = entry && entry.age >= 0 && entry.age <= 5 ? entry.age : null;
-        checks.push({ key: 'mixed', label: c.mixedPreference === 'prefer' ? '혼합반 선호' : '혼합반 피하고 싶음', need: 'preferred', ...checkMixedPreference(item, c.mixedPreference, age) });
+        checks.push({ key: 'mixed', label: c.mixedPreference === 'prefer' ? '혼합반 선호' : '혼합반 피하고 싶음', need: 'preferred', ...checkMixedPreference(item, c.mixedPreference, age, now) });
     }
     if (c.afterSchool !== 'off') {
         checks.push({ key: 'afterSchool', label: item.source === '유치원' ? '방과후과정' : '연장보육', need: c.afterSchool, ...checkAfterSchool(item) });

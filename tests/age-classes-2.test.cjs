@@ -118,3 +118,73 @@ test('collector stops on key/quota errors but skips regions with no results', ()
     }
     assert.equal(collector.classifyChildcareResponse('<crname>INFO 어린이집</crname>').kind, 'ok');
 });
+
+// ── Codex PR #6 1차 검수 지적 재현 (2026-11-17) ─────────────────────────
+
+test('[Codex#6-1] a past-year kindergarten disclosure is not evidence of current operation', () => {
+    const old = kinder({ 3: { classes: 1, children: 10, capacity: 16 } });
+    old.ageClasses.basis = { kind: 'disclosure', key: '20232', label: '2023년 2차 공시' };
+    assert.equal(a.isStaleBasis(old, NOW), true);
+    const st = a.ageClassStatus(old, 3, NOW);
+    assert.equal(st.kind, 'unknown');
+    assert.equal(st.stale, true);
+    assert.match(st.label, /최신 공시 아님\(2023년 2차 공시: 운영 확인 · 단독반 1개\)/);
+    assert.equal(a.operationStatus(st, false), '정보 부족');
+    const age = f.checkAge(old, 3, false, NOW);
+    assert.equal(age.status, 'unknown');
+    assert.notEqual(age.evidence, true);
+    const r = f.assessFit(old, cond({ birthYear: 2022, entryYear: 2026, ageNeed: 'required' }), null, NOW);
+    assert.equal(r.group, 1); // 필수 조건 충족으로 올리지 않는다
+    assert.equal(a.childPath(old, 2022, 2026, NOW).supported, false);
+    // 같은 학년도 공시는 그대로 운영 확인
+    assert.equal(a.isStaleBasis(kinder(), NOW), false);
+    // 어린이집 기준일은 그 날짜의 학년도(1~2월은 전 학년도)
+    const d = daycare({ 0: { classes: 1, children: 3 } });
+    d.ageClasses.basis = { kind: 'date', key: '2027-02-10', label: '2027-02-10 기준' };
+    assert.equal(a.basisSchoolYear(d), 2026);
+});
+
+test('[Codex#6-4] a mixed class whose ages are not disclosed never confirms a specific age', () => {
+    const m2 = daycare({ 1: { classes: 1, children: 5 } }, [{ label: '영아혼합반', ages: null, possibleAges: [0, 1, 2], classes: 1, children: 6 }]);
+    const s0 = a.ageClassStatus(m2, 0, NOW);
+    assert.equal(s0.kind, 'mixed-unknown-range');
+    assert.equal(a.operationStatus(s0, false), '정보 부족');
+    assert.match(s0.label, /혼합반 구성 연령 확인 필요/);
+    assert.equal(a.ageClassStatus(m2, 1, NOW).kind, 'own'); // 단독반이 있으면 그대로 운영 확인
+    assert.equal(a.ageClassStatus(m2, 4, NOW).kind, 'none'); // 범위 밖 연령은 혼합반과 무관
+    assert.equal(a.mixedSummary(m2).text, '영아혼합반(만 0~2세 중 일부) 1개 (합계 원아 6명)');
+    assert.equal(f.checkAge(m2, 0, false, NOW).status, 'unknown');
+    const k = kinder({}, [{ label: '혼합반', ages: null, possibleAges: [3, 4, 5], classes: 2, children: 30, capacity: 40 }]);
+    assert.equal(a.childPath(k, 2023, 2026, NOW).supported, false);
+});
+
+test('[Codex#6-3] current history dates come only from files the collector actually re-fetched', () => {
+    const manifest = { '11_11110.json': '2026-12-02', '11_11110_childcare.json': '2026-11-17' };
+    assert.equal(historyBuilder.currentEntryDate(manifest, '11_11110', '유치원'), '2026-12-02');
+    assert.equal(historyBuilder.currentEntryDate(manifest, '11_11110', '어린이집'), '2026-11-17'); // 이번에 실패 → 예전 날짜
+    assert.equal(historyBuilder.currentEntryDate(manifest, '11_11140', '어린이집'), null); // 기록 없음 → 덧붙이지 않음
+    // 예전 날짜로 다시 덧붙이면 기존 기간을 늘리지 않는다
+    const list = [{ from: '2026-11-17', to: '2026-11-17', classes: [1, 0, 0, 0, 0, 0], children: [3, null, null, null, null, null], capacity: 20, pupils: 15, mixed: 0, special: 0 }];
+    historyBuilder.append(list, { ...list[0] });
+    assert.deepEqual(list.map(e => [e.from, e.to]), [['2026-11-17', '2026-11-17']]);
+    assert.ok(fs.existsSync(path.resolve(__dirname, '../public/data/fetch-manifest.json')));
+});
+
+test('[Codex#6-5] the standard class-age rule is labelled and exceptions become a question', () => {
+    const qs = q.preEntryQuestions(kinder({ 3: { classes: 1, children: 10, capacity: 16 } }), { birthYear: 2022, entryYear: 2026, stayYears: null, now: NOW });
+    const ex = qs.find(x => x.id === 'class-exception');
+    assert.ok(ex);
+    assert.match(ex.why, /표준 반편성/);
+});
+
+test('[Codex#6-6] no UI text hints that a problem or conflict happened', () => {
+    const forbidden = /분쟁|갈등|불만|다툼|민원|문제가 있었|폐반 위험|위험 높음/;
+    const files = ['src/components/CompareTable.tsx', 'src/components/CommunicationCells.tsx', 'src/components/AgeClassCells.tsx', 'src/components/fit/FitConditionsPanel.tsx', 'src/components/fit/FitSummary.tsx', 'src/utils/preEntryQuestions.ts', 'src/utils/ageClasses.ts', 'src/utils/fitConditions.ts'];
+    const hits = [];
+    for (const file of files) {
+        // 주석(원칙 설명)은 빼고 화면에 나갈 수 있는 코드만 본다
+        const code = fs.readFileSync(path.resolve(__dirname, '..', file), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '').replace(/\{\/\*[\s\S]*?\*\/\}/g, '');
+        for (const line of code.split('\n')) if (forbidden.test(line)) hits.push(`${file}: ${line.trim()}`);
+    }
+    assert.deepEqual(hits, []);
+});

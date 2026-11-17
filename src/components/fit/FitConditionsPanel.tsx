@@ -182,7 +182,7 @@ export default function FitConditionsPanel({ sggCode }: { sggCode: string }) {
                                 </p>
                             )}
                             <Segmented label="연령 조건 중요도" value={c.ageNeed} options={NEED_OPTIONS} onChange={(v) => setConditions({ ageNeed: v })} />
-                            <p className="mt-1.5 text-[11px] font-medium text-slate-400 break-keep">반 연령은 학년도와 출생연도로 계산해요(예: 2026학년도 만 5세반 = 2020년생). 다음 학년도 이후 운영은 현재 공시만으로 확정하지 않아요.</p>
+                            <p className="mt-1.5 text-[11px] font-medium text-slate-400 break-keep">반 연령은 학년도와 출생연도로 계산한 표준 반편성 기준이에요(예: 2026학년도 만 5세반 = 2020년생). 1·2월생 상위반 등 예외는 기관에 확인해 주세요. 다음 학년도 이후 운영은 현재 공시만으로 확정하지 않아요.</p>
                         </div>
                         <div>
                             <label htmlFor={`${ids}-stay`} className={labelClass}>희망 재원 기간</label>

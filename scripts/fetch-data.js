@@ -457,7 +457,8 @@ function kindergartenAgeClasses(item) {
         mixedKnown: num(item.mixclcnt) !== null,
         byAge,
         mixed: (mixedClasses ?? 0) > 0 || (num(item.mixppcnt) ?? 0) > 0
-            ? [{ label: '혼합반', ages: [3, 4, 5], classes: mixedClasses ?? 0, children: num(item.mixppcnt), capacity: num(item.mixfpcnt) }]
+            // 공시는 혼합반 수만 주고 어떤 연령을 묶었는지(3+4, 4+5, 3+4+5)는 주지 않는다 → ages 는 null, 가능한 범위만.
+            ? [{ label: '혼합반', ages: null, possibleAges: [3, 4, 5], classes: mixedClasses ?? 0, children: num(item.mixppcnt), capacity: num(item.mixfpcnt) }]
             : [],
         special: { classes: num(item.shclcnt), children: num(item.shppcnt) },
     };
@@ -470,11 +471,12 @@ function childcareAgeClasses(item) {
         byAge[age] = { classes: num(item[`CLASS_CNT_0${age}`]), children: num(item[`CHILD_CNT_0${age}`]), waiting: num(item[`EW_CNT_0${age}`]) };
     }
     // 보육정보 공개 API 명세 v1.6: M2 = 영아혼합(만 0~2세), M5 = 유아혼합(만 3~5세).
-    // M3 은 명세에 없는 항목이라 연령 범위를 추정하지 않는다(ages: null).
+    // M3 은 명세에 없는 항목이라 연령 범위를 추정하지 않는다(ages·possibleAges 모두 null).
+    // M2·M5 도 실제 구성(예: 영아 0+1, 1+2 — 보육사업안내상 0+2 불가)은 공시에 없다 → ages 는 null, 가능한 범위만 둔다.
     const mixed = [
-        { label: '영아혼합반', ages: [0, 1, 2], classes: num(item.CLASS_CNT_M2) ?? 0, children: num(item.CHILD_CNT_M2) },
-        { label: '혼합반(연령 범위 미공시)', ages: null, classes: num(item.CLASS_CNT_M3) ?? 0, children: num(item.CHILD_CNT_M3) },
-        { label: '유아혼합반', ages: [3, 4, 5], classes: num(item.CLASS_CNT_M5) ?? 0, children: num(item.CHILD_CNT_M5) },
+        { label: '영아혼합반', ages: null, possibleAges: [0, 1, 2], classes: num(item.CLASS_CNT_M2) ?? 0, children: num(item.CHILD_CNT_M2) },
+        { label: '혼합반(연령 범위 미공시)', ages: null, possibleAges: null, classes: num(item.CLASS_CNT_M3) ?? 0, children: num(item.CHILD_CNT_M3) },
+        { label: '유아혼합반', ages: null, possibleAges: [3, 4, 5], classes: num(item.CLASS_CNT_M5) ?? 0, children: num(item.CHILD_CNT_M5) },
     ].filter(m => m.classes > 0 || (m.children ?? 0) > 0);
     const date = String(item.datastdrdt || '').trim();
     // 혼합반 필드(M2·M5)가 원본에 없으면 '혼합반 없음'이 아니라 모름이다.
@@ -680,6 +682,31 @@ const CHILDCARE_FATAL_HINT = {
     'INFO-400': '인증키가 만료되었습니다 — 어린이집 정보공개포털에서 OpenAPI 키를 갱신하세요',
 };
 
+async function withRetries(fn, attempts, waitMs) {
+    for (let i = 1; ; i++) {
+        try { return await fn(); } catch (e) {
+            if (i >= attempts) throw e;
+            console.warn(`   ⚠️ ${e.message} — 다시 시도 ${i}/${attempts - 1}`);
+            await delay(waitMs);
+        }
+    }
+}
+
+/**
+ * 이번 실행에서 실제로 다시 받아 쓴 파일과 날짜(KST)를 public/data/fetch-manifest.json 에 남긴다.
+ * 수집에 실패해 옛 파일이 남은 지역은 예전 날짜를 그대로 둔다 → 연령반 이력이 오래된 데이터에 새 날짜를 붙이지 않는다.
+ */
+function writeFetchManifest(dataDir, fetched) {
+    const file = path.join(dataDir, 'fetch-manifest.json');
+    let manifest = { files: {} };
+    try { manifest = JSON.parse(fs.readFileSync(file, 'utf8')); } catch { /* 첫 실행 */ }
+    const today = new Date(Date.now() + 9 * 3600 * 1000).toISOString().slice(0, 10);
+    for (const name of fetched) manifest.files[name] = today;
+    manifest.updatedAt = today;
+    fs.writeFileSync(file, JSON.stringify(manifest, null, 1), 'utf-8');
+    console.log(`🗂️ fetch-manifest: ${fetched.size}개 파일을 ${today} 수집으로 기록`);
+}
+
 function fetchChildcareApi(sggCode) {
     return new Promise((resolve, reject) => {
         const url = `http://api.childcare.go.kr/mediate/rest/cpmsapi030/cpmsapi030/request?key=${CHILDCARE_API_KEY}&arcode=${sggCode}`;
@@ -877,6 +904,7 @@ async function run() {
         console.warn('⚠️ CHILDCARE_API_KEY is not set in .env.local — 어린이집 데이터 수집이 비활성화됩니다.');
     }
 
+    const fetchedThisRun = new Set();
     try {
         const dataDir = path.resolve(__dirname, '../public/data');
         if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
@@ -944,6 +972,7 @@ async function run() {
 
                 const filename = `${sido.sidoCode}_${sgg.sggCode}.json`;
                 fs.writeFileSync(path.join(dataDir, filename), JSON.stringify(normalizedList), 'utf-8');
+                fetchedThisRun.add(filename);
                 console.log(`✅ Saved ${normalizedList.length} institutions to ${filename}`);
 
                 await delay(2000);
@@ -963,12 +992,14 @@ async function run() {
                     if (sgg.childcareUnavailable) {
                         // 어린이집 API 가 어떤 코드로도 결과를 주지 않는 지역(2026-11-17 확인: 계룡시). 빈 목록을 쓰고 화면이 이유를 알린다.
                         fs.writeFileSync(path.join(dataDir, `${sido.sidoCode}_${sgg.sggCode}_childcare.json`), '[]', 'utf-8');
+                        fetchedThisRun.add(`${sido.sidoCode}_${sgg.sggCode}_childcare.json`);
                         console.log('   ⏭️ 어린이집 API 미제공 지역 — 빈 목록');
                         continue;
                     }
                     try {
                         // 어린이집 API 가 다른 코드로만 답하는 지역(예: 여주시 = 옛 여주군 41730).
-                        const xml = await fetchChildcareApi(sgg.childcareSggCode || sgg.sggCode);
+                        // 서버 오류(5xx·네트워크)는 3번까지 다시 시도한다. 실패하면 옛 파일이 남고 수집 기록에는 오르지 않는다.
+                        const xml = await withRetries(() => fetchChildcareApi(sgg.childcareSggCode || sgg.sggCode), 3, 3000);
 
                         const verdict = classifyChildcareResponse(xml);
                         if (verdict.kind === 'fatal') {
@@ -994,6 +1025,7 @@ async function run() {
                         const normalizedList = normalizeChildcareData(items, sido.sidoCode, sgg.sggCode);
                         const filename = `${sido.sidoCode}_${sgg.sggCode}_childcare.json`;
                         fs.writeFileSync(path.join(dataDir, filename), JSON.stringify(normalizedList), 'utf-8');
+                        fetchedThisRun.add(filename);
                         console.log(`   ✅ Saved ${normalizedList.length} childcare centers to ${filename}`);
 
                         await delay(2000);
@@ -1004,6 +1036,7 @@ async function run() {
             }
             console.log('🎉 All childcare data successfully collected!');
         }
+        writeFetchManifest(dataDir, fetchedThisRun);
         auditDirectory(dataDir, { write: true, reportPath: path.resolve(__dirname, '../docs/coordinate-audit.json') });
     } catch (error) {
         console.error('❌ Error fetching data:', error.message);
