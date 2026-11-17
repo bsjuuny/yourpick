@@ -1,6 +1,6 @@
 import type { Institution } from '../types/institution';
 import { assessCare, assessSafety, assessStability, ageBreakdownReliable, type Assessment, type Level } from './selectionCriteria';
-import { ageClassStatus, childPath, classAgeFor, currentSchoolYear, mixedSummary } from './ageClasses';
+import { ageClassStatus, childPath, classAgeFor, currentSchoolYear, isStaleBasis, mixedSummary } from './ageClasses';
 
 /**
  * 맞춤 조건 (2026-11 1단계).
@@ -81,7 +81,8 @@ export interface FitCheck {
 /** 입학 예정 학년도의 반 연령. 출생연도가 없으면 null */
 export function entryAge(c: FitConditions, now: Date = new Date()): { age: number; schoolYear: number } | null {
     if (c.birthYear === null) return null;
-    const schoolYear = c.entryYear ?? currentSchoolYear(now);
+    // 저장해 둔 입학 학년도가 시간이 지나 과거가 되면 지금 학년도부터 본다(지난 학년도는 판정하지 않는다).
+    const schoolYear = Math.max(c.entryYear ?? currentSchoolYear(now), currentSchoolYear(now));
     return { age: classAgeFor(c.birthYear, schoolYear), schoolYear };
 }
 
@@ -160,6 +161,10 @@ export function checkContinuity(item: Institution, birthYear: number, entryYear:
 export function checkMixedPreference(item: Institution, pref: Exclude<MixedPreference, 'any'>, age: number | null, now: Date = new Date()): CheckResult {
     let mixed: boolean | null;
     let what: string;
+    // 지난 학년도 공시만 있는 기관은 혼합반 여부도 지금 근거로 쓰지 않는다(Claude 검수 지적 2).
+    if (isStaleBasis(item, now)) {
+        return { status: 'unknown', reason: `최신 공시 아님(${item.ageClasses?.basis?.label}) · 혼합반 운영은 기관 확인` };
+    }
     if (age !== null && age >= 0 && age <= 5) {
         const st = ageClassStatus(item, age, now);
         mixed = st.kind === 'mixed' ? true : st.kind === 'own' ? false : null;

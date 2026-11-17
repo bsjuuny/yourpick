@@ -1004,6 +1004,8 @@ async function run() {
                         const verdict = classifyChildcareResponse(xml);
                         if (verdict.kind === 'fatal') {
                             console.error(`❌ 어린이집 API ${verdict.code}: ${CHILDCARE_FATAL_HINT[verdict.code] || '서버 오류'} (${sgg.sggName}에서 중단)`);
+                            // 중단 전에 이미 새로 받은 파일은 수집 기록에 남긴다(그 파일의 이력 날짜가 어긋나지 않게).
+                            writeFetchManifest(dataDir, fetchedThisRun);
                             process.exit(3);
                         }
                         if (verdict.kind === 'no-result' || xml.includes('traffic')) {

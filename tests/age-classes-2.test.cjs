@@ -188,3 +188,24 @@ test('[Codex#6-6] no UI text hints that a problem or conflict happened', () => {
     }
     assert.deepEqual(hits, []);
 });
+
+// ── Claude 독립 검수 지적 재현 (2026-11-17) ──────────────────────────────
+
+test('[Claude-2] mixed-class preference does not use a past-year disclosure as current evidence', () => {
+    const old = kinder({ 3: { classes: 1, children: 10, capacity: 16 } }, [{ label: '혼합반', ages: null, possibleAges: [3, 4, 5], classes: 1, children: 20 }]);
+    old.ageClasses.basis = { kind: 'disclosure', key: '20242', label: '2024년 2차 공시' };
+    for (const pref of ['prefer', 'avoid']) {
+        assert.equal(f.checkMixedPreference(old, pref, null, NOW).status, 'unknown');
+        assert.equal(f.checkMixedPreference(old, pref, 3, NOW).status, 'unknown');
+    }
+    assert.match(a.mixedSummary(old, NOW).text, /최신 공시 아님\(2024년 2차 공시\)/);
+    assert.doesNotMatch(a.mixedSummary(kinder({}, [{ label: '혼합반', ages: null, possibleAges: [3, 4, 5], classes: 1, children: 20 }]), NOW).text, /최신 공시 아님/);
+});
+
+test('[Claude-3] a saved entry year that is now in the past starts from the current school year', () => {
+    const k = kinder({ 4: { classes: 1, children: 10, capacity: 16 }, 5: { classes: 1, children: 10, capacity: 16 } });
+    const p = a.childPath(k, 2022, 2025, NOW); // 2025학년도는 이미 지났다
+    assert.deepEqual(p.years.map(y => y.schoolYear), [2026, 2027, 2028]); // 2022년생: 2026 만3, 2027 만4, 2028 만5
+    const e = f.entryAge({ ...f.DEFAULT_CONDITIONS, birthYear: 2022, entryYear: 2025 }, NOW);
+    assert.deepEqual(e, { age: 3, schoolYear: 2026 });
+});

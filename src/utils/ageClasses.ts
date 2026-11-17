@@ -126,11 +126,13 @@ export interface MixedSummary {
     text: string;
 }
 
-export function mixedSummary(item: Institution): MixedSummary {
+export function mixedSummary(item: Institution, now: Date = new Date()): MixedSummary {
     const ac = item.ageClasses;
     if (!ac) return { has: false, text: '정보 부족' };
+    // 지난 학년도 공시면 그 사실을 함께 적는다(지금 운영 근거가 아님).
+    const staleNote = isStaleBasis(item, now) ? ` · 최신 공시 아님(${ac.basis?.label})` : '';
     const list = (ac.mixed ?? []).filter(m => m.classes > 0);
-    if (list.length === 0) return { has: false, text: ac.mixedKnown === false ? '정보 부족' : '혼합반 없음' };
+    if (list.length === 0) return { has: false, text: (ac.mixedKnown === false ? '정보 부족' : '혼합반 없음') + staleNote };
     // 혼합반 원아·정원은 연령별로 나뉘지 않은 합계라 그대로 '합계'로 적는다.
     return {
         has: true,
@@ -139,7 +141,7 @@ export function mixedSummary(item: Institution): MixedSummary {
                 : m.possibleAges ? `${m.label}(만 ${m.possibleAges[0]}~${m.possibleAges[m.possibleAges.length - 1]}세 중 일부) ${m.classes}개` : `${m.label} ${m.classes}개`;
             const extra = [m.children != null ? `원아 ${m.children}명` : null, m.capacity ? `정원 ${m.capacity}명` : null].filter(Boolean).join(' · ');
             return extra ? `${name} (합계 ${extra})` : name;
-        }).join(', '),
+        }).join(', ') + staleNote,
     };
 }
 
@@ -301,7 +303,8 @@ export interface ChildPath {
 export function childPath(item: Institution, birthYear: number, entryYear: number, now: Date = new Date(), stayYears: number | null = null): ChildPath {
     const thisYear = currentSchoolYear(now);
     const years: PathYear[] = [];
-    for (let year = entryYear; classAgeFor(birthYear, year) <= 5; year++) {
+    // 지난 학년도는 판정하지 않는다(저장해 둔 입학 학년도가 시간이 지나 과거가 된 경우).
+    for (let year = Math.max(entryYear, thisYear); classAgeFor(birthYear, year) <= 5; year++) {
         const age = classAgeFor(birthYear, year);
         if (age < 0) continue;
         years.push({ schoolYear: year, age, status: ageClassStatus(item, age, now), current: year <= thisYear });

@@ -54,7 +54,9 @@ function CompareContent() {
             load(region, `${basePath}/data/${region}_childcare.json`),
         ])).then((results) => {
             const failedRegions = new Set(results.filter(r => !r.ok).map(r => r.region));
-            const regionOf = (id: string) => { const parts = String(id).split('_'); return parts.length >= 2 ? `${parts[0]}_${parts[1]}` : '11_11620'; };
+            // 지역 접두사가 없는 옛 id 는 어느 지역인지 모르므로, 불러오기에 실패한 지역이 하나라도 있으면 확인 불가로 둔다.
+            const regionOf = (id: string) => { const parts = String(id).split('_'); return parts.length >= 3 ? `${parts[0]}_${parts[1]}` : null; };
+            const regionFailed = (id: string) => { const r = regionOf(id); return r === null ? failedRegions.size > 0 : failedRegions.has(r); };
             const allFetched = results.flatMap(r => r.data);
             const filtered = allFetched.filter(inst => {
                 const comp = `${inst.sidoCode || '11'}_${inst.sggCode || '11620'}_${inst.id}`;
@@ -62,8 +64,8 @@ function CompareContent() {
             });
             setCompareData(filtered);
             const notFound = targetIds.filter(id => !filtered.some(inst => `${inst.sidoCode || '11'}_${inst.sggCode || '11620'}_${inst.id}` === id || inst.id === id));
-            setMissingCount(notFound.filter(id => !failedRegions.has(regionOf(id))).length);
-            setUnverifiedCount(notFound.filter(id => failedRegions.has(regionOf(id))).length);
+            setMissingCount(notFound.filter(id => !regionFailed(id)).length);
+            setUnverifiedCount(notFound.filter(id => regionFailed(id)).length);
             setIsLoading(false);
         });
     }, [targetIds.join(',')]);
