@@ -15,6 +15,9 @@ function CompareContent() {
     const targetIds = ids.length > 0 ? ids : compareIds;
 
     const [compareData, setCompareData] = useState<any[]>([]);
+    // 담아 둔 기관 중 현재 공시 목록에 없는 수. 어린이집은 휴지·폐지되면 공시 목록에서 빠지고,
+    // 지역 코드가 바뀌어도(예: 2026-07 인천 구 개편) 예전 주소로는 찾을 수 없다. 연령반 미운영과 구분해 알린다.
+    const [missingCount, setMissingCount] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -46,6 +49,7 @@ function CompareContent() {
                 return targetIds.includes(comp) || targetIds.includes(inst.id); // Also check raw id for backward compatibility
             });
             setCompareData(filtered);
+            setMissingCount(targetIds.filter(id => !filtered.some(inst => `${inst.sidoCode || '11'}_${inst.sggCode || '11620'}_${inst.id}` === id || inst.id === id)).length);
             setIsLoading(false);
         });
     }, [targetIds.join(',')]);
@@ -87,6 +91,11 @@ function CompareContent() {
             </div>
 
             <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
+                {missingCount > 0 && (
+                    <p role="note" className="mb-4 text-xs font-bold text-amber-800 bg-amber-50 border border-amber-200 rounded-2xl px-4 py-3 break-keep">
+                        담아 둔 기관 중 {missingCount}곳은 현재 공시 목록에 없어 표시하지 못했어요. 휴지·폐지되었거나 지역 코드가 바뀌었을 수 있으니 기관이나 공시 포털에서 확인해 주세요.
+                    </p>
+                )}
                 <CompareTable data={compareData} />
             </div>
 

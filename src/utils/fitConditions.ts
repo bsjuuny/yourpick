@@ -1,6 +1,6 @@
 import type { Institution } from '../types/institution';
 import { assessCare, assessSafety, assessStability, ageBreakdownReliable, type Assessment, type Level } from './selectionCriteria';
-import { ageClassStatus, childPath, classAgeFor, currentSchoolYear } from './ageClasses';
+import { ageClassStatus, childPath, classAgeFor, currentSchoolYear, mixedSummary } from './ageClasses';
 
 /**
  * 맞춤 조건 (2026-11 1단계).
@@ -18,6 +18,7 @@ import { ageClassStatus, childPath, classAgeFor, currentSchoolYear } from './age
 export type Need = 'off' | 'preferred' | 'required';
 export type CommuteMode = 'walk' | 'car' | 'transit' | 'bus';
 export type Importance = 0 | 1 | 2; // 0 상관없음, 1 보통, 2 중요
+export type MixedPreference = 'any' | 'prefer' | 'avoid';
 
 export interface FitLocation {
     /** 'dong' = 고른 행정동의 대표 지점, 'device' = 기기 현재 위치(저장하지 않음) */
@@ -34,6 +35,10 @@ export interface FitConditions {
     birthYear: number | null;
     /** 입학(입소) 예정 학년도. 정하지 않으면 지금 학년도 */
     entryYear: number | null;
+    /** 희망 재원 기간(학년도 수). null = 졸업(만 5세반)까지 */
+    stayYears: number | null;
+    /** 혼합연령반 개인 선호. 공시 평가 점수·필수 조건에는 넣지 않는다. */
+    mixedPreference: MixedPreference;
     ageNeed: Need;
     afterSchool: Need;                   // 방과후과정·연장보육 이용
     commuteMode: CommuteMode | null;
@@ -47,6 +52,8 @@ export interface FitConditions {
 export const DEFAULT_CONDITIONS: FitConditions = {
     birthYear: null,
     entryYear: null,
+    stayYears: null,
+    mixedPreference: 'any',
     ageNeed: 'required',
     afterSchool: 'off',
     commuteMode: null,
@@ -62,7 +69,7 @@ export const COMMUTE_LABEL: Record<CommuteMode, string> = { walk: '도보', car:
 export type FitStatus = 'met' | 'unmet' | 'unknown';
 
 export interface FitCheck {
-    key: 'age' | 'continuity' | 'afterSchool' | 'commute' | 'budget';
+    key: 'age' | 'continuity' | 'mixed' | 'afterSchool' | 'commute' | 'budget';
     label: string;
     need: Exclude<Need, 'off'>;
     status: FitStatus;
@@ -82,6 +89,7 @@ export function entryAge(c: FitConditions, now: Date = new Date()): { age: numbe
 export function hasActiveConditions(c: FitConditions, location: FitLocation | null): boolean {
     return Boolean(location)
         || (c.birthYear !== null && c.ageNeed !== 'off')
+        || c.mixedPreference !== 'any'
         || c.afterSchool !== 'off'
         || (c.commuteMode !== null && c.commuteNeed !== 'off')
         || (c.monthlyBudget !== null && c.budgetNeed !== 'off');
@@ -109,12 +117,12 @@ export function checkAge(item: Institution, age: number, future = false): CheckR
         if (st.kind === 'not-applicable') return { status: 'unmet', reason: st.detail };
         if (st.kind === 'own' || st.kind === 'mixed') {
             return future
-                ? { status: 'unknown', evidence: true, reason: `현재 공시(${basis})에 ${st.kind === 'own' ? st.label : '혼합반'} 있음 · 그 학년도 운영·모집은 확인 필요` }
+                ? { status: 'unknown', evidence: true, reason: `현재 공시(${basis}) 운영 확인(${st.kind === 'own' ? `단독반 ${st.classes}개` : '혼합반'}) · 그 학년도는 운영계획 확인 필요` }
                 : { status: 'met', reason: `${st.detail} (${basis})` };
         }
         if (st.kind === 'none') {
             return future
-                ? { status: 'unknown', reason: `현재 공시(${basis})에는 만 ${age}세 반이 없어요 · 그 학년도 모집 여부는 기관 확인` }
+                ? { status: 'unknown', reason: `현재 공시(${basis})에는 만 ${age}세 반 미운영 · 그 학년도는 운영계획 확인 필요` }
                 : { status: 'unmet', reason: `${basis}에 만 ${age}세 반이 없어요` };
         }
         return { status: 'unknown', reason: st.detail };
@@ -135,14 +143,35 @@ export function checkAge(item: Institution, age: number, future = false): CheckR
 }
 
 /** 졸업(만 5세반)까지. 미래 학년도가 섞이므로 확정하지 않고, 현재 공시가 받쳐 주면 evidence 만 준다. */
-export function checkContinuity(item: Institution, birthYear: number, entryYear: number, now: Date = new Date()): CheckResult {
-    const path = childPath(item, birthYear, entryYear, now);
+export function checkContinuity(item: Institution, birthYear: number, entryYear: number, now: Date = new Date(), stayYears: number | null = null): CheckResult {
+    const path = childPath(item, birthYear, entryYear, now, stayYears);
     if (path.years.length === 0) return { status: 'unknown', reason: path.summary };
     const allCurrent = path.years.every(y => y.current);
     // 정보 부족·범위 미공시 혼합반이 하나라도 있으면 근거로 치지 않는다(Codex #3 리뷰 1).
     if (allCurrent && path.supported) return { status: 'met', reason: path.summary };
     if (allCurrent && path.gaps.length > 0) return { status: 'unmet', reason: path.summary };
     return { status: 'unknown', evidence: path.supported, reason: path.summary };
+}
+
+/**
+ * 혼합연령반 개인 선호. 늘 '선호' 조건으로만 쓴다(필수·감점 없음). 혼합반 운영 자체를 나쁘게 보지 않는다.
+ * age 가 있으면 그 연령 반이 혼합반인지, 없으면 기관이 혼합반을 운영하는지로 본다.
+ */
+export function checkMixedPreference(item: Institution, pref: Exclude<MixedPreference, 'any'>, age: number | null): CheckResult {
+    let mixed: boolean | null;
+    let what: string;
+    if (age !== null && age >= 0 && age <= 5) {
+        const st = ageClassStatus(item, age);
+        mixed = st.kind === 'mixed' ? true : st.kind === 'own' ? false : null;
+        what = mixed === null ? `만 ${age}세 반 운영 형태 정보 부족` : `만 ${age}세는 ${mixed ? '혼합반' : '단독반'}으로 운영(현재 공시)`;
+    } else {
+        const m = mixedSummary(item);
+        mixed = m.text === '정보 부족' ? null : m.has;
+        what = mixed === null ? '혼합반 운영 정보 부족' : mixed ? `혼합반 운영: ${m.text}` : '혼합반 없음(현재 공시)';
+    }
+    if (mixed === null) return { status: 'unknown', reason: what };
+    const matches = pref === 'prefer' ? mixed : !mixed;
+    return { status: matches ? 'met' : 'unmet', reason: `${what} · ${matches ? '선호와 같음' : '선호와 다름'}` };
 }
 
 const AFTER_SCHOOL_SIGNALS = /방과후|야간연장|시간연장|연장보육|24시간/;
@@ -176,8 +205,12 @@ export function evaluateFit(item: Institution, c: FitConditions, now: Date = new
         const future = entry.schoolYear > currentSchoolYear(now);
         checks.push({ key: 'age', label: `${entry.schoolYear}학년도 만 ${entry.age}세반`, need: c.ageNeed, ...checkAge(item, entry.age, future) });
         if (entry.age <= 5) {
-            checks.push({ key: 'continuity', label: '졸업까지', need: 'preferred', ...checkContinuity(item, c.birthYear, entry.schoolYear, now) });
+            checks.push({ key: 'continuity', label: c.stayYears ? `희망 재원 ${c.stayYears}년` : '졸업까지', need: 'preferred', ...checkContinuity(item, c.birthYear, entry.schoolYear, now, c.stayYears) });
         }
+    }
+    if (c.mixedPreference !== 'any') {
+        const age = entry && entry.age >= 0 && entry.age <= 5 ? entry.age : null;
+        checks.push({ key: 'mixed', label: c.mixedPreference === 'prefer' ? '혼합반 선호' : '혼합반 피하고 싶음', need: 'preferred', ...checkMixedPreference(item, c.mixedPreference, age) });
     }
     if (c.afterSchool !== 'off') {
         checks.push({ key: 'afterSchool', label: item.source === '유치원' ? '방과후과정' : '연장보육', need: c.afterSchool, ...checkAfterSchool(item) });

@@ -33,11 +33,16 @@ function entryFromCurrent(inst, date) {
     const ages = inst.source === '유치원' ? [3, 4, 5] : [0, 1, 2, 3, 4, 5];
     // 공시 원본에 없던 값(null)은 null 그대로 둔다. 0으로 바꾸면 '없어짐'·'변화 없음'으로 잘못 읽힌다.
     const classes = [0, 1, 2, 3, 4, 5].map(a => (ages.includes(a) ? (ac.byAge?.[a]?.classes ?? null) : null));
+    // 연령별 원아 수(단독반 기준, 혼합반 원아는 연령별로 나뉘지 않아 포함하지 않음)와 기관 전체 정원·현원 (2단계).
+    const children = [0, 1, 2, 3, 4, 5].map(a => (ages.includes(a) ? (ac.byAge?.[a]?.children ?? null) : null));
     return {
         from: date,
         to: date,
         basis: ac.basis?.label ?? null,
         classes,
+        children,
+        capacity: Number.isFinite(inst.capacity) ? inst.capacity : null,
+        pupils: Number.isFinite(inst.currentPupils) ? inst.currentPupils : null,
         mixed: ac.mixedKnown === false ? null : (ac.mixed ?? []).reduce((sum, m) => sum + (m.classes || 0), 0),
         special: ac.special?.classes ?? null,
         origin: 'collect',
@@ -49,11 +54,20 @@ function entryFromLegacy(inst, date) {
     if (inst.source !== '어린이집' && !String(inst.id).match(/^\d{11}$/)) return null;
     if (!inst.ageBreakdown) return null;
     const classes = [0, 1, 2, 3, 4, 5].map(a => inst.ageBreakdown[a]?.classes ?? 0);
-    return { from: date, to: date, basis: `${date} 수집 (저장 스냅샷)`, classes, mixed: null, special: null, origin: 'git' };
+    // 예전 스냅샷은 반이 있는 연령만 원아 수를 담았다 → 반이 없던 연령의 원아 수는 0이 아니라 모름(null).
+    const children = [0, 1, 2, 3, 4, 5].map(a => inst.ageBreakdown[a]?.children ?? null);
+    return {
+        from: date, to: date, basis: `${date} 수집 (저장 스냅샷)`, classes, children,
+        capacity: Number.isFinite(inst.capacity) ? inst.capacity : null,
+        pupils: Number.isFinite(inst.currentPupils) ? inst.currentPupils : null,
+        mixed: null, special: null, origin: 'git',
+    };
 }
 
 function sameValues(a, b) {
-    return JSON.stringify(a.classes) === JSON.stringify(b.classes) && a.mixed === b.mixed && a.special === b.special;
+    return JSON.stringify(a.classes) === JSON.stringify(b.classes) && a.mixed === b.mixed && a.special === b.special
+        && JSON.stringify(a.children ?? null) === JSON.stringify(b.children ?? null)
+        && (a.capacity ?? null) === (b.capacity ?? null) && (a.pupils ?? null) === (b.pupils ?? null);
 }
 
 /**
@@ -67,7 +81,7 @@ function append(list, entry) {
     if (last && entry.from === last.to) {
         if (sameValues(last, entry)) return;
         if (last.from === last.to) {
-            Object.assign(last, { classes: entry.classes, mixed: entry.mixed, special: entry.special, basis: entry.basis ?? last.basis, origin: entry.origin });
+            Object.assign(last, { classes: entry.classes, children: entry.children, capacity: entry.capacity, pupils: entry.pupils, mixed: entry.mixed, special: entry.special, basis: entry.basis ?? last.basis, origin: entry.origin });
             delete last.prevTo;
             return;
         }

@@ -659,6 +659,27 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
 // 어린이집 API (cpmsapi030) 관련 함수
 // =============================================
 
+/**
+ * 어린이집 API 응답 분류 (연령반 2단계). 오류 코드(보육정보 공개 API 명세 v1.6):
+ *   INFO-200 검색결과 없음 → 'no-result' (그 지역만 건너뜀)
+ *   INFO-100 인증키 무효, INFO-300 일 요청 초과, INFO-400 인증키 만료, ERROR-xxx → 'fatal'
+ * 'fatal' 은 모든 지역에 같은 문제가 생기므로 옛 파일을 남긴 채 '성공'으로 끝나지 않게 바로 멈춘다.
+ * (정보공개포털 운영계정 키는 사용기간이 12개월이다.)
+ */
+function classifyChildcareResponse(xml) {
+    const match = String(xml).match(/(INFO|ERROR)\s*-\s*(\d{3})/);
+    if (!match) return { kind: 'ok', code: null };
+    const code = `${match[1]}-${match[2]}`;
+    if (code === 'INFO-200') return { kind: 'no-result', code };
+    return { kind: 'fatal', code };
+}
+
+const CHILDCARE_FATAL_HINT = {
+    'INFO-100': '인증키가 유효하지 않습니다',
+    'INFO-300': '일 요청 건수를 초과했습니다',
+    'INFO-400': '인증키가 만료되었습니다 — 어린이집 정보공개포털에서 OpenAPI 키를 갱신하세요',
+};
+
 function fetchChildcareApi(sggCode) {
     return new Promise((resolve, reject) => {
         const url = `http://api.childcare.go.kr/mediate/rest/cpmsapi030/cpmsapi030/request?key=${CHILDCARE_API_KEY}&arcode=${sggCode}`;
@@ -949,7 +970,12 @@ async function run() {
                         // 어린이집 API 가 다른 코드로만 답하는 지역(예: 여주시 = 옛 여주군 41730).
                         const xml = await fetchChildcareApi(sgg.childcareSggCode || sgg.sggCode);
 
-                        if (xml.includes('ERROR') || xml.includes('INFO-') || xml.includes('traffic')) {
+                        const verdict = classifyChildcareResponse(xml);
+                        if (verdict.kind === 'fatal') {
+                            console.error(`❌ 어린이집 API ${verdict.code}: ${CHILDCARE_FATAL_HINT[verdict.code] || '서버 오류'} (${sgg.sggName}에서 중단)`);
+                            process.exit(3);
+                        }
+                        if (verdict.kind === 'no-result' || xml.includes('traffic')) {
                             const errMatch = xml.match(/<(ERROR|INFO)[^>]*>([^<]*)/i);
                             if (xml.includes('traffic')) {
                                 console.warn(`   ⚠️ Childcare API high traffic. Waiting 10s...`);
@@ -986,4 +1012,4 @@ async function run() {
 }
 
 if (require.main === module) run();
-module.exports = { normalizeData, normalizeChildcareData, parseXmlItems, kindergartenAgeClasses, childcareAgeClasses, kindergartenBasis };
+module.exports = { normalizeData, normalizeChildcareData, parseXmlItems, classifyChildcareResponse, kindergartenAgeClasses, childcareAgeClasses, kindergartenBasis };
