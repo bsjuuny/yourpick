@@ -81,7 +81,7 @@ export function mixedSummary(item: Institution): MixedSummary {
     const ac = item.ageClasses;
     if (!ac) return { has: false, text: '정보 부족' };
     const list = (ac.mixed ?? []).filter(m => m.classes > 0);
-    if (list.length === 0) return { has: false, text: '혼합반 없음' };
+    if (list.length === 0) return { has: false, text: ac.mixedKnown === false ? '정보 부족' : '혼합반 없음' };
     // 혼합반 원아·정원은 연령별로 나뉘지 않은 합계라 그대로 '합계'로 적는다.
     return {
         has: true,

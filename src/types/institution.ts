@@ -66,6 +66,8 @@ export interface AgeClassCount {
 export interface AgeClasses {
     basis: { kind: 'disclosure' | 'date' | 'unknown'; key: string | null; label: string };
     byAge: Record<number, AgeClassCount>;
+    /** false = 혼합반 필드가 원본에 없어 혼합반 여부를 모름 */
+    mixedKnown?: boolean;
     mixed: { label: string; ages: number[] | null; classes: number; children: number | null; capacity?: number | null }[];
     special: { classes: number | null; children: number | null };
     waitingOver6?: number | null;

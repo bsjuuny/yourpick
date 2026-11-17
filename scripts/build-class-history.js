@@ -31,14 +31,15 @@ function entryFromCurrent(inst, date) {
     const ac = inst.ageClasses;
     if (!ac) return null;
     const ages = inst.source === '유치원' ? [3, 4, 5] : [0, 1, 2, 3, 4, 5];
-    const classes = [0, 1, 2, 3, 4, 5].map(a => (ages.includes(a) ? (ac.byAge?.[a]?.classes ?? 0) : null));
+    // 공시 원본에 없던 값(null)은 null 그대로 둔다. 0으로 바꾸면 '없어짐'·'변화 없음'으로 잘못 읽힌다.
+    const classes = [0, 1, 2, 3, 4, 5].map(a => (ages.includes(a) ? (ac.byAge?.[a]?.classes ?? null) : null));
     return {
         from: date,
         to: date,
         basis: ac.basis?.label ?? null,
         classes,
-        mixed: (ac.mixed ?? []).reduce((sum, m) => sum + (m.classes || 0), 0),
-        special: ac.special?.classes ?? 0,
+        mixed: ac.mixedKnown === false ? null : (ac.mixed ?? []).reduce((sum, m) => sum + (m.classes || 0), 0),
+        special: ac.special?.classes ?? null,
         origin: 'collect',
     };
 }

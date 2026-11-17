@@ -290,6 +290,7 @@ function kindergartenAgeClasses(item) {
     const mixedClasses = num(item.mixclcnt);
     return {
         basis: kindergartenBasis(item.pbnttmng),
+        mixedKnown: num(item.mixclcnt) !== null,
         byAge,
         mixed: (mixedClasses ?? 0) > 0 || (num(item.mixppcnt) ?? 0) > 0
             ? [{ label: '혼합반', ages: [3, 4, 5], classes: mixedClasses ?? 0, children: num(item.mixppcnt), capacity: num(item.mixfpcnt) }]
@@ -312,7 +313,10 @@ function childcareAgeClasses(item) {
         { label: '유아혼합반', ages: [3, 4, 5], classes: num(item.CLASS_CNT_M5) ?? 0, children: num(item.CHILD_CNT_M5) },
     ].filter(m => m.classes > 0 || (m.children ?? 0) > 0);
     const date = String(item.datastdrdt || '').trim();
+    // 혼합반 필드(M2·M5)가 원본에 없으면 '혼합반 없음'이 아니라 모름이다.
+    const mixedKnown = num(item.CLASS_CNT_M2) !== null && num(item.CLASS_CNT_M5) !== null;
     return {
+        mixedKnown,
         basis: /^\d{4}-\d{2}-\d{2}$/.test(date) ? { kind: 'date', key: date, label: `${date} 기준` } : { kind: 'unknown', key: null, label: '기준일 정보 없음' },
         byAge,
         mixed,

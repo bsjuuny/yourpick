@@ -55,7 +55,9 @@ function countsAtRef(root, ref, files) {
 
 // 수집이 안 된 지역을 채우던 자리표시 기관(예: 2026-03 여주시 "어린이집 1", 주소 미상)을 막는다.
 function isPlaceholder(inst) {
-    return /^(어린이집|유치원) d+$/.test(String(inst.name || '')) || String(inst.address || '').trim() === '주소 미상' || /^d{1,3}$/.test(String(inst.id || ''));
+    return /^(어린이집|유치원) \d+$/.test(String(inst.name || ''))
+        || String(inst.address || '').trim() === '주소 미상'
+        || /^\d{1,3}$/.test(String(inst.id || ''));
 }
 
 module.exports = { compareCounts, regionFiles, isPlaceholder };

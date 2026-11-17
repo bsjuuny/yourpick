@@ -215,3 +215,36 @@ test('[Codex#3-7] placeholder institutions are rejected by the data check', () =
     assert.equal(isPlaceholder({ id: '1', name: '어린이집 1', address: '주소 미상' }), true);
     assert.equal(isPlaceholder({ id: '41730000123', name: '귀여운어린이집', address: '경기도 여주시 세종로 173-45' }), false);
 });
+
+// ── Codex PR #3 재검수 지적 (2026-11-17) ───────────────────────────────
+
+test('[Codex#3-R-A] unknown counts stay null from collector through history to comparison', () => {
+    const partial = collector.childcareAgeClasses({ CLASS_CNT_00: '2', CLASS_CNT_01: '1', CLASS_CNT_02: '0', CLASS_CNT_03: '0', CLASS_CNT_04: '0', CLASS_CNT_05: '0' }); // 혼합·특수 필드 없음
+    assert.equal(partial.mixedKnown, false);
+    const unknownAge = { ...partial, byAge: { ...partial.byAge, 0: { classes: null, children: null } } };
+    const entry = historyBuilder.entryFromCurrent({ source: '어린이집', ageClasses: unknownAge }, '2026-12-02');
+    assert.equal(entry.classes[0], null);
+    assert.equal(entry.mixed, null);
+    assert.equal(entry.special, null);
+    const roundTrip = JSON.parse(JSON.stringify(entry));
+    const e = (from, classes) => ({ from, to: from, basis: null, classes, mixed: 0, special: 0, origin: 'collect' });
+    const d = daycare({ 0: { classes: 2, children: 5 } });
+    // 2 → (모름) → 2 : 변화로 보지 않는다
+    assert.equal(a.compareHistory(d, [e('2026-10-01', [2, 0, 0, 0, 0, 0]), { ...roundTrip, classes: [null, 1, 0, 0, 0, 0] }, e('2027-01-05', [2, 0, 0, 0, 0, 0])]).changes.filter(c => c.age === 0).length, 0);
+    // 2 → (모름) → 0 : 실제 0만 비교한다
+    const h = a.compareHistory(daycare(), [e('2026-10-01', [2, 0, 0, 0, 0, 0]), { ...roundTrip, classes: [null, 1, 0, 0, 0, 0] }, e('2027-01-05', [0, 0, 0, 0, 0, 0])]);
+    assert.deepEqual(h.changes.filter(c => c.age === 0).map(c => [c.kind, c.steps.length]), [['없어짐', 2]]);
+    assert.equal(a.mixedSummary({ ...daycare(), ageClasses: partial }).text, '정보 부족');
+});
+
+test('[Codex#3-R-B] placeholder conditions are each detected on their own', () => {
+    const { isPlaceholder } = require('../scripts/check-data-counts.cjs');
+    const real = { id: '41730000015', name: '귀여운어린이집', address: '경기도 여주시 세종로 173-45' };
+    assert.equal(isPlaceholder(real), false);
+    assert.equal(isPlaceholder({ ...real, name: '어린이집 2' }), true);
+    assert.equal(isPlaceholder({ ...real, name: '유치원 13' }), true);
+    assert.equal(isPlaceholder({ ...real, id: '1' }), true);
+    assert.equal(isPlaceholder({ ...real, id: '123' }), true);
+    assert.equal(isPlaceholder({ ...real, address: '주소 미상' }), true);
+    assert.equal(isPlaceholder({ ...real, name: '어린이집2호점' }), false);
+});
