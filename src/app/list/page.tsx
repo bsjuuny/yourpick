@@ -3,6 +3,7 @@
 import React, { Suspense, useMemo, useState } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useInstitutions } from '@/hooks/useInstitutions';
+import { useQuery } from '@tanstack/react-query';
 import type { Institution, InstitutionSource } from '@/types/institution';
 import { compareInstitutions } from '@/utils/institutionSort';
 import { assessCare, assessStability, compareByAssessment } from '@/utils/selectionCriteria';
@@ -36,6 +37,13 @@ function ListContent() {
     const [sourceFilter, setSourceFilter] = useState<InstitutionSource | '전체'>('전체');
     const [sortBy, setSortBy] = useState<SortKey>('name');
     const { data: institutions, isLoading, error } = useInstitutions(sido, sgg, sourceFilter);
+    // 어린이집 공공 API 가 결과를 주지 않는 지역(예: 계룡시) — 빈 목록을 '어린이집 없음'으로 오해하지 않게 알린다.
+    const { data: regionList } = useQuery<{ sidoCode: string; sggList: { sggCode: string; childcareUnavailable?: boolean }[] }[]>({
+        queryKey: ['regions'],
+        queryFn: () => fetch(`${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/data/regions.json`).then(r => (r.ok ? r.json() : [])).catch(() => []),
+        staleTime: Infinity,
+    });
+    const childcareUnavailable = Boolean(regionList?.find(r => r.sidoCode === sido)?.sggList.find(g => g.sggCode === sgg)?.childcareUnavailable);
     const fitConditions = useFitConditionsStore((s) => s.conditions);
     const fitLocation = useFitConditionsStore((s) => s.location);
     // 다른 지역에서 고른 행정동은 이 목록에서 쓰지 않는다.
@@ -218,6 +226,12 @@ function ListContent() {
                     )}
                 </div>
             </div>
+
+            {childcareUnavailable && sourceFilter !== '유치원' && (
+                <p role="note" className="text-xs font-bold text-amber-800 bg-amber-50 border border-amber-200 rounded-2xl px-4 py-3 break-keep">
+                    이 지역 어린이집은 공공 데이터(어린이집 정보공개 API)에서 제공되지 않아 표시하지 못했어요. 어린이집은 아이사랑·어린이집 정보공개포털에서 확인해 주세요.
+                </p>
+            )}
 
             {/* Grid Area */}
             {filteredData.length > 0 ? (

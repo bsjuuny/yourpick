@@ -12,8 +12,9 @@ const MIN_RATIO = 0.7;        // a region with 10+ facilities may not lose 30%+
 const MIN_TOTAL_RATIO = 0.95; // the whole data set may not lose 5%+
 
 function regionFiles(regions) {
+    // 어린이집 API 미제공 지역(childcareUnavailable)의 빈 어린이집 목록은 비교하지 않는다.
     return regions.flatMap(sido => sido.sggList.flatMap(sgg =>
-        ['', '_childcare'].map(suffix => `${sido.sidoCode}_${sgg.sggCode}${suffix}.json`)));
+        (sgg.childcareUnavailable ? [''] : ['', '_childcare']).map(suffix => `${sido.sidoCode}_${sgg.sggCode}${suffix}.json`)));
 }
 
 function compareCounts(current, baseline) {

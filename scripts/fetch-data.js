@@ -860,7 +860,7 @@ async function run() {
         const dataDir = path.resolve(__dirname, '../public/data');
         if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
 
-        fs.writeFileSync(path.join(dataDir, 'regions.json'), JSON.stringify(REGIONS.map(sido => ({ ...sido, sggList: sido.sggList.map(({ sggCode, sggName }) => ({ sggCode, sggName })) })), null, 2), 'utf-8');
+        fs.writeFileSync(path.join(dataDir, 'regions.json'), JSON.stringify(REGIONS.map(sido => ({ ...sido, sggList: sido.sggList.map(({ sggCode, sggName, childcareUnavailable }) => ({ sggCode, sggName, ...(childcareUnavailable ? { childcareUnavailable } : {}) })) })), null, 2), 'utf-8');
         console.log('✅ Generated regions.json metadata.');
 
         for (const sido of REGIONS) {
@@ -939,6 +939,12 @@ async function run() {
             for (const sido of REGIONS) {
                 for (const sgg of sido.sggList) {
                     console.log(`[어린이집] Fetching data for ${sido.sidoName} ${sgg.sggName}...`);
+                    if (sgg.childcareUnavailable) {
+                        // 어린이집 API 가 어떤 코드로도 결과를 주지 않는 지역(2026-11-17 확인: 계룡시). 빈 목록을 쓰고 화면이 이유를 알린다.
+                        fs.writeFileSync(path.join(dataDir, `${sido.sidoCode}_${sgg.sggCode}_childcare.json`), '[]', 'utf-8');
+                        console.log('   ⏭️ 어린이집 API 미제공 지역 — 빈 목록');
+                        continue;
+                    }
                     try {
                         // 어린이집 API 가 다른 코드로만 답하는 지역(예: 여주시 = 옛 여주군 41730).
                         const xml = await fetchChildcareApi(sgg.childcareSggCode || sgg.sggCode);
