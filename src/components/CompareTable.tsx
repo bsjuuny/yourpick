@@ -335,7 +335,9 @@ export default function CompareTable({ data }: Props) {
 
     return (
         <div className="bg-white rounded-[2rem] sm:rounded-[3rem] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] overflow-hidden border border-slate-100 w-full max-w-full">
-            <div className="overflow-x-auto custom-scrollbar" role="region" aria-label="기관 비교표 (가로 스크롤 가능)" tabIndex={0}>
+            {/* relative: 표 안의 화면 낭독기용 문구(sr-only, absolute)가 이 스크롤 영역 밖을 기준으로 배치돼
+                모바일에서 페이지 전체를 가로로 넓히던 문제를 막는다. */}
+            <div className="relative overflow-x-auto custom-scrollbar" role="region" aria-label="기관 비교표 (가로 스크롤 가능)" tabIndex={0}>
                 <table className="min-w-full border-separate border-spacing-0 table-fixed">
                     <caption className="sr-only">고르는 기준 7가지로 정리한 기관 비교표</caption>
                     <thead>
