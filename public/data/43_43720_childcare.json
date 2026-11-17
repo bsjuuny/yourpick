@@ -1,0 +1,720 @@
+[
+  {
+    "id": "43720000001",
+    "sidoCode": "43",
+    "sggCode": "43720",
+    "name": "보은어린이집",
+    "type": "사회복지법인",
+    "source": "어린이집",
+    "address": "충청북도 보은군 보은읍 봉평길 45",
+    "latitude": 36.48809959,
+    "longitude": 127.7049386,
+    "phone": "043-543-8078",
+    "capacity": 75,
+    "currentPupils": 53,
+    "childrenPerTeacher": 5.3,
+    "teacherRatio": "77% (10명/13명)",
+    "safetyStatus": "CCTV 10대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
+    "hasSchoolBus": false,
+    "expenseLevel": "정부 지원 (표준 보육료)",
+    "ageRange": "만 0세 ~ 만 3세",
+    "ageBreakdown": {
+      "0": {
+        "children": 10,
+        "classes": 3,
+        "ratio": 3.3
+      },
+      "1": {
+        "children": 14,
+        "classes": 2,
+        "ratio": 7
+      },
+      "2": {
+        "children": 18,
+        "classes": 2,
+        "ratio": 9
+      },
+      "3": {
+        "children": 11,
+        "classes": 1,
+        "ratio": 11
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 3,
+          "children": 10,
+          "waiting": 5
+        },
+        "1": {
+          "classes": 2,
+          "children": 14,
+          "waiting": 2
+        },
+        "2": {
+          "classes": 2,
+          "children": 18,
+          "waiting": 5
+        },
+        "3": {
+          "classes": 1,
+          "children": 11,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 30,
+      "year1to2": 20,
+      "year2to4": 10,
+      "year4to6": 20,
+      "over6": 20
+    },
+    "waitlistTotal": 12,
+    "cctvCount": 10,
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=43720000001",
+    "tags": [
+      "CCTV완비",
+      "대기있음",
+      "정원여유",
+      "영양사배치",
+      "교사비율주의",
+      "숙련교사"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 2.8
+  },
+  {
+    "id": "43720000002",
+    "sidoCode": "43",
+    "sggCode": "43720",
+    "name": "사랑어린이집",
+    "type": "민간",
+    "source": "어린이집",
+    "address": "충청북도 보은군 보은읍 뱃들3길 23",
+    "latitude": 36.48768718,
+    "longitude": 127.7266561,
+    "phone": "043-543-7866",
+    "capacity": 80,
+    "currentPupils": 57,
+    "childrenPerTeacher": 5.2,
+    "teacherRatio": "79% (11명/14명)",
+    "safetyStatus": "CCTV 9대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 24:00 (야간연장)",
+    "hasSchoolBus": false,
+    "expenseLevel": "시설별 차등 (상세 문의)",
+    "ageRange": "만 0세 ~ 만 5세",
+    "ageBreakdown": {
+      "0": {
+        "children": 0,
+        "classes": 1,
+        "ratio": 0
+      },
+      "1": {
+        "children": 7,
+        "classes": 2,
+        "ratio": 3.5
+      },
+      "2": {
+        "children": 9,
+        "classes": 1,
+        "ratio": 9
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 1,
+          "children": 0,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 2,
+          "children": 7,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 1,
+          "children": 9,
+          "waiting": 1
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 2
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 1
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 7,
+          "children": 15
+        },
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 2,
+          "children": 26
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 9,
+      "year1to2": 18,
+      "year2to4": 9,
+      "year4to6": 0,
+      "over6": 63
+    },
+    "waitlistTotal": 4,
+    "cctvCount": 9,
+    "specialPrograms": "야간연장형",
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=43720000002",
+    "tags": [
+      "야간운영",
+      "CCTV완비",
+      "대기있음",
+      "정원여유",
+      "야간연장",
+      "특성화교육",
+      "영양사배치",
+      "교사비율주의",
+      "숙련교사"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 3.3
+  },
+  {
+    "id": "43720000005",
+    "sidoCode": "43",
+    "sggCode": "43720",
+    "name": "사회복지법인요한어린이집",
+    "type": "사회복지법인",
+    "source": "어린이집",
+    "address": "충청북도 보은군 임업길 16  -1",
+    "latitude": 36.48731358,
+    "longitude": 127.7160288,
+    "phone": "043-543-8888",
+    "capacity": 65,
+    "currentPupils": 55,
+    "childrenPerTeacher": 5,
+    "teacherRatio": "85% (11명/13명)",
+    "safetyStatus": "CCTV 11대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
+    "hasSchoolBus": false,
+    "expenseLevel": "정부 지원 (표준 보육료)",
+    "ageRange": "만 0세 ~ 만 2세",
+    "ageBreakdown": {
+      "0": {
+        "children": 16,
+        "classes": 4,
+        "ratio": 4
+      },
+      "1": {
+        "children": 21,
+        "classes": 3,
+        "ratio": 7
+      },
+      "2": {
+        "children": 18,
+        "classes": 2,
+        "ratio": 9
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 4,
+          "children": 16,
+          "waiting": 11
+        },
+        "1": {
+          "classes": 3,
+          "children": 21,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 2,
+          "children": 18,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 27,
+      "year1to2": 9,
+      "year2to4": 18,
+      "year4to6": 36,
+      "over6": 9
+    },
+    "waitlistTotal": 11,
+    "cctvCount": 11,
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=43720000005",
+    "tags": [
+      "CCTV완비",
+      "대기있음",
+      "영양사배치",
+      "숙련교사"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 3.8
+  },
+  {
+    "id": "43720000006",
+    "sidoCode": "43",
+    "sggCode": "43720",
+    "name": "삼산어린이집",
+    "type": "국공립",
+    "source": "어린이집",
+    "address": "충청북도 보은군 보은읍 뱃들로 46-16",
+    "latitude": 36.48819308,
+    "longitude": 127.7232703,
+    "phone": "043-544-2631",
+    "capacity": 80,
+    "currentPupils": 73,
+    "childrenPerTeacher": 6.1,
+    "teacherRatio": "80% (12명/15명)",
+    "safetyStatus": "CCTV 11대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 24:00 (야간연장)",
+    "hasSchoolBus": false,
+    "expenseLevel": "정부 지원 (보육료 지원)",
+    "ageRange": "만 0세 ~ 만 5세",
+    "ageBreakdown": {
+      "0": {
+        "children": 8,
+        "classes": 2,
+        "ratio": 4
+      },
+      "1": {
+        "children": 17,
+        "classes": 3,
+        "ratio": 5.7
+      },
+      "2": {
+        "children": 9,
+        "classes": 2,
+        "ratio": 4.5
+      },
+      "3": {
+        "children": 0,
+        "classes": 1,
+        "ratio": 0
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 2,
+          "children": 8,
+          "waiting": 8
+        },
+        "1": {
+          "classes": 3,
+          "children": 17,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 2,
+          "children": 9,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 1,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 1,
+          "children": 0
+        },
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 2,
+          "children": 37
+        }
+      ],
+      "special": {
+        "classes": 1,
+        "children": 2
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 66,
+      "year1to2": 8,
+      "year2to4": 25,
+      "year4to6": 0,
+      "over6": 0
+    },
+    "waitlistTotal": 8,
+    "cctvCount": 11,
+    "specialPrograms": "장애아통합,야간연장형,시간제보육",
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=43720000006",
+    "tags": [
+      "야간운영",
+      "장애아통합",
+      "시간제보육",
+      "CCTV완비",
+      "대기있음",
+      "야간연장",
+      "특성화교육",
+      "영양사배치",
+      "교사비율주의"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 1.8
+  },
+  {
+    "id": "43720000015",
+    "sidoCode": "43",
+    "sggCode": "43720",
+    "name": "우진플라임어린이집",
+    "type": "직장",
+    "source": "어린이집",
+    "address": "충청북도 보은군 장안면 우진플라임로 55",
+    "latitude": 36.46520595284259,
+    "longitude": 127.81203090157408,
+    "phone": "043-542-0088",
+    "capacity": 25,
+    "currentPupils": 14,
+    "childrenPerTeacher": 4.7,
+    "teacherRatio": "60% (3명/5명)",
+    "safetyStatus": "CCTV 12대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
+    "hasSchoolBus": false,
+    "expenseLevel": "직장 지원 + 정부 보조",
+    "ageRange": "만 0세 ~ 만 5세",
+    "ageBreakdown": {
+      "1": {
+        "children": 3,
+        "classes": 1,
+        "ratio": 3
+      },
+      "2": {
+        "children": 5,
+        "classes": 1,
+        "ratio": 5
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 1,
+          "children": 3,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 1,
+          "children": 5,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 3,
+          "children": 0
+        },
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 6
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 66,
+      "year1to2": 33,
+      "year2to4": 0,
+      "year4to6": 0,
+      "over6": 0
+    },
+    "waitlistTotal": 0,
+    "cctvCount": 12,
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=43720000015",
+    "tags": [
+      "소규모시설",
+      "CCTV완비",
+      "즉시입소가능",
+      "정원여유",
+      "영양사배치"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 3
+  },
+  {
+    "id": "43720000003",
+    "sidoCode": "43",
+    "sggCode": "43720",
+    "name": "하나둘셋참솔어린이집",
+    "type": "민간",
+    "source": "어린이집",
+    "address": "충청북도 보은군 죽전8길 87",
+    "latitude": 36.47892391,
+    "longitude": 127.7198136,
+    "phone": "043-542-9171",
+    "capacity": 39,
+    "currentPupils": 15,
+    "childrenPerTeacher": 7.5,
+    "teacherRatio": "40% (2명/5명)",
+    "safetyStatus": "CCTV 9대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
+    "hasSchoolBus": false,
+    "expenseLevel": "시설별 차등 (상세 문의)",
+    "ageRange": "만 0세 ~ 만 5세",
+    "ageBreakdown": {
+      "1": {
+        "children": 0,
+        "classes": 2,
+        "ratio": 0
+      },
+      "2": {
+        "children": 0,
+        "classes": 2,
+        "ratio": 0
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 2,
+          "children": 0,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 2,
+          "children": 0,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 4,
+          "children": 3
+        },
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 3,
+          "children": 12
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 0,
+      "year1to2": 33,
+      "year2to4": 33,
+      "year4to6": 0,
+      "over6": 33
+    },
+    "waitlistTotal": 0,
+    "cctvCount": 9,
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=43720000003",
+    "tags": [
+      "CCTV완비",
+      "즉시입소가능",
+      "정원여유",
+      "영양사배치",
+      "교사비율주의"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 3
+  }
+]

@@ -5549,7 +5549,8 @@
     "locationStatus": "unconfirmed",
     "stabilityScore": 3.8,
     "locationIssues": [
-      "region_mismatch"
+      "region_mismatch",
+      "duplicate_coordinate_unconfirmed"
     ],
     "sourceCoordinates": {
       "latitude": "37.566400593990686",
@@ -7137,12 +7138,12 @@
         "0": {
           "classes": 0,
           "children": 0,
-          "waiting": 49
+          "waiting": 50
         },
         "1": {
           "classes": 3,
           "children": 15,
-          "waiting": 9
+          "waiting": 10
         },
         "2": {
           "classes": 3,
@@ -7191,7 +7192,7 @@
       "year4to6": 28,
       "over6": 0
     },
-    "waitlistTotal": 72,
+    "waitlistTotal": 74,
     "cctvCount": 11,
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=30140000329",
     "tags": [

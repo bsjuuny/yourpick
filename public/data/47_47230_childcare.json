@@ -1,0 +1,4610 @@
+[
+  {
+    "id": "47230000068",
+    "sidoCode": "47",
+    "sggCode": "47230",
+    "name": "가와인어린이집",
+    "type": "민간",
+    "source": "어린이집",
+    "address": "경상북도 영천시 봉동1길 51 가와인아파트 커뮤니티센터",
+    "latitude": 35.9334373003,
+    "longitude": 128.9422632235,
+    "phone": "054-335-3423",
+    "capacity": 26,
+    "currentPupils": 22,
+    "childrenPerTeacher": 3.7,
+    "teacherRatio": "86% (6명/7명)",
+    "safetyStatus": "CCTV 7대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
+    "hasSchoolBus": false,
+    "expenseLevel": "시설별 차등 (상세 문의)",
+    "ageRange": "만 0세 ~ 만 5세",
+    "ageBreakdown": {
+      "0": {
+        "children": 3,
+        "classes": 1,
+        "ratio": 3
+      },
+      "1": {
+        "children": 5,
+        "classes": 2,
+        "ratio": 2.5
+      },
+      "2": {
+        "children": 5,
+        "classes": 1,
+        "ratio": 5
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 1,
+          "children": 3,
+          "waiting": 2
+        },
+        "1": {
+          "classes": 2,
+          "children": 5,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 1,
+          "children": 5,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 3,
+          "children": 3
+        },
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 6
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 28,
+      "year1to2": 14,
+      "year2to4": 0,
+      "year4to6": 42,
+      "over6": 14
+    },
+    "waitlistTotal": 2,
+    "cctvCount": 7,
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47230000068",
+    "tags": [
+      "소규모시설",
+      "CCTV완비",
+      "대기있음",
+      "영양사배치",
+      "숙련교사"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 4.8
+  },
+  {
+    "id": "47230000017",
+    "sidoCode": "47",
+    "sggCode": "47230",
+    "name": "교림어린이집",
+    "type": "가정",
+    "source": "어린이집",
+    "address": "경상북도 영천시 망정1길 171 한신더휴영천퍼스트105/101",
+    "latitude": 35.98177430271645,
+    "longitude": 128.95050726907607,
+    "phone": "054-333-7252",
+    "capacity": 19,
+    "currentPupils": 14,
+    "childrenPerTeacher": 2.8,
+    "teacherRatio": "71% (5명/7명)",
+    "safetyStatus": "CCTV 5대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 24:00 (야간연장)",
+    "hasSchoolBus": false,
+    "expenseLevel": "정부 지원 (보육료 지원)",
+    "ageRange": "만 0세 ~ 만 2세",
+    "ageBreakdown": {
+      "1": {
+        "children": 5,
+        "classes": 1,
+        "ratio": 5
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 4
+        },
+        "1": {
+          "classes": 1,
+          "children": 5,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 3,
+          "children": 4
+        },
+        {
+          "label": "혼합반(연령 범위 미공시)",
+          "ages": null,
+          "classes": 1,
+          "children": 5
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 16,
+      "year1to2": 0,
+      "year2to4": 16,
+      "year4to6": 16,
+      "over6": 50
+    },
+    "waitlistTotal": 4,
+    "cctvCount": 5,
+    "specialPrograms": "야간연장형,시간제보육",
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47230000017",
+    "tags": [
+      "야간운영",
+      "시간제보육",
+      "소규모시설",
+      "CCTV완비",
+      "대기있음",
+      "정원여유",
+      "야간연장",
+      "특성화교육",
+      "영양사배치",
+      "교사비율우수",
+      "숙련교사"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 5
+  },
+  {
+    "id": "47230000009",
+    "sidoCode": "47",
+    "sggCode": "47230",
+    "name": "금호어린이집",
+    "type": "국공립",
+    "source": "어린이집",
+    "address": "경상북도 영천시 금호읍 교대길 8-13",
+    "latitude": 35.93251545,
+    "longitude": 128.8723687,
+    "phone": "054-334-0709",
+    "capacity": 39,
+    "currentPupils": 38,
+    "childrenPerTeacher": 3.2,
+    "teacherRatio": "75% (12명/16명)",
+    "safetyStatus": "CCTV 17대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
+    "hasSchoolBus": false,
+    "expenseLevel": "정부 지원 (보육료 지원)",
+    "ageRange": "만 0세 ~ 만 5세",
+    "ageBreakdown": {
+      "0": {
+        "children": 3,
+        "classes": 1,
+        "ratio": 3
+      },
+      "1": {
+        "children": 5,
+        "classes": 1,
+        "ratio": 5
+      },
+      "2": {
+        "children": 14,
+        "classes": 2,
+        "ratio": 7
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 1,
+          "children": 3,
+          "waiting": 4
+        },
+        "1": {
+          "classes": 1,
+          "children": 5,
+          "waiting": 2
+        },
+        "2": {
+          "classes": 2,
+          "children": 14,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 1
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 1,
+          "children": 4
+        },
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 12
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 33,
+      "year1to2": 25,
+      "year2to4": 8,
+      "year4to6": 16,
+      "over6": 16
+    },
+    "waitlistTotal": 7,
+    "cctvCount": 17,
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47230000009",
+    "tags": [
+      "CCTV완비",
+      "대기있음",
+      "거의만원",
+      "영양사배치"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 4.3
+  },
+  {
+    "id": "47230000044",
+    "sidoCode": "47",
+    "sggCode": "47230",
+    "name": "꼭지어린이집",
+    "type": "가정",
+    "source": "어린이집",
+    "address": "경상북도 영천시  창신1길 35 108동 102호",
+    "latitude": 35.97615181,
+    "longitude": 128.9409951,
+    "phone": "054-333-1117",
+    "capacity": 19,
+    "currentPupils": 10,
+    "childrenPerTeacher": 3.3,
+    "teacherRatio": "60% (3명/5명)",
+    "safetyStatus": "CCTV 4대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
+    "hasSchoolBus": false,
+    "expenseLevel": "정부 지원 (보육료 지원)",
+    "ageRange": "만 0세 ~ 만 2세",
+    "ageBreakdown": {
+      "0": {
+        "children": 0,
+        "classes": 1,
+        "ratio": 0
+      },
+      "1": {
+        "children": 0,
+        "classes": 1,
+        "ratio": 0
+      },
+      "2": {
+        "children": 0,
+        "classes": 1,
+        "ratio": 0
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 1,
+          "children": 0,
+          "waiting": 6
+        },
+        "1": {
+          "classes": 1,
+          "children": 0,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 1,
+          "children": 0,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 3,
+          "children": 10
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 0,
+      "year1to2": 0,
+      "year2to4": 25,
+      "year4to6": 0,
+      "over6": 75
+    },
+    "waitlistTotal": 6,
+    "cctvCount": 4,
+    "specialPrograms": "일반,시간제보육",
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47230000044",
+    "tags": [
+      "시간제보육",
+      "소규모시설",
+      "CCTV완비",
+      "대기있음",
+      "정원여유",
+      "특성화교육",
+      "영양사배치",
+      "숙련교사"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 4.8
+  },
+  {
+    "id": "47230000079",
+    "sidoCode": "47",
+    "sggCode": "47230",
+    "name": "달빛어린이집",
+    "type": "직장",
+    "source": "어린이집",
+    "address": "경상북도 영천시 호국로 495 108동 101호(별빛마을아파트)",
+    "latitude": null,
+    "longitude": null,
+    "phone": "054-337-1088",
+    "capacity": 20,
+    "currentPupils": 6,
+    "childrenPerTeacher": 2,
+    "teacherRatio": "50% (3명/6명)",
+    "safetyStatus": "CCTV 9대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
+    "hasSchoolBus": false,
+    "expenseLevel": "직장 지원 + 정부 보조",
+    "ageRange": "만 0세 ~ 만 2세",
+    "ageBreakdown": {
+      "0": {
+        "children": 0,
+        "classes": 2,
+        "ratio": 0
+      },
+      "1": {
+        "children": 0,
+        "classes": 1,
+        "ratio": 0
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 2,
+          "children": 0,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 1,
+          "children": 0,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 3,
+          "children": 6
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 0,
+      "year1to2": 33,
+      "year2to4": 66,
+      "year4to6": 0,
+      "over6": 0
+    },
+    "waitlistTotal": 0,
+    "cctvCount": 9,
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47230000079",
+    "tags": [
+      "소규모시설",
+      "CCTV완비",
+      "즉시입소가능",
+      "정원여유",
+      "영양사배치",
+      "교사비율우수"
+    ],
+    "locationStatus": "unconfirmed",
+    "stabilityScore": 4,
+    "locationIssues": [
+      "known_placeholder",
+      "region_mismatch",
+      "duplicate_coordinate_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": "37.566470",
+      "longitude": "126.977963"
+    }
+  },
+  {
+    "id": "47230000001",
+    "sidoCode": "47",
+    "sggCode": "47230",
+    "name": "동부어린이집",
+    "type": "국공립",
+    "source": "어린이집",
+    "address": "경상북도 영천시 망정로 80 휴먼시아아파트 5단지내",
+    "latitude": 35.982726185901285,
+    "longitude": 128.95264545546794,
+    "phone": "054-333-6319",
+    "capacity": 30,
+    "currentPupils": 28,
+    "childrenPerTeacher": 3.1,
+    "teacherRatio": "75% (9명/12명)",
+    "safetyStatus": "CCTV 9대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
+    "hasSchoolBus": false,
+    "expenseLevel": "정부 지원 (보육료 지원)",
+    "ageRange": "만 0세 ~ 만 2세",
+    "ageBreakdown": {
+      "0": {
+        "children": 5,
+        "classes": 2,
+        "ratio": 2.5
+      },
+      "1": {
+        "children": 9,
+        "classes": 2,
+        "ratio": 4.5
+      },
+      "2": {
+        "children": 11,
+        "classes": 2,
+        "ratio": 5.5
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 2,
+          "children": 5,
+          "waiting": 7
+        },
+        "1": {
+          "classes": 2,
+          "children": 9,
+          "waiting": 1
+        },
+        "2": {
+          "classes": 2,
+          "children": 11,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 1,
+          "children": 3
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 22,
+      "year1to2": 33,
+      "year2to4": 11,
+      "year4to6": 22,
+      "over6": 11
+    },
+    "waitlistTotal": 8,
+    "cctvCount": 9,
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47230000001",
+    "tags": [
+      "CCTV완비",
+      "대기있음",
+      "영양사배치"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 4.3
+  },
+  {
+    "id": "47230000039",
+    "sidoCode": "47",
+    "sggCode": "47230",
+    "name": "두리어린이집",
+    "type": "가정",
+    "source": "어린이집",
+    "address": "경상북도 영천시 창신1길 12 109동 106호(창신타운, 망정동)",
+    "latitude": null,
+    "longitude": null,
+    "phone": "054-332-2977",
+    "capacity": 10,
+    "currentPupils": 8,
+    "childrenPerTeacher": 2.7,
+    "teacherRatio": "60% (3명/5명)",
+    "safetyStatus": "CCTV 3대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 24:00 (야간연장)",
+    "hasSchoolBus": false,
+    "expenseLevel": "정부 지원 (보육료 지원)",
+    "ageRange": "만 0세 ~ 만 3세",
+    "ageBreakdown": {
+      "0": {
+        "children": 0,
+        "classes": 3,
+        "ratio": 0
+      },
+      "1": {
+        "children": 0,
+        "classes": 1,
+        "ratio": 0
+      },
+      "2": {
+        "children": 0,
+        "classes": 1,
+        "ratio": 0
+      },
+      "3": {
+        "children": 0,
+        "classes": 1,
+        "ratio": 0
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 3,
+          "children": 0,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 1,
+          "children": 0,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 1,
+          "children": 0,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 1,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 3,
+          "children": 4
+        },
+        {
+          "label": "혼합반(연령 범위 미공시)",
+          "ages": null,
+          "classes": 1,
+          "children": 4
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 25,
+      "year1to2": 25,
+      "year2to4": 25,
+      "year4to6": 0,
+      "over6": 25
+    },
+    "waitlistTotal": 0,
+    "cctvCount": 3,
+    "specialPrograms": "야간연장형",
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47230000039",
+    "tags": [
+      "야간운영",
+      "소규모시설",
+      "CCTV완비",
+      "즉시입소가능",
+      "정원여유",
+      "야간연장",
+      "특성화교육",
+      "영양사배치",
+      "교사비율우수"
+    ],
+    "locationStatus": "unconfirmed",
+    "stabilityScore": 4.5,
+    "locationIssues": [
+      "duplicate_coordinate_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": "35.98829928",
+      "longitude": "128.9552423"
+    }
+  },
+  {
+    "id": "47230000077",
+    "sidoCode": "47",
+    "sggCode": "47230",
+    "name": "또래어린이집",
+    "type": "국공립",
+    "source": "어린이집",
+    "address": "경상북도 영천시 야사오미길 40",
+    "latitude": 35.978669,
+    "longitude": 128.9405013,
+    "phone": "054-331-3266",
+    "capacity": 106,
+    "currentPupils": 84,
+    "childrenPerTeacher": 5.3,
+    "teacherRatio": "76% (16명/21명)",
+    "safetyStatus": "CCTV 14대 설치",
+    "mealStatus": "자체 급식 (영양사 배치 권고 규모)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 24:00 (야간연장)",
+    "hasSchoolBus": false,
+    "expenseLevel": "정부 지원 (보육료 지원)",
+    "ageRange": "만 0세 ~ 만 5세",
+    "ageBreakdown": {
+      "0": {
+        "children": 3,
+        "classes": 1,
+        "ratio": 3
+      },
+      "1": {
+        "children": 9,
+        "classes": 2,
+        "ratio": 4.5
+      },
+      "2": {
+        "children": 26,
+        "classes": 4,
+        "ratio": 6.5
+      },
+      "3": {
+        "children": 12,
+        "classes": 1,
+        "ratio": 12
+      },
+      "4": {
+        "children": 17,
+        "classes": 1,
+        "ratio": 17
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 1,
+          "children": 3,
+          "waiting": 32
+        },
+        "1": {
+          "classes": 2,
+          "children": 9,
+          "waiting": 3
+        },
+        "2": {
+          "classes": 4,
+          "children": 26,
+          "waiting": 3
+        },
+        "3": {
+          "classes": 1,
+          "children": 12,
+          "waiting": 5
+        },
+        "4": {
+          "classes": 1,
+          "children": 17,
+          "waiting": 1
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 2,
+          "children": 6
+        },
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 11
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 50,
+      "year1to2": 12,
+      "year2to4": 18,
+      "year4to6": 18,
+      "over6": 0
+    },
+    "waitlistTotal": 44,
+    "cctvCount": 14,
+    "specialPrograms": "야간연장형",
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47230000077",
+    "tags": [
+      "야간운영",
+      "대규모시설",
+      "CCTV완비",
+      "대기있음",
+      "정원여유",
+      "야간연장",
+      "특성화교육",
+      "영양사배치",
+      "교사비율주의",
+      "영양사법정충족"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 2.3
+  },
+  {
+    "id": "47230000072",
+    "sidoCode": "47",
+    "sggCode": "47230",
+    "name": "미소어린이집",
+    "type": "국공립",
+    "source": "어린이집",
+    "address": "경상북도 영천시 완산5길 111 (미소지움2차프리미엄아파트)",
+    "latitude": 35.967305907404054,
+    "longitude": 128.94700325561504,
+    "phone": "054-331-7055",
+    "capacity": 37,
+    "currentPupils": 36,
+    "childrenPerTeacher": 3.6,
+    "teacherRatio": "71% (10명/14명)",
+    "safetyStatus": "CCTV 11대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
+    "hasSchoolBus": false,
+    "expenseLevel": "정부 지원 (보육료 지원)",
+    "ageRange": "만 0세 ~ 만 2세",
+    "ageBreakdown": {
+      "0": {
+        "children": 9,
+        "classes": 3,
+        "ratio": 3
+      },
+      "1": {
+        "children": 10,
+        "classes": 2,
+        "ratio": 5
+      },
+      "2": {
+        "children": 7,
+        "classes": 1,
+        "ratio": 7
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 3,
+          "children": 9,
+          "waiting": 23
+        },
+        "1": {
+          "classes": 2,
+          "children": 10,
+          "waiting": 1
+        },
+        "2": {
+          "classes": 1,
+          "children": 7,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 1,
+          "children": 3
+        },
+        {
+          "label": "혼합반(연령 범위 미공시)",
+          "ages": null,
+          "classes": 1,
+          "children": 7
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 40,
+      "year1to2": 10,
+      "year2to4": 0,
+      "year4to6": 50,
+      "over6": 0
+    },
+    "waitlistTotal": 24,
+    "cctvCount": 11,
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47230000072",
+    "tags": [
+      "CCTV완비",
+      "대기있음",
+      "거의만원",
+      "영양사배치",
+      "숙련교사"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 4.8
+  },
+  {
+    "id": "47230000071",
+    "sidoCode": "47",
+    "sggCode": "47230",
+    "name": "미소지움어린이집",
+    "type": "국공립",
+    "source": "어린이집",
+    "address": "경상북도 영천시 완산5길 25",
+    "latitude": 35.967647078929204,
+    "longitude": 128.94263329095037,
+    "phone": "054-335-0709",
+    "capacity": 30,
+    "currentPupils": 30,
+    "childrenPerTeacher": 3,
+    "teacherRatio": "71% (10명/14명)",
+    "safetyStatus": "CCTV 4대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
+    "hasSchoolBus": false,
+    "expenseLevel": "정부 지원 (보육료 지원)",
+    "ageRange": "만 0세 ~ 만 5세",
+    "ageBreakdown": {
+      "0": {
+        "children": 5,
+        "classes": 2,
+        "ratio": 2.5
+      },
+      "1": {
+        "children": 12,
+        "classes": 3,
+        "ratio": 4
+      },
+      "2": {
+        "children": 6,
+        "classes": 1,
+        "ratio": 6
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 2,
+          "children": 5,
+          "waiting": 16
+        },
+        "1": {
+          "classes": 3,
+          "children": 12,
+          "waiting": 2
+        },
+        "2": {
+          "classes": 1,
+          "children": 6,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 7
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 50,
+      "year1to2": 0,
+      "year2to4": 10,
+      "year4to6": 20,
+      "over6": 20
+    },
+    "waitlistTotal": 18,
+    "cctvCount": 4,
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47230000071",
+    "tags": [
+      "CCTV완비",
+      "대기있음",
+      "거의만원",
+      "영양사배치",
+      "교사비율우수",
+      "숙련교사"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 4.8
+  },
+  {
+    "id": "47230000065",
+    "sidoCode": "47",
+    "sggCode": "47230",
+    "name": "밤비니어린이집",
+    "type": "가정",
+    "source": "어린이집",
+    "address": "경상북도 영천시 창신1길 35 102동102호(망정동 아이존빌스타)",
+    "latitude": 35.99007183160878,
+    "longitude": 128.95322013567306,
+    "phone": "054-336-8618",
+    "capacity": 19,
+    "currentPupils": 14,
+    "childrenPerTeacher": 2.3,
+    "teacherRatio": "75% (6명/8명)",
+    "safetyStatus": "CCTV 4대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 24:00 (야간연장)",
+    "hasSchoolBus": false,
+    "expenseLevel": "정부 지원 (보육료 지원)",
+    "ageRange": "만 0세 ~ 만 2세",
+    "ageBreakdown": {
+      "0": {
+        "children": 2,
+        "classes": 1,
+        "ratio": 2
+      },
+      "1": {
+        "children": 5,
+        "classes": 1,
+        "ratio": 5
+      },
+      "2": {
+        "children": 5,
+        "classes": 1,
+        "ratio": 5
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 1,
+          "children": 2,
+          "waiting": 5
+        },
+        "1": {
+          "classes": 1,
+          "children": 5,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 1,
+          "children": 5,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 1,
+          "children": 2
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 42,
+      "year1to2": 0,
+      "year2to4": 14,
+      "year4to6": 0,
+      "over6": 42
+    },
+    "waitlistTotal": 5,
+    "cctvCount": 4,
+    "specialPrograms": "야간연장형,시간제보육",
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47230000065",
+    "tags": [
+      "야간운영",
+      "시간제보육",
+      "소규모시설",
+      "CCTV완비",
+      "대기있음",
+      "정원여유",
+      "야간연장",
+      "특성화교육",
+      "영양사배치",
+      "교사비율우수",
+      "숙련교사"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 4.8
+  },
+  {
+    "id": "47230000067",
+    "sidoCode": "47",
+    "sggCode": "47230",
+    "name": "별빛마을어린이집",
+    "type": "직장",
+    "source": "어린이집",
+    "address": "경상북도 영천시 고경면 호국로 495 창하리 사서함 135-1호 별빛마을아파트 단지",
+    "latitude": 35.985517928468525,
+    "longitude": 128.98876930357255,
+    "phone": "054-336-0810",
+    "capacity": 30,
+    "currentPupils": 24,
+    "childrenPerTeacher": 4,
+    "teacherRatio": "67% (6명/9명)",
+    "safetyStatus": "CCTV 16대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
+    "hasSchoolBus": false,
+    "expenseLevel": "직장 지원 + 정부 보조",
+    "ageRange": "만 1세 ~ 만 5세",
+    "ageBreakdown": {
+      "1": {
+        "children": 4,
+        "classes": 1,
+        "ratio": 4
+      },
+      "2": {
+        "children": 7,
+        "classes": 1,
+        "ratio": 7
+      },
+      "3": {
+        "children": 8,
+        "classes": 1,
+        "ratio": 8
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 1,
+          "children": 4,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 1,
+          "children": 7,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 1,
+          "children": 8,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 5
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 33,
+      "year1to2": 0,
+      "year2to4": 16,
+      "year4to6": 16,
+      "over6": 33
+    },
+    "waitlistTotal": 0,
+    "cctvCount": 16,
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47230000067",
+    "tags": [
+      "CCTV완비",
+      "즉시입소가능",
+      "정원여유",
+      "영양사배치",
+      "숙련교사"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 5
+  },
+  {
+    "id": "47230000076",
+    "sidoCode": "47",
+    "sggCode": "47230",
+    "name": "별사랑어린이집",
+    "type": "국공립",
+    "source": "어린이집",
+    "address": "경상북도 영천시 천문로 2180 녹색체험터 내",
+    "latitude": 36.0588905,
+    "longitude": 128.9032894,
+    "phone": "054-337-7988",
+    "capacity": 20,
+    "currentPupils": 3,
+    "childrenPerTeacher": 3,
+    "teacherRatio": "25% (1명/4명)",
+    "safetyStatus": "CCTV 8대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
+    "hasSchoolBus": false,
+    "expenseLevel": "정부 지원 (보육료 지원)",
+    "ageRange": "만 0세 ~ 만 5세",
+    "ageBreakdown": {
+      "4": {
+        "children": 1,
+        "classes": 1,
+        "ratio": 1
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 1,
+          "children": 1,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 1,
+          "children": 0
+        },
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 2,
+          "children": 2
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 50,
+      "year1to2": 0,
+      "year2to4": 0,
+      "year4to6": 50,
+      "over6": 0
+    },
+    "waitlistTotal": 0,
+    "cctvCount": 8,
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47230000076",
+    "tags": [
+      "소규모시설",
+      "CCTV완비",
+      "즉시입소가능",
+      "정원여유",
+      "영양사배치",
+      "교사비율우수",
+      "숙련교사"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 5
+  },
+  {
+    "id": "47230000038",
+    "sidoCode": "47",
+    "sggCode": "47230",
+    "name": "사랑가득한어린이집",
+    "type": "가정",
+    "source": "어린이집",
+    "address": "경상북도 영천시 영천고1길 41 문화골든 101호",
+    "latitude": 35.9716518221,
+    "longitude": 128.9448353689,
+    "phone": "054-332-1993",
+    "capacity": 14,
+    "currentPupils": 11,
+    "childrenPerTeacher": 2.2,
+    "teacherRatio": "71% (5명/7명)",
+    "safetyStatus": "CCTV 4대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 24:00 (야간연장)",
+    "hasSchoolBus": false,
+    "expenseLevel": "정부 지원 (보육료 지원)",
+    "ageRange": "만 0세 ~ 만 2세",
+    "ageBreakdown": {
+      "0": {
+        "children": 2,
+        "classes": 1,
+        "ratio": 2
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 1,
+          "children": 2,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 1
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 3,
+          "children": 9
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 83,
+      "year1to2": 0,
+      "year2to4": 16,
+      "year4to6": 0,
+      "over6": 0
+    },
+    "waitlistTotal": 1,
+    "cctvCount": 4,
+    "specialPrograms": "야간연장형,시간제보육",
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47230000038",
+    "tags": [
+      "야간운영",
+      "시간제보육",
+      "소규모시설",
+      "CCTV완비",
+      "대기있음",
+      "정원여유",
+      "야간연장",
+      "특성화교육",
+      "영양사배치",
+      "교사비율우수"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 3.8
+  },
+  {
+    "id": "47230000019",
+    "sidoCode": "47",
+    "sggCode": "47230",
+    "name": "서라벌예술어린이집",
+    "type": "민간",
+    "source": "어린이집",
+    "address": "경상북도 영천시 중앙동2길 53 t서라벌예술어린이집",
+    "latitude": 35.97420089274507,
+    "longitude": 128.93366514030052,
+    "phone": "054-333-8890",
+    "capacity": 114,
+    "currentPupils": 96,
+    "childrenPerTeacher": 5.3,
+    "teacherRatio": "75% (18명/24명)",
+    "safetyStatus": "CCTV 16대 설치",
+    "mealStatus": "자체 급식 (영양사 배치 권고 규모)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 24:00 (야간연장)",
+    "hasSchoolBus": false,
+    "expenseLevel": "시설별 차등 (상세 문의)",
+    "ageRange": "만 0세 ~ 만 5세",
+    "ageBreakdown": {
+      "0": {
+        "children": 2,
+        "classes": 3,
+        "ratio": 0.7
+      },
+      "1": {
+        "children": 10,
+        "classes": 3,
+        "ratio": 3.3
+      },
+      "2": {
+        "children": 20,
+        "classes": 3,
+        "ratio": 6.7
+      },
+      "4": {
+        "children": 10,
+        "classes": 1,
+        "ratio": 10
+      },
+      "5": {
+        "children": 17,
+        "classes": 2,
+        "ratio": 8.5
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 3,
+          "children": 2,
+          "waiting": 12
+        },
+        "1": {
+          "classes": 3,
+          "children": 10,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 3,
+          "children": 20,
+          "waiting": 1
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 1
+        },
+        "4": {
+          "classes": 1,
+          "children": 10,
+          "waiting": 2
+        },
+        "5": {
+          "classes": 2,
+          "children": 17,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 2,
+          "children": 3
+        },
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 3,
+          "children": 34
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 11,
+      "year1to2": 22,
+      "year2to4": 22,
+      "year4to6": 16,
+      "over6": 27
+    },
+    "waitlistTotal": 16,
+    "cctvCount": 16,
+    "specialPrograms": "야간연장형",
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47230000019",
+    "tags": [
+      "야간운영",
+      "대규모시설",
+      "CCTV완비",
+      "대기있음",
+      "야간연장",
+      "특성화교육",
+      "영양사배치",
+      "교사비율주의",
+      "숙련교사",
+      "영양사법정충족"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 2.8
+  },
+  {
+    "id": "47230000063",
+    "sidoCode": "47",
+    "sggCode": "47230",
+    "name": "수호천사어린이집",
+    "type": "가정",
+    "source": "어린이집",
+    "address": "경상북도 영천시 청산길 29 102동107호",
+    "latitude": 35.97448851933363,
+    "longitude": 128.93577610319636,
+    "phone": "054-332-7977",
+    "capacity": 19,
+    "currentPupils": 14,
+    "childrenPerTeacher": 2.8,
+    "teacherRatio": "71% (5명/7명)",
+    "safetyStatus": "CCTV 4대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
+    "hasSchoolBus": false,
+    "expenseLevel": "정부 지원 (보육료 지원)",
+    "ageRange": "만 0세 ~ 만 2세",
+    "ageBreakdown": {
+      "0": {
+        "children": 2,
+        "classes": 4,
+        "ratio": 0.5
+      },
+      "1": {
+        "children": 3,
+        "classes": 2,
+        "ratio": 1.5
+      },
+      "2": {
+        "children": 7,
+        "classes": 1,
+        "ratio": 7
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 4,
+          "children": 2,
+          "waiting": 2
+        },
+        "1": {
+          "classes": 2,
+          "children": 3,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 1,
+          "children": 7,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 3,
+          "children": 2
+        },
+        {
+          "label": "혼합반(연령 범위 미공시)",
+          "ages": null,
+          "classes": 1,
+          "children": 0
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 83,
+      "year1to2": 0,
+      "year2to4": 0,
+      "year4to6": 0,
+      "over6": 16
+    },
+    "waitlistTotal": 2,
+    "cctvCount": 4,
+    "specialPrograms": "일반,시간제보육",
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47230000063",
+    "tags": [
+      "시간제보육",
+      "소규모시설",
+      "CCTV완비",
+      "대기있음",
+      "정원여유",
+      "특성화교육",
+      "영양사배치",
+      "교사비율우수"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 4.3
+  },
+  {
+    "id": "47230000064",
+    "sidoCode": "47",
+    "sggCode": "47230",
+    "name": "스타어린이집",
+    "type": "가정",
+    "source": "어린이집",
+    "address": "경상북도 영천시 중앙동2길 108-10 (문내동)",
+    "latitude": 35.97392209154275,
+    "longitude": 128.93111090790433,
+    "phone": "054-337-5895",
+    "capacity": 20,
+    "currentPupils": 18,
+    "childrenPerTeacher": 2.3,
+    "teacherRatio": "80% (8명/10명)",
+    "safetyStatus": "CCTV 5대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 24:00 (야간연장)",
+    "hasSchoolBus": false,
+    "expenseLevel": "정부 지원 (보육료 지원)",
+    "ageRange": "만 0세 ~ 만 2세",
+    "ageBreakdown": {
+      "0": {
+        "children": 4,
+        "classes": 2,
+        "ratio": 2
+      },
+      "1": {
+        "children": 5,
+        "classes": 1,
+        "ratio": 5
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 2,
+          "children": 4,
+          "waiting": 1
+        },
+        "1": {
+          "classes": 1,
+          "children": 5,
+          "waiting": 1
+        },
+        "2": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 3,
+          "children": 9
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 22,
+      "year1to2": 11,
+      "year2to4": 0,
+      "year4to6": 11,
+      "over6": 55
+    },
+    "waitlistTotal": 2,
+    "cctvCount": 5,
+    "specialPrograms": "야간연장형,시간제보육",
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47230000064",
+    "tags": [
+      "야간운영",
+      "시간제보육",
+      "소규모시설",
+      "CCTV완비",
+      "대기있음",
+      "야간연장",
+      "특성화교육",
+      "영양사배치",
+      "교사비율우수",
+      "숙련교사"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 5
+  },
+  {
+    "id": "47230000073",
+    "sidoCode": "47",
+    "sggCode": "47230",
+    "name": "시립문외센트럴어린이집",
+    "type": "국공립",
+    "source": "어린이집",
+    "address": "경상북도 영천시 충효로 39 관리동",
+    "latitude": 35.971727412083766,
+    "longitude": 128.93324730335402,
+    "phone": "054-335-5055",
+    "capacity": 45,
+    "currentPupils": 21,
+    "childrenPerTeacher": 2.6,
+    "teacherRatio": "67% (8명/12명)",
+    "safetyStatus": "CCTV 9대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 24:00 (야간연장)",
+    "hasSchoolBus": false,
+    "expenseLevel": "정부 지원 (보육료 지원)",
+    "ageRange": "만 0세 ~ 만 2세",
+    "ageBreakdown": {
+      "0": {
+        "children": 4,
+        "classes": 2,
+        "ratio": 2
+      },
+      "1": {
+        "children": 9,
+        "classes": 2,
+        "ratio": 4.5
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 2,
+          "children": 4,
+          "waiting": 1
+        },
+        "1": {
+          "classes": 2,
+          "children": 9,
+          "waiting": 1
+        },
+        "2": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 1
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 1,
+          "children": 5
+        },
+        {
+          "label": "혼합반(연령 범위 미공시)",
+          "ages": null,
+          "classes": 1,
+          "children": 3
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 50,
+      "year1to2": 25,
+      "year2to4": 25,
+      "year4to6": 0,
+      "over6": 0
+    },
+    "waitlistTotal": 3,
+    "cctvCount": 9,
+    "specialPrograms": "야간연장형",
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47230000073",
+    "tags": [
+      "야간운영",
+      "CCTV완비",
+      "대기있음",
+      "정원여유",
+      "야간연장",
+      "특성화교육",
+      "영양사배치",
+      "교사비율우수"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 3.8
+  },
+  {
+    "id": "47230000080",
+    "sidoCode": "47",
+    "sggCode": "47230",
+    "name": "아름어린이집",
+    "type": "국공립",
+    "source": "어린이집",
+    "address": "경상북도 영천시 망정3길 10-11",
+    "latitude": null,
+    "longitude": null,
+    "phone": "054-334-4279",
+    "capacity": 60,
+    "currentPupils": 33,
+    "childrenPerTeacher": 3.7,
+    "teacherRatio": "69% (9명/13명)",
+    "safetyStatus": "CCTV 10대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
+    "hasSchoolBus": false,
+    "expenseLevel": "정부 지원 (보육료 지원)",
+    "ageRange": "만 0세 ~ 만 5세",
+    "ageBreakdown": {
+      "0": {
+        "children": 5,
+        "classes": 2,
+        "ratio": 2.5
+      },
+      "1": {
+        "children": 9,
+        "classes": 2,
+        "ratio": 4.5
+      },
+      "2": {
+        "children": 7,
+        "classes": 1,
+        "ratio": 7
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 2,
+          "children": 5,
+          "waiting": 1
+        },
+        "1": {
+          "classes": 2,
+          "children": 9,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 1,
+          "children": 7,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 12
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 66,
+      "year1to2": 33,
+      "year2to4": 0,
+      "year4to6": 0,
+      "over6": 0
+    },
+    "waitlistTotal": 1,
+    "cctvCount": 10,
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47230000080",
+    "tags": [
+      "CCTV완비",
+      "대기있음",
+      "정원여유",
+      "영양사배치"
+    ],
+    "locationStatus": "unconfirmed",
+    "stabilityScore": 3.3,
+    "locationIssues": [
+      "region_mismatch"
+    ],
+    "sourceCoordinates": {
+      "latitude": "35.40061023486712",
+      "longitude": "128.95111900606113"
+    }
+  },
+  {
+    "id": "47230000041",
+    "sidoCode": "47",
+    "sggCode": "47230",
+    "name": "아이뜰어린이집",
+    "type": "민간",
+    "source": "어린이집",
+    "address": "경상북도 영천시 창신1길 22 청솔아파트 관리동",
+    "latitude": null,
+    "longitude": null,
+    "phone": "054-334-7345",
+    "capacity": 32,
+    "currentPupils": 17,
+    "childrenPerTeacher": 3.4,
+    "teacherRatio": "71% (5명/7명)",
+    "safetyStatus": "CCTV 7대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 24:00 (야간연장)",
+    "hasSchoolBus": false,
+    "expenseLevel": "시설별 차등 (상세 문의)",
+    "ageRange": "만 0세 ~ 만 5세",
+    "ageBreakdown": {
+      "0": {
+        "children": 2,
+        "classes": 1,
+        "ratio": 2
+      },
+      "1": {
+        "children": 0,
+        "classes": 1,
+        "ratio": 0
+      },
+      "2": {
+        "children": 0,
+        "classes": 1,
+        "ratio": 0
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 1,
+          "children": 2,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 1,
+          "children": 0,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 1,
+          "children": 0,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 3,
+          "children": 6
+        },
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 9
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 33,
+      "year1to2": 16,
+      "year2to4": 16,
+      "year4to6": 16,
+      "over6": 16
+    },
+    "waitlistTotal": 0,
+    "cctvCount": 7,
+    "specialPrograms": "야간연장형",
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47230000041",
+    "tags": [
+      "야간운영",
+      "CCTV완비",
+      "즉시입소가능",
+      "정원여유",
+      "야간연장",
+      "특성화교육",
+      "영양사배치"
+    ],
+    "locationStatus": "unconfirmed",
+    "stabilityScore": 4.5,
+    "locationIssues": [
+      "duplicate_coordinate_unconfirmed"
+    ],
+    "sourceCoordinates": {
+      "latitude": "35.98829928",
+      "longitude": "128.9552423"
+    }
+  },
+  {
+    "id": "47230000024",
+    "sidoCode": "47",
+    "sggCode": "47230",
+    "name": "앙팡어린이집",
+    "type": "민간",
+    "source": "어린이집",
+    "address": "경상북도 영천시 동부로 14 (망정동)",
+    "latitude": 35.97171678989387,
+    "longitude": 128.95015775326803,
+    "phone": "054-334-6195",
+    "capacity": 26,
+    "currentPupils": 22,
+    "childrenPerTeacher": 3.7,
+    "teacherRatio": "75% (6명/8명)",
+    "safetyStatus": "CCTV 7대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 24:00 (야간연장)",
+    "hasSchoolBus": false,
+    "expenseLevel": "시설별 차등 (상세 문의)",
+    "ageRange": "만 0세 ~ 만 5세",
+    "ageBreakdown": {
+      "0": {
+        "children": 0,
+        "classes": 2,
+        "ratio": 0
+      },
+      "1": {
+        "children": 4,
+        "classes": 3,
+        "ratio": 1.3
+      },
+      "2": {
+        "children": 0,
+        "classes": 1,
+        "ratio": 0
+      },
+      "3": {
+        "children": 0,
+        "classes": 1,
+        "ratio": 0
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 2,
+          "children": 0,
+          "waiting": 4
+        },
+        "1": {
+          "classes": 3,
+          "children": 4,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 1,
+          "children": 0,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 1,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 3,
+          "children": 7
+        },
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 11
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 71,
+      "year1to2": 0,
+      "year2to4": 14,
+      "year4to6": 0,
+      "over6": 14
+    },
+    "waitlistTotal": 4,
+    "cctvCount": 7,
+    "specialPrograms": "야간연장형",
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47230000024",
+    "tags": [
+      "야간운영",
+      "소규모시설",
+      "CCTV완비",
+      "대기있음",
+      "야간연장",
+      "특성화교육",
+      "영양사배치"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 3.8
+  },
+  {
+    "id": "47230000070",
+    "sidoCode": "47",
+    "sggCode": "47230",
+    "name": "영천별빛직장어린이집",
+    "type": "직장",
+    "source": "어린이집",
+    "address": "경상북도 영천시 시청로 23",
+    "latitude": 35.972809132396904,
+    "longitude": 128.93768835213808,
+    "phone": "054-338-1486",
+    "capacity": 58,
+    "currentPupils": 37,
+    "childrenPerTeacher": 3.7,
+    "teacherRatio": "71% (10명/14명)",
+    "safetyStatus": "CCTV 18대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 24:00 (야간연장)",
+    "hasSchoolBus": false,
+    "expenseLevel": "직장 지원 + 정부 보조",
+    "ageRange": "만 0세 ~ 만 5세",
+    "ageBreakdown": {
+      "0": {
+        "children": 2,
+        "classes": 1,
+        "ratio": 2
+      },
+      "1": {
+        "children": 8,
+        "classes": 2,
+        "ratio": 4
+      },
+      "2": {
+        "children": 9,
+        "classes": 2,
+        "ratio": 4.5
+      },
+      "3": {
+        "children": 5,
+        "classes": 1,
+        "ratio": 5
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 1,
+          "children": 2,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 2,
+          "children": 8,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 2,
+          "children": 9,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 1,
+          "children": 5,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 2,
+          "children": 13
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 30,
+      "year1to2": 10,
+      "year2to4": 10,
+      "year4to6": 20,
+      "over6": 30
+    },
+    "waitlistTotal": 0,
+    "cctvCount": 18,
+    "specialPrograms": "야간연장형",
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47230000070",
+    "tags": [
+      "야간운영",
+      "CCTV완비",
+      "즉시입소가능",
+      "정원여유",
+      "야간연장",
+      "특성화교육",
+      "영양사배치",
+      "숙련교사"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 5
+  },
+  {
+    "id": "47230000007",
+    "sidoCode": "47",
+    "sggCode": "47230",
+    "name": "영천어린이집",
+    "type": "국공립",
+    "source": "어린이집",
+    "address": "경상북도 영천시 천문로 409-3",
+    "latitude": 35.97341545,
+    "longitude": 128.9281608,
+    "phone": "054-331-8527",
+    "capacity": 34,
+    "currentPupils": 26,
+    "childrenPerTeacher": 4.3,
+    "teacherRatio": "67% (6명/9명)",
+    "safetyStatus": "CCTV 8대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
+    "hasSchoolBus": false,
+    "expenseLevel": "정부 지원 (보육료 지원)",
+    "ageRange": "만 0세 ~ 만 5세",
+    "ageBreakdown": {
+      "0": {
+        "children": 4,
+        "classes": 2,
+        "ratio": 2
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 2,
+          "children": 4,
+          "waiting": 1
+        },
+        "1": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 1,
+          "children": 5
+        },
+        {
+          "label": "혼합반(연령 범위 미공시)",
+          "ages": null,
+          "classes": 1,
+          "children": 5
+        },
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 12
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 33,
+      "year1to2": 0,
+      "year2to4": 16,
+      "year4to6": 0,
+      "over6": 50
+    },
+    "waitlistTotal": 1,
+    "cctvCount": 8,
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47230000007",
+    "tags": [
+      "CCTV완비",
+      "대기있음",
+      "정원여유",
+      "영양사배치",
+      "숙련교사"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 4.3
+  },
+  {
+    "id": "47230000075",
+    "sidoCode": "47",
+    "sggCode": "47230",
+    "name": "이편한1차어린이집",
+    "type": "국공립",
+    "source": "어린이집",
+    "address": "경상북도 영천시 완산9길 15 이편한세상영천1단지 내",
+    "latitude": 35.96226412881449,
+    "longitude": 128.94354603068274,
+    "phone": "054-337-1634",
+    "capacity": 40,
+    "currentPupils": 36,
+    "childrenPerTeacher": 3.3,
+    "teacherRatio": "79% (11명/14명)",
+    "safetyStatus": "CCTV 9대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
+    "hasSchoolBus": false,
+    "expenseLevel": "정부 지원 (보육료 지원)",
+    "ageRange": "만 0세 ~ 만 2세",
+    "ageBreakdown": {
+      "0": {
+        "children": 5,
+        "classes": 2,
+        "ratio": 2.5
+      },
+      "1": {
+        "children": 10,
+        "classes": 2,
+        "ratio": 5
+      },
+      "2": {
+        "children": 13,
+        "classes": 2,
+        "ratio": 6.5
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 2,
+          "children": 5,
+          "waiting": 42
+        },
+        "1": {
+          "classes": 2,
+          "children": 10,
+          "waiting": 1
+        },
+        "2": {
+          "classes": 2,
+          "children": 13,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 2,
+          "children": 8
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 54,
+      "year1to2": 9,
+      "year2to4": 27,
+      "year4to6": 9,
+      "over6": 0
+    },
+    "waitlistTotal": 43,
+    "cctvCount": 9,
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47230000075",
+    "tags": [
+      "CCTV완비",
+      "대기있음",
+      "영양사배치"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 3.3
+  },
+  {
+    "id": "47230000074",
+    "sidoCode": "47",
+    "sggCode": "47230",
+    "name": "이편한2차어린이집",
+    "type": "국공립",
+    "source": "어린이집",
+    "address": "경상북도 영천시 완산9길 16 이편한세상 영천2단지 내",
+    "latitude": 35.96244573095971,
+    "longitude": 128.9447114986247,
+    "phone": "054-337-5153",
+    "capacity": 40,
+    "currentPupils": 34,
+    "childrenPerTeacher": 4.3,
+    "teacherRatio": "73% (8명/11명)",
+    "safetyStatus": "CCTV 10대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
+    "hasSchoolBus": false,
+    "expenseLevel": "정부 지원 (보육료 지원)",
+    "ageRange": "만 0세 ~ 만 2세",
+    "ageBreakdown": {
+      "0": {
+        "children": 6,
+        "classes": 2,
+        "ratio": 3
+      },
+      "1": {
+        "children": 20,
+        "classes": 4,
+        "ratio": 5
+      },
+      "2": {
+        "children": 8,
+        "classes": 1,
+        "ratio": 8
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 2,
+          "children": 6,
+          "waiting": 42
+        },
+        "1": {
+          "classes": 4,
+          "children": 20,
+          "waiting": 1
+        },
+        "2": {
+          "classes": 1,
+          "children": 8,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 0,
+      "year1to2": 12,
+      "year2to4": 50,
+      "year4to6": 37,
+      "over6": 0
+    },
+    "waitlistTotal": 43,
+    "cctvCount": 10,
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47230000074",
+    "tags": [
+      "CCTV완비",
+      "대기있음",
+      "영양사배치"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 3.8
+  },
+  {
+    "id": "47230000058",
+    "sidoCode": "47",
+    "sggCode": "47230",
+    "name": "임고보듬이나눔이어린이집",
+    "type": "국공립",
+    "source": "어린이집",
+    "address": "경상북도 영천시 포은로 491 임고 보듬이나눔이 어린이집",
+    "latitude": 36.02099067,
+    "longitude": 128.9737915,
+    "phone": "054-336-7750",
+    "capacity": 20,
+    "currentPupils": 11,
+    "childrenPerTeacher": 2.2,
+    "teacherRatio": "71% (5명/7명)",
+    "safetyStatus": "CCTV 8대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
+    "hasSchoolBus": false,
+    "expenseLevel": "정부 지원 (보육료 지원)",
+    "ageRange": "만 0세 ~ 만 5세",
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 2,
+          "children": 5
+        },
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 2,
+          "children": 6
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 16,
+      "year1to2": 0,
+      "year2to4": 33,
+      "year4to6": 16,
+      "over6": 33
+    },
+    "waitlistTotal": 0,
+    "cctvCount": 8,
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47230000058",
+    "tags": [
+      "소규모시설",
+      "CCTV완비",
+      "즉시입소가능",
+      "정원여유",
+      "영양사배치",
+      "교사비율우수",
+      "숙련교사"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 5
+  },
+  {
+    "id": "47230000008",
+    "sidoCode": "47",
+    "sggCode": "47230",
+    "name": "참빛어린이집",
+    "type": "국공립",
+    "source": "어린이집",
+    "address": "경상북도 영천시 충효로 147 야사종합사회복지관 부설 (야사동)",
+    "latitude": 35.97682449505527,
+    "longitude": 128.9441375317644,
+    "phone": "054-337-0711",
+    "capacity": 30,
+    "currentPupils": 25,
+    "childrenPerTeacher": 2.5,
+    "teacherRatio": "67% (10명/15명)",
+    "safetyStatus": "CCTV 5대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
+    "hasSchoolBus": false,
+    "expenseLevel": "정부 지원 (보육료 지원)",
+    "ageRange": "만 0세 ~ 만 2세",
+    "ageBreakdown": {
+      "0": {
+        "children": 6,
+        "classes": 2,
+        "ratio": 3
+      },
+      "1": {
+        "children": 8,
+        "classes": 2,
+        "ratio": 4
+      },
+      "2": {
+        "children": 5,
+        "classes": 1,
+        "ratio": 5
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 2,
+          "children": 6,
+          "waiting": 2
+        },
+        "1": {
+          "classes": 2,
+          "children": 8,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 1,
+          "children": 5,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "혼합반(연령 범위 미공시)",
+          "ages": null,
+          "classes": 1,
+          "children": 6
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 60,
+      "year1to2": 0,
+      "year2to4": 0,
+      "year4to6": 0,
+      "over6": 40
+    },
+    "waitlistTotal": 2,
+    "cctvCount": 5,
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47230000008",
+    "tags": [
+      "CCTV완비",
+      "대기있음",
+      "영양사배치",
+      "교사비율우수",
+      "숙련교사"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 4.8
+  },
+  {
+    "id": "47230000046",
+    "sidoCode": "47",
+    "sggCode": "47230",
+    "name": "청삼어린이집",
+    "type": "민간",
+    "source": "어린이집",
+    "address": "경상북도 영천시 창신1길 12 204동(망정동, 창신영천타운)",
+    "latitude": 35.98698475,
+    "longitude": 128.9555281,
+    "phone": "054-334-5234",
+    "capacity": 60,
+    "currentPupils": 47,
+    "childrenPerTeacher": 4.7,
+    "teacherRatio": "71% (10명/14명)",
+    "safetyStatus": "CCTV 8대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 24:00 (야간연장)",
+    "hasSchoolBus": false,
+    "expenseLevel": "시설별 차등 (상세 문의)",
+    "ageRange": "만 0세 ~ 만 5세",
+    "ageBreakdown": {
+      "1": {
+        "children": 9,
+        "classes": 2,
+        "ratio": 4.5
+      },
+      "2": {
+        "children": 12,
+        "classes": 2,
+        "ratio": 6
+      },
+      "3": {
+        "children": 10,
+        "classes": 1,
+        "ratio": 10
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 1
+        },
+        "1": {
+          "classes": 2,
+          "children": 9,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 2,
+          "children": 12,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 1,
+          "children": 10,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 1,
+          "children": 1
+        },
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 15
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 10,
+      "year1to2": 10,
+      "year2to4": 20,
+      "year4to6": 10,
+      "over6": 50
+    },
+    "waitlistTotal": 1,
+    "cctvCount": 8,
+    "specialPrograms": "야간연장형,시간제보육",
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47230000046",
+    "tags": [
+      "야간운영",
+      "시간제보육",
+      "CCTV완비",
+      "대기있음",
+      "정원여유",
+      "야간연장",
+      "특성화교육",
+      "영양사배치",
+      "숙련교사"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 4.3
+  },
+  {
+    "id": "47230000018",
+    "sidoCode": "47",
+    "sggCode": "47230",
+    "name": "청통화랑어린이집",
+    "type": "민간",
+    "source": "어린이집",
+    "address": "경상북도 영천시 청통면 청통초등길 43-2",
+    "latitude": 35.99414281,
+    "longitude": 128.8242909,
+    "phone": "054-335-6111",
+    "capacity": 23,
+    "currentPupils": 10,
+    "childrenPerTeacher": 2.5,
+    "teacherRatio": "57% (4명/7명)",
+    "safetyStatus": "CCTV 4대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 24:00 (야간연장)",
+    "hasSchoolBus": false,
+    "expenseLevel": "시설별 차등 (상세 문의)",
+    "ageRange": "만 0세 ~ 만 5세",
+    "ageBreakdown": {
+      "4": {
+        "children": 0,
+        "classes": 1,
+        "ratio": 0
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 1,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 2,
+          "children": 2
+        },
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 3,
+          "children": 3
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 20,
+      "year1to2": 20,
+      "year2to4": 20,
+      "year4to6": 0,
+      "over6": 40
+    },
+    "waitlistTotal": 0,
+    "cctvCount": 4,
+    "specialPrograms": "방과후통합,야간연장형",
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47230000018",
+    "tags": [
+      "야간운영",
+      "소규모시설",
+      "CCTV완비",
+      "즉시입소가능",
+      "정원여유",
+      "야간연장",
+      "방과후운영",
+      "특성화교육",
+      "영양사배치",
+      "교사비율우수",
+      "숙련교사"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 5
+  },
+  {
+    "id": "47230000015",
+    "sidoCode": "47",
+    "sggCode": "47230",
+    "name": "초롱어린이집",
+    "type": "민간",
+    "source": "어린이집",
+    "address": "경상북도 영천시 영천고1길 33 (야사동)",
+    "latitude": 35.97187119,
+    "longitude": 128.9443792,
+    "phone": "054-336-1399",
+    "capacity": 65,
+    "currentPupils": 0,
+    "childrenPerTeacher": 0,
+    "teacherRatio": "-",
+    "safetyStatus": "CCTV 10대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
+    "hasSchoolBus": false,
+    "expenseLevel": "시설별 차등 (상세 문의)",
+    "ageRange": "만 0세 ~ 만 5세",
+    "ageBreakdown": {
+      "1": {
+        "children": 0,
+        "classes": 3,
+        "ratio": 0
+      },
+      "2": {
+        "children": 0,
+        "classes": 3,
+        "ratio": 0
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 3,
+          "children": 0,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 3,
+          "children": 0,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 7,
+          "children": 0
+        },
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 2,
+          "children": 0
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "teacherTenure": {
+      "under1": 0,
+      "year1to2": 0,
+      "year2to4": 0,
+      "year4to6": 0,
+      "over6": 0
+    },
+    "waitlistTotal": 0,
+    "cctvCount": 10,
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47230000015",
+    "tags": [
+      "CCTV완비",
+      "즉시입소가능",
+      "영양사배치"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 3.5
+  },
+  {
+    "id": "47230000078",
+    "sidoCode": "47",
+    "sggCode": "47230",
+    "name": "초롱어린이집",
+    "type": "국공립",
+    "source": "어린이집",
+    "address": "경상북도 영천시 영천고1길 33",
+    "latitude": 35.971819974218576,
+    "longitude": 128.94438445559302,
+    "phone": "054-336-1399",
+    "capacity": 60,
+    "currentPupils": 50,
+    "childrenPerTeacher": 5.6,
+    "teacherRatio": "69% (9명/13명)",
+    "safetyStatus": "CCTV 13대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
+    "hasSchoolBus": false,
+    "expenseLevel": "정부 지원 (보육료 지원)",
+    "ageRange": "만 0세 ~ 만 5세",
+    "ageBreakdown": {
+      "0": {
+        "children": 6,
+        "classes": 2,
+        "ratio": 3
+      },
+      "1": {
+        "children": 10,
+        "classes": 2,
+        "ratio": 5
+      },
+      "2": {
+        "children": 7,
+        "classes": 1,
+        "ratio": 7
+      },
+      "5": {
+        "children": 13,
+        "classes": 1,
+        "ratio": 13
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 2,
+          "children": 6,
+          "waiting": 3
+        },
+        "1": {
+          "classes": 2,
+          "children": 10,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 1,
+          "children": 7,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 1,
+          "children": 13,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 14
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 33,
+      "year1to2": 22,
+      "year2to4": 44,
+      "year4to6": 0,
+      "over6": 0
+    },
+    "waitlistTotal": 3,
+    "cctvCount": 13,
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47230000078",
+    "tags": [
+      "CCTV완비",
+      "대기있음",
+      "영양사배치",
+      "교사비율주의"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 1.8
+  },
+  {
+    "id": "47230000069",
+    "sidoCode": "47",
+    "sggCode": "47230",
+    "name": "코아루어린이집",
+    "type": "민간",
+    "source": "어린이집",
+    "address": "경상북도 영천시 창신1길 42",
+    "latitude": 35.9906856717,
+    "longitude": 128.9550597415,
+    "phone": "054-331-1213",
+    "capacity": 48,
+    "currentPupils": 17,
+    "childrenPerTeacher": 2.8,
+    "teacherRatio": "75% (6명/8명)",
+    "safetyStatus": "CCTV 7대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
+    "hasSchoolBus": false,
+    "expenseLevel": "시설별 차등 (상세 문의)",
+    "ageRange": "만 0세 ~ 만 5세",
+    "ageBreakdown": {
+      "0": {
+        "children": 2,
+        "classes": 3,
+        "ratio": 0.7
+      },
+      "1": {
+        "children": 9,
+        "classes": 3,
+        "ratio": 3
+      },
+      "2": {
+        "children": 6,
+        "classes": 2,
+        "ratio": 3
+      },
+      "3": {
+        "children": 0,
+        "classes": 1,
+        "ratio": 0
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 3,
+          "children": 2,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 3,
+          "children": 9,
+          "waiting": 1
+        },
+        "2": {
+          "classes": 2,
+          "children": 6,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 1,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 4,
+          "children": 0
+        },
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 0
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 33,
+      "year1to2": 0,
+      "year2to4": 33,
+      "year4to6": 0,
+      "over6": 33
+    },
+    "waitlistTotal": 1,
+    "cctvCount": 7,
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47230000069",
+    "tags": [
+      "CCTV완비",
+      "대기있음",
+      "정원여유",
+      "영양사배치",
+      "교사비율우수"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 4.8
+  },
+  {
+    "id": "47230000061",
+    "sidoCode": "47",
+    "sggCode": "47230",
+    "name": "튼튼어린이집",
+    "type": "가정",
+    "source": "어린이집",
+    "address": "경상북도 영천시 동부로 14 405-102(망정동, 망정주공)",
+    "latitude": 35.971812409662355,
+    "longitude": 128.95026208783082,
+    "phone": "054-338-6711",
+    "capacity": 12,
+    "currentPupils": 3,
+    "childrenPerTeacher": 1.5,
+    "teacherRatio": "67% (2명/3명)",
+    "safetyStatus": "CCTV 3대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
+    "hasSchoolBus": false,
+    "expenseLevel": "정부 지원 (보육료 지원)",
+    "ageRange": "만 0세 ~ 만 2세",
+    "ageBreakdown": {
+      "0": {
+        "children": 0,
+        "classes": 1,
+        "ratio": 0
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 1,
+          "children": 0,
+          "waiting": 1
+        },
+        "1": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 5,
+          "children": 3
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 0,
+      "year1to2": 33,
+      "year2to4": 33,
+      "year4to6": 0,
+      "over6": 33
+    },
+    "waitlistTotal": 1,
+    "cctvCount": 3,
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47230000061",
+    "tags": [
+      "소규모시설",
+      "CCTV완비",
+      "대기있음",
+      "정원여유",
+      "영양사배치",
+      "교사비율우수"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 4.8
+  },
+  {
+    "id": "47230000022",
+    "sidoCode": "47",
+    "sggCode": "47230",
+    "name": "파란나라어린이집",
+    "type": "민간",
+    "source": "어린이집",
+    "address": "경상북도 영천시 야사2길 32 (야사동)",
+    "latitude": 35.97572349486556,
+    "longitude": 128.94713022397826,
+    "phone": "054-333-9368",
+    "capacity": 36,
+    "currentPupils": 26,
+    "childrenPerTeacher": 3.3,
+    "teacherRatio": "80% (8명/10명)",
+    "safetyStatus": "CCTV 6대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 24:00 (야간연장)",
+    "hasSchoolBus": false,
+    "expenseLevel": "시설별 차등 (상세 문의)",
+    "ageRange": "만 0세 ~ 만 5세",
+    "ageBreakdown": {
+      "0": {
+        "children": 3,
+        "classes": 1,
+        "ratio": 3
+      },
+      "2": {
+        "children": 5,
+        "classes": 1,
+        "ratio": 5
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 1,
+          "children": 3,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 1
+        },
+        "2": {
+          "classes": 1,
+          "children": 5,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 2,
+          "children": 7
+        },
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 11
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 25,
+      "year1to2": 25,
+      "year2to4": 0,
+      "year4to6": 12,
+      "over6": 37
+    },
+    "waitlistTotal": 1,
+    "cctvCount": 6,
+    "specialPrograms": "야간연장형,시간제보육",
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47230000022",
+    "tags": [
+      "야간운영",
+      "시간제보육",
+      "CCTV완비",
+      "대기있음",
+      "정원여유",
+      "야간연장",
+      "특성화교육",
+      "영양사배치",
+      "숙련교사"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 4.3
+  },
+  {
+    "id": "47230000023",
+    "sidoCode": "47",
+    "sggCode": "47230",
+    "name": "포도원어린이집",
+    "type": "민간",
+    "source": "어린이집",
+    "address": "경상북도 영천시 담안7길 14 (금노동)",
+    "latitude": 35.95899298,
+    "longitude": 128.9308599,
+    "phone": "054-332-6032",
+    "capacity": 39,
+    "currentPupils": 23,
+    "childrenPerTeacher": 3.3,
+    "teacherRatio": "70% (7명/10명)",
+    "safetyStatus": "CCTV 8대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
+    "hasSchoolBus": false,
+    "expenseLevel": "시설별 차등 (상세 문의)",
+    "ageRange": "만 0세 ~ 만 5세",
+    "ageBreakdown": {
+      "1": {
+        "children": 4,
+        "classes": 1,
+        "ratio": 4
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 1
+        },
+        "1": {
+          "classes": 1,
+          "children": 4,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 2,
+          "children": 7
+        },
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 9
+        }
+      ],
+      "special": {
+        "classes": 1,
+        "children": 3
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 85,
+      "year1to2": 0,
+      "year2to4": 14,
+      "year4to6": 0,
+      "over6": 0
+    },
+    "waitlistTotal": 1,
+    "cctvCount": 8,
+    "specialPrograms": "장애아통합",
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47230000023",
+    "tags": [
+      "장애아통합",
+      "CCTV완비",
+      "대기있음",
+      "정원여유",
+      "특성화교육",
+      "영양사배치"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 3.3
+  },
+  {
+    "id": "47230000045",
+    "sidoCode": "47",
+    "sggCode": "47230",
+    "name": "포은어린이집",
+    "type": "국공립",
+    "source": "어린이집",
+    "address": "경상북도 영천시 망정1길 171 한신더휴아파트 106동",
+    "latitude": 35.98260602219716,
+    "longitude": 128.95033927426783,
+    "phone": "054-334-3823",
+    "capacity": 36,
+    "currentPupils": 28,
+    "childrenPerTeacher": 3.1,
+    "teacherRatio": "69% (9명/13명)",
+    "safetyStatus": "CCTV 9대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
+    "hasSchoolBus": false,
+    "expenseLevel": "정부 지원 (보육료 지원)",
+    "ageRange": "만 0세 ~ 만 2세",
+    "ageBreakdown": {
+      "0": {
+        "children": 6,
+        "classes": 3,
+        "ratio": 2
+      },
+      "1": {
+        "children": 6,
+        "classes": 2,
+        "ratio": 3
+      },
+      "2": {
+        "children": 9,
+        "classes": 2,
+        "ratio": 4.5
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 3,
+          "children": 6,
+          "waiting": 16
+        },
+        "1": {
+          "classes": 2,
+          "children": 6,
+          "waiting": 1
+        },
+        "2": {
+          "classes": 2,
+          "children": 9,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "혼합반(연령 범위 미공시)",
+          "ages": null,
+          "classes": 1,
+          "children": 7
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 11,
+      "year1to2": 55,
+      "year2to4": 22,
+      "year4to6": 0,
+      "over6": 11
+    },
+    "waitlistTotal": 17,
+    "cctvCount": 9,
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47230000045",
+    "tags": [
+      "CCTV완비",
+      "대기있음",
+      "정원여유",
+      "영양사배치"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 3.8
+  },
+  {
+    "id": "47230000081",
+    "sidoCode": "47",
+    "sggCode": "47230",
+    "name": "한솔어린이집",
+    "type": "국공립",
+    "source": "어린이집",
+    "address": "경상북도 영천시 창신길 87 (망정동)",
+    "latitude": 35.9913753027001,
+    "longitude": 128.9560352974556,
+    "phone": "054-334-1177",
+    "capacity": 120,
+    "currentPupils": 53,
+    "childrenPerTeacher": 7.6,
+    "teacherRatio": "64% (7명/11명)",
+    "safetyStatus": "CCTV 10대 설치",
+    "mealStatus": "자체 급식 (영양사 배치 권고 규모)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
+    "hasSchoolBus": false,
+    "expenseLevel": "정부 지원 (보육료 지원)",
+    "ageRange": "만 0세 ~ 만 5세",
+    "ageBreakdown": {
+      "1": {
+        "children": 0,
+        "classes": 1,
+        "ratio": 0
+      },
+      "2": {
+        "children": 0,
+        "classes": 2,
+        "ratio": 0
+      },
+      "3": {
+        "children": 7,
+        "classes": 2,
+        "ratio": 3.5
+      },
+      "4": {
+        "children": 16,
+        "classes": 2,
+        "ratio": 8
+      },
+      "5": {
+        "children": 20,
+        "classes": 2,
+        "ratio": 10
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 2
+        },
+        "1": {
+          "classes": 1,
+          "children": 0,
+          "waiting": 1
+        },
+        "2": {
+          "classes": 2,
+          "children": 0,
+          "waiting": 1
+        },
+        "3": {
+          "classes": 2,
+          "children": 7,
+          "waiting": 1
+        },
+        "4": {
+          "classes": 2,
+          "children": 16,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 2,
+          "children": 20,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 7,
+          "children": 10
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 100,
+      "year1to2": 0,
+      "year2to4": 0,
+      "year4to6": 0,
+      "over6": 0
+    },
+    "waitlistTotal": 5,
+    "cctvCount": 10,
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47230000081",
+    "tags": [
+      "대규모시설",
+      "CCTV완비",
+      "대기있음",
+      "정원여유",
+      "영양사배치",
+      "교사비율주의",
+      "영양사법정충족"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 1.8
+  },
+  {
+    "id": "47230000026",
+    "sidoCode": "47",
+    "sggCode": "47230",
+    "name": "햇살어린이집",
+    "type": "민간",
+    "source": "어린이집",
+    "address": "경상북도 영천시 문화새길 82",
+    "latitude": 35.9711741814,
+    "longitude": 128.9480604416,
+    "phone": "054-332-3535",
+    "capacity": 113,
+    "currentPupils": 54,
+    "childrenPerTeacher": 5.4,
+    "teacherRatio": "71% (10명/14명)",
+    "safetyStatus": "CCTV 12대 설치",
+    "mealStatus": "자체 급식 (영양사 배치 권고 규모)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
+    "hasSchoolBus": false,
+    "expenseLevel": "시설별 차등 (상세 문의)",
+    "ageRange": "만 0세 ~ 만 5세",
+    "ageBreakdown": {
+      "0": {
+        "children": 0,
+        "classes": 1,
+        "ratio": 0
+      },
+      "1": {
+        "children": 9,
+        "classes": 2,
+        "ratio": 4.5
+      },
+      "2": {
+        "children": 7,
+        "classes": 1,
+        "ratio": 7
+      },
+      "3": {
+        "children": 12,
+        "classes": 1,
+        "ratio": 12
+      },
+      "4": {
+        "children": 12,
+        "classes": 1,
+        "ratio": 12
+      },
+      "5": {
+        "children": 12,
+        "classes": 1,
+        "ratio": 12
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 1,
+          "children": 0,
+          "waiting": 5
+        },
+        "1": {
+          "classes": 2,
+          "children": 9,
+          "waiting": 1
+        },
+        "2": {
+          "classes": 1,
+          "children": 7,
+          "waiting": 3
+        },
+        "3": {
+          "classes": 1,
+          "children": 12,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 1,
+          "children": 12,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 1,
+          "children": 12,
+          "waiting": 1
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 1,
+          "children": 2
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 10,
+      "year1to2": 10,
+      "year2to4": 30,
+      "year4to6": 20,
+      "over6": 30
+    },
+    "waitlistTotal": 10,
+    "cctvCount": 12,
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47230000026",
+    "tags": [
+      "대규모시설",
+      "CCTV완비",
+      "대기있음",
+      "정원여유",
+      "영양사배치",
+      "교사비율주의",
+      "숙련교사",
+      "영양사법정충족"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 3.3
+  }
+]

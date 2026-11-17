@@ -1,0 +1,908 @@
+[
+  {
+    "id": "47750000019",
+    "sidoCode": "47",
+    "sggCode": "47750",
+    "name": "보라미어린이집",
+    "type": "직장",
+    "source": "어린이집",
+    "address": "경상북도 청송군 진보면 양정길 217 교정아파트 내 보라미어린이집",
+    "latitude": 36.5484511549,
+    "longitude": 129.0534398258,
+    "phone": "054-874-1551",
+    "capacity": 39,
+    "currentPupils": 11,
+    "childrenPerTeacher": 2.8,
+    "teacherRatio": "50% (4명/8명)",
+    "safetyStatus": "CCTV 10대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
+    "hasSchoolBus": false,
+    "expenseLevel": "직장 지원 + 정부 보조",
+    "ageRange": "만 0세 ~ 만 2세",
+    "ageBreakdown": {
+      "2": {
+        "children": 5,
+        "classes": 1,
+        "ratio": 5
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 1,
+          "children": 5,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 2,
+          "children": 6
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 25,
+      "year1to2": 0,
+      "year2to4": 50,
+      "year4to6": 0,
+      "over6": 25
+    },
+    "waitlistTotal": 0,
+    "cctvCount": 10,
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47750000019",
+    "tags": [
+      "CCTV완비",
+      "즉시입소가능",
+      "정원여유",
+      "영양사배치",
+      "교사비율우수"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 4.5
+  },
+  {
+    "id": "47750000010",
+    "sidoCode": "47",
+    "sggCode": "47750",
+    "name": "안덕어린이집",
+    "type": "법인단체",
+    "source": "어린이집",
+    "address": "경상북도 청송군 안덕면 안마길 25",
+    "latitude": 36.29095677,
+    "longitude": 128.959998,
+    "phone": "054-872-0171",
+    "capacity": 39,
+    "currentPupils": 11,
+    "childrenPerTeacher": 5.5,
+    "teacherRatio": "40% (2명/5명)",
+    "safetyStatus": "CCTV 8대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
+    "hasSchoolBus": false,
+    "expenseLevel": "정부 지원 (표준 보육료)",
+    "ageRange": "만 0세 ~ 만 3세",
+    "ageBreakdown": {
+      "0": {
+        "children": 1,
+        "classes": 1,
+        "ratio": 1
+      },
+      "1": {
+        "children": 6,
+        "classes": 1,
+        "ratio": 6
+      },
+      "3": {
+        "children": 4,
+        "classes": 1,
+        "ratio": 4
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 1,
+          "children": 1,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 1,
+          "children": 6,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 1,
+          "children": 4,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "혼합반(연령 범위 미공시)",
+          "ages": null,
+          "classes": 1,
+          "children": 0
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 0,
+      "year1to2": 33,
+      "year2to4": 0,
+      "year4to6": 0,
+      "over6": 66
+    },
+    "waitlistTotal": 0,
+    "cctvCount": 8,
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47750000010",
+    "tags": [
+      "CCTV완비",
+      "즉시입소가능",
+      "정원여유",
+      "영양사배치",
+      "교사비율주의",
+      "숙련교사"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 3.5
+  },
+  {
+    "id": "47750000009",
+    "sidoCode": "47",
+    "sggCode": "47750",
+    "name": "예람어린이집",
+    "type": "사회복지법인",
+    "source": "어린이집",
+    "address": "경상북도 청송군 진보면 진보로 62-1",
+    "latitude": 36.53059584,
+    "longitude": 129.0387763,
+    "phone": "054-872-7777",
+    "capacity": 47,
+    "currentPupils": 31,
+    "childrenPerTeacher": 3.9,
+    "teacherRatio": "73% (8명/11명)",
+    "safetyStatus": "CCTV 5대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
+    "hasSchoolBus": false,
+    "expenseLevel": "정부 지원 (표준 보육료)",
+    "ageRange": "만 0세 ~ 만 5세",
+    "ageBreakdown": {
+      "0": {
+        "children": 4,
+        "classes": 1,
+        "ratio": 4
+      },
+      "1": {
+        "children": 6,
+        "classes": 1,
+        "ratio": 6
+      },
+      "2": {
+        "children": 8,
+        "classes": 1,
+        "ratio": 8
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 1,
+          "children": 4,
+          "waiting": 1
+        },
+        "1": {
+          "classes": 1,
+          "children": 6,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 1,
+          "children": 8,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 1,
+          "children": 4
+        },
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 9
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 37,
+      "year1to2": 12,
+      "year2to4": 0,
+      "year4to6": 0,
+      "over6": 50
+    },
+    "waitlistTotal": 1,
+    "cctvCount": 5,
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47750000009",
+    "tags": [
+      "CCTV완비",
+      "대기있음",
+      "정원여유",
+      "영양사배치",
+      "숙련교사"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 4.8
+  },
+  {
+    "id": "47750000007",
+    "sidoCode": "47",
+    "sggCode": "47750",
+    "name": "진보어린이집",
+    "type": "국공립",
+    "source": "어린이집",
+    "address": "경상북도 청송군 진보면 진보로 193-26",
+    "latitude": 36.53040718,
+    "longitude": 129.0519716,
+    "phone": "054-874-2564",
+    "capacity": 39,
+    "currentPupils": 25,
+    "childrenPerTeacher": 5,
+    "teacherRatio": "63% (5명/8명)",
+    "safetyStatus": "CCTV 10대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
+    "hasSchoolBus": false,
+    "expenseLevel": "정부 지원 (보육료 지원)",
+    "ageRange": "만 0세 ~ 만 5세",
+    "ageBreakdown": {
+      "0": {
+        "children": 2,
+        "classes": 1,
+        "ratio": 2
+      },
+      "1": {
+        "children": 6,
+        "classes": 1,
+        "ratio": 6
+      },
+      "2": {
+        "children": 10,
+        "classes": 2,
+        "ratio": 5
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 1,
+          "children": 2,
+          "waiting": 5
+        },
+        "1": {
+          "classes": 1,
+          "children": 6,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 2,
+          "children": 10,
+          "waiting": 2
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 7
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 0,
+      "year1to2": 16,
+      "year2to4": 33,
+      "year4to6": 50,
+      "over6": 0
+    },
+    "waitlistTotal": 7,
+    "cctvCount": 10,
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47750000007",
+    "tags": [
+      "CCTV완비",
+      "대기있음",
+      "정원여유",
+      "영양사배치",
+      "숙련교사"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 4.3
+  },
+  {
+    "id": "47750000004",
+    "sidoCode": "47",
+    "sggCode": "47750",
+    "name": "청송어린이집",
+    "type": "국공립",
+    "source": "어린이집",
+    "address": "경상북도 청송군 금곡안길 21 청송어린이집",
+    "latitude": 36.42797034,
+    "longitude": 129.0568541,
+    "phone": "054-873-3480",
+    "capacity": 60,
+    "currentPupils": 28,
+    "childrenPerTeacher": 4.7,
+    "teacherRatio": "60% (6명/10명)",
+    "safetyStatus": "CCTV 14대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
+    "hasSchoolBus": false,
+    "expenseLevel": "정부 지원 (보육료 지원)",
+    "ageRange": "만 0세 ~ 만 5세",
+    "ageBreakdown": {
+      "0": {
+        "children": 2,
+        "classes": 1,
+        "ratio": 2
+      },
+      "1": {
+        "children": 5,
+        "classes": 1,
+        "ratio": 5
+      },
+      "2": {
+        "children": 9,
+        "classes": 2,
+        "ratio": 4.5
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 1,
+          "children": 2,
+          "waiting": 3
+        },
+        "1": {
+          "classes": 1,
+          "children": 5,
+          "waiting": 1
+        },
+        "2": {
+          "classes": 2,
+          "children": 9,
+          "waiting": 3
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 12
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 50,
+      "year1to2": 0,
+      "year2to4": 33,
+      "year4to6": 16,
+      "over6": 0
+    },
+    "waitlistTotal": 7,
+    "cctvCount": 14,
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47750000004",
+    "tags": [
+      "CCTV완비",
+      "대기있음",
+      "정원여유",
+      "영양사배치"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 3.3
+  },
+  {
+    "id": "47750000020",
+    "sidoCode": "47",
+    "sggCode": "47750",
+    "name": "청송하나어린이집",
+    "type": "국공립",
+    "source": "어린이집",
+    "address": "경상북도 청송군 파천면 양지도치골길 6",
+    "latitude": 36.41423533527192,
+    "longitude": 129.09947439571047,
+    "phone": "054-872-8899",
+    "capacity": 50,
+    "currentPupils": 26,
+    "childrenPerTeacher": 5.2,
+    "teacherRatio": "56% (5명/9명)",
+    "safetyStatus": "CCTV 8대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
+    "hasSchoolBus": false,
+    "expenseLevel": "정부 지원 (보육료 지원)",
+    "ageRange": "만 0세 ~ 만 5세",
+    "ageBreakdown": {
+      "1": {
+        "children": 7,
+        "classes": 1,
+        "ratio": 7
+      },
+      "2": {
+        "children": 8,
+        "classes": 1,
+        "ratio": 8
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 5
+        },
+        "1": {
+          "classes": 1,
+          "children": 7,
+          "waiting": 2
+        },
+        "2": {
+          "classes": 1,
+          "children": 8,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 1,
+          "children": 5
+        },
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 6
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 40,
+      "year1to2": 0,
+      "year2to4": 0,
+      "year4to6": 0,
+      "over6": 60
+    },
+    "waitlistTotal": 7,
+    "cctvCount": 8,
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47750000020",
+    "tags": [
+      "CCTV완비",
+      "대기있음",
+      "정원여유",
+      "영양사배치",
+      "교사비율주의",
+      "숙련교사"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 3.3
+  },
+  {
+    "id": "47750000005",
+    "sidoCode": "47",
+    "sggCode": "47750",
+    "name": "현동어린이집",
+    "type": "국공립",
+    "source": "어린이집",
+    "address": "경상북도 청송군 현동면 안현로 1091",
+    "latitude": 36.29290626,
+    "longitude": 129.018796,
+    "phone": "054-872-3690",
+    "capacity": 20,
+    "currentPupils": 9,
+    "childrenPerTeacher": 4.5,
+    "teacherRatio": "40% (2명/5명)",
+    "safetyStatus": "CCTV 4대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
+    "hasSchoolBus": false,
+    "expenseLevel": "정부 지원 (보육료 지원)",
+    "ageRange": "만 0세 ~ 만 2세",
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 1,
+          "children": 5
+        },
+        {
+          "label": "혼합반(연령 범위 미공시)",
+          "ages": null,
+          "classes": 1,
+          "children": 4
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 33,
+      "year1to2": 0,
+      "year2to4": 33,
+      "year4to6": 33,
+      "over6": 0
+    },
+    "waitlistTotal": 0,
+    "cctvCount": 4,
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47750000005",
+    "tags": [
+      "소규모시설",
+      "CCTV완비",
+      "즉시입소가능",
+      "정원여유",
+      "영양사배치"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 4
+  },
+  {
+    "id": "47750000012",
+    "sidoCode": "47",
+    "sggCode": "47750",
+    "name": "화목어린이집",
+    "type": "법인단체",
+    "source": "어린이집",
+    "address": "경상북도 청송군 구산1길 7 화목어린이집",
+    "latitude": 36.27494745,
+    "longitude": 128.8965846,
+    "phone": "054-872-5405",
+    "capacity": 38,
+    "currentPupils": 12,
+    "childrenPerTeacher": 4,
+    "teacherRatio": "50% (3명/6명)",
+    "safetyStatus": "CCTV 6대 설치",
+    "mealStatus": "급식 제공 (영양사 미배치)",
+    "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
+    "hasSchoolBus": false,
+    "expenseLevel": "정부 지원 (표준 보육료)",
+    "ageRange": "만 0세 ~ 만 3세",
+    "ageBreakdown": {
+      "1": {
+        "children": 2,
+        "classes": 1,
+        "ratio": 2
+      },
+      "3": {
+        "children": 6,
+        "classes": 1,
+        "ratio": 6
+      }
+    },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 1,
+          "children": 2,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 1,
+          "children": 6,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 1,
+          "children": 4
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
+    "teacherTenure": {
+      "under1": 25,
+      "year1to2": 0,
+      "year2to4": 25,
+      "year4to6": 50,
+      "over6": 0
+    },
+    "waitlistTotal": 0,
+    "cctvCount": 6,
+    "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=47750000012",
+    "tags": [
+      "CCTV완비",
+      "즉시입소가능",
+      "정원여유",
+      "영양사배치",
+      "숙련교사"
+    ],
+    "locationStatus": "region_consistent",
+    "stabilityScore": 5
+  }
+]
