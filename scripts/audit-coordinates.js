@@ -38,7 +38,7 @@ function auditDirectory(dataDir, { write = false, reportPath } = {}) {
             if (write) fs.writeFileSync(path.join(dataDir, entry.file), output);
         }
     }
-    const report = { schemaVersion: 1, boundarySnapshot: '2025-04-01',
+    const report = { schemaVersion: 1, boundarySnapshot: '2026-10-01',
         scope: { files: files.length, provinces: new Set(all.map(r => r.sidoCode)).size, municipalities: new Set(all.map(r => r.sggCode)).size },
         total: all.length, regionConsistent: all.length - issues.length, unconfirmed: issues.length, bySource, reasons,
         duplicateGroups: duplicates.length, suspiciousDuplicateGroups: duplicates.filter(g => g.classification !== 'shared_building').length,

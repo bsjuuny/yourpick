@@ -1,9 +1,9 @@
 # Offline regional plausibility checks
 
 `municipalities.json` derives from **Statistics Korea SGIS**, processed by
-[vuski/admdongkor](https://github.com/vuski/admdongkor), snapshot **2025-04-01**.
-Source: `ver20250401/HangJeongDong_ver20250401.geojson`, repository commit
-`d5d5a821c8de6cc337d47eeca604d7af76271c9b`.
+[vuski/admdongkor](https://github.com/vuski/admdongkor), snapshot **2026-10-01** (after the 2026-07-01 Incheon district reorganisation and the Jeonnam-Gwangju merger, sido code 12).
+Source: `ver20261001/HangJeongDong_ver20261001.geojson`, repository commit
+`3bc00489b76696db864bdbea4b19985cdfa8b403`.
 
 Boundary data attribution/license: Statistics Korea SGIS (공공누리 제1유형),
 vuski/admdongkor, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
@@ -17,7 +17,7 @@ Do not silently alias a changed administrative code to a different region.
 Rebuild (Python 3 and Shapely required):
 
 ```sh
-curl -L --fail -o /tmp/yourpick-boundaries.geojson https://raw.githubusercontent.com/vuski/admdongkor/d5d5a821c8de6cc337d47eeca604d7af76271c9b/ver20250401/HangJeongDong_ver20250401.geojson
+curl -L --fail -o /tmp/yourpick-boundaries.geojson https://raw.githubusercontent.com/vuski/admdongkor/3bc00489b76696db864bdbea4b19985cdfa8b403/ver20261001/HangJeongDong_ver20261001.geojson
 python scripts/geo/build-boundaries.py /tmp/yourpick-boundaries.geojson
 ```
 

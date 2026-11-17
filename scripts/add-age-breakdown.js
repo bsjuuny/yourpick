@@ -7,6 +7,7 @@
 const fs = require('fs');
 const path = require('path');
 const http = require('http');
+const { readApiResponse } = require('./read-api-response');
 
 require('dotenv').config({ path: path.resolve(__dirname, '../.env.local') });
 
@@ -24,9 +25,7 @@ function fetchChildcareApi(sggCode) {
     return new Promise((resolve, reject) => {
         const url = `http://api.childcare.go.kr/mediate/rest/cpmsapi030/cpmsapi030/request?key=${CHILDCARE_API_KEY}&arcode=${sggCode}`;
         http.get(url, { headers: { 'User-Agent': 'Mozilla/5.0' } }, (res) => {
-            let data = '';
-            res.on('data', d => data += d);
-            res.on('end', () => resolve(data));
+            readApiResponse(res).then(resolve, reject);
         }).on('error', reject);
     });
 }

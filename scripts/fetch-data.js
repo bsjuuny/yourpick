@@ -93,27 +93,28 @@ const REGIONS = [
         "sidoCode": "28",
         "sidoName": "인천광역시",
         "sggList": [
-            { "sggCode": "28110", "sggName": "중구" },
-            { "sggCode": "28140", "sggName": "동구" },
+            { "sggCode": "28125", "sggName": "제물포구" },
+            { "sggCode": "28155", "sggName": "영종구" },
             { "sggCode": "28177", "sggName": "미추홀구" },
             { "sggCode": "28185", "sggName": "연수구" },
             { "sggCode": "28200", "sggName": "남동구" },
             { "sggCode": "28237", "sggName": "부평구" },
             { "sggCode": "28245", "sggName": "계양구" },
-            { "sggCode": "28260", "sggName": "서구" },
+            { "sggCode": "28275", "sggName": "서해구" },
+            { "sggCode": "28290", "sggName": "검단구" },
             { "sggCode": "28710", "sggName": "강화군" },
             { "sggCode": "28720", "sggName": "옹진군" }
         ]
     },
     {
-        "sidoCode": "29",
-        "sidoName": "광주광역시",
+        "sidoCode": "12",
+        "sidoName": "전남광주통합특별시",
         "sggList": [
-            { "sggCode": "29110", "sggName": "동구" },
-            { "sggCode": "29140", "sggName": "서구" },
-            { "sggCode": "29155", "sggName": "남구" },
-            { "sggCode": "29170", "sggName": "북구" },
-            { "sggCode": "29200", "sggName": "광산구" }
+            { "sggCode": "12210", "sggName": "동구" },
+            { "sggCode": "12240", "sggName": "서구" },
+            { "sggCode": "12270", "sggName": "남구" },
+            { "sggCode": "12300", "sggName": "북구" },
+            { "sggCode": "12330", "sggName": "광산구" }
         ]
     },
     {
@@ -153,12 +154,12 @@ const REGIONS = [
             { "sggCode": "41130", "sggName": "성남시" },
             { "sggCode": "41150", "sggName": "의정부시" },
             { "sggCode": "41170", "sggName": "안양시" },
-            { "sggCode": "41190", "sggName": "부천시" },
+            { "sggCode": "41190", "sggName": "부천시", "kindergartenSggCodes": ["41192", "41194", "41196"] },
             { "sggCode": "41210", "sggName": "광명시" },
             { "sggCode": "41220", "sggName": "평택시" },
             { "sggCode": "41250", "sggName": "동두천시" },
-            { "sggCode": "41270", "sggName": "안산시" },
-            { "sggCode": "41280", "sggName": "고양시" },
+            { "sggCode": "41270", "sggName": "안산시", "kindergartenSggCodes": ["41271", "41273"] },
+            { "sggCode": "41280", "sggName": "고양시", "kindergartenSggCodes": ["41281", "41285", "41287"] },
             { "sggCode": "41290", "sggName": "과천시" },
             { "sggCode": "41310", "sggName": "구리시" },
             { "sggCode": "41360", "sggName": "남양주시" },
@@ -167,12 +168,12 @@ const REGIONS = [
             { "sggCode": "41410", "sggName": "군포시" },
             { "sggCode": "41430", "sggName": "의왕시" },
             { "sggCode": "41450", "sggName": "하남시" },
-            { "sggCode": "41460", "sggName": "용인시" },
+            { "sggCode": "41460", "sggName": "용인시", "kindergartenSggCodes": ["41461", "41463", "41465"] },
             { "sggCode": "41480", "sggName": "파주시" },
             { "sggCode": "41500", "sggName": "이천시" },
             { "sggCode": "41550", "sggName": "안성시" },
             { "sggCode": "41570", "sggName": "김포시" },
-            { "sggCode": "41590", "sggName": "화성시" },
+            { "sggCode": "41590", "sggName": "화성시", "kindergartenSggCodes": ["41591", "41593", "41595", "41597"] },
             { "sggCode": "41610", "sggName": "광주시" },
             { "sggCode": "41630", "sggName": "양주시" },
             { "sggCode": "41650", "sggName": "포천시" },
@@ -211,6 +212,26 @@ async function fetchApi(endpoint, sidoCode, sggCode, retries = 3) {
             await delay(3000);
         }
     }
+}
+
+// Some cities are only served by the kindergarten API at district level
+// (e.g. 화성시 → 만세·효행·병점·동탄구). Fetch each district and merge the lists
+// under the city code that the site and the childcare API use.
+async function fetchKinderMerged(endpoint, sidoCode, sggCodes) {
+    if (sggCodes.length === 1) return fetchApi(endpoint, sidoCode, sggCodes[0]);
+    const kinderInfo = [];
+    for (const code of sggCodes) {
+        const data = await fetchApi(endpoint, sidoCode, code);
+        const list = data && data.kinderInfo ? (Array.isArray(data.kinderInfo) ? data.kinderInfo : [data.kinderInfo]) : [];
+        kinderInfo.push(...list);
+    }
+    return { kinderInfo };
+}
+
+async function fetchTenureHtmlMerged(sidoCode, sggCodes) {
+    const pages = [];
+    for (const code of sggCodes) pages.push(await fetchTenureHtml(sidoCode, code));
+    return pages;
 }
 
 function fetchTenureHtml(sidoCode, sggCode) {
@@ -610,44 +631,45 @@ async function run() {
         const dataDir = path.resolve(__dirname, '../public/data');
         if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
 
-        fs.writeFileSync(path.join(dataDir, 'regions.json'), JSON.stringify(REGIONS, null, 2), 'utf-8');
+        fs.writeFileSync(path.join(dataDir, 'regions.json'), JSON.stringify(REGIONS.map(sido => ({ ...sido, sggList: sido.sggList.map(({ sggCode, sggName }) => ({ sggCode, sggName })) })), null, 2), 'utf-8');
         console.log('✅ Generated regions.json metadata.');
 
         for (const sido of REGIONS) {
             for (const sgg of sido.sggList) {
                 console.log(`Fetching data for ${sido.sidoName} ${sgg.sggName}...`);
+                const kinderCodes = sgg.kindergartenSggCodes || [sgg.sggCode];
                 const [basicInfo, teachersInfo, afterSchoolData, schoolBusData, mealData, safetyData, , tenureHtml] = await Promise.all([
-                    fetchApi('basicInfo2', sido.sidoCode, sgg.sggCode).catch((e) => {
+                    fetchKinderMerged('basicInfo2', sido.sidoCode, kinderCodes).catch((e) => {
                         console.warn(`   ⚠️ basicInfo2 fetch failed for ${sido.sidoName} ${sgg.sggName}: ${e.message}`);
                         return null;
                     }),
-                    fetchApi('teachersInfo', sido.sidoCode, sgg.sggCode).catch((e) => {
+                    fetchKinderMerged('teachersInfo', sido.sidoCode, kinderCodes).catch((e) => {
                         console.warn(`   ⚠️ teachersInfo fetch failed for ${sido.sidoName} ${sgg.sggName}: ${e.message}`);
                         return null;
                     }),
-                    fetchApi('afterSchoolPresent', sido.sidoCode, sgg.sggCode).catch((e) => {
+                    fetchKinderMerged('afterSchoolPresent', sido.sidoCode, kinderCodes).catch((e) => {
                         console.warn(`   ⚠️ afterSchoolPresent fetch failed for ${sido.sidoName} ${sgg.sggName}: ${e.message}`);
                         return null;
                     }),
-                    fetchApi('schoolBus', sido.sidoCode, sgg.sggCode).catch((e) => {
+                    fetchKinderMerged('schoolBus', sido.sidoCode, kinderCodes).catch((e) => {
                         console.warn(`   ⚠️ schoolBus fetch failed for ${sido.sidoName} ${sgg.sggName}: ${e.message}`);
                         return null;
                     }),
-                    fetchApi('schoolMeal', sido.sidoCode, sgg.sggCode).catch((e) => {
+                    fetchKinderMerged('schoolMeal', sido.sidoCode, kinderCodes).catch((e) => {
                         console.warn(`   ⚠️ schoolMeal fetch failed for ${sido.sidoName} ${sgg.sggName}: ${e.message}`);
                         return null;
                     }),
-                    fetchApi('safetyEdu', sido.sidoCode, sgg.sggCode).catch((e) => {
+                    fetchKinderMerged('safetyEdu', sido.sidoCode, kinderCodes).catch((e) => {
                         console.warn(`   ⚠️ safetyEdu fetch failed for ${sido.sidoName} ${sgg.sggName}: ${e.message}`);
                         return null;
                     }),
-                    fetchApi('environmentHygiene', sido.sidoCode, sgg.sggCode).catch((e) => {
+                    fetchKinderMerged('environmentHygiene', sido.sidoCode, kinderCodes).catch((e) => {
                         console.warn(`   ⚠️ environmentHygiene fetch failed for ${sido.sidoName} ${sgg.sggName}: ${e.message}`);
                         return null;
                     }),
-                    fetchTenureHtml(sido.sidoCode, sgg.sggCode).catch((e) => {
+                    fetchTenureHtmlMerged(sido.sidoCode, kinderCodes).catch((e) => {
                         console.warn(`   ⚠️ tenureHtml fetch failed for ${sido.sidoName} ${sgg.sggName}: ${e.message}`);
-                        return '';
+                        return [];
                     })
                 ]);
 
@@ -657,7 +679,8 @@ async function run() {
                     continue;
                 }
 
-                const tenureMap = parseTenureTable(tenureHtml);
+                const tenureMap = new Map();
+                for (const html of tenureHtml) for (const [id, value] of parseTenureTable(html)) tenureMap.set(id, value);
                 const spclMap = extractSpclMap(afterSchoolData);
                 const mealMap = extractMap(mealData);
                 const safetyMap = extractMap(safetyData);

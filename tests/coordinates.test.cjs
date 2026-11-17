@@ -32,7 +32,7 @@ test('missing, swapped, zero and out-of-country coordinates never become fabrica
 
 test('all three reported facilities and even Seoul City Hall scope reject the known placeholder', () => {
     for (const [sidoCode, sggCode, name, address] of [
-        ['29', '29140', '상무센트럴자이어린이집', '광주광역시 서구 상무대로 1'],
+        ['12', '12240', '상무센트럴자이어린이집', '전남광주통합특별시 서구 상무대로 1'],
         ['41', '41630', '공립 디아뜰어린이집', '경기도 양주시 옥정로 1'],
         ['41', '41130', '판교테크노2어린이집', '경기도 성남시 분당구 판교로319번길 14'],
         ['11', '11140', '서울시설', '서울특별시 중구 세종대로 110'],
@@ -47,7 +47,7 @@ test('regional polygons reject another district and another province', () => {
     assert.equal(validate(valid()).locationStatus, 'region_consistent');
     const wrongDistrict = validate(valid({ sggCode: '11650', address: '서울특별시 서초구 서초대로 1' }));
     assert.ok(wrongDistrict.locationIssues.includes('region_mismatch'));
-    const wrongProvince = validate(valid({ sidoCode: '29', sggCode: '29140', address: '광주광역시 서구 상무대로 1' }));
+    const wrongProvince = validate(valid({ sidoCode: '12', sggCode: '12240', address: '전남광주통합특별시 서구 상무대로 1' }));
     assert.ok(wrongProvince.locationIssues.includes('region_mismatch'));
 });
 
