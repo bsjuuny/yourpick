@@ -41,3 +41,14 @@ test('dong list has no keys for regions that are not listed', () => {
     const codes = new Set(regions.flatMap(s => s.sggList.map(g => g.sggCode)));
     assert.deepEqual(Object.keys(dongs).filter(k => !codes.has(k)), []);
 });
+
+test('[Codex#5-1] daycare-unavailable flag is only on 계룡시 and its daycare file is an empty list', () => {
+    const flagged = regions.flatMap(s => s.sggList.filter(g => g.childcareUnavailable).map(g => `${s.sidoCode}_${g.sggCode}`));
+    assert.deepEqual(flagged, ['44_44250']);
+    for (const key of flagged) {
+        assert.deepEqual(JSON.parse(fs.readFileSync(path.join(root, 'public/data', `${key}_childcare.json`), 'utf8')), []);
+    }
+    const { regionFiles, unavailableChildcareFiles } = require('../scripts/check-data-counts.cjs');
+    assert.ok(regionFiles(regions).includes('44_44250_childcare.json'), 'the file is still read and checked');
+    assert.deepEqual([...unavailableChildcareFiles(regions)], ['44_44250_childcare.json']);
+});
