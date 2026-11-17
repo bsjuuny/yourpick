@@ -7,8 +7,8 @@
     "municipalities": 108
   },
   "total": 21954,
-  "regionConsistent": 21321,
-  "unconfirmed": 633,
+  "regionConsistent": 21322,
+  "unconfirmed": 632,
   "bySource": {
     "유치원": {
       "total": 4329,
@@ -17,14 +17,14 @@
     },
     "어린이집": {
       "total": 17625,
-      "regionConsistent": 17024,
-      "unconfirmed": 601
+      "regionConsistent": 17025,
+      "unconfirmed": 600
     }
   },
   "reasons": {
     "known_placeholder": 142,
-    "region_mismatch": 250,
-    "duplicate_coordinate_unconfirmed": 502,
+    "region_mismatch": 249,
+    "duplicate_coordinate_unconfirmed": 501,
     "missing_or_invalid_coordinate": 22,
     "address_region_unconfirmed": 7,
     "outside_korea": 1
@@ -3940,27 +3940,6 @@
         {
           "code": "11140",
           "name": "서울특별시 중구"
-        }
-      ]
-    },
-    {
-      "file": "28_28290_childcare.json",
-      "id": "28260000691",
-      "source": "어린이집",
-      "name": "국공립아라금호어울림어린이집",
-      "address": "인천광역시 검단구  이음5로 65 관리동",
-      "sourceCoordinates": {
-        "latitude": "37.4924162",
-        "longitude": "126.7046638"
-      },
-      "reasons": [
-        "region_mismatch",
-        "duplicate_coordinate_unconfirmed"
-      ],
-      "coordinateRegions": [
-        {
-          "code": "28237",
-          "name": "인천광역시 부평구"
         }
       ]
     },
@@ -20201,16 +20180,9 @@
     },
     {
       "coordinate": "37.4924162,126.7046638",
-      "count": 3,
+      "count": 2,
       "classification": "unconfirmed_duplicate",
       "members": [
-        {
-          "id": "28260000691",
-          "source": "어린이집",
-          "sggCode": "28290",
-          "name": "국공립아라금호어울림어린이집",
-          "address": "인천광역시 검단구  이음5로 65 관리동"
-        },
         {
           "id": "28260000737",
           "source": "어린이집",

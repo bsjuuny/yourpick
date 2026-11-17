@@ -19,6 +19,35 @@
     "hasSchoolBus": true,
     "expenseLevel": "시설별 차등 (상세 문의)",
     "ageRange": "만 3세 ~ 5세",
+    "ageClasses": {
+      "basis": {
+        "kind": "disclosure",
+        "key": "20232",
+        "label": "2023년 2차 공시"
+      },
+      "byAge": {
+        "3": {
+          "classes": 1,
+          "children": 12,
+          "capacity": 60
+        },
+        "4": {
+          "classes": 1,
+          "children": 13,
+          "capacity": 60
+        },
+        "5": {
+          "classes": 1,
+          "children": 16,
+          "capacity": 60
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 0,
+        "children": 0
+      }
+    },
     "teacherRatio": "33% (1명/3명)",
     "teacherTenure": {
       "under1": 0,
@@ -60,6 +89,35 @@
     "hasSchoolBus": true,
     "expenseLevel": "무상교육 (누리과정 지원)",
     "ageRange": "만 3세 ~ 5세",
+    "ageClasses": {
+      "basis": {
+        "kind": "disclosure",
+        "key": "20262",
+        "label": "2026년 2차 공시"
+      },
+      "byAge": {
+        "3": {
+          "classes": 3,
+          "children": 41,
+          "capacity": 41
+        },
+        "4": {
+          "classes": 3,
+          "children": 49,
+          "capacity": 49
+        },
+        "5": {
+          "classes": 3,
+          "children": 56,
+          "capacity": 54
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 3,
+        "children": 12
+      }
+    },
     "teacherRatio": "61% (11명/18명)",
     "teacherTenure": {
       "under1": 21,
@@ -101,6 +159,47 @@
     "hasSchoolBus": true,
     "expenseLevel": "무상교육 (누리과정 지원)",
     "ageRange": "만 3세 ~ 5세",
+    "ageClasses": {
+      "basis": {
+        "kind": "disclosure",
+        "key": "20262",
+        "label": "2026년 2차 공시"
+      },
+      "byAge": {
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "capacity": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "capacity": 0
+        },
+        "5": {
+          "classes": 1,
+          "children": 5,
+          "capacity": 20
+        }
+      },
+      "mixed": [
+        {
+          "label": "혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 2,
+          "capacity": 16
+        }
+      ],
+      "special": {
+        "classes": 1,
+        "children": 4
+      }
+    },
     "teacherRatio": "75% (3명/4명)",
     "teacherTenure": {
       "under1": 0,
@@ -140,6 +239,47 @@
     "hasSchoolBus": true,
     "expenseLevel": "시설별 차등 (상세 문의)",
     "ageRange": "만 3세 ~ 5세",
+    "ageClasses": {
+      "basis": {
+        "kind": "disclosure",
+        "key": "20262",
+        "label": "2026년 2차 공시"
+      },
+      "byAge": {
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "capacity": 0
+        },
+        "4": {
+          "classes": 3,
+          "children": 66,
+          "capacity": 66
+        },
+        "5": {
+          "classes": 2,
+          "children": 47,
+          "capacity": 47
+        }
+      },
+      "mixed": [
+        {
+          "label": "혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 3,
+          "children": 61,
+          "capacity": 61
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      }
+    },
     "teacherRatio": "40% (4명/10명)",
     "teacherTenure": {
       "under1": 30,
@@ -181,6 +321,35 @@
     "hasSchoolBus": true,
     "expenseLevel": "무상교육 (누리과정 지원)",
     "ageRange": "만 3세 ~ 5세",
+    "ageClasses": {
+      "basis": {
+        "kind": "disclosure",
+        "key": "20262",
+        "label": "2026년 2차 공시"
+      },
+      "byAge": {
+        "3": {
+          "classes": 1,
+          "children": 8,
+          "capacity": 14
+        },
+        "4": {
+          "classes": 1,
+          "children": 4,
+          "capacity": 18
+        },
+        "5": {
+          "classes": 1,
+          "children": 20,
+          "capacity": 20
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 0,
+        "children": 0
+      }
+    },
     "teacherRatio": "100% (4명/4명)",
     "teacherTenure": {
       "under1": 20,
@@ -220,6 +389,35 @@
     "hasSchoolBus": true,
     "expenseLevel": "무상교육 (누리과정 지원)",
     "ageRange": "만 3세 ~ 5세",
+    "ageClasses": {
+      "basis": {
+        "kind": "disclosure",
+        "key": "20262",
+        "label": "2026년 2차 공시"
+      },
+      "byAge": {
+        "3": {
+          "classes": 1,
+          "children": 12,
+          "capacity": 14
+        },
+        "4": {
+          "classes": 1,
+          "children": 18,
+          "capacity": 18
+        },
+        "5": {
+          "classes": 1,
+          "children": 19,
+          "capacity": 20
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 0,
+        "children": 0
+      }
+    },
     "teacherRatio": "100% (4명/4명)",
     "teacherTenure": {
       "under1": 0,
@@ -258,6 +456,47 @@
     "hasSchoolBus": false,
     "expenseLevel": "무상교육 (누리과정 지원)",
     "ageRange": "만 3세 ~ 5세",
+    "ageClasses": {
+      "basis": {
+        "kind": "disclosure",
+        "key": "20251",
+        "label": "2025년 1차 공시"
+      },
+      "byAge": {
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "capacity": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "capacity": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "capacity": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 4,
+          "capacity": 16
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      }
+    },
     "teacherRatio": "100% (1명/1명)",
     "teacherTenure": {
       "under1": 100,
@@ -297,6 +536,35 @@
     "hasSchoolBus": true,
     "expenseLevel": "무상교육 (누리과정 지원)",
     "ageRange": "만 3세 ~ 5세",
+    "ageClasses": {
+      "basis": {
+        "kind": "disclosure",
+        "key": "20262",
+        "label": "2026년 2차 공시"
+      },
+      "byAge": {
+        "3": {
+          "classes": 1,
+          "children": 7,
+          "capacity": 14
+        },
+        "4": {
+          "classes": 1,
+          "children": 12,
+          "capacity": 18
+        },
+        "5": {
+          "classes": 1,
+          "children": 13,
+          "capacity": 20
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 1,
+        "children": 2
+      }
+    },
     "teacherRatio": "100% (5명/5명)",
     "teacherTenure": {
       "under1": 25,
@@ -336,6 +604,47 @@
     "hasSchoolBus": true,
     "expenseLevel": "무상교육 (누리과정 지원)",
     "ageRange": "만 3세 ~ 5세",
+    "ageClasses": {
+      "basis": {
+        "kind": "disclosure",
+        "key": "20262",
+        "label": "2026년 2차 공시"
+      },
+      "byAge": {
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "capacity": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "capacity": 0
+        },
+        "5": {
+          "classes": 1,
+          "children": 13,
+          "capacity": 20
+        }
+      },
+      "mixed": [
+        {
+          "label": "혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 4,
+          "capacity": 16
+        }
+      ],
+      "special": {
+        "classes": 1,
+        "children": 4
+      }
+    },
     "teacherRatio": "100% (2명/2명)",
     "teacherTenure": {
       "under1": 0,
@@ -375,6 +684,35 @@
     "hasSchoolBus": true,
     "expenseLevel": "무상교육 (누리과정 지원)",
     "ageRange": "만 3세 ~ 5세",
+    "ageClasses": {
+      "basis": {
+        "kind": "disclosure",
+        "key": "20262",
+        "label": "2026년 2차 공시"
+      },
+      "byAge": {
+        "3": {
+          "classes": 1,
+          "children": 14,
+          "capacity": 14
+        },
+        "4": {
+          "classes": 1,
+          "children": 18,
+          "capacity": 18
+        },
+        "5": {
+          "classes": 1,
+          "children": 19,
+          "capacity": 20
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 0,
+        "children": 0
+      }
+    },
     "teacherRatio": "100% (3명/3명)",
     "teacherTenure": {
       "under1": 0,
@@ -414,6 +752,35 @@
     "hasSchoolBus": true,
     "expenseLevel": "무상교육 (누리과정 지원)",
     "ageRange": "만 3세 ~ 5세",
+    "ageClasses": {
+      "basis": {
+        "kind": "disclosure",
+        "key": "20262",
+        "label": "2026년 2차 공시"
+      },
+      "byAge": {
+        "3": {
+          "classes": 1,
+          "children": 9,
+          "capacity": 14
+        },
+        "4": {
+          "classes": 1,
+          "children": 9,
+          "capacity": 18
+        },
+        "5": {
+          "classes": 1,
+          "children": 13,
+          "capacity": 20
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 0,
+        "children": 0
+      }
+    },
     "teacherRatio": "-",
     "teacherTenure": {
       "under1": 33,
@@ -453,6 +820,47 @@
     "hasSchoolBus": false,
     "expenseLevel": "무상교육 (누리과정 지원)",
     "ageRange": "만 3세 ~ 5세",
+    "ageClasses": {
+      "basis": {
+        "kind": "disclosure",
+        "key": "20262",
+        "label": "2026년 2차 공시"
+      },
+      "byAge": {
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "capacity": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "capacity": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "capacity": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 2,
+          "capacity": 16
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      }
+    },
     "teacherRatio": "100% (1명/1명)",
     "teacherTenure": {
       "under1": 0,
@@ -492,6 +900,35 @@
     "hasSchoolBus": true,
     "expenseLevel": "시설별 차등 (상세 문의)",
     "ageRange": "만 3세 ~ 5세",
+    "ageClasses": {
+      "basis": {
+        "kind": "disclosure",
+        "key": "20262",
+        "label": "2026년 2차 공시"
+      },
+      "byAge": {
+        "3": {
+          "classes": 1,
+          "children": 11,
+          "capacity": 40
+        },
+        "4": {
+          "classes": 2,
+          "children": 30,
+          "capacity": 40
+        },
+        "5": {
+          "classes": 1,
+          "children": 24,
+          "capacity": 40
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 0,
+        "children": 0
+      }
+    },
     "teacherRatio": "50% (2명/4명)",
     "teacherTenure": {
       "under1": 75,
@@ -533,6 +970,35 @@
     "hasSchoolBus": true,
     "expenseLevel": "무상교육 (누리과정 지원)",
     "ageRange": "만 3세 ~ 5세",
+    "ageClasses": {
+      "basis": {
+        "kind": "disclosure",
+        "key": "20262",
+        "label": "2026년 2차 공시"
+      },
+      "byAge": {
+        "3": {
+          "classes": 2,
+          "children": 28,
+          "capacity": 28
+        },
+        "4": {
+          "classes": 2,
+          "children": 36,
+          "capacity": 36
+        },
+        "5": {
+          "classes": 2,
+          "children": 38,
+          "capacity": 40
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 1,
+        "children": 0
+      }
+    },
     "teacherRatio": "89% (8명/9명)",
     "teacherTenure": {
       "under1": 50,
@@ -574,6 +1040,35 @@
     "hasSchoolBus": true,
     "expenseLevel": "시설별 차등 (상세 문의)",
     "ageRange": "만 3세 ~ 5세",
+    "ageClasses": {
+      "basis": {
+        "kind": "disclosure",
+        "key": "20262",
+        "label": "2026년 2차 공시"
+      },
+      "byAge": {
+        "3": {
+          "classes": 1,
+          "children": 22,
+          "capacity": 22
+        },
+        "4": {
+          "classes": 2,
+          "children": 39,
+          "capacity": 39
+        },
+        "5": {
+          "classes": 2,
+          "children": 56,
+          "capacity": 56
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 0,
+        "children": 0
+      }
+    },
     "teacherRatio": "50% (3명/6명)",
     "teacherTenure": {
       "under1": 0,
@@ -616,6 +1111,35 @@
     "hasSchoolBus": true,
     "expenseLevel": "시설별 차등 (상세 문의)",
     "ageRange": "만 3세 ~ 5세",
+    "ageClasses": {
+      "basis": {
+        "kind": "disclosure",
+        "key": "20262",
+        "label": "2026년 2차 공시"
+      },
+      "byAge": {
+        "3": {
+          "classes": 2,
+          "children": 18,
+          "capacity": 60
+        },
+        "4": {
+          "classes": 2,
+          "children": 37,
+          "capacity": 60
+        },
+        "5": {
+          "classes": 2,
+          "children": 18,
+          "capacity": 60
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 0,
+        "children": 0
+      }
+    },
     "teacherRatio": "33% (2명/6명)",
     "teacherTenure": {
       "under1": 17,
@@ -656,6 +1180,47 @@
     "hasSchoolBus": true,
     "expenseLevel": "시설별 차등 (상세 문의)",
     "ageRange": "만 3세 ~ 5세",
+    "ageClasses": {
+      "basis": {
+        "kind": "disclosure",
+        "key": "20252",
+        "label": "2025년 2차 공시"
+      },
+      "byAge": {
+        "3": {
+          "classes": 1,
+          "children": 12,
+          "capacity": 18
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "capacity": 0
+        },
+        "5": {
+          "classes": 1,
+          "children": 16,
+          "capacity": 28
+        }
+      },
+      "mixed": [
+        {
+          "label": "혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 8,
+          "capacity": 15
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      }
+    },
     "teacherRatio": "50% (2명/4명)",
     "teacherTenure": {
       "under1": 25,
@@ -695,6 +1260,47 @@
     "hasSchoolBus": false,
     "expenseLevel": "무상교육 (누리과정 지원)",
     "ageRange": "만 3세 ~ 5세",
+    "ageClasses": {
+      "basis": {
+        "kind": "disclosure",
+        "key": "20232",
+        "label": "2023년 2차 공시"
+      },
+      "byAge": {
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "capacity": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "capacity": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "capacity": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 4,
+          "capacity": 21
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      }
+    },
     "teacherRatio": "100% (1명/1명)",
     "teacherTenure": {
       "under1": 100,
@@ -734,6 +1340,35 @@
     "hasSchoolBus": true,
     "expenseLevel": "시설별 차등 (상세 문의)",
     "ageRange": "만 3세 ~ 5세",
+    "ageClasses": {
+      "basis": {
+        "kind": "disclosure",
+        "key": "20262",
+        "label": "2026년 2차 공시"
+      },
+      "byAge": {
+        "3": {
+          "classes": 3,
+          "children": 74,
+          "capacity": 74
+        },
+        "4": {
+          "classes": 2,
+          "children": 52,
+          "capacity": 52
+        },
+        "5": {
+          "classes": 1,
+          "children": 24,
+          "capacity": 24
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 0,
+        "children": 0
+      }
+    },
     "teacherRatio": "11% (1명/9명)",
     "teacherTenure": {
       "under1": 33,
@@ -775,6 +1410,47 @@
     "hasSchoolBus": true,
     "expenseLevel": "시설별 차등 (상세 문의)",
     "ageRange": "만 3세 ~ 5세",
+    "ageClasses": {
+      "basis": {
+        "kind": "disclosure",
+        "key": "20262",
+        "label": "2026년 2차 공시"
+      },
+      "byAge": {
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "capacity": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "capacity": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "capacity": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 8,
+          "children": 175,
+          "capacity": 176
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      }
+    },
     "teacherRatio": "73% (8명/11명)",
     "teacherTenure": {
       "under1": 9,
@@ -816,6 +1492,47 @@
     "hasSchoolBus": false,
     "expenseLevel": "무상교육 (누리과정 지원)",
     "ageRange": "만 3세 ~ 5세",
+    "ageClasses": {
+      "basis": {
+        "kind": "disclosure",
+        "key": "20252",
+        "label": "2025년 2차 공시"
+      },
+      "byAge": {
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "capacity": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "capacity": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "capacity": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 4,
+          "capacity": 16
+        }
+      ],
+      "special": {
+        "classes": 1,
+        "children": 4
+      }
+    },
     "teacherRatio": "100% (1명/1명)",
     "teacherTenure": {
       "under1": 0,
@@ -855,6 +1572,35 @@
     "hasSchoolBus": true,
     "expenseLevel": "시설별 차등 (상세 문의)",
     "ageRange": "만 3세 ~ 5세",
+    "ageClasses": {
+      "basis": {
+        "kind": "disclosure",
+        "key": "20262",
+        "label": "2026년 2차 공시"
+      },
+      "byAge": {
+        "3": {
+          "classes": 3,
+          "children": 73,
+          "capacity": 75
+        },
+        "4": {
+          "classes": 3,
+          "children": 80,
+          "capacity": 84
+        },
+        "5": {
+          "classes": 3,
+          "children": 79,
+          "capacity": 81
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 0,
+        "children": 0
+      }
+    },
     "teacherRatio": "31% (4명/13명)",
     "teacherTenure": {
       "under1": 36,
@@ -895,6 +1641,35 @@
     "hasSchoolBus": true,
     "expenseLevel": "시설별 차등 (상세 문의)",
     "ageRange": "만 3세 ~ 5세",
+    "ageClasses": {
+      "basis": {
+        "kind": "disclosure",
+        "key": "20262",
+        "label": "2026년 2차 공시"
+      },
+      "byAge": {
+        "3": {
+          "classes": 1,
+          "children": 9,
+          "capacity": 14
+        },
+        "4": {
+          "classes": 2,
+          "children": 33,
+          "capacity": 40
+        },
+        "5": {
+          "classes": 2,
+          "children": 41,
+          "capacity": 42
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 0,
+        "children": 0
+      }
+    },
     "teacherRatio": "86% (6명/7명)",
     "teacherTenure": {
       "under1": 0,
@@ -937,6 +1712,35 @@
     "hasSchoolBus": true,
     "expenseLevel": "무상교육 (누리과정 지원)",
     "ageRange": "만 3세 ~ 5세",
+    "ageClasses": {
+      "basis": {
+        "kind": "disclosure",
+        "key": "20262",
+        "label": "2026년 2차 공시"
+      },
+      "byAge": {
+        "3": {
+          "classes": 1,
+          "children": 4,
+          "capacity": 14
+        },
+        "4": {
+          "classes": 1,
+          "children": 10,
+          "capacity": 18
+        },
+        "5": {
+          "classes": 1,
+          "children": 12,
+          "capacity": 20
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 1,
+        "children": 3
+      }
+    },
     "teacherRatio": "100% (3명/3명)",
     "teacherTenure": {
       "under1": 67,
@@ -976,6 +1780,35 @@
     "hasSchoolBus": true,
     "expenseLevel": "시설별 차등 (상세 문의)",
     "ageRange": "만 3세 ~ 5세",
+    "ageClasses": {
+      "basis": {
+        "kind": "disclosure",
+        "key": "20262",
+        "label": "2026년 2차 공시"
+      },
+      "byAge": {
+        "3": {
+          "classes": 2,
+          "children": 36,
+          "capacity": 36
+        },
+        "4": {
+          "classes": 2,
+          "children": 26,
+          "capacity": 26
+        },
+        "5": {
+          "classes": 1,
+          "children": 25,
+          "capacity": 25
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 0,
+        "children": 0
+      }
+    },
     "teacherRatio": "50% (3명/6명)",
     "teacherTenure": {
       "under1": 50,
@@ -1017,6 +1850,47 @@
     "hasSchoolBus": false,
     "expenseLevel": "무상교육 (누리과정 지원)",
     "ageRange": "만 3세 ~ 5세",
+    "ageClasses": {
+      "basis": {
+        "kind": "disclosure",
+        "key": "20242",
+        "label": "2024년 2차 공시"
+      },
+      "byAge": {
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "capacity": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "capacity": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "capacity": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 4,
+          "capacity": 18
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      }
+    },
     "teacherRatio": "100% (1명/1명)",
     "teacherTenure": {
       "under1": 100,
@@ -1056,6 +1930,47 @@
     "hasSchoolBus": false,
     "expenseLevel": "무상교육 (누리과정 지원)",
     "ageRange": "만 3세 ~ 5세",
+    "ageClasses": {
+      "basis": {
+        "kind": "disclosure",
+        "key": "20262",
+        "label": "2026년 2차 공시"
+      },
+      "byAge": {
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "capacity": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "capacity": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "capacity": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 6,
+          "capacity": 16
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      }
+    },
     "teacherRatio": "0% (0명/1명)",
     "teacherTenure": {
       "under1": 0,
@@ -1096,6 +2011,47 @@
     "hasSchoolBus": true,
     "expenseLevel": "무상교육 (누리과정 지원)",
     "ageRange": "만 3세 ~ 5세",
+    "ageClasses": {
+      "basis": {
+        "kind": "disclosure",
+        "key": "20262",
+        "label": "2026년 2차 공시"
+      },
+      "byAge": {
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "capacity": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "capacity": 0
+        },
+        "5": {
+          "classes": 1,
+          "children": 6,
+          "capacity": 18
+        }
+      },
+      "mixed": [
+        {
+          "label": "혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 11,
+          "capacity": 15
+        }
+      ],
+      "special": {
+        "classes": 1,
+        "children": 3
+      }
+    },
     "teacherRatio": "100% (3명/3명)",
     "teacherTenure": {
       "under1": 33,
@@ -1135,6 +2091,35 @@
     "hasSchoolBus": true,
     "expenseLevel": "시설별 차등 (상세 문의)",
     "ageRange": "만 3세 ~ 5세",
+    "ageClasses": {
+      "basis": {
+        "kind": "disclosure",
+        "key": "20262",
+        "label": "2026년 2차 공시"
+      },
+      "byAge": {
+        "3": {
+          "classes": 2,
+          "children": 50,
+          "capacity": 55
+        },
+        "4": {
+          "classes": 1,
+          "children": 24,
+          "capacity": 30
+        },
+        "5": {
+          "classes": 2,
+          "children": 47,
+          "capacity": 60
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 0,
+        "children": 0
+      }
+    },
     "teacherRatio": "57% (4명/7명)",
     "teacherTenure": {
       "under1": 14,
@@ -1176,6 +2161,47 @@
     "hasSchoolBus": true,
     "expenseLevel": "시설별 차등 (상세 문의)",
     "ageRange": "만 3세 ~ 5세",
+    "ageClasses": {
+      "basis": {
+        "kind": "disclosure",
+        "key": "20262",
+        "label": "2026년 2차 공시"
+      },
+      "byAge": {
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "capacity": 0
+        },
+        "4": {
+          "classes": 2,
+          "children": 41,
+          "capacity": 41
+        },
+        "5": {
+          "classes": 2,
+          "children": 44,
+          "capacity": 44
+        }
+      },
+      "mixed": [
+        {
+          "label": "혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 2,
+          "children": 37,
+          "capacity": 37
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      }
+    },
     "teacherRatio": "50% (4명/8명)",
     "teacherTenure": {
       "under1": 13,
@@ -1217,6 +2243,35 @@
     "hasSchoolBus": true,
     "expenseLevel": "무상교육 (누리과정 지원)",
     "ageRange": "만 3세 ~ 5세",
+    "ageClasses": {
+      "basis": {
+        "kind": "disclosure",
+        "key": "20262",
+        "label": "2026년 2차 공시"
+      },
+      "byAge": {
+        "3": {
+          "classes": 1,
+          "children": 14,
+          "capacity": 14
+        },
+        "4": {
+          "classes": 1,
+          "children": 18,
+          "capacity": 18
+        },
+        "5": {
+          "classes": 1,
+          "children": 20,
+          "capacity": 20
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 0,
+        "children": 0
+      }
+    },
     "teacherRatio": "100% (4명/4명)",
     "teacherTenure": {
       "under1": 67,
