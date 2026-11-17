@@ -84,11 +84,13 @@ function ListContent() {
         );
     }
 
+    // 지역(sido·sgg) 파일을 이미 그 지역 것으로 읽어 왔으므로 주소 문자열로 다시 거르지 않는다.
+    // 예전에는 query("세종특별자치시 세종특별자치시", "강원특별자치도 춘천시")가 주소에 그대로 있어야만 보여서
+    // '서울 마포구'·'강원도 춘천시'처럼 줄여 쓰거나 옛 이름으로 공시된 기관과 세종시 전체가 빠졌다(2026-11-17).
     const filteredData = institutions?.filter(inst => {
-        const matchesQuery = !query || inst.name.includes(query) || inst.address.includes(query);
         const matchesLocal = !localSearch || inst.name.includes(localSearch);
         const matchesType = typeFilter === '전체' || inst.type.includes(typeFilter);
-        return matchesQuery && matchesLocal && matchesType;
+        return matchesLocal && matchesType;
     }).sort((a, b) => {
         if (effectiveSort === 'fit') {
             const fa = fitOf(a), fb = fitOf(b);

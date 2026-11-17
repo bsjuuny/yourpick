@@ -78,7 +78,9 @@ function calculateStabilityScore(inst) {
 }
 
 function augmentData() {
-    const files = fs.readdirSync(DATA_DIR).filter(f => f.endsWith('.json') && f !== 'regions.json');
+    // 기관 목록 파일만({시도}_{시군구}[_childcare].json). dongs.json 같은 다른 JSON 은 목록이 아니라
+    // 여기서 멈춘다(2026-11-17, 맞춤 추천 배포 뒤 월간 갱신이 이 단계에서 실패할 뻔함).
+    const files = fs.readdirSync(DATA_DIR).filter(f => /^\d+_\d+(_childcare)?\.json$/.test(f));
     console.log(`🔍 Processing ${files.length} data files...`);
 
     let totalInst = 0, improved = { ageRange: 0, expenseLevel: 0, operatingHours: 0, mealStatus: 0, tags: 0, alimiUrl: 0 };
