@@ -4,7 +4,7 @@ import { useId, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { ChevronDown, LocateFixed, MapPin, RotateCcw, SlidersHorizontal } from 'lucide-react';
 import { useFitConditionsStore } from '@/store/useFitConditionsStore';
-import { COMMUTE_LABEL, entryAge, hasActiveConditions, locationApplies, type CommuteMode, type Importance, type Need } from '@/utils/fitConditions';
+import { COMMUTE_LABEL, entryAge, hasActiveConditions, locationApplies, type CommuteMode, type Importance, type MixedPreference, type Need } from '@/utils/fitConditions';
 import { currentSchoolYear } from '@/utils/ageClasses';
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
@@ -14,6 +14,12 @@ const NEED_OPTIONS: { value: Need; label: string }[] = [
     { value: 'off', label: '안 따짐' },
     { value: 'preferred', label: '있으면 좋음' },
     { value: 'required', label: '꼭 필요' },
+];
+
+const MIXED_OPTIONS: { value: MixedPreference; label: string }[] = [
+    { value: 'any', label: '상관없음' },
+    { value: 'prefer', label: '선호' },
+    { value: 'avoid', label: '피하고 싶음' },
 ];
 
 const IMPORTANCE_OPTIONS: { value: Importance; label: string }[] = [
@@ -176,8 +182,26 @@ export default function FitConditionsPanel({ sggCode }: { sggCode: string }) {
                                 </p>
                             )}
                             <Segmented label="연령 조건 중요도" value={c.ageNeed} options={NEED_OPTIONS} onChange={(v) => setConditions({ ageNeed: v })} />
-                            <p className="mt-1.5 text-[11px] font-medium text-slate-400 break-keep">반 연령은 학년도와 출생연도로 계산해요(예: 2026학년도 만 5세반 = 2020년생). 다음 학년도 이후 운영은 현재 공시만으로 확정하지 않아요.</p>
+                            <p className="mt-1.5 text-[11px] font-medium text-slate-400 break-keep">반 연령은 학년도와 출생연도로 계산한 표준 반편성 기준이에요(예: 2026학년도 만 5세반 = 2020년생). 1·2월생 상위반 등 예외는 기관에 확인해 주세요. 다음 학년도 이후 운영은 현재 공시만으로 확정하지 않아요.</p>
                         </div>
+                        <div>
+                            <label htmlFor={`${ids}-stay`} className={labelClass}>희망 재원 기간</label>
+                            <select
+                                id={`${ids}-stay`}
+                                className={`${fieldClass} disabled:opacity-50`}
+                                disabled={c.birthYear === null}
+                                value={c.stayYears ?? ''}
+                                onChange={(e) => setConditions({ stayYears: e.target.value === '' ? null : Number(e.target.value) })}
+                            >
+                                <option value="">졸업(만 5세반)까지</option>
+                                {[1, 2, 3, 4, 5].map(y => <option key={y} value={y}>{y}년</option>)}
+                            </select>
+                        </div>
+                        <div>
+                            <span className={labelClass}>혼합연령반</span>
+                            <Segmented label="혼합연령반 개인 선호" value={c.mixedPreference} options={MIXED_OPTIONS} onChange={(v) => setConditions({ mixedPreference: v })} />
+                        </div>
+                        <p className="sm:col-span-2 -mt-2 text-[11px] font-medium text-slate-400 break-keep">혼합연령반은 좋고 나쁨이 아니라 선호의 문제예요. 개인 선호 적합성에만 쓰고 공시 평가 점수에는 넣지 않아요.</p>
                     </div>
 
                     {/* 방과후 */}

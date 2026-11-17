@@ -15,6 +15,7 @@ import { assessFit, hasActiveConditions, locationApplies, objectiveText, type Fi
 import { FitGroupBadge, FitStatusLine } from '@/components/fit/FitSummary';
 import { useQuery } from '@tanstack/react-query';
 import { AgeClassBasis, AgeClassOverview, ChildPathCell, ClassHistoryCell, MixedClassCell } from '@/components/AgeClassCells';
+import { CommunicationCell, QuestionsCell } from '@/components/CommunicationCells';
 import { currentSchoolYear, type ClassHistoryEntry } from '@/utils/ageClasses';
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
@@ -331,6 +332,13 @@ export default function CompareTable({ data }: Props) {
     const fitActive = hasActiveConditions(fitConditions, (data ?? []).some(item => locationApplies(fitLocation, item.sggCode)) ? fitLocation : null);
     const history = useClassHistory(data ?? []);
     const historyOf = (item: Institution) => history.data?.[`${item.sidoCode}_${item.sggCode}`]?.[`${item.source}:${item.id}`];
+    const commRows: Row[] = [
+        { key: 'comm-items', label: '운영 변경 시 소통', render: () => <CommunicationCell /> },
+        {
+            key: 'comm-questions', label: '입학 전 확인 질문',
+            render: (item) => <QuestionsCell item={item} ctx={{ birthYear: fitConditions.birthYear, entryYear: fitConditions.entryYear, stayYears: fitConditions.stayYears, history: historyOf(item) }} />,
+        },
+    ];
     const classRows: Row[] = [
         { key: 'class-basis', label: '공시 기준', render: (item) => <AgeClassBasis item={item} /> },
         { key: 'class-overview', label: '연령별 학급', render: (item) => <AgeClassOverview item={item} /> },
@@ -340,7 +348,7 @@ export default function CompareTable({ data }: Props) {
     if (fitConditions.birthYear !== null) {
         const birthYear = fitConditions.birthYear;
         const entryYear = fitConditions.entryYear ?? currentSchoolYear();
-        classRows.push({ key: 'class-path', label: '우리 아이 학년도별', render: (item) => <ChildPathCell item={item} birthYear={birthYear} entryYear={entryYear} /> });
+        classRows.push({ key: 'class-path', label: '우리 아이 학년도별', render: (item) => <ChildPathCell item={item} birthYear={birthYear} entryYear={entryYear} stayYears={fitConditions.stayYears} /> });
     }
 
     if (!data || data.length === 0) {
@@ -434,6 +442,15 @@ export default function CompareTable({ data }: Props) {
                             </th>
                         </tr>
                         {renderRows(classRows)}
+                        <tr>
+                            <th scope="rowgroup" colSpan={data.length + 1} className="bg-slate-50 border-y border-slate-100 p-0 text-left">
+                                <div className="sticky left-0 w-fit max-w-[100vw] px-3 sm:px-5 py-3">
+                                    <span className="flex items-center gap-2 text-sm sm:text-base font-black text-slate-900 font-heading">운영 변경 및 학부모 소통 <MethodBadge method="visit" /></span>
+                                    <span className="block text-xs font-medium text-slate-500 break-keep">반 통합·편성 변경 때의 안내와 소통 방식은 공시 항목이 아니어서 기관에 직접 확인해 주세요.</span>
+                                </div>
+                            </th>
+                        </tr>
+                        {renderRows(commRows)}
                         {CRITERIA.map(criterion => {
                             const theme = CRITERION_THEME[criterion.id];
                             return (

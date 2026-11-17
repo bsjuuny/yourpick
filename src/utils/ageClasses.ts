@@ -24,6 +24,27 @@ export interface AgeClassStatus {
     children: number | null;
     capacity?: number | null;
     waiting?: number | null;
+    /** 최신 공시가 지난 학년도라 지금 운영 근거로 쓰지 않음(kind 는 'unknown'). staleKind = 그 공시의 판정 */
+    stale?: boolean;
+    staleKind?: ClassStatusKind;
+}
+
+/** 공시 기준의 학년도. 유치원 '20232' → 2023, 어린이집 기준일 → 그 날짜의 학년도. 모르면 null */
+export function basisSchoolYear(item: Institution): number | null {
+    const b = item.ageClasses?.basis;
+    if (!b || !b.key) return null;
+    if (b.kind === 'disclosure') return Number(b.key.slice(0, 4)) || null;
+    if (b.kind === 'date') {
+        const d = new Date(`${b.key}T00:00:00+09:00`);
+        return Number.isNaN(d.getTime()) ? null : currentSchoolYear(d);
+    }
+    return null;
+}
+
+/** 최신 공시가 지금 학년도보다 이전인지 (유치원 864곳이 2023~2025년 공시가 최신, 2026-11 기준) */
+export function isStaleBasis(item: Institution, now: Date = new Date()): boolean {
+    const y = basisSchoolYear(item);
+    return y !== null && y < currentSchoolYear(now);
 }
 
 export function applicableAges(item: Institution): number[] {
@@ -34,7 +55,18 @@ export function basisLabel(item: Institution): string {
     return item.ageClasses?.basis?.label ?? '기준 정보 없음';
 }
 
-export function ageClassStatus(item: Institution, age: number): AgeClassStatus {
+export function ageClassStatus(item: Institution, age: number, now: Date = new Date()): AgeClassStatus {
+    const raw = rawAgeClassStatus(item, age);
+    if (!isStaleBasis(item, now) || !['own', 'mixed', 'none', 'mixed-unknown-range'].includes(raw.kind)) return raw;
+    // 지난 학년도 공시는 참고 사실로만 보여 주고, 지금 운영 확인·미운영 확인·맞춤 조건 근거로 쓰지 않는다.
+    return {
+        ...raw, kind: 'unknown', stale: true, staleKind: raw.kind,
+        label: `정보 부족 · 최신 공시 아님(${item.ageClasses?.basis?.label}: ${raw.label})`,
+        detail: `${item.ageClasses?.basis?.label}가 이 기관의 가장 최근 공시라 지금 운영은 확인할 수 없어요 (${raw.detail})`,
+    };
+}
+
+function rawAgeClassStatus(item: Institution, age: number): AgeClassStatus {
     const base = { age, classes: 0, children: 0 };
     if (item.source === '유치원' && age < 3) {
         return { ...base, kind: 'not-applicable', label: '해당 없음', detail: '유치원은 만 3세부터 다녀요' };
@@ -46,7 +78,7 @@ export function ageClassStatus(item: Institution, age: number): AgeClassStatus {
     if (own && own.classes !== null && own.classes > 0) {
         const capacityText = own.capacity ? `, 정원 ${own.capacity}명` : '';
         const childrenText = own.children !== null ? ` · 원아 ${own.children}명` : '';
-        return { ...base, ...extra, kind: 'own', classes: own.classes, children: own.children, label: `단독반 ${own.classes}개`, detail: `만 ${age}세 반 ${own.classes}개${childrenText}${capacityText}` };
+        return { ...base, ...extra, kind: 'own', classes: own.classes, children: own.children, label: `운영 확인 · 단독반 ${own.classes}개`, detail: `만 ${age}세 반 ${own.classes}개${childrenText}${capacityText}` };
     }
     const covering = (ac.mixed ?? []).filter(m => m.classes > 0 && m.ages?.includes(age));
     if (covering.length > 0) {
@@ -54,22 +86,39 @@ export function ageClassStatus(item: Institution, age: number): AgeClassStatus {
         const names = covering.map(m => `${m.label}(만 ${m.ages![0]}~${m.ages![m.ages!.length - 1]}세) ${m.classes}개`).join(', ');
         const ownUnknown = !own || own.classes === null;
         return {
-            ...base, ...extra, kind: 'mixed', classes, children: null, label: '혼합반으로 운영',
-            detail: ownUnknown ? `만 ${age}세 단독반 수는 공시 원본에 없고, ${names}이 있어요` : `만 ${age}세 단독반은 없고 ${names}에서 함께 지내요`,
+            ...base, ...extra, kind: 'mixed', classes, children: null, label: '운영 확인 · 혼합반',
+            detail: ownUnknown ? `만 ${age}세 단독반 수는 공시 원본에 없고, ${names}가 있어요` : `만 ${age}세 단독반은 없고 ${names}에서 함께 지내요`,
         };
     }
-    const unknownRange = (ac.mixed ?? []).filter(m => m.classes > 0 && !m.ages);
-    if (unknownRange.length > 0) {
-        return { ...base, ...extra, kind: 'mixed-unknown-range', label: '확인 필요', detail: `만 ${age}세 단독반은 없고, 연령 범위가 공시되지 않은 혼합반 ${unknownRange.reduce((s, m) => s + m.classes, 0)}개가 있어요` };
+    // 혼합반은 공시가 구성 연령을 주지 않는다(영아혼합 0+1·1+2 등). 그 연령이 들 수 있는 혼합반이 있으면
+    // '운영 확인'으로 단정하지 않고 '정보 부족 · 구성 연령 확인 필요'로 둔다. 혼합반 자체를 나쁘게 보지 않는다.
+    const possible = (ac.mixed ?? []).filter(m => m.classes > 0 && !m.ages && (m.possibleAges ? m.possibleAges.includes(age) : true));
+    if (possible.length > 0) {
+        const names = possible.map(m => (m.possibleAges ? `${m.label}(만 ${m.possibleAges[0]}~${m.possibleAges[m.possibleAges.length - 1]}세 중 일부) ${m.classes}개` : `${m.label} ${m.classes}개`)).join(', ');
+        return { ...base, ...extra, kind: 'mixed-unknown-range', label: '정보 부족 · 혼합반 구성 연령 확인 필요', detail: `만 ${age}세 단독반은 없고 ${names}가 있어요. 만 ${age}세가 들어가는지는 공시되지 않아요` };
     }
     if (!own || own.classes === null) {
         return { ...base, kind: 'unknown', label: '정보 부족', detail: `공시 원본에 만 ${age}세 반 수가 없어요` };
     }
-    return { ...base, ...extra, kind: 'none', label: '이번 공시에 없음', detail: `${ac.basis?.label ?? '최근 공시'}에 만 ${age}세 반이 없어요 (폐반 여부·다음 학년도 모집은 기관 확인)` };
+    return { ...base, ...extra, kind: 'none', label: '해당 연령반 미운영 확인', detail: `${ac.basis?.label ?? '최근 공시'}에 만 ${age}세 반이 없어요 (폐반 여부·다음 학년도 모집은 기관 확인)` };
 }
 
-export function ageClassOverview(item: Institution): AgeClassStatus[] {
-    return applicableAges(item).map(age => ageClassStatus(item, age));
+/**
+ * 화면 상태 이름(요구서 기준). 운영 상태와 '학급 축소 확인' 같은 변화 표시는 따로 관리한다.
+ * 혼합반은 부정적 상태가 아니라 '운영 확인'의 한 형태다.
+ */
+export type OperationStatus = '운영 확인' | '운영계획 확인 필요' | '해당 연령반 미운영 확인' | '정보 부족' | '해당 없음';
+
+/** future = 다음 학년도 이후. 현재 공시가 무엇이든 그 학년도 운영은 '운영계획 확인 필요'다. */
+export function operationStatus(status: AgeClassStatus, future: boolean): OperationStatus {
+    if (status.kind === 'not-applicable') return '해당 없음';
+    if (status.kind === 'unknown' || status.kind === 'mixed-unknown-range') return '정보 부족';
+    if (future) return '운영계획 확인 필요';
+    return status.kind === 'none' ? '해당 연령반 미운영 확인' : '운영 확인';
+}
+
+export function ageClassOverview(item: Institution, now: Date = new Date()): AgeClassStatus[] {
+    return applicableAges(item).map(age => ageClassStatus(item, age, now));
 }
 
 export interface MixedSummary {
@@ -77,19 +126,22 @@ export interface MixedSummary {
     text: string;
 }
 
-export function mixedSummary(item: Institution): MixedSummary {
+export function mixedSummary(item: Institution, now: Date = new Date()): MixedSummary {
     const ac = item.ageClasses;
     if (!ac) return { has: false, text: '정보 부족' };
+    // 지난 학년도 공시면 그 사실을 함께 적는다(지금 운영 근거가 아님).
+    const staleNote = isStaleBasis(item, now) ? ` · 최신 공시 아님(${ac.basis?.label})` : '';
     const list = (ac.mixed ?? []).filter(m => m.classes > 0);
-    if (list.length === 0) return { has: false, text: ac.mixedKnown === false ? '정보 부족' : '혼합반 없음' };
+    if (list.length === 0) return { has: false, text: (ac.mixedKnown === false ? '정보 부족' : '혼합반 없음') + staleNote };
     // 혼합반 원아·정원은 연령별로 나뉘지 않은 합계라 그대로 '합계'로 적는다.
     return {
         has: true,
         text: list.map(m => {
-            const name = m.ages ? `${m.label}(만 ${m.ages[0]}~${m.ages[m.ages.length - 1]}세) ${m.classes}개` : `${m.label} ${m.classes}개`;
+            const name = m.ages ? `${m.label}(만 ${m.ages[0]}~${m.ages[m.ages.length - 1]}세) ${m.classes}개`
+                : m.possibleAges ? `${m.label}(만 ${m.possibleAges[0]}~${m.possibleAges[m.possibleAges.length - 1]}세 중 일부) ${m.classes}개` : `${m.label} ${m.classes}개`;
             const extra = [m.children != null ? `원아 ${m.children}명` : null, m.capacity ? `정원 ${m.capacity}명` : null].filter(Boolean).join(' · ');
             return extra ? `${name} (합계 ${extra})` : name;
-        }).join(', '),
+        }).join(', ') + staleNote,
     };
 }
 
@@ -101,10 +153,32 @@ export interface ClassHistoryEntry {
     basis: string | null;
     /** 만 0~5세 단독반 수. null = 해당 없음(유치원 만 0~2세) */
     classes: (number | null)[];
+    /** 연령별 단독반 원아 수 (2단계부터). null = 모름 */
+    children?: (number | null)[];
+    /** 기관 전체 정원·현원 (2단계부터) */
+    capacity?: number | null;
+    pupils?: number | null;
     /** 혼합반 수 합계. null = 당시 모으지 않아 모름 */
     mixed: number | null;
     special: number | null;
     origin: 'git' | 'collect';
+}
+
+/** 변화 표시 이름. 운영 상태(운영 확인 등)와 별개로 보여 준다. 부정적 판정이 아니다. */
+export const CHANGE_LABEL: Record<ChangeKind, string> = {
+    '신설': '학급 신설 확인',
+    '늘어남': '학급 증가 확인',
+    '줄어듦': '학급 축소 확인',
+    '없어짐': '단독반 미운영 전환 확인',
+    '변동 후 복귀': '학급 수 변동 후 복귀',
+};
+
+export interface CountChange {
+    label: string;
+    before: number;
+    after: number;
+    from: string;
+    to: string;
 }
 
 export type ChangeKind = '신설' | '늘어남' | '줄어듦' | '없어짐' | '변동 후 복귀';
@@ -124,6 +198,10 @@ export interface HistoryComparison {
     comparable: boolean;
     period: { from: string; to: string } | null;
     changes: ClassChange[];
+    /** 연령별 원아 수 변화(처음·마지막 기록이 모두 있는 연령만) */
+    pupilChanges: CountChange[];
+    /** 기관 전체 정원·현원 변화 */
+    totalChanges: CountChange[];
     notes: string[];
 }
 
@@ -131,7 +209,7 @@ export function compareHistory(item: Institution, entries: ClassHistoryEntry[] |
     const notes: string[] = [];
     if (!entries || entries.length < 2) {
         return {
-            comparable: false, period: null, changes: [],
+            comparable: false, period: null, changes: [], pupilChanges: [], totalChanges: [],
             notes: [item.source === '유치원'
                 ? '유치원은 이번(2026-11)부터 연령별 학급을 모으기 시작해 비교할 이전 공시가 없어요 (정보 부족)'
                 : '비교할 이전 기록이 없어요 (정보 부족)'],
@@ -164,11 +242,30 @@ export function compareHistory(item: Institution, entries: ClassHistoryEntry[] |
         }
         changes.push({ age, kind, before, after, steps, text });
     }
+    // 원아 수·정원·현원: 같은 연령·항목이 처음과 마지막 기록에 모두 있을 때만 비교한다(모름은 비교하지 않음).
+    const firstWith = (pick: (e: ClassHistoryEntry) => number | null | undefined) => entries.find(e => pick(e) != null);
+    const lastWith = (pick: (e: ClassHistoryEntry) => number | null | undefined) => [...entries].reverse().find(e => pick(e) != null);
+    const pupilChanges: CountChange[] = [];
+    for (const age of applicableAges(item)) {
+        const pick = (e: ClassHistoryEntry) => e.children?.[age];
+        const a = firstWith(pick), b = lastWith(pick);
+        if (!a || !b || a === b) continue;
+        const before = pick(a) as number, after = pick(b) as number;
+        if (before !== after) pupilChanges.push({ label: `만 ${age}세 단독반 원아`, before, after, from: a.from, to: b.from });
+    }
+    const totalChanges: CountChange[] = [];
+    for (const [label, pick] of [['전체 정원', (e: ClassHistoryEntry) => e.capacity], ['전체 현원', (e: ClassHistoryEntry) => e.pupils]] as const) {
+        const a = firstWith(pick), b = lastWith(pick);
+        if (!a || !b || a === b) continue;
+        const before = pick(a) as number, after = pick(b) as number;
+        if (before !== after) totalChanges.push({ label, before, after, from: a.from, to: b.from });
+    }
     if (first.mixed === null) notes.push('예전 기록에는 혼합반 정보가 없어 혼합반 변화는 비교하지 못했어요');
     else if (last.mixed !== null && first.mixed !== last.mixed) notes.push(`혼합반 ${first.mixed}개 → ${last.mixed}개`);
-    notes.push('과거 공식 공시는 받을 수 없어 YourPick이 모은 시점끼리 비교해요 (괄호는 수집 날짜)');
+    notes.push('과거 공식 공시는 받을 수 없어 YourPick이 모은 시점끼리 비교해요 (괄호는 YourPick이 데이터를 받거나 저장소에 기록한 날짜이며 공시 기준일이 아니에요)');
     notes.push('학급 수는 아이 수에 따라 해마다 바뀔 수 있어요. 줄어든 것만으로 폐반 예정이라고 볼 수 없어요');
-    return { comparable: true, period: { from: first.from, to: last.to }, changes, notes };
+    if (pupilChanges.length > 0) notes.push('원아 수는 단독반 기준이에요(혼합반 원아는 연령별로 나뉘지 않아 빠져요)');
+    return { comparable: true, period: { from: first.from, to: last.to }, changes, pupilChanges, totalChanges, notes };
 }
 
 // ── 우리 아이 학년도별 ────────────────────────────────────────────────────
@@ -202,14 +299,16 @@ export interface ChildPath {
     summary: string;
 }
 
-export function childPath(item: Institution, birthYear: number, entryYear: number, now: Date = new Date()): ChildPath {
+/** stayYears = 희망 재원 기간(학년도 수). null 이면 졸업(만 5세반)까지. */
+export function childPath(item: Institution, birthYear: number, entryYear: number, now: Date = new Date(), stayYears: number | null = null): ChildPath {
     const thisYear = currentSchoolYear(now);
     const years: PathYear[] = [];
-    for (let year = entryYear; classAgeFor(birthYear, year) <= 5; year++) {
+    // 지난 학년도는 판정하지 않는다(저장해 둔 입학 학년도가 시간이 지나 과거가 된 경우).
+    for (let year = Math.max(entryYear, thisYear); classAgeFor(birthYear, year) <= 5; year++) {
         const age = classAgeFor(birthYear, year);
         if (age < 0) continue;
-        years.push({ schoolYear: year, age, status: ageClassStatus(item, age), current: year <= thisYear });
-        if (years.length > 7) break;
+        years.push({ schoolYear: year, age, status: ageClassStatus(item, age, now), current: year <= thisYear });
+        if (years.length > 7 || (stayYears !== null && years.length >= stayYears)) break;
     }
     const gaps = years.filter(y => y.status.kind === 'none' || y.status.kind === 'not-applicable');
     const unknowns = years.filter(y => y.status.kind === 'unknown' || y.status.kind === 'mixed-unknown-range');

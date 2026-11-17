@@ -37,6 +37,8 @@ export default function Navbar() {
                     <div className="relative group/compare flex items-center">
                         <Link
                             href={`/compare?ids=${compareIds.join(',')}`}
+                            // 정적 export 에서 RSC 미리 불러오기 경로(__next.compare.__PAGE__.txt)가 404 → 끈다(Codex PR #6 지적 8).
+                            prefetch={false}
                             aria-label={compareCount > 0 ? `나의 비교함 (${compareCount}개 선택됨)` : '나의 비교함 (선택된 기관 없음)'}
                             aria-disabled={compareCount === 0}
                             className={`relative group flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 md:px-6 py-2 md:py-3 rounded-2xl font-black text-xs md:text-sm transition-all duration-500 font-heading tracking-tight ${compareCount > 0

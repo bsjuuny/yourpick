@@ -5,6 +5,7 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import CompareTable from '@/components/CompareTable';
 import { Loader2, ArrowLeft, Award } from 'lucide-react';
 import { useCompareStore } from '@/store/useCompareStore';
+import type { Institution } from '@/types/institution';
 
 function CompareContent() {
     const router = useRouter();
@@ -14,7 +15,12 @@ function CompareContent() {
     const compareIds = useCompareStore((state) => state.compareIds);
     const targetIds = ids.length > 0 ? ids : compareIds;
 
-    const [compareData, setCompareData] = useState<any[]>([]);
+    const [compareData, setCompareData] = useState<Institution[]>([]);
+    // 담아 둔 기관 중 현재 공시 목록에 없는 수. 어린이집은 휴지·폐지되면 공시 목록에서 빠지고,
+    // 지역 코드가 바뀌어도(예: 2026-07 인천 구 개편) 예전 주소로는 찾을 수 없다. 연령반 미운영과 구분해 알린다.
+    const [missingCount, setMissingCount] = useState(0);
+    // 지역 파일을 불러오지 못해(네트워크·서버·형식 오류) 있는지 없는지 확인할 수 없는 기관 수. '목록에 없음'과 구분한다.
+    const [unverifiedCount, setUnverifiedCount] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -32,20 +38,34 @@ function CompareContent() {
 
         const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
 
+        // 404 = 그 지역 파일이 없음(지역 코드가 바뀐 경우 등) → 기관이 목록에 없다고 판단할 수 있다.
+        // 그 밖의 실패(네트워크·5xx·JSON 오류) = 확인 불가. 빈 목록으로 삼키면 휴지·폐지처럼 보이므로 따로 센다.
+        type Loaded = { region: string; ok: boolean; data: Institution[] };
+        const load = (region: string, url: string): Promise<Loaded> => fetch(url)
+            .then(async r => {
+                if (r.status === 404) return { region, ok: true, data: [] };
+                if (!r.ok) return { region, ok: false, data: [] };
+                const data = await r.json();
+                return { region, ok: Array.isArray(data), data: Array.isArray(data) ? data : [] };
+            })
+            .catch(() => ({ region, ok: false, data: [] }));
         Promise.all(uniqueRegions.flatMap(region => [
-            fetch(`${basePath}/data/${region}.json`)
-                .then(r => r.ok ? r.json() : [])
-                .catch(() => []),
-            fetch(`${basePath}/data/${region}_childcare.json`)
-                .then(r => r.ok ? r.json() : [])
-                .catch(() => [])
+            load(region, `${basePath}/data/${region}.json`),
+            load(region, `${basePath}/data/${region}_childcare.json`),
         ])).then((results) => {
-            const allFetched = results.flat();
+            const failedRegions = new Set(results.filter(r => !r.ok).map(r => r.region));
+            // 지역 접두사가 없는 옛 id 는 어느 지역인지 모르므로, 불러오기에 실패한 지역이 하나라도 있으면 확인 불가로 둔다.
+            const regionOf = (id: string) => { const parts = String(id).split('_'); return parts.length >= 3 ? `${parts[0]}_${parts[1]}` : null; };
+            const regionFailed = (id: string) => { const r = regionOf(id); return r === null ? failedRegions.size > 0 : failedRegions.has(r); };
+            const allFetched = results.flatMap(r => r.data);
             const filtered = allFetched.filter(inst => {
                 const comp = `${inst.sidoCode || '11'}_${inst.sggCode || '11620'}_${inst.id}`;
                 return targetIds.includes(comp) || targetIds.includes(inst.id); // Also check raw id for backward compatibility
             });
             setCompareData(filtered);
+            const notFound = targetIds.filter(id => !filtered.some(inst => `${inst.sidoCode || '11'}_${inst.sggCode || '11620'}_${inst.id}` === id || inst.id === id));
+            setMissingCount(notFound.filter(id => !regionFailed(id)).length);
+            setUnverifiedCount(notFound.filter(id => regionFailed(id)).length);
             setIsLoading(false);
         });
     }, [targetIds.join(',')]);
@@ -87,6 +107,16 @@ function CompareContent() {
             </div>
 
             <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
+                {unverifiedCount > 0 && (
+                    <p role="alert" className="mb-4 text-xs font-bold text-rose-800 bg-rose-50 border border-rose-200 rounded-2xl px-4 py-3 break-keep">
+                        데이터를 불러오지 못해 담아 둔 기관 {unverifiedCount}곳을 확인할 수 없어요. 잠시 뒤 새로고침해 주세요.
+                    </p>
+                )}
+                {missingCount > 0 && (
+                    <p role="note" className="mb-4 text-xs font-bold text-amber-800 bg-amber-50 border border-amber-200 rounded-2xl px-4 py-3 break-keep">
+                        담아 둔 기관 중 {missingCount}곳은 현재 공시 목록에 없어 표시하지 못했어요. 휴지·폐지되었거나 지역 코드가 바뀌었을 수 있으니 기관이나 공시 포털에서 확인해 주세요.
+                    </p>
+                )}
                 <CompareTable data={compareData} />
             </div>
 

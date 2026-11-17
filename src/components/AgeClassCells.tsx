@@ -1,7 +1,7 @@
 import { CheckCircle2, CircleHelp, Layers, MinusCircle } from 'lucide-react';
 import type { Institution } from '@/types/institution';
 import {
-    ageClassOverview, basisLabel, childPath, compareHistory, mixedSummary,
+    CHANGE_LABEL, ageClassOverview, basisLabel, childPath, compareHistory, mixedSummary, operationStatus,
     type AgeClassStatus, type ClassHistoryEntry, type ClassStatusKind,
 } from '@/utils/ageClasses';
 
@@ -64,7 +64,16 @@ export function ClassHistoryCell({ item, entries, loading }: { item: Institution
             {h.comparable && h.changes.length === 0 && <p className="text-[11px] font-bold text-slate-600">연령별 단독반 수 변화 없음</p>}
             {h.changes.length > 0 && (
                 <ul className="space-y-0.5">
-                    {h.changes.map(ch => <li key={ch.age} className="text-[11px] font-bold text-slate-700 break-keep">{ch.kind}: {ch.text}</li>)}
+                    {h.changes.map(ch => <li key={ch.age} className="text-[11px] font-bold text-slate-700 break-keep">{CHANGE_LABEL[ch.kind]}: {ch.text}</li>)}
+                </ul>
+            )}
+            {(h.pupilChanges.length > 0 || h.totalChanges.length > 0) && (
+                <ul className="space-y-0.5">
+                    {[...h.totalChanges, ...h.pupilChanges].map(c => (
+                        <li key={c.label} className="text-[11px] font-bold text-slate-600 break-keep">
+                            {c.label} {c.before}명({c.from.slice(5).replace('-', '.')}) → {c.after}명({c.to.slice(5).replace('-', '.')})
+                        </li>
+                    ))}
                 </ul>
             )}
             {h.notes.map(n => <p key={n} className="text-[11px] font-medium text-slate-400 break-keep">{n}</p>)}
@@ -72,20 +81,21 @@ export function ClassHistoryCell({ item, entries, loading }: { item: Institution
     );
 }
 
-export function ChildPathCell({ item, birthYear, entryYear }: { item: Institution; birthYear: number; entryYear: number }) {
-    const path = childPath(item, birthYear, entryYear);
+export function ChildPathCell({ item, birthYear, entryYear, stayYears = null }: { item: Institution; birthYear: number; entryYear: number; stayYears?: number | null }) {
+    const path = childPath(item, birthYear, entryYear, new Date(), stayYears);
     return (
         <div className="text-left space-y-1.5">
             <ul className="space-y-1">
                 {path.years.map(y => (
                     <StatusLine
                         key={y.schoolYear}
-                        status={y.current ? y.status : { ...y.status, label: `${y.status.label} (현재 공시) → 확인 필요` }}
+                        status={y.current ? y.status : { ...y.status, label: `${operationStatus(y.status, true)} (현재 공시: ${y.status.label})` }}
                         prefix={`${y.schoolYear}학년도 만 ${y.age}세`}
                     />
                 ))}
             </ul>
             <p className="text-[11px] font-medium text-slate-500 break-keep">{path.summary}</p>
+            <p className="text-[10px] font-medium text-slate-400 break-keep">학년도별 반 연령은 출생연도 기준 표준 반편성이에요. 상위반·하위반 예외는 기관 확인.</p>
         </div>
     );
 }

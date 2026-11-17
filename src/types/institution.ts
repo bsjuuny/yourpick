@@ -68,7 +68,8 @@ export interface AgeClasses {
     byAge: Record<number, AgeClassCount>;
     /** false = 혼합반 필드가 원본에 없어 혼합반 여부를 모름 */
     mixedKnown?: boolean;
-    mixed: { label: string; ages: number[] | null; classes: number; children: number | null; capacity?: number | null }[];
+    /** ages = 실제 구성 연령(공시가 주지 않아 지금은 늘 null), possibleAges = 그 혼합반에 들 수 있는 범위 */
+    mixed: { label: string; ages: number[] | null; possibleAges?: number[] | null; classes: number; children: number | null; capacity?: number | null }[];
     special: { classes: number | null; children: number | null };
     waitingOver6?: number | null;
 }

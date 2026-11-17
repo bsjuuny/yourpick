@@ -33,11 +33,16 @@ function entryFromCurrent(inst, date) {
     const ages = inst.source === '유치원' ? [3, 4, 5] : [0, 1, 2, 3, 4, 5];
     // 공시 원본에 없던 값(null)은 null 그대로 둔다. 0으로 바꾸면 '없어짐'·'변화 없음'으로 잘못 읽힌다.
     const classes = [0, 1, 2, 3, 4, 5].map(a => (ages.includes(a) ? (ac.byAge?.[a]?.classes ?? null) : null));
+    // 연령별 원아 수(단독반 기준, 혼합반 원아는 연령별로 나뉘지 않아 포함하지 않음)와 기관 전체 정원·현원 (2단계).
+    const children = [0, 1, 2, 3, 4, 5].map(a => (ages.includes(a) ? (ac.byAge?.[a]?.children ?? null) : null));
     return {
         from: date,
         to: date,
         basis: ac.basis?.label ?? null,
         classes,
+        children,
+        capacity: Number.isFinite(inst.capacity) ? inst.capacity : null,
+        pupils: Number.isFinite(inst.currentPupils) ? inst.currentPupils : null,
         mixed: ac.mixedKnown === false ? null : (ac.mixed ?? []).reduce((sum, m) => sum + (m.classes || 0), 0),
         special: ac.special?.classes ?? null,
         origin: 'collect',
@@ -49,11 +54,20 @@ function entryFromLegacy(inst, date) {
     if (inst.source !== '어린이집' && !String(inst.id).match(/^\d{11}$/)) return null;
     if (!inst.ageBreakdown) return null;
     const classes = [0, 1, 2, 3, 4, 5].map(a => inst.ageBreakdown[a]?.classes ?? 0);
-    return { from: date, to: date, basis: `${date} 수집 (저장 스냅샷)`, classes, mixed: null, special: null, origin: 'git' };
+    // 예전 스냅샷은 반이 있는 연령만 원아 수를 담았다 → 반이 없던 연령의 원아 수는 0이 아니라 모름(null).
+    const children = [0, 1, 2, 3, 4, 5].map(a => inst.ageBreakdown[a]?.children ?? null);
+    return {
+        from: date, to: date, basis: `${date} 저장소 스냅샷`, classes, children,
+        capacity: Number.isFinite(inst.capacity) ? inst.capacity : null,
+        pupils: Number.isFinite(inst.currentPupils) ? inst.currentPupils : null,
+        mixed: null, special: null, origin: 'git',
+    };
 }
 
 function sameValues(a, b) {
-    return JSON.stringify(a.classes) === JSON.stringify(b.classes) && a.mixed === b.mixed && a.special === b.special;
+    return JSON.stringify(a.classes) === JSON.stringify(b.classes) && a.mixed === b.mixed && a.special === b.special
+        && JSON.stringify(a.children ?? null) === JSON.stringify(b.children ?? null)
+        && (a.capacity ?? null) === (b.capacity ?? null) && (a.pupils ?? null) === (b.pupils ?? null);
 }
 
 /**
@@ -67,7 +81,7 @@ function append(list, entry) {
     if (last && entry.from === last.to) {
         if (sameValues(last, entry)) return;
         if (last.from === last.to) {
-            Object.assign(last, { classes: entry.classes, mixed: entry.mixed, special: entry.special, basis: entry.basis ?? last.basis, origin: entry.origin });
+            Object.assign(last, { classes: entry.classes, children: entry.children, capacity: entry.capacity, pupils: entry.pupils, mixed: entry.mixed, special: entry.special, basis: entry.basis ?? last.basis, origin: entry.origin });
             delete last.prevTo;
             return;
         }
@@ -83,6 +97,11 @@ function append(list, entry) {
         return;
     }
     list.push(entry);
+}
+
+/** 현재 기록에 붙일 날짜: 수집기가 그 지역 파일을 실제로 다시 받은 날. 기록이 없으면 null(덧붙이지 않음). */
+function currentEntryDate(manifest, region, source) {
+    return manifest[`${region}${source === '어린이집' ? '_childcare' : ''}.json`] ?? null;
 }
 
 function regionKeys() {
@@ -116,7 +135,11 @@ function legacySnapshots() {
                 if (entry) byId.set(String(inst.id), entry);
             }
         }
-        if (byId.size > 0) snapshots.push({ date, byId });
+        if (byId.size === 0) continue;
+        // 좌표 정리·기능 삭제처럼 연령반 데이터와 무관한 커밋은 시점으로 쓰지 않는다(Codex PR #6 지적 3).
+        const signature = JSON.stringify([...byId.entries()].sort(([a], [b]) => (a < b ? -1 : 1)).map(([id, e]) => [id, e.classes, e.children]));
+        if (snapshots.length > 0 && snapshots[snapshots.length - 1].signature === signature) continue;
+        snapshots.push({ date, byId, signature });
     }
     return snapshots;
 }
@@ -124,6 +147,9 @@ function legacySnapshots() {
 function run() {
     fs.mkdirSync(outDir, { recursive: true });
     const date = today();
+    // 현재 기록의 날짜는 수집기가 실제로 그 파일을 다시 받은 날(fetch-manifest.json). 기록이 없으면 덧붙이지 않는다.
+    // 수집에 실패해 옛 파일이 남은 지역에 새 날짜가 붙지 않게 하기 위해서다(Codex PR #6 지적 3).
+    const manifest = readJson(path.join(dataDir, 'fetch-manifest.json'))?.files ?? {};
     const legacy = BOOTSTRAP ? legacySnapshots() : [];
     if (BOOTSTRAP) console.log(`git snapshots with class counts: ${legacy.map(s => `${s.date}(${s.byId.size})`).join(', ')}`);
     let institutions = 0;
@@ -142,10 +168,11 @@ function run() {
             if (BOOTSTRAP && inst.source === '어린이집') {
                 for (const snap of legacy) {
                     const old = snap.byId.get(String(inst.id));
-                    if (old && snap.date < date) append(list, { ...old });
+                    if (old && snap.date < (manifest[`${region}_childcare.json`] ?? date)) append(list, { ...old });
                 }
             }
-            const entry = entryFromCurrent(inst, date);
+            const fetchedAt = currentEntryDate(manifest, region, inst.source);
+            const entry = fetchedAt ? entryFromCurrent(inst, fetchedAt) : null;
             if (entry) append(list, entry);
             if (list.length > 0) next[key] = list;
             institutions++;
@@ -156,5 +183,5 @@ function run() {
     console.log(`✅ class history: ${institutions} institutions, ${withChanges} with more than one recorded state (${date})`);
 }
 
-module.exports = { entryFromCurrent, entryFromLegacy, append, sameValues };
+module.exports = { entryFromCurrent, entryFromLegacy, append, sameValues, currentEntryDate };
 if (require.main === module) run();
