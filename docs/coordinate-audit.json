@@ -6,9 +6,9 @@
     "provinces": 9,
     "municipalities": 108
   },
-  "total": 21954,
-  "regionConsistent": 21321,
-  "unconfirmed": 633,
+  "total": 22005,
+  "regionConsistent": 21368,
+  "unconfirmed": 637,
   "bySource": {
     "유치원": {
       "total": 4329,
@@ -16,21 +16,20 @@
       "unconfirmed": 32
     },
     "어린이집": {
-      "total": 17625,
-      "regionConsistent": 17024,
-      "unconfirmed": 601
+      "total": 17676,
+      "regionConsistent": 17071,
+      "unconfirmed": 605
     }
   },
   "reasons": {
     "known_placeholder": 142,
-    "region_mismatch": 250,
-    "duplicate_coordinate_unconfirmed": 502,
+    "region_mismatch": 249,
+    "duplicate_coordinate_unconfirmed": 507,
     "missing_or_invalid_coordinate": 22,
-    "address_region_unconfirmed": 7,
-    "outside_korea": 1
+    "address_region_unconfirmed": 6
   },
-  "duplicateGroups": 713,
-  "suspiciousDuplicateGroups": 151,
+  "duplicateGroups": 716,
+  "suspiciousDuplicateGroups": 153,
   "issues": [
     {
       "file": "11_11110_childcare.json",
@@ -3940,27 +3939,6 @@
         {
           "code": "11140",
           "name": "서울특별시 중구"
-        }
-      ]
-    },
-    {
-      "file": "28_28290_childcare.json",
-      "id": "28260000691",
-      "source": "어린이집",
-      "name": "국공립아라금호어울림어린이집",
-      "address": "인천광역시 검단구  이음5로 65 관리동",
-      "sourceCoordinates": {
-        "latitude": "37.4924162",
-        "longitude": "126.7046638"
-      },
-      "reasons": [
-        "region_mismatch",
-        "duplicate_coordinate_unconfirmed"
-      ],
-      "coordinateRegions": [
-        {
-          "code": "28237",
-          "name": "인천광역시 부평구"
         }
       ]
     },
@@ -13231,19 +13209,123 @@
     },
     {
       "file": "41_41670_childcare.json",
-      "id": "1",
+      "id": "41730000015",
       "source": "어린이집",
-      "name": "어린이집 1",
-      "address": "주소 미상",
+      "name": "귀여운어린이집",
+      "address": "경기도 여주시 세종로 173-45 귀여운 어린이집",
       "sourceCoordinates": {
-        "latitude": 0,
-        "longitude": 0
+        "latitude": "37.287662109668155",
+        "longitude": "127.6382942154111"
       },
       "reasons": [
-        "outside_korea",
-        "address_region_unconfirmed"
+        "duplicate_coordinate_unconfirmed"
       ],
-      "coordinateRegions": []
+      "coordinateRegions": [
+        {
+          "code": "41670",
+          "name": "경기도 여주시"
+        }
+      ]
+    },
+    {
+      "file": "41_41670_childcare.json",
+      "id": "41730000071",
+      "source": "어린이집",
+      "name": "꿈초롱어린이집",
+      "address": "경기도 여주시 여양로 335-10",
+      "sourceCoordinates": {
+        "latitude": "37.309718493007594",
+        "longitude": "127.64439597412789"
+      },
+      "reasons": [
+        "duplicate_coordinate_unconfirmed"
+      ],
+      "coordinateRegions": [
+        {
+          "code": "41670",
+          "name": "경기도 여주시"
+        }
+      ]
+    },
+    {
+      "file": "41_41670_childcare.json",
+      "id": "41730000028",
+      "source": "어린이집",
+      "name": "꿈터어린이집",
+      "address": "경기도 여주시 여양로 372-24",
+      "sourceCoordinates": {
+        "latitude": "37.309718493007594",
+        "longitude": "127.64439597412789"
+      },
+      "reasons": [
+        "duplicate_coordinate_unconfirmed"
+      ],
+      "coordinateRegions": [
+        {
+          "code": "41670",
+          "name": "경기도 여주시"
+        }
+      ]
+    },
+    {
+      "file": "41_41670_childcare.json",
+      "id": "41730000095",
+      "source": "어린이집",
+      "name": "아이숲 어린이집",
+      "address": "경기도 여주시 세종로 173-69 동원아파트 관리동 1층",
+      "sourceCoordinates": {
+        "latitude": "37.287662109668155",
+        "longitude": "127.6382942154111"
+      },
+      "reasons": [
+        "duplicate_coordinate_unconfirmed"
+      ],
+      "coordinateRegions": [
+        {
+          "code": "41670",
+          "name": "경기도 여주시"
+        }
+      ]
+    },
+    {
+      "file": "41_41670_childcare.json",
+      "id": "41730000001",
+      "source": "어린이집",
+      "name": "연꽃어린이집",
+      "address": "경기도 여주시 소양로 99",
+      "sourceCoordinates": {
+        "latitude": "37.287662109668155",
+        "longitude": "127.6382942154111"
+      },
+      "reasons": [
+        "duplicate_coordinate_unconfirmed"
+      ],
+      "coordinateRegions": [
+        {
+          "code": "41670",
+          "name": "경기도 여주시"
+        }
+      ]
+    },
+    {
+      "file": "41_41670_childcare.json",
+      "id": "41730000035",
+      "source": "어린이집",
+      "name": "예꼬어린이집",
+      "address": "경기도 여주시 여양로 341-13",
+      "sourceCoordinates": {
+        "latitude": "37.309718493007594",
+        "longitude": "127.64439597412789"
+      },
+      "reasons": [
+        "duplicate_coordinate_unconfirmed"
+      ],
+      "coordinateRegions": [
+        {
+          "code": "41670",
+          "name": "경기도 여주시"
+        }
+      ]
     },
     {
       "file": "41_41820_childcare.json",
@@ -20201,16 +20283,9 @@
     },
     {
       "coordinate": "37.4924162,126.7046638",
-      "count": 3,
+      "count": 2,
       "classification": "unconfirmed_duplicate",
       "members": [
-        {
-          "id": "28260000691",
-          "source": "어린이집",
-          "sggCode": "28290",
-          "name": "국공립아라금호어울림어린이집",
-          "address": "인천광역시 검단구  이음5로 65 관리동"
-        },
         {
           "id": "28260000737",
           "source": "어린이집",
@@ -30885,6 +30960,83 @@
           "sggCode": "41650",
           "name": "원암어린이집",
           "address": "경기도 포천시 소흘읍 송선로 67 원암어린이집"
+        }
+      ]
+    },
+    {
+      "coordinate": "37.287662109668155,127.6382942154111",
+      "count": 3,
+      "classification": "unconfirmed_duplicate",
+      "members": [
+        {
+          "id": "41730000015",
+          "source": "어린이집",
+          "sggCode": "41670",
+          "name": "귀여운어린이집",
+          "address": "경기도 여주시 세종로 173-45 귀여운 어린이집"
+        },
+        {
+          "id": "41730000095",
+          "source": "어린이집",
+          "sggCode": "41670",
+          "name": "아이숲 어린이집",
+          "address": "경기도 여주시 세종로 173-69 동원아파트 관리동 1층"
+        },
+        {
+          "id": "41730000001",
+          "source": "어린이집",
+          "sggCode": "41670",
+          "name": "연꽃어린이집",
+          "address": "경기도 여주시 소양로 99"
+        }
+      ]
+    },
+    {
+      "coordinate": "37.312540999895255,127.64231284338848",
+      "count": 2,
+      "classification": "shared_building",
+      "members": [
+        {
+          "id": "41730000104",
+          "source": "어린이집",
+          "sggCode": "41670",
+          "name": "꽃누리어린이집",
+          "address": "경기도 여주시 도예로 83-36 103동 102호(오학동, 오드카운티아파트)"
+        },
+        {
+          "id": "41730000106",
+          "source": "어린이집",
+          "sggCode": "41670",
+          "name": "서하어린이집",
+          "address": "경기도 여주시 도예로 83-36 (오학동, 오드카운티 관리동)"
+        }
+      ]
+    },
+    {
+      "coordinate": "37.309718493007594,127.64439597412789",
+      "count": 3,
+      "classification": "unconfirmed_duplicate",
+      "members": [
+        {
+          "id": "41730000071",
+          "source": "어린이집",
+          "sggCode": "41670",
+          "name": "꿈초롱어린이집",
+          "address": "경기도 여주시 여양로 335-10"
+        },
+        {
+          "id": "41730000028",
+          "source": "어린이집",
+          "sggCode": "41670",
+          "name": "꿈터어린이집",
+          "address": "경기도 여주시 여양로 372-24"
+        },
+        {
+          "id": "41730000035",
+          "source": "어린이집",
+          "sggCode": "41670",
+          "name": "예꼬어린이집",
+          "address": "경기도 여주시 여양로 341-13"
         }
       ]
     },

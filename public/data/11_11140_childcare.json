@@ -52,6 +52,52 @@
         "ratio": 8
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 3,
+          "children": 6,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 6,
+          "children": 19,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 5,
+          "children": 18,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 3,
+          "children": 14,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 3,
+          "children": 15,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 2,
+          "children": 16,
+          "waiting": 0
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 16,
       "year1to2": 24,
@@ -94,6 +140,73 @@
     "hasSchoolBus": false,
     "expenseLevel": "직장 지원 + 정부 보조",
     "ageRange": "만 0세 ~ 만 5세",
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 2,
+          "children": 2
+        },
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 3,
+          "children": 3
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 40,
       "year1to2": 0,
@@ -135,7 +248,7 @@
     "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
     "hasSchoolBus": false,
     "expenseLevel": "직장 지원 + 정부 보조",
-    "ageRange": "만 0세 ~ 만 5세",
+    "ageRange": "만 1세 ~ 만 5세",
     "ageBreakdown": {
       "1": {
         "children": 20,
@@ -153,6 +266,63 @@
         "ratio": 4.5
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 7,
+          "children": 20,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 5,
+          "children": 14,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 2,
+          "children": 9,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 3,
+          "children": 21
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 17,
       "year1to2": 35,
@@ -192,7 +362,7 @@
     "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
     "hasSchoolBus": false,
     "expenseLevel": "직장 지원 + 정부 보조",
-    "ageRange": "만 0세 ~ 만 5세",
+    "ageRange": "만 1세 ~ 만 5세",
     "ageBreakdown": {
       "1": {
         "children": 10,
@@ -210,6 +380,63 @@
         "ratio": 3.5
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 3,
+          "children": 10,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 2,
+          "children": 10,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 2,
+          "children": 7,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 3,
+          "children": 8
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 40,
       "year1to2": 20,
@@ -277,6 +504,52 @@
         "ratio": 8.5
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 6,
+          "children": 20,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 4,
+          "children": 16,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 4,
+          "children": 18,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 3,
+          "children": 16,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 2,
+          "children": 17,
+          "waiting": 0
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 37,
       "year1to2": 8,
@@ -346,6 +619,52 @@
         "ratio": 2
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 2,
+          "children": 7,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 2,
+          "children": 5,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 1,
+          "children": 4,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 1,
+          "children": 5,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 1,
+          "children": 2,
+          "waiting": 0
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 25,
       "year1to2": 12,
@@ -413,6 +732,63 @@
         "ratio": 8
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 2,
+          "children": 6,
+          "waiting": 55
+        },
+        "1": {
+          "classes": 2,
+          "children": 10,
+          "waiting": 14
+        },
+        "2": {
+          "classes": 2,
+          "children": 14,
+          "waiting": 6
+        },
+        "3": {
+          "classes": 1,
+          "children": 8,
+          "waiting": 1
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 1
+        }
+      },
+      "mixed": [
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 15
+        }
+      ],
+      "special": {
+        "classes": 2,
+        "children": 6
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 7,
       "year1to2": 7,
@@ -420,7 +796,7 @@
       "year4to6": 7,
       "over6": 30
     },
-    "waitlistTotal": 77,
+    "waitlistTotal": 78,
     "cctvCount": 10,
     "specialPrograms": "장애아통합",
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=11140000014",
@@ -468,6 +844,69 @@
         "ratio": 4
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 2,
+          "children": 6,
+          "waiting": 7
+        },
+        "1": {
+          "classes": 1,
+          "children": 4,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "혼합반(연령 범위 미공시)",
+          "ages": null,
+          "classes": 1,
+          "children": 7
+        },
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 8
+        }
+      ],
+      "special": {
+        "classes": 1,
+        "children": 3
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 30,
       "year1to2": 0,
@@ -531,6 +970,73 @@
         "ratio": 0
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 2,
+          "children": 6,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 1,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 1,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 1,
+          "children": 3
+        },
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 4,
+          "children": 6
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 40,
       "year1to2": 20,
@@ -604,6 +1110,63 @@
         "ratio": 10
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 3,
+          "children": 7,
+          "waiting": 130
+        },
+        "1": {
+          "classes": 2,
+          "children": 10,
+          "waiting": 46
+        },
+        "2": {
+          "classes": 4,
+          "children": 23,
+          "waiting": 36
+        },
+        "3": {
+          "classes": 1,
+          "children": 0,
+          "waiting": 22
+        },
+        "4": {
+          "classes": 1,
+          "children": 0,
+          "waiting": 18
+        },
+        "5": {
+          "classes": 1,
+          "children": 10,
+          "waiting": 17
+        }
+      },
+      "mixed": [
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 2,
+          "children": 14
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 26,
       "year1to2": 6,
@@ -611,7 +1174,7 @@
       "year4to6": 0,
       "over6": 40
     },
-    "waitlistTotal": 268,
+    "waitlistTotal": 269,
     "cctvCount": 22,
     "specialPrograms": "야간연장형,휴일보육",
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=11140000023",
@@ -669,6 +1232,52 @@
         "ratio": 7
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 2,
+          "children": 6,
+          "waiting": 84
+        },
+        "1": {
+          "classes": 3,
+          "children": 12,
+          "waiting": 5
+        },
+        "2": {
+          "classes": 2,
+          "children": 14,
+          "waiting": 3
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 1
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 50,
       "year1to2": 0,
@@ -724,6 +1333,52 @@
         "ratio": 4
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 6,
+          "children": 16,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 4,
+          "children": 16,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 58,
       "year1to2": 16,
@@ -764,7 +1419,7 @@
     "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
     "hasSchoolBus": false,
     "expenseLevel": "직장 지원 + 정부 보조",
-    "ageRange": "만 0세 ~ 만 5세",
+    "ageRange": "만 1세 ~ 만 5세",
     "ageBreakdown": {
       "1": {
         "children": 0,
@@ -782,6 +1437,63 @@
         "ratio": 5.5
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 4,
+          "children": 0,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 3,
+          "children": 0,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 2,
+          "children": 11,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 7,
+          "children": 30
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 33,
       "year1to2": 22,
@@ -838,6 +1550,63 @@
         "ratio": 6
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 3,
+          "children": 6,
+          "waiting": 63
+        },
+        "1": {
+          "classes": 3,
+          "children": 11,
+          "waiting": 3
+        },
+        "2": {
+          "classes": 2,
+          "children": 12,
+          "waiting": 1
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 5
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 2
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 1
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 1,
+          "children": 2
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 27,
       "year1to2": 36,
@@ -845,7 +1614,7 @@
       "year4to6": 18,
       "over6": 9
     },
-    "waitlistTotal": 76,
+    "waitlistTotal": 75,
     "cctvCount": 12,
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=11140000110",
     "tags": [
@@ -910,6 +1679,52 @@
         "ratio": 12
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 4,
+          "children": 12,
+          "waiting": 51
+        },
+        "1": {
+          "classes": 4,
+          "children": 20,
+          "waiting": 6
+        },
+        "2": {
+          "classes": 2,
+          "children": 11,
+          "waiting": 1
+        },
+        "3": {
+          "classes": 2,
+          "children": 10,
+          "waiting": 2
+        },
+        "4": {
+          "classes": 1,
+          "children": 8,
+          "waiting": 1
+        },
+        "5": {
+          "classes": 1,
+          "children": 12,
+          "waiting": 2
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 3,
+        "children": 7
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 40,
       "year1to2": 5,
@@ -917,7 +1732,7 @@
       "year4to6": 15,
       "over6": 10
     },
-    "waitlistTotal": 62,
+    "waitlistTotal": 63,
     "cctvCount": 39,
     "specialPrograms": "장애아통합,방과후통합,야간연장형",
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=11140000005",
@@ -976,6 +1791,52 @@
         "ratio": 6
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 2,
+          "children": 5,
+          "waiting": 38
+        },
+        "1": {
+          "classes": 2,
+          "children": 9,
+          "waiting": 5
+        },
+        "2": {
+          "classes": 1,
+          "children": 6,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 14,
       "year1to2": 28,
@@ -1045,6 +1906,63 @@
         "ratio": 0
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 4,
+          "children": 9,
+          "waiting": 44
+        },
+        "1": {
+          "classes": 3,
+          "children": 10,
+          "waiting": 1
+        },
+        "2": {
+          "classes": 2,
+          "children": 9,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 1,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 1,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 4,
+          "children": 19
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 40,
       "year1to2": 13,
@@ -1117,6 +2035,52 @@
         "ratio": 14
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 117
+        },
+        "1": {
+          "classes": 4,
+          "children": 20,
+          "waiting": 31
+        },
+        "2": {
+          "classes": 4,
+          "children": 22,
+          "waiting": 15
+        },
+        "3": {
+          "classes": 2,
+          "children": 24,
+          "waiting": 10
+        },
+        "4": {
+          "classes": 1,
+          "children": 10,
+          "waiting": 3
+        },
+        "5": {
+          "classes": 1,
+          "children": 14,
+          "waiting": 0
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 3,
+        "children": 8
+      },
+      "waitingOver6": 1
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 19,
       "year1to2": 14,
@@ -1187,6 +2151,52 @@
         "ratio": 0
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 3,
+          "children": 7,
+          "waiting": 56
+        },
+        "1": {
+          "classes": 3,
+          "children": 14,
+          "waiting": 5
+        },
+        "2": {
+          "classes": 2,
+          "children": 14,
+          "waiting": 1
+        },
+        "3": {
+          "classes": 1,
+          "children": 0,
+          "waiting": 1
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 1
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 0,
       "year1to2": 0,
@@ -1248,6 +2258,73 @@
         "ratio": 2.7
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 2,
+          "children": 3,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 1,
+          "children": 2,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 3,
+          "children": 8,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 4,
+          "children": 2
+        },
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 0
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 28,
       "year1to2": 28,
@@ -1302,6 +2379,52 @@
         "ratio": 6
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 60
+        },
+        "1": {
+          "classes": 2,
+          "children": 10,
+          "waiting": 5
+        },
+        "2": {
+          "classes": 2,
+          "children": 12,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 1
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 2
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 85,
       "year1to2": 0,
@@ -1360,6 +2483,63 @@
         "ratio": 7.5
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 5,
+          "children": 15,
+          "waiting": 71
+        },
+        "1": {
+          "classes": 5,
+          "children": 25,
+          "waiting": 7
+        },
+        "2": {
+          "classes": 2,
+          "children": 15,
+          "waiting": 2
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 2
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 2
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 1
+        }
+      },
+      "mixed": [
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 7
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 23,
       "year1to2": 35,
@@ -1431,6 +2611,52 @@
         "ratio": 9.5
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 3,
+          "children": 8,
+          "waiting": 108
+        },
+        "1": {
+          "classes": 4,
+          "children": 17,
+          "waiting": 27
+        },
+        "2": {
+          "classes": 2,
+          "children": 14,
+          "waiting": 37
+        },
+        "3": {
+          "classes": 3,
+          "children": 23,
+          "waiting": 43
+        },
+        "4": {
+          "classes": 1,
+          "children": 16,
+          "waiting": 25
+        },
+        "5": {
+          "classes": 2,
+          "children": 19,
+          "waiting": 14
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 1
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 18,
       "year1to2": 18,
@@ -1475,7 +2701,7 @@
     "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
     "hasSchoolBus": false,
     "expenseLevel": "직장 지원 + 정부 보조",
-    "ageRange": "만 0세 ~ 만 5세",
+    "ageRange": "만 1세 ~ 만 5세",
     "ageBreakdown": {
       "1": {
         "children": 4,
@@ -1488,6 +2714,63 @@
         "ratio": 4
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 2,
+          "children": 4,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 2,
+          "children": 8,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 2,
+          "children": 3
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 33,
       "year1to2": 66,
@@ -1528,7 +2811,7 @@
     "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
     "hasSchoolBus": false,
     "expenseLevel": "직장 지원 + 정부 보조",
-    "ageRange": "만 0세 ~ 만 5세",
+    "ageRange": "만 1세 ~ 만 5세",
     "ageBreakdown": {
       "1": {
         "children": 6,
@@ -1546,6 +2829,63 @@
         "ratio": 2.5
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 2,
+          "children": 6,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 3,
+          "children": 10,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 2,
+          "children": 5,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 3,
+          "children": 18
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 53,
       "year1to2": 15,
@@ -1609,6 +2949,63 @@
         "ratio": 0
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 3,
+          "children": 8,
+          "waiting": 35
+        },
+        "1": {
+          "classes": 3,
+          "children": 5,
+          "waiting": 1
+        },
+        "2": {
+          "classes": 1,
+          "children": 7,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 1,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 3,
+          "children": 0
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 28,
       "year1to2": 28,
@@ -1671,6 +3068,52 @@
         "ratio": 7
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 4,
+          "children": 12,
+          "waiting": 41
+        },
+        "1": {
+          "classes": 3,
+          "children": 14,
+          "waiting": 1
+        },
+        "2": {
+          "classes": 1,
+          "children": 7,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 81,
       "year1to2": 9,
@@ -1729,6 +3172,63 @@
         "ratio": 5
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 2,
+          "children": 5,
+          "waiting": 67
+        },
+        "1": {
+          "classes": 1,
+          "children": 5,
+          "waiting": 6
+        },
+        "2": {
+          "classes": 1,
+          "children": 5,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 1,
+          "children": 5
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 62,
       "year1to2": 0,
@@ -1770,7 +3270,7 @@
     "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
     "hasSchoolBus": false,
     "expenseLevel": "직장 지원 + 정부 보조",
-    "ageRange": "만 0세 ~ 만 5세",
+    "ageRange": "만 1세 ~ 만 5세",
     "ageBreakdown": {
       "1": {
         "children": 11,
@@ -1788,6 +3288,63 @@
         "ratio": 7
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 3,
+          "children": 11,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 2,
+          "children": 5,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 2,
+          "children": 14,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 2,
+          "children": 13
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 66,
       "year1to2": 22,
@@ -1860,6 +3417,52 @@
         "ratio": 10
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 5,
+          "children": 7,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 6,
+          "children": 17,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 5,
+          "children": 22,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 5,
+          "children": 25,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 2,
+          "children": 21,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 2,
+          "children": 20,
+          "waiting": 1
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 30,
       "year1to2": 9,
@@ -1925,6 +3528,63 @@
         "ratio": 2.8
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 4,
+          "children": 9,
+          "waiting": 46
+        },
+        "1": {
+          "classes": 6,
+          "children": 15,
+          "waiting": 2
+        },
+        "2": {
+          "classes": 4,
+          "children": 11,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 2
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 10
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 30,
       "year1to2": 15,
@@ -1995,6 +3655,63 @@
         "ratio": 0
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 6,
+          "children": 15,
+          "waiting": 65
+        },
+        "1": {
+          "classes": 4,
+          "children": 16,
+          "waiting": 6
+        },
+        "2": {
+          "classes": 4,
+          "children": 17,
+          "waiting": 3
+        },
+        "3": {
+          "classes": 2,
+          "children": 9,
+          "waiting": 3
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 1,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 2,
+          "children": 14
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 57,
       "year1to2": 15,
@@ -2058,6 +3775,73 @@
         "ratio": 9
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 39
+        },
+        "1": {
+          "classes": 4,
+          "children": 15,
+          "waiting": 6
+        },
+        "2": {
+          "classes": 2,
+          "children": 14,
+          "waiting": 2
+        },
+        "3": {
+          "classes": 1,
+          "children": 9,
+          "waiting": 1
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 2
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 4,
+          "children": 9
+        },
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 2,
+          "children": 21
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 35,
       "year1to2": 23,
@@ -2116,6 +3900,79 @@
         "ratio": 3
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 2,
+          "children": 5,
+          "waiting": 8
+        },
+        "1": {
+          "classes": 1,
+          "children": 3,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 1,
+          "children": 3
+        },
+        {
+          "label": "혼합반(연령 범위 미공시)",
+          "ages": null,
+          "classes": 1,
+          "children": 7
+        },
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 10
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 30,
       "year1to2": 0,
@@ -2179,6 +4036,63 @@
         "ratio": 4
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 4,
+          "children": 9,
+          "waiting": 32
+        },
+        "1": {
+          "classes": 3,
+          "children": 13,
+          "waiting": 1
+        },
+        "2": {
+          "classes": 2,
+          "children": 8,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 2
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 1
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 1,
+          "children": 0
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 20,
       "year1to2": 0,
@@ -2186,7 +4100,7 @@
       "year4to6": 10,
       "over6": 40
     },
-    "waitlistTotal": 37,
+    "waitlistTotal": 36,
     "cctvCount": 14,
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=11140000115",
     "tags": [
@@ -2242,6 +4156,63 @@
         "ratio": 0
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 4,
+          "children": 6,
+          "waiting": 44
+        },
+        "1": {
+          "classes": 2,
+          "children": 10,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 4,
+          "children": 5,
+          "waiting": 1
+        },
+        "3": {
+          "classes": 1,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 2
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 2,
+          "children": 8
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 16,
       "year1to2": 33,
@@ -2286,7 +4257,7 @@
     "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
     "hasSchoolBus": false,
     "expenseLevel": "직장 지원 + 정부 보조",
-    "ageRange": "만 0세 ~ 만 5세",
+    "ageRange": "만 1세 ~ 만 5세",
     "ageBreakdown": {
       "1": {
         "children": 10,
@@ -2304,6 +4275,63 @@
         "ratio": 5
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 3,
+          "children": 10,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 3,
+          "children": 9,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 1,
+          "children": 5,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 3,
+          "children": 20
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 33,
       "year1to2": 25,
@@ -2356,6 +4384,63 @@
         "ratio": 3
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 3,
+          "children": 6,
+          "waiting": 15
+        },
+        "1": {
+          "classes": 1,
+          "children": 3,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 1,
+          "children": 5
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 66,
       "year1to2": 16,
@@ -2417,6 +4502,52 @@
         "ratio": 6.5
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 3,
+          "children": 9,
+          "waiting": 36
+        },
+        "1": {
+          "classes": 3,
+          "children": 14,
+          "waiting": 2
+        },
+        "2": {
+          "classes": 2,
+          "children": 13,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 16,
       "year1to2": 33,
@@ -2424,7 +4555,7 @@
       "year4to6": 0,
       "over6": 41
     },
-    "waitlistTotal": 37,
+    "waitlistTotal": 38,
     "cctvCount": 11,
     "specialPrograms": "야간연장형",
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=11140000010",
@@ -2484,6 +4615,63 @@
         "ratio": 14
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 4,
+          "children": 12,
+          "waiting": 49
+        },
+        "1": {
+          "classes": 2,
+          "children": 10,
+          "waiting": 1
+        },
+        "2": {
+          "classes": 2,
+          "children": 14,
+          "waiting": 1
+        },
+        "3": {
+          "classes": 1,
+          "children": 14,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 8
+        }
+      ],
+      "special": {
+        "classes": 3,
+        "children": 6
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 35,
       "year1to2": 17,
@@ -2491,7 +4679,7 @@
       "year4to6": 0,
       "over6": 17
     },
-    "waitlistTotal": 52,
+    "waitlistTotal": 51,
     "cctvCount": 20,
     "specialPrograms": "장애아통합,야간연장형",
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=11140000019",
@@ -2540,6 +4728,63 @@
         "ratio": 5
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 4,
+          "children": 10,
+          "waiting": 15
+        },
+        "1": {
+          "classes": 1,
+          "children": 5,
+          "waiting": 1
+        },
+        "2": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 3,
+          "children": 3
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 70,
       "year1to2": 30,
@@ -2607,6 +4852,52 @@
         "ratio": 0
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 5,
+          "children": 10,
+          "waiting": 25
+        },
+        "1": {
+          "classes": 3,
+          "children": 9,
+          "waiting": 3
+        },
+        "2": {
+          "classes": 2,
+          "children": 8,
+          "waiting": 1
+        },
+        "3": {
+          "classes": 1,
+          "children": 0,
+          "waiting": 2
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 45,
       "year1to2": 27,
@@ -2651,7 +4942,7 @@
     "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
     "hasSchoolBus": false,
     "expenseLevel": "직장 지원 + 정부 보조",
-    "ageRange": "만 0세 ~ 만 5세",
+    "ageRange": "만 1세 ~ 만 5세",
     "ageBreakdown": {
       "1": {
         "children": 8,
@@ -2669,6 +4960,63 @@
         "ratio": 1
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 3,
+          "children": 8,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 2,
+          "children": 5,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 2,
+          "children": 2,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 2,
+          "children": 16
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 90,
       "year1to2": 9,
@@ -2732,6 +5080,79 @@
         "ratio": 0
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 1,
+          "children": 3,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 1,
+          "children": 0,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 1,
+          "children": 3,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 1,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 2,
+          "children": 0
+        },
+        {
+          "label": "혼합반(연령 범위 미공시)",
+          "ages": null,
+          "classes": 1,
+          "children": 0
+        },
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 0
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 50,
       "year1to2": 0,
@@ -2792,6 +5213,52 @@
         "ratio": 6
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 3,
+          "children": 8,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 2,
+          "children": 7,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 1,
+          "children": 6,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 20,
       "year1to2": 0,
@@ -2851,6 +5318,52 @@
         "ratio": 4.5
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 2,
+          "children": 5,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 3,
+          "children": 10,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 2,
+          "children": 9,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 0,
       "year1to2": 0,
@@ -2916,6 +5429,69 @@
         "ratio": 4
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 4,
+          "children": 9,
+          "waiting": 16
+        },
+        "1": {
+          "classes": 1,
+          "children": 5,
+          "waiting": 2
+        },
+        "2": {
+          "classes": 1,
+          "children": 4,
+          "waiting": 1
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 3
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "혼합반(연령 범위 미공시)",
+          "ages": null,
+          "classes": 1,
+          "children": 0
+        },
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 6
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 45,
       "year1to2": 9,
@@ -2978,6 +5554,63 @@
         "ratio": 6
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 2,
+          "children": 6,
+          "waiting": 67
+        },
+        "1": {
+          "classes": 2,
+          "children": 10,
+          "waiting": 6
+        },
+        "2": {
+          "classes": 2,
+          "children": 12,
+          "waiting": 6
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 3
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 8
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 7
+        }
+      },
+      "mixed": [
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 2,
+          "children": 17
+        }
+      ],
+      "special": {
+        "classes": 1,
+        "children": 0
+      },
+      "waitingOver6": 1
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 50,
       "year1to2": 8,
@@ -3040,6 +5673,73 @@
         "ratio": 3
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 2,
+          "children": 5,
+          "waiting": 18
+        },
+        "1": {
+          "classes": 2,
+          "children": 6,
+          "waiting": 1
+        },
+        "2": {
+          "classes": 2,
+          "children": 6,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 1,
+          "children": 0
+        },
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 3,
+          "children": 12
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 30,
       "year1to2": 0,
@@ -3086,7 +5786,7 @@
     "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
     "hasSchoolBus": false,
     "expenseLevel": "직장 지원 + 정부 보조",
-    "ageRange": "만 0세 ~ 만 5세",
+    "ageRange": "만 1세 ~ 만 5세",
     "ageBreakdown": {
       "1": {
         "children": 11,
@@ -3104,6 +5804,63 @@
         "ratio": 3
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 4,
+          "children": 11,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 3,
+          "children": 11,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 2,
+          "children": 6,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 3,
+          "children": 17
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 38,
       "year1to2": 7,
@@ -3166,6 +5923,63 @@
         "ratio": 8
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 3,
+          "children": 9,
+          "waiting": 24
+        },
+        "1": {
+          "classes": 3,
+          "children": 14,
+          "waiting": 3
+        },
+        "2": {
+          "classes": 1,
+          "children": 5,
+          "waiting": 2
+        },
+        "3": {
+          "classes": 1,
+          "children": 8,
+          "waiting": 1
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 10
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 42,
       "year1to2": 7,
@@ -3209,7 +6023,7 @@
     "operatingHours": "평일기준시간 : 07:30 ~ 19:30",
     "hasSchoolBus": false,
     "expenseLevel": "직장 지원 + 정부 보조",
-    "ageRange": "만 0세 ~ 만 5세",
+    "ageRange": "만 1세 ~ 만 5세",
     "ageBreakdown": {
       "1": {
         "children": 24,
@@ -3227,6 +6041,63 @@
         "ratio": 7.5
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 9,
+          "children": 24,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 6,
+          "children": 26,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 2,
+          "children": 15,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 6,
+          "children": 40
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 45,
       "year1to2": 25,
@@ -3300,6 +6171,63 @@
         "ratio": 6
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 2,
+          "children": 6,
+          "waiting": 48
+        },
+        "1": {
+          "classes": 3,
+          "children": 15,
+          "waiting": 5
+        },
+        "2": {
+          "classes": 1,
+          "children": 7,
+          "waiting": 4
+        },
+        "3": {
+          "classes": 2,
+          "children": 11,
+          "waiting": 2
+        },
+        "4": {
+          "classes": 1,
+          "children": 15,
+          "waiting": 6
+        },
+        "5": {
+          "classes": 1,
+          "children": 6,
+          "waiting": 2
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 1,
+          "children": 4
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 53,
       "year1to2": 15,
@@ -3357,6 +6285,63 @@
         "ratio": 7
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 2,
+          "children": 4,
+          "waiting": 58
+        },
+        "1": {
+          "classes": 2,
+          "children": 9,
+          "waiting": 2
+        },
+        "2": {
+          "classes": 1,
+          "children": 7,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 2
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 1,
+          "children": 0
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 14,
       "year1to2": 28,
@@ -3398,6 +6383,63 @@
     "hasSchoolBus": false,
     "expenseLevel": "정부 지원 (보육료 지원)",
     "ageRange": "만 0세 ~ 만 2세",
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 2
+        },
+        "1": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 3,
+          "children": 7
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 33,
       "year1to2": 16,
@@ -3472,6 +6514,52 @@
         "ratio": 4
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "1": {
+          "classes": 3,
+          "children": 10,
+          "waiting": 0
+        },
+        "2": {
+          "classes": 2,
+          "children": 8,
+          "waiting": 0
+        },
+        "3": {
+          "classes": 2,
+          "children": 10,
+          "waiting": 0
+        },
+        "4": {
+          "classes": 1,
+          "children": 6,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 1,
+          "children": 4,
+          "waiting": 0
+        }
+      },
+      "mixed": [],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 69,
       "year1to2": 0,
@@ -3530,6 +6618,63 @@
         "ratio": 5
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 4,
+          "children": 12,
+          "waiting": 71
+        },
+        "1": {
+          "classes": 3,
+          "children": 13,
+          "waiting": 3
+        },
+        "2": {
+          "classes": 2,
+          "children": 10,
+          "waiting": 5
+        },
+        "3": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 3
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 1
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 2
+        }
+      },
+      "mixed": [
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 3,
+          "children": 26
+        }
+      ],
+      "special": {
+        "classes": 0,
+        "children": 0
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 18,
       "year1to2": 18,
@@ -3537,7 +6682,7 @@
       "year4to6": 25,
       "over6": 18
     },
-    "waitlistTotal": 84,
+    "waitlistTotal": 85,
     "cctvCount": 20,
     "specialPrograms": "방과후통합,야간연장형",
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=11140000017",
@@ -3594,6 +6739,73 @@
         "ratio": 7
       }
     },
+    "ageClasses": {
+      "basis": {
+        "kind": "date",
+        "key": "2026-11-17",
+        "label": "2026-11-17 기준"
+      },
+      "byAge": {
+        "0": {
+          "classes": 2,
+          "children": 4,
+          "waiting": 10
+        },
+        "1": {
+          "classes": 1,
+          "children": 5,
+          "waiting": 1
+        },
+        "2": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 1
+        },
+        "3": {
+          "classes": 1,
+          "children": 7,
+          "waiting": 3
+        },
+        "4": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        },
+        "5": {
+          "classes": 0,
+          "children": 0,
+          "waiting": 0
+        }
+      },
+      "mixed": [
+        {
+          "label": "영아혼합반",
+          "ages": [
+            0,
+            1,
+            2
+          ],
+          "classes": 1,
+          "children": 5
+        },
+        {
+          "label": "유아혼합반",
+          "ages": [
+            3,
+            4,
+            5
+          ],
+          "classes": 1,
+          "children": 6
+        }
+      ],
+      "special": {
+        "classes": 2,
+        "children": 5
+      },
+      "waitingOver6": 0
+    },
+    "operatingStatus": "정상",
     "teacherTenure": {
       "under1": 36,
       "year1to2": 0,
@@ -3601,7 +6813,7 @@
       "year4to6": 0,
       "over6": 54
     },
-    "waitlistTotal": 14,
+    "waitlistTotal": 15,
     "cctvCount": 31,
     "specialPrograms": "장애아통합,방과후통합,야간연장형",
     "alimiUrl": "https://info.childcare.go.kr/info_html5/pnis/search/preview/SummaryInfoSlPu.jsp?flag=YJ&STCODE_POP=11140000013",

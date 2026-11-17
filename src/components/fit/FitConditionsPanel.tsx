@@ -4,7 +4,8 @@ import { useId, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { ChevronDown, LocateFixed, MapPin, RotateCcw, SlidersHorizontal } from 'lucide-react';
 import { useFitConditionsStore } from '@/store/useFitConditionsStore';
-import { COMMUTE_LABEL, hasActiveConditions, locationApplies, type CommuteMode, type Importance, type Need } from '@/utils/fitConditions';
+import { COMMUTE_LABEL, entryAge, hasActiveConditions, locationApplies, type CommuteMode, type Importance, type Need } from '@/utils/fitConditions';
+import { currentSchoolYear } from '@/utils/ageClasses';
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
 type DongEntry = [name: string, lat: number, lng: number];
@@ -51,6 +52,8 @@ export default function FitConditionsPanel({ sggCode }: { sggCode: string }) {
     const ids = useId();
     const locationHere = locationApplies(location, sggCode);
     const active = hasActiveConditions(c, locationHere ? location : null);
+    const thisSchoolYear = currentSchoolYear();
+    const entry = entryAge(c);
 
     const { data: dongs } = useQuery<Record<string, DongEntry[]>>({
         queryKey: ['dongs'],
@@ -141,20 +144,39 @@ export default function FitConditionsPanel({ sggCode }: { sggCode: string }) {
                     {/* 연령 */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                            <label htmlFor={`${ids}-age`} className={labelClass}>아이 연령</label>
+                            <label htmlFor={`${ids}-birth`} className={labelClass}>아이 출생연도</label>
                             <select
-                                id={`${ids}-age`}
+                                id={`${ids}-birth`}
                                 className={fieldClass}
-                                value={c.childAge ?? ''}
-                                onChange={(e) => setConditions({ childAge: e.target.value === '' ? null : Number(e.target.value) })}
+                                value={c.birthYear ?? ''}
+                                onChange={(e) => setConditions({ birthYear: e.target.value === '' ? null : Number(e.target.value) })}
                             >
                                 <option value="">정하지 않음</option>
-                                {[0, 1, 2, 3, 4, 5].map(age => <option key={age} value={age}>만 {age}세</option>)}
+                                {Array.from({ length: 8 }, (_, i) => thisSchoolYear + 1 - i).map(y => <option key={y} value={y}>{y}년생</option>)}
                             </select>
                         </div>
                         <div>
-                            <span className={labelClass}>연령 조건</span>
+                            <label htmlFor={`${ids}-entry`} className={labelClass}>입학 예정 학년도</label>
+                            <select
+                                id={`${ids}-entry`}
+                                className={fieldClass}
+                                value={c.entryYear ?? ''}
+                                onChange={(e) => setConditions({ entryYear: e.target.value === '' ? null : Number(e.target.value) })}
+                            >
+                                <option value="">지금 학년도 ({thisSchoolYear})</option>
+                                {[thisSchoolYear, thisSchoolYear + 1, thisSchoolYear + 2].map(y => <option key={y} value={y}>{y}학년도 (3월~)</option>)}
+                            </select>
+                        </div>
+                        <div className="sm:col-span-2">
+                            {entry && (
+                                <p className="mb-2 text-xs font-black text-indigo-700">
+                                    {entry.age < 0 ? `${entry.schoolYear}학년도에는 아직 반 연령 전이에요`
+                                        : entry.age > 5 ? `${entry.schoolYear}학년도에는 초등학교 입학 연령이에요`
+                                        : `${entry.schoolYear}학년도 만 ${entry.age}세반 · 졸업(만 5세반)까지 학년도별 운영도 함께 볼게요`}
+                                </p>
+                            )}
                             <Segmented label="연령 조건 중요도" value={c.ageNeed} options={NEED_OPTIONS} onChange={(v) => setConditions({ ageNeed: v })} />
+                            <p className="mt-1.5 text-[11px] font-medium text-slate-400 break-keep">반 연령은 학년도와 출생연도로 계산해요(예: 2026학년도 만 5세반 = 2020년생). 다음 학년도 이후 운영은 현재 공시만으로 확정하지 않아요.</p>
                         </div>
                     </div>
 
