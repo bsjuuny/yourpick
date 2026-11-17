@@ -11,7 +11,7 @@ import {
 } from '@/utils/selectionCriteria';
 import { CRITERION_THEME, CriterionIcon, LevelMeter, MethodBadge, VerdictText } from '@/components/criteria/CriteriaUI';
 import { useFitConditionsStore } from '@/store/useFitConditionsStore';
-import { assessFit, hasActiveConditions, scoreWord, type FitResult } from '@/utils/fitConditions';
+import { assessFit, hasActiveConditions, locationApplies, objectiveText, type FitResult } from '@/utils/fitConditions';
 import { FitGroupBadge, FitStatusLine } from '@/components/fit/FitSummary';
 
 interface Props {
@@ -281,19 +281,20 @@ function fitRows(results: FitResult[]): Row[] {
             const o = results[i].objective;
             return (
                 <div className="space-y-1">
-                    <span className="text-sm font-black text-slate-800">{o.score === null ? '판단 자료 없음' : `${scoreWord(o.score)} ${o.score}/3 (${o.used}개 기준)`}</span>
-                    {o.missing.length > 0 && <p className="text-[11px] font-bold text-slate-400 break-keep">자료 없어 제외: {o.missing.join(', ')}</p>}
+                    <span className="text-sm font-black text-slate-800">{objectiveText(o).main}</span>
+                    {objectiveText(o).coverage && <p className="text-[11px] font-bold text-slate-400 break-keep">{objectiveText(o).coverage}</p>}
+                    {o.missing.length > 0 && <p className="text-[11px] font-bold text-slate-400 break-keep">자료 없음: {o.missing.join(', ')}</p>}
                 </div>
             );
         },
     });
-    if (results.some(r => r.distanceKm !== null || r.unverified.some(u => u.startsWith('위치')))) {
+    if (results.some(r => r.distanceKm !== null)) {
         rows.push({
             key: 'fit-distance',
             label: '직선거리 (통학시간 아님)',
             render: (_, i) => results[i].distanceKm !== null
                 ? <span className="text-sm font-black text-slate-800">{results[i].distanceKm}km</span>
-                : <span className="text-[11px] font-bold text-slate-400">위치 좌표 미확인</span>,
+                : <span className="text-[11px] font-bold text-slate-400 break-keep">{results[i].unverified.find(x => x.startsWith('위치'))?.replace(/^위치: /, '') ?? '위치 좌표 미확인'}</span>,
         });
     }
     return rows;
@@ -303,7 +304,7 @@ export default function CompareTable({ data }: Props) {
     const removeCompareId = useCompareStore((state) => state.removeCompareId);
     const fitConditions = useFitConditionsStore((s) => s.conditions);
     const fitLocation = useFitConditionsStore((s) => s.location);
-    const fitActive = hasActiveConditions(fitConditions, fitLocation);
+    const fitActive = hasActiveConditions(fitConditions, (data ?? []).some(item => locationApplies(fitLocation, item.sggCode)) ? fitLocation : null);
 
     if (!data || data.length === 0) {
         return (

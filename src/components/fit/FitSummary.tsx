@@ -1,6 +1,7 @@
 import { CheckCircle2, CircleHelp, XCircle } from 'lucide-react';
-import { FIT_GROUP_LABEL, scoreWord, type FitResult, type FitStatus } from '@/utils/fitConditions';
+import { fitGroupLabel, objectiveText, type FitResult, type FitStatus } from '@/utils/fitConditions';
 
+const NO_REQUIRED_STYLE = 'bg-slate-50 text-slate-600 border-slate-200';
 const GROUP_STYLE = {
     0: 'bg-emerald-50 text-emerald-800 border-emerald-200',
     1: 'bg-amber-50 text-amber-800 border-amber-200',
@@ -36,8 +37,8 @@ export function FitInfoLine({ text }: { text: string }) {
 
 export function FitGroupBadge({ result }: { result: FitResult }) {
     return (
-        <span className={`inline-flex items-center px-2 py-0.5 rounded-md border text-[11px] font-black ${GROUP_STYLE[result.group]}`}>
-            {FIT_GROUP_LABEL[result.group]}
+        <span className={`inline-flex items-center px-2 py-0.5 rounded-md border text-[11px] font-black ${result.checks.some(x => x.need === 'required') ? GROUP_STYLE[result.group] : NO_REQUIRED_STYLE}`}>
+            {fitGroupLabel(result)}
         </span>
     );
 }
@@ -45,18 +46,20 @@ export function FitGroupBadge({ result }: { result: FitResult }) {
 /** 카드 안의 맞춤 판정. 요약 한 줄 + 펼쳐 보는 근거. */
 export default function FitSummary({ result }: { result: FitResult }) {
     const { objective } = result;
+    const score = objectiveText(objective);
     return (
         <div className="mt-4 rounded-2xl border border-indigo-100 bg-indigo-50/40 p-3">
             <div className="flex flex-wrap items-center gap-1.5">
                 <span className="text-[11px] font-black text-indigo-700 tracking-wide">우리 집 조건</span>
                 <FitGroupBadge result={result} />
                 <span className="text-[11px] font-black text-slate-600">
-                    공시 평가 {objective.score === null ? '판단 자료 없음' : `${scoreWord(objective.score)} ${objective.score}/3 (${objective.used}개 기준)`}
+                    공시 평가 {score.main}
                 </span>
                 {result.distanceKm !== null && (
                     <span className="text-[11px] font-bold text-slate-500">· 직선 {result.distanceKm}km</span>
                 )}
             </div>
+            {score.coverage && <p className="mt-1 text-[11px] font-bold text-slate-400 break-keep">{score.coverage}</p>}
             <details className="mt-1.5 group/fit">
                 <summary className="cursor-pointer list-none text-[11px] font-black text-slate-400 hover:text-slate-600 select-none">
                     <span className="group-open/fit:hidden">추천 근거 보기</span>

@@ -7,7 +7,7 @@ import type { Institution, InstitutionSource } from '@/types/institution';
 import { compareInstitutions } from '@/utils/institutionSort';
 import { assessCare, assessStability, compareByAssessment } from '@/utils/selectionCriteria';
 
-import { assessFit, compareFit, hasActiveConditions, type FitResult } from '@/utils/fitConditions';
+import { assessFit, compareFit, hasActiveConditions, locationApplies, type FitResult } from '@/utils/fitConditions';
 import { useFitConditionsStore } from '@/store/useFitConditionsStore';
 import FitConditionsPanel from '@/components/fit/FitConditionsPanel';
 
@@ -38,7 +38,8 @@ function ListContent() {
     const { data: institutions, isLoading, error } = useInstitutions(sido, sgg, sourceFilter);
     const fitConditions = useFitConditionsStore((s) => s.conditions);
     const fitLocation = useFitConditionsStore((s) => s.location);
-    const fitActive = hasActiveConditions(fitConditions, fitLocation);
+    // 다른 지역에서 고른 행정동은 이 목록에서 쓰지 않는다.
+    const fitActive = hasActiveConditions(fitConditions, locationApplies(fitLocation, sgg) ? fitLocation : null);
     const effectiveSort: SortKey = sortBy === 'fit' && !fitActive ? 'name' : sortBy;
     const fitResults = useMemo(() => {
         if (!fitActive || !institutions) return null;
@@ -208,6 +209,11 @@ function ListContent() {
                             <option value="fit" disabled={!fitActive}>맞춤 추천순{fitActive ? '' : ' (조건을 먼저 정하세요)'}</option>
                         </select>
                     </div>
+                    {effectiveSort === 'fit' && (
+                        <p className="text-[11px] font-bold text-slate-400 break-keep md:max-w-md">
+                            순서: 필수 조건(충족 → 확인 필요 → 미충족) → 공시 평가 점수 → 충족한 선호 조건 수 → 직선거리 → 이름
+                        </p>
+                    )}
                 </div>
             </div>
 

@@ -4,7 +4,7 @@ import { useId, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { ChevronDown, LocateFixed, MapPin, RotateCcw, SlidersHorizontal } from 'lucide-react';
 import { useFitConditionsStore } from '@/store/useFitConditionsStore';
-import { COMMUTE_LABEL, hasActiveConditions, type CommuteMode, type Importance, type Need } from '@/utils/fitConditions';
+import { COMMUTE_LABEL, hasActiveConditions, locationApplies, type CommuteMode, type Importance, type Need } from '@/utils/fitConditions';
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
 type DongEntry = [name: string, lat: number, lng: number];
@@ -49,7 +49,8 @@ export default function FitConditionsPanel({ sggCode }: { sggCode: string }) {
     const [open, setOpen] = useState(false);
     const [geoMessage, setGeoMessage] = useState<string | null>(null);
     const ids = useId();
-    const active = hasActiveConditions(c, location);
+    const locationHere = locationApplies(location, sggCode);
+    const active = hasActiveConditions(c, locationHere ? location : null);
 
     const { data: dongs } = useQuery<Record<string, DongEntry[]>>({
         queryKey: ['dongs'],
@@ -104,10 +105,10 @@ export default function FitConditionsPanel({ sggCode }: { sggCode: string }) {
                             <select
                                 id={`${ids}-dong`}
                                 className={fieldClass}
-                                value={location?.kind === 'dong' ? location.label : ''}
+                                value={location?.kind === 'dong' && locationHere ? location.label : ''}
                                 onChange={(e) => {
                                     const d = dongList.find(x => x[0] === e.target.value);
-                                    setLocation(d ? { kind: 'dong', label: d[0], lat: d[1], lng: d[2] } : null);
+                                    setLocation(d ? { kind: 'dong', label: d[0], lat: d[1], lng: d[2], sggCode } : null);
                                 }}
                             >
                                 <option value="">{dongList.length ? '행정동 고르기' : '동 목록 불러오는 중…'}</option>
@@ -117,7 +118,13 @@ export default function FitConditionsPanel({ sggCode }: { sggCode: string }) {
                                 <LocateFixed className="w-4 h-4" aria-hidden="true" /> 현재 위치
                             </button>
                         </div>
-                        {location && (
+                        {location && !locationHere && (
+                            <p role="status" className="mt-2 flex flex-wrap items-center gap-2 text-xs font-bold text-amber-700">
+                                다른 지역에서 고른 &lsquo;{location.label}&rsquo;은 이 지역에서는 쓰지 않아요. 이 지역의 동을 다시 골라 주세요.
+                                <button type="button" onClick={() => setLocation(null)} className="underline text-amber-600 hover:text-amber-800">지우기</button>
+                            </p>
+                        )}
+                        {location && locationHere && (
                             <p className="mt-2 flex flex-wrap items-center gap-2 text-xs font-bold text-slate-600">
                                 <MapPin className="w-3.5 h-3.5 text-indigo-500" aria-hidden="true" />
                                 {location.label} 기준
@@ -176,15 +183,17 @@ export default function FitConditionsPanel({ sggCode }: { sggCode: string }) {
                             <input
                                 id={`${ids}-minutes`}
                                 type="number" inputMode="numeric" min={5} max={120} step={5}
-                                className={fieldClass}
-                                placeholder="예: 20"
+                                className={`${fieldClass} disabled:opacity-50 disabled:cursor-not-allowed`}
+                                placeholder={c.commuteMode ? '예: 20' : '통학 방법을 먼저 고르세요'}
+                                disabled={c.commuteMode === null}
+                                aria-describedby={`${ids}-minutes-hint`}
                                 value={c.maxCommuteMinutes ?? ''}
                                 onChange={(e) => setConditions({ maxCommuteMinutes: e.target.value === '' ? null : Math.max(1, Math.min(180, Number(e.target.value))) })}
                             />
                         </div>
                         <div className="sm:col-span-2">
                             <Segmented label="통학 조건 중요도" value={c.commuteNeed} options={NEED_OPTIONS} onChange={(v) => setConditions({ commuteNeed: v })} />
-                            <p className="mt-1.5 text-[11px] font-medium text-slate-400 break-keep">통학시간 계산은 아직 지원하지 않아 모든 기관이 &lsquo;확인 필요&rsquo;로 표시돼요. 통학차량은 운영 여부만 공시되고 노선·탑승 가능 여부는 알 수 없어요.</p>
+                            <p id={`${ids}-minutes-hint`} className="mt-1.5 text-[11px] font-medium text-slate-400 break-keep">최대 통학시간은 통학 방법을 고른 뒤에 쓸 수 있어요. 통학시간 계산은 아직 지원하지 않아 모든 기관이 &lsquo;확인 필요&rsquo;로 표시돼요. 통학차량은 운영 여부만 공시되고 노선·탑승 가능 여부는 알 수 없어요.</p>
                         </div>
                     </div>
 

@@ -19,7 +19,7 @@ function load(rel) {
 const f = load('fitConditions');
 
 const base = {
-    id: 'x', name: '테스트', type: '민간', source: '어린이집', address: '서울특별시 관악구 미성동 1', phone: '',
+    id: 'x', sidoCode: '11', sggCode: '11620', name: '테스트', type: '민간', source: '어린이집', address: '서울특별시 관악구 미성동 1', phone: '',
     capacity: 50, currentPupils: 40, operatingHours: '07:30 ~ 19:30', hasSchoolBus: false,
     expenseLevel: '', ageRange: '만 0세 ~ 만 2세', tags: [], latitude: 37.47, longitude: 126.91, locationStatus: 'region_consistent',
 };
@@ -28,7 +28,7 @@ const cond = (patch = {}) => ({ ...f.DEFAULT_CONDITIONS, ...patch, importance: {
 test('no conditions → feature is inactive and the list behaves as before', () => {
     assert.equal(f.hasActiveConditions(f.DEFAULT_CONDITIONS, null), false);
     assert.equal(f.hasActiveConditions(cond({ childAge: 3 }), null), true);
-    assert.equal(f.hasActiveConditions(f.DEFAULT_CONDITIONS, { kind: 'dong', label: '미성동', lat: 37.47, lng: 126.91 }), true);
+    assert.equal(f.hasActiveConditions(f.DEFAULT_CONDITIONS, { kind: 'dong', label: '미성동', lat: 37.47, lng: 126.91, sggCode: '11620' }), true);
 });
 
 test('age: outside the range is unmet, inside without the class is "확인 필요", missing range is never unmet', () => {
@@ -59,7 +59,7 @@ test('school bus: operation is shown but boarding is never claimed', () => {
 });
 
 test('straight distance is labelled as such and skipped for unconfirmed coordinates', () => {
-    const here = { kind: 'dong', label: '미성동', lat: 37.4743, lng: 126.9149 };
+    const here = { kind: 'dong', label: '미성동', lat: 37.4743, lng: 126.9149, sggCode: '11620' };
     const r = f.assessFit(base, cond(), here);
     assert.equal(typeof r.distanceKm, 'number');
     assert.ok(r.reasons.some(x => x.includes('통학시간 아님')));
@@ -99,7 +99,7 @@ test('ranking groups: met → 확인 필요 → unmet, and unmet stays in the li
 
 test('preferred conditions only reorder within a group; distance is the last tie-breaker', () => {
     const c = cond({ afterSchool: 'preferred' });
-    const here = { kind: 'dong', label: '미성동', lat: 37.47, lng: 126.91 };
+    const here = { kind: 'dong', label: '미성동', lat: 37.47, lng: 126.91, sggCode: '11620' };
     const near = { ...base, id: 'near', latitude: 37.471, longitude: 126.911 };
     const far = { ...base, id: 'far', latitude: 37.5, longitude: 126.95 };
     const farWithAfter = { ...far, id: 'farAfter', tags: ['방과후운영'] };
@@ -118,4 +118,58 @@ test('sparse data neither outranks fuller evidence nor sinks below 보통', () =
     assert.equal(rs.objective.used, 1);
     assert.ok(rs.objective.rankScore < rf.objective.rankScore, `${rs.objective.rankScore} < ${rf.objective.rankScore}`);
     assert.ok(rs.objective.rankScore >= 2);
+});
+
+// ── Codex 1차 검수 지적 재현 (2026-11-17) ───────────────────────────────
+
+test('[Codex #1] a dong chosen in another district is not used for distance there', () => {
+    const miseong = { kind: 'dong', label: '미성동', lat: 37.4743, lng: 126.9149, sggCode: '11620' };
+    const busan = { ...base, sidoCode: '26', sggCode: '26350', latitude: 35.16, longitude: 129.16 };
+    assert.equal(f.locationApplies(miseong, '26350'), false);
+    assert.equal(f.locationApplies(miseong, '11620'), true);
+    assert.equal(f.locationApplies({ ...miseong, sggCode: undefined }, '11620'), false); // 예전 형식
+    assert.equal(f.locationApplies({ kind: 'device', label: '현재 위치', lat: 37.5, lng: 127 }, '26350'), true);
+    const r = f.assessFit(busan, cond(), miseong);
+    assert.equal(r.distanceKm, null);
+    assert.ok(r.unverified.some(x => /다른 지역이라 거리를 계산하지 않았어요/.test(x)));
+    assert.ok(!r.reasons.some(x => /직선/.test(x)));
+});
+
+test('[Codex #3] no required condition → "필수 조건 없음", never "충족"', () => {
+    const here = { kind: 'dong', label: '미성동', lat: 37.47, lng: 126.91, sggCode: '11620' };
+    assert.equal(f.fitGroupLabel(f.assessFit({ ...base, sggCode: '11620' }, cond(), here)), '필수 조건 없음');
+    assert.equal(f.fitGroupLabel(f.assessFit(base, cond({ afterSchool: 'preferred' }), null)), '필수 조건 없음');
+    const required = f.assessFit({ ...base, tags: ['야간연장'] }, cond({ afterSchool: 'required' }), null);
+    assert.equal(f.fitGroupLabel(required), '필수 조건 충족');
+});
+
+test('[Codex #4] max minutes alone is not a condition (the input is disabled until a mode is chosen)', () => {
+    assert.equal(f.hasActiveConditions(cond({ maxCommuteMinutes: 20 }), null), false);
+    assert.deepEqual(f.evaluateFit(base, cond({ maxCommuteMinutes: 20 })), []);
+    const withMode = f.evaluateFit(base, cond({ maxCommuteMinutes: 20, commuteMode: 'transit' }));
+    assert.equal(withMode[0].status, 'unknown');
+    assert.match(withMode[0].reason, /편도 20분 이내/);
+});
+
+test('[Codex #5] the shown score is the ranking score, so adjacent order is explainable from what is shown', () => {
+    const c = cond({ monthlyBudget: 30, budgetNeed: 'preferred' });
+    const items = [];
+    const levels = [undefined, 8, 11, 14];
+    let n = 0;
+    for (const cpt of levels) for (const under1 of [undefined, 10, 30, 60]) for (const cctv of [0, 2]) {
+        items.push({ ...base, id: `i${n++}`, source: cpt ? '유치원' : '어린이집', ageRange: cpt ? '만 3세 ~ 5세' : base.ageRange, childrenPerTeacher: cpt, cctvCount: cctv, capacity: 30,
+            teacherTenure: under1 === undefined ? undefined : { under1, year1to2: 20, year2to4: 20, year4to6: 20, over6: 100 - under1 - 60 } });
+    }
+    const sorted = items.map(i => f.assessFit(i, c, null)).sort(f.compareFit);
+    for (const r of sorted) {
+        const shown = f.objectiveText(r.objective).main;
+        if (r.objective.rankScore !== null) assert.ok(shown.includes(r.objective.rankScore.toFixed(1)), shown);
+    }
+    for (let i = 1; i < sorted.length; i++) {
+        const [p, q] = [sorted[i - 1], sorted[i]];
+        if (p.group !== q.group) { assert.ok(p.group < q.group); continue; }
+        const ps = p.objective.rankScore, qs = q.objective.rankScore;
+        if (ps !== qs) { assert.ok(qs === null || (ps !== null && ps > qs), `${ps} before ${qs}`); continue; }
+        assert.ok(p.preferredMet >= q.preferredMet);
+    }
 });

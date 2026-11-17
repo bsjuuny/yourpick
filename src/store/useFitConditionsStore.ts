@@ -33,7 +33,12 @@ export const useFitConditionsStore = create<FitStore>()(
         }),
         {
             name: 'yourpick-fit-conditions',
-            version: 1,
+            // v2 (2026-11-17): 행정동에 시군구 코드를 함께 저장. 코드 없는 예전 위치는 버린다.
+            version: 2,
+            migrate: (persisted) => {
+                const p = (persisted ?? {}) as Partial<Pick<FitStore, 'conditions' | 'location'>>;
+                return { ...p, location: p.location?.kind === 'dong' && p.location.sggCode ? p.location : null } as FitStore;
+            },
             storage: createJSONStorage(() => safeStorage),
             partialize: (s) => ({
                 conditions: s.conditions,
@@ -44,7 +49,7 @@ export const useFitConditionsStore = create<FitStore>()(
                 return {
                     ...current,
                     conditions: { ...DEFAULT_CONDITIONS, ...p.conditions, importance: { ...DEFAULT_CONDITIONS.importance, ...p.conditions?.importance } },
-                    location: p.location?.kind === 'dong' ? p.location : null,
+                    location: p.location?.kind === 'dong' && p.location.sggCode ? p.location : null,
                 };
             },
         },

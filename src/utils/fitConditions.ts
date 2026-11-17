@@ -22,6 +22,8 @@ export interface FitLocation {
     /** 'dong' = 고른 행정동의 대표 지점, 'device' = 기기 현재 위치(저장하지 않음) */
     kind: 'dong' | 'device';
     label: string;
+    /** 행정동을 고른 지역(시군구). 다른 지역 기관에는 이 위치를 쓰지 않는다. */
+    sggCode?: string;
     lat: number;
     lng: number;
 }
@@ -145,6 +147,19 @@ export function fitGroup(checks: FitCheck[]): FitGroup {
 
 export const FIT_GROUP_LABEL: Record<FitGroup, string> = { 0: '필수 조건 충족', 1: '확인 필요', 2: '필수 조건 미충족' };
 
+/** 필수 조건을 하나도 정하지 않았으면 '충족'이라고 하지 않는다. */
+export function fitGroupLabel(result: Pick<FitResult, 'group' | 'checks'>): string {
+    if (!result.checks.some(x => x.need === 'required')) return '필수 조건 없음';
+    return FIT_GROUP_LABEL[result.group];
+}
+
+/** 고른 행정동이 이 지역(시군구) 것일 때만 쓴다. 기기 현재 위치는 실제 위치라 어디서나 쓴다. */
+export function locationApplies(location: FitLocation | null, sggCode: string | undefined): boolean {
+    if (!location) return false;
+    if (location.kind !== 'dong') return true;
+    return Boolean(location.sggCode) && location.sggCode === sggCode;
+}
+
 export interface WeightedPart {
     key: 'care' | 'stability' | 'safety' | 'education';
     label: string;
@@ -157,8 +172,10 @@ export interface ObjectiveScore {
     score: number | null;
     /** 정렬용 점수. 정보가 없는 기준은 '보통(2)'으로 채워 자료가 적다고 깎지도, 올려 주지도 않는다. */
     rankScore: number | null;
-    /** score 계산에 쓴 기준 수 */
+    /** 자료가 있어 계산에 쓴 기준 수 */
     used: number;
+    /** 중요도를 줘서 점수에 들어간 기준 수(교육과정 제외) */
+    considered: number;
     parts: WeightedPart[];
     /** 중요도를 줬지만 정보가 없어 계산에서 뺀 기준 */
     missing: string[];
@@ -179,9 +196,11 @@ export function objectiveScore(item: Institution, c: FitConditions): ObjectiveSc
     let rankTotal = 0;
     let rankWeights = 0;
     let used = 0;
+    let considered = 0;
     const missing: string[] = [];
     for (const p of parts) {
         if (p.weight === 0) continue;
+        if (p.key !== 'education') considered++;
         const level: Level = p.assessment?.level ?? 0;
         if (level === 0) {
             missing.push(p.label);
@@ -195,14 +214,23 @@ export function objectiveScore(item: Institution, c: FitConditions): ObjectiveSc
         rankWeights += p.weight;
         used++;
     }
-    const round = (n: number) => Math.round(n * 100) / 100;
+    // 화면에 보이는 값(소수 첫째 자리)과 정렬에 쓰는 값이 같도록 같은 자리에서 반올림한다.
+    const round = (n: number) => Math.round(n * 10) / 10;
     return {
         score: weights > 0 ? Math.round((total / weights) * 10) / 10 : null,
         rankScore: weights > 0 && rankWeights > 0 ? round(rankTotal / rankWeights) : null,
         used,
+        considered,
         parts,
         missing,
     };
+}
+
+/** 화면 표시: 정렬에 쓰는 점수 그대로. 자료가 없는 기준은 '보통'으로 계산했다고 함께 밝힌다. */
+export function objectiveText(o: ObjectiveScore): { main: string; coverage: string | null } {
+    if (o.rankScore === null) return { main: '판단 자료 없음', coverage: null };
+    const coverage = o.used < o.considered ? `자료 ${o.used}/${o.considered}개 기준 · 나머지는 보통(2)으로 계산` : `자료 ${o.used}/${o.considered}개 기준`;
+    return { main: `${scoreWord(o.rankScore)} ${o.rankScore.toFixed(1)}/3`, coverage };
 }
 
 export function scoreWord(score: number | null): string {
@@ -241,7 +269,8 @@ export interface FitResult {
 export function assessFit(item: Institution, c: FitConditions, location: FitLocation | null): FitResult {
     const checks = evaluateFit(item, c);
     const objective = objectiveScore(item, c);
-    const distanceKm = distanceFrom(item, location);
+    const usable = locationApplies(location, item.sggCode) ? location : null;
+    const distanceKm = distanceFrom(item, usable);
     const reasons: string[] = [];
     for (const x of checks) if (x.status === 'met') reasons.push(`${x.label}: ${x.reason}`);
     for (const p of objective.parts) {
@@ -249,7 +278,8 @@ export function assessFit(item: Institution, c: FitConditions, location: FitLoca
     }
     if (distanceKm !== null) reasons.push(`${location?.label}에서 직선 ${distanceKm}km (통학시간 아님)`);
     const unverified = checks.filter(x => x.status === 'unknown').map(x => `${x.label}: ${x.reason}`);
-    if (location && distanceKm === null) unverified.push('위치 좌표 미확인이라 거리를 계산하지 않았어요');
+    if (location && !usable) unverified.push(`위치: 고른 동(${location.label})과 다른 지역이라 거리를 계산하지 않았어요`);
+    else if (usable && distanceKm === null) unverified.push('위치 좌표 미확인이라 거리를 계산하지 않았어요');
     return {
         group: fitGroup(checks),
         checks,
