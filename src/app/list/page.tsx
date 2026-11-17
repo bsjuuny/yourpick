@@ -1,15 +1,19 @@
 'use client';
 
-import React, { Suspense, useState } from 'react';
+import React, { Suspense, useMemo, useState } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useInstitutions } from '@/hooks/useInstitutions';
 import type { Institution, InstitutionSource } from '@/types/institution';
 import { compareInstitutions } from '@/utils/institutionSort';
 import { assessCare, assessStability, compareByAssessment } from '@/utils/selectionCriteria';
 
-type SortKey = 'name' | 'capacity' | 'care' | 'stability';
+import { assessFit, compareFit, hasActiveConditions, locationApplies, type FitResult } from '@/utils/fitConditions';
+import { useFitConditionsStore } from '@/store/useFitConditionsStore';
+import FitConditionsPanel from '@/components/fit/FitConditionsPanel';
 
-function sortInstitutions(a: Institution, b: Institution, sortBy: SortKey): number {
+type SortKey = 'name' | 'capacity' | 'care' | 'stability' | 'fit';
+
+function sortInstitutions(a: Institution, b: Institution, sortBy: Exclude<SortKey, 'fit'>): number {
     if (sortBy === 'care') return compareByAssessment(assessCare(a), assessCare(b)) || compareInstitutions(a, b, 'name');
     if (sortBy === 'stability') return compareByAssessment(assessStability(a), assessStability(b)) || compareInstitutions(a, b, 'name');
     return compareInstitutions(a, b, sortBy);
@@ -32,6 +36,18 @@ function ListContent() {
     const [sourceFilter, setSourceFilter] = useState<InstitutionSource | '전체'>('전체');
     const [sortBy, setSortBy] = useState<SortKey>('name');
     const { data: institutions, isLoading, error } = useInstitutions(sido, sgg, sourceFilter);
+    const fitConditions = useFitConditionsStore((s) => s.conditions);
+    const fitLocation = useFitConditionsStore((s) => s.location);
+    // 다른 지역에서 고른 행정동은 이 목록에서 쓰지 않는다.
+    const fitActive = hasActiveConditions(fitConditions, locationApplies(fitLocation, sgg) ? fitLocation : null);
+    const effectiveSort: SortKey = sortBy === 'fit' && !fitActive ? 'name' : sortBy;
+    const fitResults = useMemo(() => {
+        if (!fitActive || !institutions) return null;
+        const map = new Map<string, FitResult>();
+        for (const inst of institutions) map.set(`${inst.source}:${inst.id}`, assessFit(inst, fitConditions, fitLocation));
+        return map;
+    }, [fitActive, institutions, fitConditions, fitLocation]);
+    const fitOf = (inst: Institution) => fitResults?.get(`${inst.source}:${inst.id}`);
 
     if (isLoading) {
         return (
@@ -73,7 +89,13 @@ function ListContent() {
         const matchesLocal = !localSearch || inst.name.includes(localSearch);
         const matchesType = typeFilter === '전체' || inst.type.includes(typeFilter);
         return matchesQuery && matchesLocal && matchesType;
-    }).sort((a, b) => sortInstitutions(a, b, sortBy)) || [];
+    }).sort((a, b) => {
+        if (effectiveSort === 'fit') {
+            const fa = fitOf(a), fb = fitOf(b);
+            return (fa && fb ? compareFit(fa, fb) : 0) || compareInstitutions(a, b, 'name');
+        }
+        return sortInstitutions(a, b, effectiveSort);
+    }) || [];
 
     return (
         <div className="space-y-12 pb-24">
@@ -165,6 +187,8 @@ function ListContent() {
                 </div>
             </div>
 
+            <FitConditionsPanel sggCode={sgg} />
+
             {/* List Controls */}
             <div className="flex flex-col md:flex-row items-center justify-between gap-4 animate-fade-up [animation-delay:100ms]">
                 <div className="flex items-center gap-4 w-full md:w-auto">
@@ -174,7 +198,7 @@ function ListContent() {
                         </div>
                         <select
                             aria-label="정렬 기준"
-                            value={sortBy}
+                            value={effectiveSort}
                             onChange={(e) => setSortBy(e.target.value as SortKey)}
                             className="bg-transparent border-none text-[13px] font-black text-slate-700 pr-8 py-2 focus:ring-0 cursor-pointer w-full"
                         >
@@ -182,8 +206,14 @@ function ListContent() {
                             <option value="capacity">정원 많은 순</option>
                             <option value="care">① 돌봄 여유 순</option>
                             <option value="stability">② 교사 안정성 순</option>
+                            <option value="fit" disabled={!fitActive}>맞춤 추천순{fitActive ? '' : ' (조건을 먼저 정하세요)'}</option>
                         </select>
                     </div>
+                    {effectiveSort === 'fit' && (
+                        <p className="text-[11px] font-bold text-slate-400 break-keep md:max-w-md">
+                            순서: 필수 조건(충족 → 확인 필요 → 미충족) → 공시 평가 점수 → 충족한 선호 조건 수 → 직선거리 → 이름
+                        </p>
+                    )}
                 </div>
             </div>
 
@@ -196,7 +226,7 @@ function ListContent() {
                     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 animate-fade-up [animation-delay:200ms]"
                 >
                     {filteredData.map(inst => (
-                        <InstitutionCard key={inst.id} data={inst} />
+                        <InstitutionCard key={inst.id} data={inst} fit={fitOf(inst)} />
                     ))}
                 </div>
             ) : (
