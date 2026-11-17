@@ -267,7 +267,7 @@ function augmentData() {
             return inst;
         });
 
-        fs.writeFileSync(filePath, JSON.stringify(augmented, null, 2), 'utf-8');
+        fs.writeFileSync(filePath, JSON.stringify(augmented), 'utf-8');
     });
 
     console.log(`\n✅ Data augmentation complete! (총 ${totalInst}개 기관)`);

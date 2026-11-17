@@ -32,7 +32,8 @@ function auditDirectory(dataDir, { write = false, reportPath } = {}) {
                     }).map(([code, boundary]) => ({ code, name: boundary.name })) });
             }
         }
-        const output = JSON.stringify(records, null, 2);
+        // 기관 데이터는 들여쓰기 없이 저장한다(전국 확대 후 다운로드·Cafe24 트래픽 절감, 2026-11-17).
+        const output = JSON.stringify(records);
         if (fs.readFileSync(path.join(dataDir, entry.file), 'utf8') !== output) {
             changedFiles++;
             if (write) fs.writeFileSync(path.join(dataDir, entry.file), output);

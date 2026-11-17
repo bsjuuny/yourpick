@@ -922,7 +922,7 @@ async function run() {
                 });
 
                 const filename = `${sido.sidoCode}_${sgg.sggCode}.json`;
-                fs.writeFileSync(path.join(dataDir, filename), JSON.stringify(normalizedList, null, 2), 'utf-8');
+                fs.writeFileSync(path.join(dataDir, filename), JSON.stringify(normalizedList), 'utf-8');
                 console.log(`✅ Saved ${normalizedList.length} institutions to ${filename}`);
 
                 await delay(2000);
@@ -967,7 +967,7 @@ async function run() {
 
                         const normalizedList = normalizeChildcareData(items, sido.sidoCode, sgg.sggCode);
                         const filename = `${sido.sidoCode}_${sgg.sggCode}_childcare.json`;
-                        fs.writeFileSync(path.join(dataDir, filename), JSON.stringify(normalizedList, null, 2), 'utf-8');
+                        fs.writeFileSync(path.join(dataDir, filename), JSON.stringify(normalizedList), 'utf-8');
                         console.log(`   ✅ Saved ${normalizedList.length} childcare centers to ${filename}`);
 
                         await delay(2000);
