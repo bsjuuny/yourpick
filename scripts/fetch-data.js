@@ -264,6 +264,54 @@ function parseTenureTable(html) {
     return tenureMap;
 }
 
+// ── 연령반 운영 현황 (2026-11-17) ─────────────────────────────────────────────
+// 공시 원본의 연령별 학급·원아·정원과 혼합반·특수반을 그대로 옮긴다. 판정은 화면(src/utils/ageClasses.ts)에서 한다.
+const int = (v) => { const n = parseInt(v, 10); return Number.isFinite(n) && n >= 0 ? n : 0; };
+
+/** "20262" → { key: '20262', label: '2026년 2차 공시' } */
+function kindergartenBasis(pbnttmng) {
+    const m = String(pbnttmng || '').match(/^(\d{4})(\d)$/);
+    return m ? { kind: 'disclosure', key: m[0], label: `${m[1]}년 ${m[2]}차 공시` } : { kind: 'unknown', key: null, label: '공시 차수 정보 없음' };
+}
+
+function kindergartenAgeClasses(item) {
+    const byAge = {};
+    for (const age of [3, 4, 5]) {
+        byAge[age] = { classes: int(item[`clcnt${age}`]), children: int(item[`ppcnt${age}`]), capacity: int(item[`ag${age}fpcnt`]) };
+    }
+    const mixedClasses = int(item.mixclcnt);
+    return {
+        basis: kindergartenBasis(item.pbnttmng),
+        byAge,
+        mixed: mixedClasses > 0 || int(item.mixppcnt) > 0
+            ? [{ label: '혼합반', ages: [3, 4, 5], classes: mixedClasses, children: int(item.mixppcnt), capacity: int(item.mixfpcnt) }]
+            : [],
+        special: { classes: int(item.shclcnt), children: int(item.shppcnt) },
+    };
+}
+
+function childcareAgeClasses(item) {
+    const byAge = {};
+    for (let age = 0; age <= 5; age++) {
+        byAge[age] = { classes: int(item[`CLASS_CNT_0${age}`]), children: int(item[`CHILD_CNT_0${age}`]), waiting: int(item[`EW_CNT_0${age}`]) };
+    }
+    // 보육정보 공개 API 명세 v1.6: M2 = 영아혼합(만 0~2세), M5 = 유아혼합(만 3~5세).
+    // M3 은 명세에 없는 항목이라 연령 범위를 추정하지 않는다(ages: null).
+    const mixed = [
+        { label: '영아혼합반', ages: [0, 1, 2], classes: int(item.CLASS_CNT_M2), children: int(item.CHILD_CNT_M2) },
+        { label: '혼합반(연령 범위 미공시)', ages: null, classes: int(item.CLASS_CNT_M3), children: int(item.CHILD_CNT_M3) },
+        { label: '유아혼합반', ages: [3, 4, 5], classes: int(item.CLASS_CNT_M5), children: int(item.CHILD_CNT_M5) },
+    ].filter(m => m.classes > 0 || m.children > 0);
+    const date = String(item.datastdrdt || '').trim();
+    return {
+        basis: /^\d{4}-\d{2}-\d{2}$/.test(date) ? { kind: 'date', key: date, label: `${date} 기준` } : { kind: 'unknown', key: null, label: '기준일 정보 없음' },
+        byAge,
+        mixed,
+        special: { classes: int(item.CLASS_CNT_SP), children: int(item.CHILD_CNT_SP) },
+        waitingOver6: int(item.EW_CNT_M6),
+    };
+}
+
 function normalizeData(basicInfoData, teachersInfoData, tenureMap, schoolBusData, mealMap, safetyMap, sidoCode, sggCode) {
     let rawList = [];
     if (Array.isArray(basicInfoData)) rawList = basicInfoData;
@@ -375,6 +423,7 @@ function normalizeData(basicInfoData, teachersInfoData, tenureMap, schoolBusData
             hasSchoolBus,
             expenseLevel: '-',
             ageRange: '-',
+            ageClasses: kindergartenAgeClasses(item),
             teacherRatio,
             teacherTenure: (() => {
                 const raw = tenureMap.get(item.kindercode);
@@ -556,7 +605,8 @@ function normalizeChildcareData(items, sidoCode, sggCode) {
             }
 
             // 연령 범위 — CLASS_CNT(반 편성) 기준으로 판단, 현원이 0이어도 반이 있으면 포함
-            // CLASS_CNT_M2: 0~2세 혼합반, CLASS_CNT_M5: 0~5세 혼합반
+            // CLASS_CNT_M2: 영아혼합(만 0~2세), CLASS_CNT_M5: 유아혼합(만 3~5세) — 명세 v1.6.
+            // (2026-11-17 이전에는 M5 를 0~5세로 잘못 펼쳐 유아혼합반만 있는 곳의 대상 연령이 만 0세부터로 나왔다.)
             const ageSet = new Set();
             if (parseInt(item.CLASS_CNT_00) > 0) ageSet.add(0);
             if (parseInt(item.CLASS_CNT_01) > 0) ageSet.add(1);
@@ -565,7 +615,7 @@ function normalizeChildcareData(items, sidoCode, sggCode) {
             if (parseInt(item.CLASS_CNT_04) > 0) ageSet.add(4);
             if (parseInt(item.CLASS_CNT_05) > 0) ageSet.add(5);
             if (parseInt(item.CLASS_CNT_M2) > 0) [0, 1, 2].forEach(a => ageSet.add(a));
-            if (parseInt(item.CLASS_CNT_M5) > 0) [0, 1, 2, 3, 4, 5].forEach(a => ageSet.add(a));
+            if (parseInt(item.CLASS_CNT_M5) > 0) [3, 4, 5].forEach(a => ageSet.add(a));
             const sortedAges = [...ageSet].sort((a, b) => a - b);
             const ageRange = sortedAges.length === 0 ? '-'
                 : sortedAges.length === 1 ? `만 ${sortedAges[0]}세`
@@ -607,6 +657,8 @@ function normalizeChildcareData(items, sidoCode, sggCode) {
                 expenseLevel: '-',
                 ageRange,
                 ageBreakdown: Object.keys(ageBreakdown).length > 0 ? ageBreakdown : undefined,
+                ageClasses: childcareAgeClasses(item),
+                operatingStatus: item.crstatusname || undefined,
                 teacherTenure,
                 waitlistTotal,
                 cctvCount,
@@ -750,4 +802,4 @@ async function run() {
 }
 
 if (require.main === module) run();
-module.exports = { normalizeData, normalizeChildcareData, parseXmlItems };
+module.exports = { normalizeData, normalizeChildcareData, parseXmlItems, kindergartenAgeClasses, childcareAgeClasses, kindergartenBasis };

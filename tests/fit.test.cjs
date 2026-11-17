@@ -17,6 +17,7 @@ function load(rel) {
     return mod.exports;
 }
 const f = load('fitConditions');
+const NOW = new Date('2026-11-17T12:00:00+09:00'); // 2026학년도
 
 const base = {
     id: 'x', sidoCode: '11', sggCode: '11620', name: '테스트', type: '민간', source: '어린이집', address: '서울특별시 관악구 미성동 1', phone: '',
@@ -27,7 +28,7 @@ const cond = (patch = {}) => ({ ...f.DEFAULT_CONDITIONS, ...patch, importance: {
 
 test('no conditions → feature is inactive and the list behaves as before', () => {
     assert.equal(f.hasActiveConditions(f.DEFAULT_CONDITIONS, null), false);
-    assert.equal(f.hasActiveConditions(cond({ childAge: 3 }), null), true);
+    assert.equal(f.hasActiveConditions(cond({ birthYear: 2022 }), null), true);
     assert.equal(f.hasActiveConditions(f.DEFAULT_CONDITIONS, { kind: 'dong', label: '미성동', lat: 37.47, lng: 126.91, sggCode: '11620' }), true);
 });
 
@@ -88,11 +89,11 @@ test('importance changes the ranking between institutions', () => {
 });
 
 test('ranking groups: met → 확인 필요 → unmet, and unmet stays in the list', () => {
-    const c = cond({ childAge: 4, ageNeed: 'required' });
+    const c = cond({ birthYear: 2021, entryYear: 2026, ageNeed: 'required' }); // 2026학년도 만 4세반
     const kinder = { ...base, id: 'k', source: '유치원', ageRange: '만 3세 ~ 5세' };
     const infant = { ...base, id: 'i' };                     // 만 0~2세 → 미충족
     const unknownAge = { ...base, id: 'u', ageRange: '' };   // 연령 공시 없음 → 확인 필요
-    const sorted = [infant, unknownAge, kinder].map(i => ({ id: i.id, r: f.assessFit(i, c, null) })).sort((x, y) => f.compareFit(x.r, y.r));
+    const sorted = [infant, unknownAge, kinder].map(i => ({ id: i.id, r: f.assessFit(i, c, null, NOW) })).sort((x, y) => f.compareFit(x.r, y.r));
     assert.deepEqual(sorted.map(x => x.id), ['k', 'u', 'i']);
     assert.deepEqual(sorted.map(x => x.r.group), [0, 1, 2]);
 });

@@ -13,6 +13,30 @@ import { CRITERION_THEME, CriterionIcon, LevelMeter, MethodBadge, VerdictText } 
 import { useFitConditionsStore } from '@/store/useFitConditionsStore';
 import { assessFit, hasActiveConditions, locationApplies, objectiveText, type FitResult } from '@/utils/fitConditions';
 import { FitGroupBadge, FitStatusLine } from '@/components/fit/FitSummary';
+import { useQuery } from '@tanstack/react-query';
+import { AgeClassBasis, AgeClassOverview, ChildPathCell, ClassHistoryCell, MixedClassCell } from '@/components/AgeClassCells';
+import { currentSchoolYear, type ClassHistoryEntry } from '@/utils/ageClasses';
+
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+type HistoryFile = Record<string, ClassHistoryEntry[]>;
+
+/** 비교 중인 기관들의 지역별 연령반 이력 파일을 받는다. 없거나 실패하면 빈 값(정보 부족). */
+function useClassHistory(data: Institution[]) {
+    const regions = [...new Set(data.map(item => `${item.sidoCode}_${item.sggCode}`))].sort();
+    return useQuery<Record<string, HistoryFile>>({
+        queryKey: ['class-history', regions.join(',')],
+        queryFn: async () => {
+            const entries = await Promise.all(regions.map(region =>
+                fetch(`${BASE_PATH}/data/class-history/${region}.json`)
+                    .then(r => (r.ok ? r.json() : {}))
+                    .catch(() => ({}))
+                    .then((file: HistoryFile) => [region, file] as const)));
+            return Object.fromEntries(entries);
+        },
+        enabled: regions.length > 0,
+        staleTime: 1000 * 60 * 60,
+    });
+}
 
 interface Props {
     data: Institution[];
@@ -305,6 +329,19 @@ export default function CompareTable({ data }: Props) {
     const fitConditions = useFitConditionsStore((s) => s.conditions);
     const fitLocation = useFitConditionsStore((s) => s.location);
     const fitActive = hasActiveConditions(fitConditions, (data ?? []).some(item => locationApplies(fitLocation, item.sggCode)) ? fitLocation : null);
+    const history = useClassHistory(data ?? []);
+    const historyOf = (item: Institution) => history.data?.[`${item.sidoCode}_${item.sggCode}`]?.[`${item.source}:${item.id}`];
+    const classRows: Row[] = [
+        { key: 'class-basis', label: '공시 기준', render: (item) => <AgeClassBasis item={item} /> },
+        { key: 'class-overview', label: '연령별 학급', render: (item) => <AgeClassOverview item={item} /> },
+        { key: 'class-mixed', label: '혼합반', render: (item) => <MixedClassCell item={item} /> },
+        { key: 'class-history', label: '공시상 변화', render: (item) => <ClassHistoryCell item={item} entries={historyOf(item)} loading={history.isLoading} /> },
+    ];
+    if (fitConditions.birthYear !== null) {
+        const birthYear = fitConditions.birthYear;
+        const entryYear = fitConditions.entryYear ?? currentSchoolYear();
+        classRows.push({ key: 'class-path', label: '우리 아이 학년도별', render: (item) => <ChildPathCell item={item} birthYear={birthYear} entryYear={entryYear} /> });
+    }
 
     if (!data || data.length === 0) {
         return (
@@ -388,6 +425,15 @@ export default function CompareTable({ data }: Props) {
                                 {renderRows(fitRows(data.map(item => assessFit(item, fitConditions, fitLocation))))}
                             </>
                         )}
+                        <tr>
+                            <th scope="rowgroup" colSpan={data.length + 1} className="bg-slate-50 border-y border-slate-100 p-0 text-left">
+                                <div className="sticky left-0 w-fit max-w-[100vw] px-3 sm:px-5 py-3">
+                                    <span className="flex items-center gap-2 text-sm sm:text-base font-black text-slate-900 font-heading">연령반 운영 <MethodBadge method="data" /></span>
+                                    <span className="block text-xs font-medium text-slate-500 break-keep">공시된 연령별 학급 수예요. 다음 학년도 운영·모집은 처음학교로(유치원)·아이사랑 입소대기(어린이집) 모집자료나 기관에 확인하세요.</span>
+                                </div>
+                            </th>
+                        </tr>
+                        {renderRows(classRows)}
                         {CRITERIA.map(criterion => {
                             const theme = CRITERION_THEME[criterion.id];
                             return (

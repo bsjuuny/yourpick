@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "prebuild": "node scripts/fetch-data.js && node scripts/augment-data.js && node scripts/audit-coordinates.js --write && node scripts/check-data-encoding.cjs && node scripts/check-data-counts.cjs",
+    "prebuild": "node scripts/fetch-data.js && node scripts/augment-data.js && node scripts/audit-coordinates.js --write && node scripts/build-class-history.js && node scripts/check-data-encoding.cjs && node scripts/check-data-counts.cjs",
     "dev": "next dev",
     "build": "next build",
     "build:static": "next build --webpack && node scripts/check-export.cjs",

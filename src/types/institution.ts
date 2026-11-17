@@ -46,7 +46,28 @@ export interface Institution {
     waitlistTotal?: number; // 입소대기 아동수 총계 (어린이집)
     cctvCount?: number; // CCTV 총설치수 (어린이집)
     stabilityScore?: number; // 기관 안정성 점수 (Inferred)
+    /** 연령반 운영 현황 (공시 원본, 2026-11-17부터 수집) */
+    ageClasses?: AgeClasses;
+    /** 어린이집 운영 상태 (정상·재개). 휴지·폐지 기관은 수집 단계에서 빠진다. */
+    operatingStatus?: string;
     tags: string[];
+}
+
+export interface AgeClassCount {
+    classes: number;
+    children: number;
+    /** 유치원 연령별 인가 정원 */
+    capacity?: number;
+    /** 어린이집 연령별 입소대기 아동 수 */
+    waiting?: number;
+}
+
+export interface AgeClasses {
+    basis: { kind: 'disclosure' | 'date' | 'unknown'; key: string | null; label: string };
+    byAge: Record<number, AgeClassCount>;
+    mixed: { label: string; ages: number[] | null; classes: number; children: number; capacity?: number }[];
+    special: { classes: number; children: number };
+    waitingOver6?: number;
 }
 
 export interface SearchParams {

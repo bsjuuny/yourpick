@@ -1,5 +1,6 @@
 import type { Institution } from '../types/institution';
 import { assessCare, assessSafety, assessStability, ageBreakdownReliable, type Assessment, type Level } from './selectionCriteria';
+import { ageClassStatus, childPath, classAgeFor, currentSchoolYear } from './ageClasses';
 
 /**
  * 맞춤 조건 (2026-11 1단계).
@@ -29,7 +30,10 @@ export interface FitLocation {
 }
 
 export interface FitConditions {
-    childAge: number | null;            // 만 나이 0~5
+    /** 출생연도. 반 연령 = 학년도 − 출생연도 − 1 */
+    birthYear: number | null;
+    /** 입학(입소) 예정 학년도. 정하지 않으면 지금 학년도 */
+    entryYear: number | null;
     ageNeed: Need;
     afterSchool: Need;                   // 방과후과정·연장보육 이용
     commuteMode: CommuteMode | null;
@@ -41,7 +45,8 @@ export interface FitConditions {
 }
 
 export const DEFAULT_CONDITIONS: FitConditions = {
-    childAge: null,
+    birthYear: null,
+    entryYear: null,
     ageNeed: 'required',
     afterSchool: 'off',
     commuteMode: null,
@@ -57,17 +62,26 @@ export const COMMUTE_LABEL: Record<CommuteMode, string> = { walk: '도보', car:
 export type FitStatus = 'met' | 'unmet' | 'unknown';
 
 export interface FitCheck {
-    key: 'age' | 'afterSchool' | 'commute' | 'budget';
+    key: 'age' | 'continuity' | 'afterSchool' | 'commute' | 'budget';
     label: string;
     need: Exclude<Need, 'off'>;
     status: FitStatus;
     reason: string;
+    /** '확인 필요'이지만 현재 공시가 뒷받침하는 경우(예: 다음 학년도 입학인데 지금 그 연령 반이 있음) */
+    evidence?: boolean;
+}
+
+/** 입학 예정 학년도의 반 연령. 출생연도가 없으면 null */
+export function entryAge(c: FitConditions, now: Date = new Date()): { age: number; schoolYear: number } | null {
+    if (c.birthYear === null) return null;
+    const schoolYear = c.entryYear ?? currentSchoolYear(now);
+    return { age: classAgeFor(c.birthYear, schoolYear), schoolYear };
 }
 
 /** 조건을 하나라도 정했는지 (정하지 않으면 기존 화면 그대로) */
 export function hasActiveConditions(c: FitConditions, location: FitLocation | null): boolean {
     return Boolean(location)
-        || (c.childAge !== null && c.ageNeed !== 'off')
+        || (c.birthYear !== null && c.ageNeed !== 'off')
         || c.afterSchool !== 'off'
         || (c.commuteMode !== null && c.commuteNeed !== 'off')
         || (c.monthlyBudget !== null && c.budgetNeed !== 'off');
@@ -80,7 +94,31 @@ export function parseAgeRange(text: string | undefined): [number, number] | null
     return [Math.min(...ages), Math.max(...ages)];
 }
 
-export function checkAge(item: Institution, age: number): Pick<FitCheck, 'status' | 'reason'> {
+type CheckResult = Pick<FitCheck, 'status' | 'reason' | 'evidence'>;
+
+/**
+ * 연령 조건. future = 입학 학년도가 다음 학년도 이후 → 현재 공시로는 확정할 수 없어 '확인 필요'로 두되,
+ * 지금 그 연령 반이 있으면 evidence 로 표시한다. 유치원 만 0~2세처럼 구조적으로 안 되는 경우만 미충족.
+ */
+export function checkAge(item: Institution, age: number, future = false): CheckResult {
+    if (age < 0) return { status: 'unknown', reason: '그 학년도에는 아직 반 연령이 아니에요' };
+    if (age > 5) return { status: 'unmet', reason: `그 학년도에는 만 ${age}세라 초등학교 입학 연령이에요` };
+    if (item.ageClasses || (item.source === '유치원' && age < 3)) {
+        const st = ageClassStatus(item, age);
+        const basis = item.ageClasses?.basis?.label ?? '공시';
+        if (st.kind === 'not-applicable') return { status: 'unmet', reason: st.detail };
+        if (st.kind === 'own' || st.kind === 'mixed') {
+            return future
+                ? { status: 'unknown', evidence: true, reason: `현재 공시(${basis})에 ${st.kind === 'own' ? st.label : '혼합반'} 있음 · 그 학년도 운영·모집은 확인 필요` }
+                : { status: 'met', reason: `${st.detail} (${basis})` };
+        }
+        if (st.kind === 'none') {
+            return future
+                ? { status: 'unknown', reason: `현재 공시(${basis})에는 만 ${age}세 반이 없어요 · 그 학년도 모집 여부는 기관 확인` }
+                : { status: 'unmet', reason: `${basis}에 만 ${age}세 반이 없어요` };
+        }
+        return { status: 'unknown', reason: st.detail };
+    }
     const range = parseAgeRange(item.ageRange);
     if (!range) return { status: 'unknown', reason: '대상 연령 공시 없음' };
     if (age < range[0] || age > range[1]) {
@@ -92,6 +130,15 @@ export function checkAge(item: Institution, age: number): Pick<FitCheck, 'status
         return { status: 'unknown', reason: `대상 연령에는 들지만 만 ${age}세 반은 공시에 없음` };
     }
     return { status: 'met', reason: `대상 연령 만 ${range[0]}~${range[1]}세` };
+}
+
+/** 졸업(만 5세반)까지. 미래 학년도가 섞이므로 확정하지 않고, 현재 공시가 받쳐 주면 evidence 만 준다. */
+export function checkContinuity(item: Institution, birthYear: number, entryYear: number, now: Date = new Date()): CheckResult {
+    const path = childPath(item, birthYear, entryYear, now);
+    if (path.years.length === 0) return { status: 'unknown', reason: path.summary };
+    const allCurrent = path.years.every(y => y.current);
+    if (allCurrent) return { status: path.gaps.length === 0 ? 'met' : 'unmet', reason: path.summary };
+    return { status: 'unknown', evidence: path.gaps.length === 0, reason: path.summary };
 }
 
 const AFTER_SCHOOL_SIGNALS = /방과후|야간연장|시간연장|연장보육|24시간/;
@@ -118,10 +165,15 @@ export function checkBudget(budget: number): Pick<FitCheck, 'status' | 'reason'>
     return { status: 'unknown', reason: `월 ${budget}만원 이내인지 미확인 · 원비는 공시 포털에서 확인` };
 }
 
-export function evaluateFit(item: Institution, c: FitConditions): FitCheck[] {
+export function evaluateFit(item: Institution, c: FitConditions, now: Date = new Date()): FitCheck[] {
     const checks: FitCheck[] = [];
-    if (c.childAge !== null && c.ageNeed !== 'off') {
-        checks.push({ key: 'age', label: `만 ${c.childAge}세`, need: c.ageNeed, ...checkAge(item, c.childAge) });
+    const entry = entryAge(c, now);
+    if (entry && c.birthYear !== null && c.ageNeed !== 'off') {
+        const future = entry.schoolYear > currentSchoolYear(now);
+        checks.push({ key: 'age', label: `${entry.schoolYear}학년도 만 ${entry.age}세반`, need: c.ageNeed, ...checkAge(item, entry.age, future) });
+        if (entry.age <= 5) {
+            checks.push({ key: 'continuity', label: '졸업까지', need: 'preferred', ...checkContinuity(item, c.birthYear, entry.schoolYear, now) });
+        }
     }
     if (c.afterSchool !== 'off') {
         checks.push({ key: 'afterSchool', label: item.source === '유치원' ? '방과후과정' : '연장보육', need: c.afterSchool, ...checkAfterSchool(item) });
@@ -259,6 +311,8 @@ export interface FitResult {
     checks: FitCheck[];
     objective: ObjectiveScore;
     preferredMet: number;
+    /** 필수 조건 중 '확인 필요'이지만 현재 공시가 뒷받침하는 수 */
+    requiredSupported: number;
     distanceKm: number | null;
     /** 추천 이유 (화면에 그대로 보여 준다) */
     reasons: string[];
@@ -266,8 +320,8 @@ export interface FitResult {
     unverified: string[];
 }
 
-export function assessFit(item: Institution, c: FitConditions, location: FitLocation | null): FitResult {
-    const checks = evaluateFit(item, c);
+export function assessFit(item: Institution, c: FitConditions, location: FitLocation | null, now: Date = new Date()): FitResult {
+    const checks = evaluateFit(item, c, now);
     const objective = objectiveScore(item, c);
     const usable = locationApplies(location, item.sggCode) ? location : null;
     const distanceKm = distanceFrom(item, usable);
@@ -284,7 +338,8 @@ export function assessFit(item: Institution, c: FitConditions, location: FitLoca
         group: fitGroup(checks),
         checks,
         objective,
-        preferredMet: checks.filter(x => x.need === 'preferred' && x.status === 'met').length,
+        preferredMet: checks.filter(x => x.need === 'preferred' && (x.status === 'met' || x.evidence)).length,
+        requiredSupported: checks.filter(x => x.need === 'required' && x.status === 'unknown' && x.evidence).length,
         distanceKm,
         reasons,
         unverified,
@@ -298,6 +353,8 @@ export function assessFit(item: Institution, c: FitConditions, location: FitLoca
  */
 export function compareFit(a: FitResult, b: FitResult): number {
     if (a.group !== b.group) return a.group - b.group;
+    // 같은 '확인 필요' 묶음 안에서는 현재 공시가 받쳐 주는 필수 조건이 많은 곳을 먼저.
+    if (a.requiredSupported !== b.requiredSupported) return b.requiredSupported - a.requiredSupported;
     const sa = a.objective.rankScore, sb = b.objective.rankScore;
     if (sa !== sb) {
         if (sa === null) return 1;
