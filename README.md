@@ -29,8 +29,8 @@ npm install
 npm run dev
 # http://localhost:3000 에 접속
 
-# 정적 빌드
-npm run build
+# 저장된 데이터로 정적 빌드 (API 재수집 없음)
+npm run build:static
 
 # 빌드 + GitHub Pages 배포
 npm run build:push
@@ -48,3 +48,31 @@ npm run build:push
 별도 `.env.local` 없이도 빌드할 수 있으며, `NEXT_PUBLIC_BASE_PATH`를 수동 설정할 필요는 없습니다.
 `build:static`은 생성된 세 페이지의 CSS/JS와 전체 지역 데이터가 배포 폴더에 있는지도 검사합니다.
 배포 후 지역 선택 → 검색 → 기관 비교를 확인하세요. 브라우저가 `/data/regions.json`을 요청하면 오래된 빌드가 배포된 상태입니다.
+
+## 전국 데이터 정기 갱신 전 점검
+
+API 키는 저장소에 커밋하지 않고 루트의 `.env.local`에만 둡니다.
+
+```dotenv
+NEXT_PUBLIC_CHILDINFO_API_KEY=유치원알리미_API_키
+CHILDCARE_API_KEY=어린이집정보공개_API_키
+```
+
+기본 수집은 두 API를 모두 필수로 검사합니다. 환경변수 누락이나 인증 실패가 있으면 네트워크 수집과 파일 쓰기를 시작하지 않습니다.
+
+```bash
+# 파일 변경 없이 두 API의 설정·인증 상태만 확인
+npm run data:preflight
+
+# 사전 검증 후 전국 데이터를 임시 경로에 수집하고, 전 지역 완료 시에만 반영
+npm run data:fetch
+```
+
+한쪽만 의도적으로 갱신할 때에만 부분 수집 명령을 사용합니다. 선택하지 않은 API 키는 요구하지 않고 해당 데이터 파일도 변경하지 않습니다.
+
+```bash
+npm run data:fetch:kindergarten
+npm run data:fetch:childcare
+```
+
+수집 도중 한 지역이라도 실패하면 임시 결과를 폐기하고 기존 지역 데이터와 `fetch-manifest.json`을 유지합니다. 키 값과 API 원문 응답은 로그나 수집 이력에 기록하지 않습니다.

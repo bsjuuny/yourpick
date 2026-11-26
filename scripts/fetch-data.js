@@ -1,16 +1,20 @@
 /* eslint-disable @typescript-eslint/no-require-imports -- Node.js CommonJS entry point. */
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
 const https = require('https');
 const http = require('http');
 const { validateInstitutions } = require('./geo/validate-coordinates');
 const { auditDirectory } = require('./audit-coordinates');
 const { readApiResponse } = require('./read-api-response');
+const { loadApiEnvironment, parseSourceSelection } = require('./api-environment');
+const { classifyChildcareResponse, runPreflight } = require('./data-preflight');
+const { compareCounts, regionFiles, unavailableChildcareFiles, isPlaceholder } = require('./check-data-counts.cjs');
+const { findBrokenText } = require('./check-data-encoding.cjs');
 
-require('dotenv').config({ path: path.resolve(__dirname, '../.env.local') });
-
-const API_KEY = process.env.NEXT_PUBLIC_CHILDINFO_API_KEY;
-const CHILDCARE_API_KEY = process.env.CHILDCARE_API_KEY;
+const API_CONFIG = loadApiEnvironment();
+const API_KEY = API_CONFIG.kindergartenKey;
+const CHILDCARE_API_KEY = API_CONFIG.childcareKey;
 
 // 휴대전화 번호(010/011/016/017/018/019)는 가정어린이집 원장 개인 번호일 수 있어 공개 데이터에서 제외.
 // 유선/대표번호(02-, 031-, 070- 등)는 그대로 유지. 누락 값은 기존 규칙대로 '-'.
@@ -668,14 +672,6 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
  * 'fatal' 은 모든 지역에 같은 문제가 생기므로 옛 파일을 남긴 채 '성공'으로 끝나지 않게 바로 멈춘다.
  * (정보공개포털 운영계정 키는 사용기간이 12개월이다.)
  */
-function classifyChildcareResponse(xml) {
-    const match = String(xml).match(/(INFO|ERROR)\s*-\s*(\d{3})/);
-    if (!match) return { kind: 'ok', code: null };
-    const code = `${match[1]}-${match[2]}`;
-    if (code === 'INFO-200') return { kind: 'no-result', code };
-    return { kind: 'fatal', code };
-}
-
 const CHILDCARE_FATAL_HINT = {
     'INFO-100': '인증키가 유효하지 않습니다',
     'INFO-300': '일 요청 건수를 초과했습니다',
@@ -698,13 +694,104 @@ async function withRetries(fn, attempts, waitMs) {
  */
 function writeFetchManifest(dataDir, fetched) {
     const file = path.join(dataDir, 'fetch-manifest.json');
+    const temp = `${file}.tmp-${process.pid}-${Date.now()}`;
     let manifest = { files: {} };
     try { manifest = JSON.parse(fs.readFileSync(file, 'utf8')); } catch { /* 첫 실행 */ }
     const today = new Date(Date.now() + 9 * 3600 * 1000).toISOString().slice(0, 10);
     for (const name of fetched) manifest.files[name] = today;
     manifest.updatedAt = today;
-    fs.writeFileSync(file, JSON.stringify(manifest, null, 1), 'utf-8');
+    try {
+        fs.writeFileSync(temp, JSON.stringify(manifest, null, 1), 'utf-8');
+        fs.renameSync(temp, file);
+    } finally {
+        if (fs.existsSync(temp)) fs.rmSync(temp, { force: true });
+    }
     console.log(`🗂️ fetch-manifest: ${fetched.size}개 파일을 ${today} 수집으로 기록`);
+}
+
+function seedStagingDirectory(dataDir, stagingDir) {
+    for (const name of fs.readdirSync(dataDir)) {
+        if (/^\d{2}_\d{5}(?:_childcare)?\.json$/.test(name) || name === 'regions.json') {
+            fs.copyFileSync(path.join(dataDir, name), path.join(stagingDir, name));
+        }
+    }
+}
+
+function expectedCollectionFiles(selection) {
+    const expected = [];
+    for (const sido of REGIONS) {
+        for (const sgg of sido.sggList) {
+            const base = `${sido.sidoCode}_${sgg.sggCode}`;
+            if (selection.kindergarten) expected.push(`${base}.json`);
+            if (selection.childcare) expected.push(`${base}_childcare.json`);
+        }
+    }
+    return expected;
+}
+
+function assertCollectionComplete(selection, fetched) {
+    const missing = expectedCollectionFiles(selection).filter(name => !fetched.has(name));
+    if (missing.length > 0) {
+        const sample = missing.slice(0, 5).join(', ');
+        throw new Error(`선택한 수집 대상이 완성되지 않아 기존 데이터를 유지합니다 (${missing.length}개 누락: ${sample}${missing.length > 5 ? ', ...' : ''}).`);
+    }
+}
+
+function replaceFileAtomically(source, destination) {
+    const temp = `${destination}.tmp-${process.pid}-${Date.now()}`;
+    try {
+        fs.copyFileSync(source, temp);
+        fs.renameSync(temp, destination);
+    } finally {
+        if (fs.existsSync(temp)) fs.rmSync(temp, { force: true });
+    }
+}
+
+function commitStagedCollection({ stagingDir, dataDir, fetched, includeRegions, auditReport }) {
+    for (const name of [...fetched].sort()) {
+        replaceFileAtomically(path.join(stagingDir, name), path.join(dataDir, name));
+    }
+    if (includeRegions) {
+        replaceFileAtomically(path.join(stagingDir, 'regions.json'), path.join(dataDir, 'regions.json'));
+    }
+    replaceFileAtomically(auditReport, path.resolve(__dirname, '../docs/coordinate-audit.json'));
+}
+
+function validateStagedCollection(stagingDir, dataDir) {
+    const regions = JSON.parse(fs.readFileSync(path.join(stagingDir, 'regions.json'), 'utf8'));
+    const files = regionFiles(regions);
+    const unavailable = unavailableChildcareFiles(regions);
+    const current = {};
+    const baseline = {};
+
+    for (const name of files) {
+        const stagedFile = path.join(stagingDir, name);
+        if (!fs.existsSync(stagedFile)) throw new Error(`검증할 지역 데이터가 없습니다: ${name}`);
+        const records = JSON.parse(fs.readFileSync(stagedFile, 'utf8'));
+        if (!Array.isArray(records)) throw new Error(`지역 데이터 형식이 배열이 아닙니다: ${name}`);
+        if (unavailable.has(name)) {
+            if (records.length !== 0) throw new Error(`API 미제공 지역 파일이 비어 있지 않습니다: ${name}`);
+            continue;
+        }
+        const placeholders = records.filter(isPlaceholder);
+        if (placeholders.length > 0) throw new Error(`자리표시 기관이 감지되었습니다: ${name}`);
+        current[name] = records.length;
+
+        const existingFile = path.join(dataDir, name);
+        if (fs.existsSync(existingFile)) {
+            const existing = JSON.parse(fs.readFileSync(existingFile, 'utf8'));
+            if (Array.isArray(existing)) baseline[name] = existing.length;
+        }
+    }
+
+    const { problems } = compareCounts(current, baseline);
+    if (problems.length > 0) {
+        throw new Error(`기관 수 감소 검증에 실패했습니다: ${problems.slice(0, 5).join('; ')}`);
+    }
+    const broken = findBrokenText(stagingDir);
+    if (broken.length > 0) {
+        throw new Error(`문자 인코딩 오류가 감지되었습니다: ${broken.slice(0, 5).map(item => item.file).join(', ')}`);
+    }
 }
 
 function fetchChildcareApi(sggCode) {
@@ -894,104 +981,102 @@ function normalizeChildcareData(items, sidoCode, sggCode) {
         })).institutions;
 }
 
-async function run() {
-    if (!API_KEY) {
-        console.error('❌ NEXT_PUBLIC_CHILDINFO_API_KEY is not set in .env.local');
-        process.exit(1);
-    }
-
-    if (!CHILDCARE_API_KEY) {
-        console.warn('⚠️ CHILDCARE_API_KEY is not set in .env.local — 어린이집 데이터 수집이 비활성화됩니다.');
-    }
-
+async function run(args = process.argv.slice(2), options = {}) {
     const fetchedThisRun = new Set();
+    let stagingDir = null;
     try {
+        const selection = parseSourceSelection(args);
+        console.log(`🔎 수집 사전 검증 시작 (대상: ${selection.mode})`);
+        await runPreflight({ config: options.config || API_CONFIG, selection, checks: options.checks });
+        console.log('✅ 필수 환경설정과 API 인증 상태가 정상입니다.');
+
         const dataDir = path.resolve(__dirname, '../public/data');
         if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
+        stagingDir = fs.mkdtempSync(path.join(os.tmpdir(), 'yourpick-fetch-'));
+        seedStagingDirectory(dataDir, stagingDir);
 
-        fs.writeFileSync(path.join(dataDir, 'regions.json'), JSON.stringify(REGIONS.map(sido => ({ ...sido, sggList: sido.sggList.map(({ sggCode, sggName, childcareUnavailable }) => ({ sggCode, sggName, ...(childcareUnavailable ? { childcareUnavailable } : {}) })) })), null, 2), 'utf-8');
-        console.log('✅ Generated regions.json metadata.');
+        if (selection.kindergarten) {
+            fs.writeFileSync(path.join(stagingDir, 'regions.json'), JSON.stringify(REGIONS.map(sido => ({ ...sido, sggList: sido.sggList.map(({ sggCode, sggName, childcareUnavailable }) => ({ sggCode, sggName, ...(childcareUnavailable ? { childcareUnavailable } : {}) })) })), null, 2), 'utf-8');
+            console.log('✅ Generated regions.json metadata.');
 
-        for (const sido of REGIONS) {
-            for (const sgg of sido.sggList) {
-                console.log(`Fetching data for ${sido.sidoName} ${sgg.sggName}...`);
-                const kinderCodes = sgg.kindergartenSggCodes || [sgg.sggCode];
-                const [basicInfo, teachersInfo, afterSchoolData, schoolBusData, mealData, safetyData, , tenureHtml] = await Promise.all([
-                    fetchKinderMerged('basicInfo2', sido.sidoCode, kinderCodes).catch((e) => {
-                        console.warn(`   ⚠️ basicInfo2 fetch failed for ${sido.sidoName} ${sgg.sggName}: ${e.message}`);
-                        return null;
-                    }),
-                    fetchKinderMerged('teachersInfo', sido.sidoCode, kinderCodes).catch((e) => {
-                        console.warn(`   ⚠️ teachersInfo fetch failed for ${sido.sidoName} ${sgg.sggName}: ${e.message}`);
-                        return null;
-                    }),
-                    fetchKinderMerged('afterSchoolPresent', sido.sidoCode, kinderCodes).catch((e) => {
-                        console.warn(`   ⚠️ afterSchoolPresent fetch failed for ${sido.sidoName} ${sgg.sggName}: ${e.message}`);
-                        return null;
-                    }),
-                    fetchKinderMerged('schoolBus', sido.sidoCode, kinderCodes).catch((e) => {
-                        console.warn(`   ⚠️ schoolBus fetch failed for ${sido.sidoName} ${sgg.sggName}: ${e.message}`);
-                        return null;
-                    }),
-                    fetchKinderMerged('schoolMeal', sido.sidoCode, kinderCodes).catch((e) => {
-                        console.warn(`   ⚠️ schoolMeal fetch failed for ${sido.sidoName} ${sgg.sggName}: ${e.message}`);
-                        return null;
-                    }),
-                    fetchKinderMerged('safetyEdu', sido.sidoCode, kinderCodes).catch((e) => {
-                        console.warn(`   ⚠️ safetyEdu fetch failed for ${sido.sidoName} ${sgg.sggName}: ${e.message}`);
-                        return null;
-                    }),
-                    fetchKinderMerged('environmentHygiene', sido.sidoCode, kinderCodes).catch((e) => {
-                        console.warn(`   ⚠️ environmentHygiene fetch failed for ${sido.sidoName} ${sgg.sggName}: ${e.message}`);
-                        return null;
-                    }),
-                    fetchTenureHtmlMerged(sido.sidoCode, kinderCodes).catch((e) => {
-                        console.warn(`   ⚠️ tenureHtml fetch failed for ${sido.sidoName} ${sgg.sggName}: ${e.message}`);
-                        return [];
-                    })
-                ]);
+            for (const sido of REGIONS) {
+                for (const sgg of sido.sggList) {
+                    console.log(`Fetching data for ${sido.sidoName} ${sgg.sggName}...`);
+                    const kinderCodes = sgg.kindergartenSggCodes || [sgg.sggCode];
+                    const [basicInfo, teachersInfo, afterSchoolData, schoolBusData, mealData, safetyData, , tenureHtml] = await Promise.all([
+                        fetchKinderMerged('basicInfo2', sido.sidoCode, kinderCodes).catch((e) => {
+                            console.warn(`   ⚠️ basicInfo2 fetch failed for ${sido.sidoName} ${sgg.sggName}: ${e.message}`);
+                            return null;
+                        }),
+                        fetchKinderMerged('teachersInfo', sido.sidoCode, kinderCodes).catch((e) => {
+                            console.warn(`   ⚠️ teachersInfo fetch failed for ${sido.sidoName} ${sgg.sggName}: ${e.message}`);
+                            return null;
+                        }),
+                        fetchKinderMerged('afterSchoolPresent', sido.sidoCode, kinderCodes).catch((e) => {
+                            console.warn(`   ⚠️ afterSchoolPresent fetch failed for ${sido.sidoName} ${sgg.sggName}: ${e.message}`);
+                            return null;
+                        }),
+                        fetchKinderMerged('schoolBus', sido.sidoCode, kinderCodes).catch((e) => {
+                            console.warn(`   ⚠️ schoolBus fetch failed for ${sido.sidoName} ${sgg.sggName}: ${e.message}`);
+                            return null;
+                        }),
+                        fetchKinderMerged('schoolMeal', sido.sidoCode, kinderCodes).catch((e) => {
+                            console.warn(`   ⚠️ schoolMeal fetch failed for ${sido.sidoName} ${sgg.sggName}: ${e.message}`);
+                            return null;
+                        }),
+                        fetchKinderMerged('safetyEdu', sido.sidoCode, kinderCodes).catch((e) => {
+                            console.warn(`   ⚠️ safetyEdu fetch failed for ${sido.sidoName} ${sgg.sggName}: ${e.message}`);
+                            return null;
+                        }),
+                        fetchKinderMerged('environmentHygiene', sido.sidoCode, kinderCodes).catch((e) => {
+                            console.warn(`   ⚠️ environmentHygiene fetch failed for ${sido.sidoName} ${sgg.sggName}: ${e.message}`);
+                            return null;
+                        }),
+                        fetchTenureHtmlMerged(sido.sidoCode, kinderCodes).catch((e) => {
+                            console.warn(`   ⚠️ tenureHtml fetch failed for ${sido.sidoName} ${sgg.sggName}: ${e.message}`);
+                            return [];
+                        })
+                    ]);
 
-                if (!basicInfo) {
-                    console.warn(`   ⚠️ Skipping ${sido.sidoName} ${sgg.sggName}: basicInfo2 unavailable.`);
+                    if (!basicInfo) {
+                        throw new Error(`${sido.sidoName} ${sgg.sggName} basicInfo2를 받지 못했습니다.`);
+                    }
+
+                    const tenureMap = new Map();
+                    for (const html of tenureHtml) for (const [id, value] of parseTenureTable(html)) tenureMap.set(id, value);
+                    const spclMap = extractSpclMap(afterSchoolData);
+                    const mealMap = extractMap(mealData);
+                    const safetyMap = extractMap(safetyData);
+
+                    const normalizedList = normalizeData(basicInfo, teachersInfo, tenureMap, schoolBusData, mealMap, safetyMap, sido.sidoCode, sgg.sggCode);
+
+                    normalizedList.forEach(inst => {
+                        const programs = spclMap.get(inst.id);
+                        inst.specialPrograms = programs ? programs.join(', ') : '-';
+                    });
+
+                    const filename = `${sido.sidoCode}_${sgg.sggCode}.json`;
+                    fs.writeFileSync(path.join(stagingDir, filename), JSON.stringify(normalizedList), 'utf-8');
+                    fetchedThisRun.add(filename);
+                    console.log(`✅ Saved ${normalizedList.length} institutions to ${filename}`);
+
                     await delay(2000);
-                    continue;
                 }
-
-                const tenureMap = new Map();
-                for (const html of tenureHtml) for (const [id, value] of parseTenureTable(html)) tenureMap.set(id, value);
-                const spclMap = extractSpclMap(afterSchoolData);
-                const mealMap = extractMap(mealData);
-                const safetyMap = extractMap(safetyData);
-
-                const normalizedList = normalizeData(basicInfo, teachersInfo, tenureMap, schoolBusData, mealMap, safetyMap, sido.sidoCode, sgg.sggCode);
-
-                normalizedList.forEach(inst => {
-                    const programs = spclMap.get(inst.id);
-                    inst.specialPrograms = programs ? programs.join(', ') : '-';
-                });
-
-                const filename = `${sido.sidoCode}_${sgg.sggCode}.json`;
-                fs.writeFileSync(path.join(dataDir, filename), JSON.stringify(normalizedList), 'utf-8');
-                fetchedThisRun.add(filename);
-                console.log(`✅ Saved ${normalizedList.length} institutions to ${filename}`);
-
-                await delay(2000);
             }
+            console.log('🎉 All kindergarten data successfully split and written!');
         }
-
-        console.log('🎉 All kindergarten data successfully split and written!');
 
         // =============================================
         // 어린이집 데이터 수집
         // =============================================
-        if (CHILDCARE_API_KEY) {
+        if (selection.childcare) {
             console.log('\n📦 Starting childcare data collection...');
             for (const sido of REGIONS) {
                 for (const sgg of sido.sggList) {
                     console.log(`[어린이집] Fetching data for ${sido.sidoName} ${sgg.sggName}...`);
                     if (sgg.childcareUnavailable) {
                         // 어린이집 API 가 어떤 코드로도 결과를 주지 않는 지역(2026-11-17 확인: 계룡시). 빈 목록을 쓰고 화면이 이유를 알린다.
-                        fs.writeFileSync(path.join(dataDir, `${sido.sidoCode}_${sgg.sggCode}_childcare.json`), '[]', 'utf-8');
+                        fs.writeFileSync(path.join(stagingDir, `${sido.sidoCode}_${sgg.sggCode}_childcare.json`), '[]', 'utf-8');
                         fetchedThisRun.add(`${sido.sidoCode}_${sgg.sggCode}_childcare.json`);
                         console.log('   ⏭️ 어린이집 API 미제공 지역 — 빈 목록');
                         continue;
@@ -1003,10 +1088,7 @@ async function run() {
 
                         const verdict = classifyChildcareResponse(xml);
                         if (verdict.kind === 'fatal') {
-                            console.error(`❌ 어린이집 API ${verdict.code}: ${CHILDCARE_FATAL_HINT[verdict.code] || '서버 오류'} (${sgg.sggName}에서 중단)`);
-                            // 중단 전에 이미 새로 받은 파일은 수집 기록에 남긴다(그 파일의 이력 날짜가 어긋나지 않게).
-                            writeFetchManifest(dataDir, fetchedThisRun);
-                            process.exit(3);
+                            throw new Error(`어린이집 API ${verdict.code}: ${CHILDCARE_FATAL_HINT[verdict.code] || '서버 오류'} (${sgg.sggName}에서 중단)`);
                         }
                         if (verdict.kind === 'no-result' || xml.includes('traffic')) {
                             const errMatch = xml.match(/<(ERROR|INFO)[^>]*>([^<]*)/i);
@@ -1026,25 +1108,43 @@ async function run() {
 
                         const normalizedList = normalizeChildcareData(items, sido.sidoCode, sgg.sggCode);
                         const filename = `${sido.sidoCode}_${sgg.sggCode}_childcare.json`;
-                        fs.writeFileSync(path.join(dataDir, filename), JSON.stringify(normalizedList), 'utf-8');
+                        fs.writeFileSync(path.join(stagingDir, filename), JSON.stringify(normalizedList), 'utf-8');
                         fetchedThisRun.add(filename);
                         console.log(`   ✅ Saved ${normalizedList.length} childcare centers to ${filename}`);
 
                         await delay(2000);
                     } catch (err) {
-                        console.error(`   ❌ Error fetching childcare data for ${sgg.sggName}:`, err.message);
+                        throw new Error(`어린이집 데이터 수집 실패 (${sido.sidoName} ${sgg.sggName}): ${err.message}`);
                     }
                 }
             }
             console.log('🎉 All childcare data successfully collected!');
         }
+
+        assertCollectionComplete(selection, fetchedThisRun);
+        const auditReport = path.join(stagingDir, 'coordinate-audit.json');
+        auditDirectory(stagingDir, { write: true, reportPath: auditReport });
+        validateStagedCollection(stagingDir, dataDir);
+        commitStagedCollection({
+            stagingDir,
+            dataDir,
+            fetched: fetchedThisRun,
+            includeRegions: selection.kindergarten,
+            auditReport,
+        });
         writeFetchManifest(dataDir, fetchedThisRun);
-        auditDirectory(dataDir, { write: true, reportPath: path.resolve(__dirname, '../docs/coordinate-audit.json') });
     } catch (error) {
         console.error('❌ Error fetching data:', error.message);
-        process.exit(1);
+        error.alreadyReported = true;
+        throw error;
+    } finally {
+        if (stagingDir) fs.rmSync(stagingDir, { recursive: true, force: true });
     }
 }
 
-if (require.main === module) run();
-module.exports = { normalizeData, normalizeChildcareData, parseXmlItems, classifyChildcareResponse, kindergartenAgeClasses, childcareAgeClasses, kindergartenBasis };
+if (require.main === module) {
+    run().catch((error) => {
+        process.exitCode = error.exitCode || 1;
+    });
+}
+module.exports = { run, validateStagedCollection, normalizeData, normalizeChildcareData, parseXmlItems, classifyChildcareResponse, kindergartenAgeClasses, childcareAgeClasses, kindergartenBasis };

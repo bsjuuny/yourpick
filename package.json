@@ -4,6 +4,10 @@
   "private": true,
   "scripts": {
     "prebuild": "node scripts/fetch-data.js && node scripts/augment-data.js && node scripts/audit-coordinates.js --write && node scripts/build-class-history.js && node scripts/check-data-encoding.cjs && node scripts/check-data-counts.cjs",
+    "data:preflight": "node scripts/preflight-data-fetch.js",
+    "data:fetch": "node scripts/fetch-data.js",
+    "data:fetch:kindergarten": "node scripts/fetch-data.js --only=kindergarten",
+    "data:fetch:childcare": "node scripts/fetch-data.js --only=childcare",
     "dev": "next dev",
     "build": "next build",
     "build:static": "next build --webpack && node scripts/check-export.cjs",
